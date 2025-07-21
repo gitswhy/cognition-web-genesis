@@ -12,6 +12,7 @@ import Pricing from "./pages/Pricing";
 import Docs from "./pages/Docs";
 import BlogResources from "./pages/BlogResources";
 import Community from "./pages/Community";
+import About from "./pages/About";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -32,6 +33,7 @@ const App = () => (
           <Route path="/docs" element={<Docs />} />
           <Route path="/blog" element={<BlogResources />} />
           <Route path="/community" element={<Community />} />
+          <Route path="/about" element={<About />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
