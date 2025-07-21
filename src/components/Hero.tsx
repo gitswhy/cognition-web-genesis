@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { ChevronRight, Play, Activity, Brain, Loader } from "lucide-react";
+import { ParallaxGrid, StaggeredFadeIn } from "@/components/animations/AnimationComponents";
 
 const Hero = () => {
   const [typedText, setTypedText] = useState("");
@@ -70,7 +71,12 @@ const Hero = () => {
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Parallax Grid Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-terminal-bg via-terminal-surface to-terminal-bg">
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj48cGF0aCBkPSJNIDQwIDAgTCAwIDAgMCA0MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDAsIDI1NSwgMTAyLCAwLjA1KSIgc3Ryb2tlLXdpZHRoPSIxIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyaWQpIiAvPjwvc3ZnPg==')] opacity-30 transform-gpu"></div>
+        <ParallaxGrid 
+          speed={0.3} 
+          gridOpacity={0.3}
+          gridColor="rgba(0, 255, 102, 0.05)"
+          className="transform-gpu"
+        />
         <div className="absolute inset-0 bg-gradient-to-r from-terminal-green/5 via-transparent to-terminal-blue/5 animate-gradient"></div>
       </div>
 
@@ -117,89 +123,91 @@ const Hero = () => {
           </div>
 
           {/* Right Side - Live Terminal */}
-          <div className="relative">
-            <div className="bg-terminal-surface border border-terminal-green/20 rounded-lg code-matrix shadow-2xl overflow-hidden">
-              {/* Terminal Header */}
-              <div className="flex items-center justify-between bg-terminal-bg/50 px-6 py-3 border-b border-terminal-green/20">
-                <div className="flex items-center space-x-2">
-                  <div className="flex space-x-2">
-                    <div className="w-3 h-3 rounded-full bg-red-500"></div>
-                    <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-                    <div className="w-3 h-3 rounded-full bg-green-500"></div>
+          <StaggeredFadeIn delay={0.3} staggerDelay={0.4}>
+            <div className="relative">
+              <div className="bg-terminal-surface border border-terminal-green/20 rounded-lg code-matrix shadow-2xl overflow-hidden">
+                {/* Terminal Header */}
+                <div className="flex items-center justify-between bg-terminal-bg/50 px-6 py-3 border-b border-terminal-green/20">
+                  <div className="flex items-center space-x-2">
+                    <div className="flex space-x-2">
+                      <div className="w-3 h-3 rounded-full bg-red-500"></div>
+                      <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
+                      <div className="w-3 h-3 rounded-full bg-green-500"></div>
+                    </div>
+                    <span className="text-sm text-foreground/60 font-mono ml-4">gitswhy@cognition:~</span>
                   </div>
-                  <span className="text-sm text-foreground/60 font-mono ml-4">gitswhy@cognition:~</span>
+                  <div className="flex items-center space-x-2">
+                    <Activity className="h-4 w-4 text-terminal-green" />
+                    <span className="text-xs text-terminal-green font-mono">Live</span>
+                  </div>
                 </div>
-                <div className="flex items-center space-x-2">
-                  <Activity className="h-4 w-4 text-terminal-green" />
-                  <span className="text-xs text-terminal-green font-mono">Live</span>
+
+                {/* Terminal Content */}
+                <div className="p-6 font-mono text-sm space-y-3 min-h-[300px]">
+                  <div className="text-terminal-green">
+                    $ gitswhy init --cognition-native
+                  </div>
+                  
+                  {terminalStep >= 1 && (
+                    <>
+                      <div className="text-foreground/70">
+                        ✓ Initializing cognition engine...
+                      </div>
+                      <div className="text-foreground/70">
+                        ✓ Setting up self-healing pipelines...
+                      </div>
+                      <div className="text-foreground/70">
+                        ✓ Configuring intent vault...
+                      </div>
+                    </>
+                  )}
+
+                  {showDetection && (
+                    <div className="bg-yellow-500/10 border border-yellow-500/20 rounded p-3 my-4">
+                      <div className="flex items-center space-x-2 text-yellow-400">
+                        <Brain className="h-4 w-4 animate-pulse" />
+                        <span>Hesitation detected: 2.3s delay on commit</span>
+                      </div>
+                      <div className="text-yellow-300/80 text-xs mt-1">
+                        Analyzing intent: potential security concern in auth.js:42
+                      </div>
+                    </div>
+                  )}
+
+                  {showPatch && (
+                    <>
+                      <div className="text-terminal-blue">
+                        🔧 Auto-generating security patch...
+                      </div>
+                      <div className="text-terminal-green">
+                        ✓ Applied JWT validation fix
+                      </div>
+                      <div className="text-terminal-green">
+                        ✓ Updated test coverage
+                      </div>
+                      <div className="text-terminal-green">
+                        ✓ Ready for deployment
+                      </div>
+                      <div className="text-foreground/70 mt-4">
+                        <span className="text-terminal-green">Total time saved:</span> 47 minutes
+                      </div>
+                    </>
+                  )}
+
+                  {!showPatch && terminalStep >= 1 && (
+                    <div className="flex items-center space-x-2 text-foreground/60">
+                      <Loader className="h-4 w-4 animate-spin" />
+                      <span>Monitoring development patterns...</span>
+                    </div>
+                  )}
                 </div>
               </div>
 
-              {/* Terminal Content */}
-              <div className="p-6 font-mono text-sm space-y-3 min-h-[300px]">
-                <div className="text-terminal-green">
-                  $ gitswhy init --cognition-native
-                </div>
-                
-                {terminalStep >= 1 && (
-                  <>
-                    <div className="text-foreground/70">
-                      ✓ Initializing cognition engine...
-                    </div>
-                    <div className="text-foreground/70">
-                      ✓ Setting up self-healing pipelines...
-                    </div>
-                    <div className="text-foreground/70">
-                      ✓ Configuring intent vault...
-                    </div>
-                  </>
-                )}
-
-                {showDetection && (
-                  <div className="bg-yellow-500/10 border border-yellow-500/20 rounded p-3 my-4">
-                    <div className="flex items-center space-x-2 text-yellow-400">
-                      <Brain className="h-4 w-4 animate-pulse" />
-                      <span>Hesitation detected: 2.3s delay on commit</span>
-                    </div>
-                    <div className="text-yellow-300/80 text-xs mt-1">
-                      Analyzing intent: potential security concern in auth.js:42
-                    </div>
-                  </div>
-                )}
-
-                {showPatch && (
-                  <>
-                    <div className="text-terminal-blue">
-                      🔧 Auto-generating security patch...
-                    </div>
-                    <div className="text-terminal-green">
-                      ✓ Applied JWT validation fix
-                    </div>
-                    <div className="text-terminal-green">
-                      ✓ Updated test coverage
-                    </div>
-                    <div className="text-terminal-green">
-                      ✓ Ready for deployment
-                    </div>
-                    <div className="text-foreground/70 mt-4">
-                      <span className="text-terminal-green">Total time saved:</span> 47 minutes
-                    </div>
-                  </>
-                )}
-
-                {!showPatch && terminalStep >= 1 && (
-                  <div className="flex items-center space-x-2 text-foreground/60">
-                    <Loader className="h-4 w-4 animate-spin" />
-                    <span>Monitoring development patterns...</span>
-                  </div>
-                )}
-              </div>
+              {/* Floating Elements */}
+              <div className="absolute -top-4 -right-4 w-3 h-3 bg-terminal-green rounded-full animate-glow-pulse"></div>
+              <div className="absolute -bottom-4 -left-4 w-2 h-2 bg-terminal-blue rounded-full animate-glow-pulse"></div>
             </div>
-
-            {/* Floating Elements */}
-            <div className="absolute -top-4 -right-4 w-3 h-3 bg-terminal-green rounded-full animate-glow-pulse"></div>
-            <div className="absolute -bottom-4 -left-4 w-2 h-2 bg-terminal-blue rounded-full animate-glow-pulse"></div>
-          </div>
+          </StaggeredFadeIn>
         </div>
       </div>
     </section>

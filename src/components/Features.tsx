@@ -10,6 +10,7 @@ import {
   Workflow,
   ChevronRight 
 } from "lucide-react";
+import { ParallaxGrid, StaggeredFadeIn } from "@/components/animations/AnimationComponents";
 
 const Features = () => {
   const coreFeatures = [
@@ -96,8 +97,18 @@ const Features = () => {
   );
 
   return (
-    <section className="py-20 relative">
-      <div className="container mx-auto px-4 lg:px-20">
+    <section className="py-20 relative overflow-hidden">
+      {/* Subtle parallax background for cognition section */}
+      <div className="absolute inset-0 opacity-20">
+        <ParallaxGrid 
+          speed={0.1} 
+          gridOpacity={0.1}
+          gridColor="rgba(0, 255, 255, 0.03)"
+          className="transform-gpu"
+        />
+      </div>
+      
+      <div className="container mx-auto px-4 lg:px-20 relative z-10">
         {/* Core Features */}
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
@@ -155,7 +166,7 @@ const Features = () => {
             </p>
           </div>
 
-          <div className="max-w-4xl mx-auto">
+          <StaggeredFadeIn delay={0.2} staggerDelay={0.4} className="max-w-4xl mx-auto">
             <div className="bg-terminal-surface border border-terminal-green/20 rounded-lg overflow-hidden code-matrix shadow-2xl">
               <div className="flex items-center justify-between bg-terminal-bg/50 px-6 py-3 border-b border-terminal-green/20">
                 <div className="flex items-center space-x-2">
@@ -195,7 +206,7 @@ const Features = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </StaggeredFadeIn>
         </div>
       </div>
     </section>

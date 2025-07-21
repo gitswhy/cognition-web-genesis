@@ -116,6 +116,47 @@
   }
 }
 
+/* Reduced motion accessibility support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  .parallax-container {
+    transform: none !important;
+  }
+  
+  .terminal-cursor {
+    animation: none !important;
+  }
+  
+  .animate-glow-pulse,
+  .animate-gradient,
+  .animate-pulse {
+    animation: none !important;
+  }
+}
+
+/* Enhanced parallax performance */
+.parallax-container {
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+  will-change: transform;
+}
+
+/* Smooth scrolling for modern browsers */
+@supports (scroll-behavior: smooth) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
 @layer base {
   * {
     @apply border-border;
@@ -211,12 +252,6 @@
     will-change: opacity;
   }
 
-  /* Parallax performance */
-  .parallax-container {
-    transform: translate3d(0, 0, 0);
-    backface-visibility: hidden;
-    perspective: 1000px;
-  }
 
   /* Micro-interactions */
   .hover-lift {
