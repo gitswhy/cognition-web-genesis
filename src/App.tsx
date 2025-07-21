@@ -8,6 +8,7 @@ import OpenCore from "./pages/OpenCore";
 import ProEdition from "./pages/ProEdition";
 import HowItWorks from "./pages/HowItWorks";
 import Integrations from "./pages/Integrations";
+import Pricing from "./pages/Pricing";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -24,6 +25,7 @@ const App = () => (
           <Route path="/pro-edition" element={<ProEdition />} />
           <Route path="/how-it-works" element={<HowItWorks />} />
           <Route path="/integrations" element={<Integrations />} />
+          <Route path="/pricing" element={<Pricing />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
