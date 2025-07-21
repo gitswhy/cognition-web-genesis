@@ -10,6 +10,7 @@ import Testimonials from "@/components/Testimonials";
 import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
 import { useAnalytics } from "@/components/analytics/PlausibleAnalytics";
+import PageBackground from "@/components/background/PageBackground";
 
 const Index = () => {
   const { i18n } = useTranslation();
@@ -24,7 +25,7 @@ const Index = () => {
     document.documentElement.lang = i18n.language;
   }, [i18n.language]);
   return (
-    <div className="min-h-screen bg-terminal-bg text-foreground">
+    <PageBackground variant="homepage">
       <Header />
       <Hero />
       <TrustRibbon />
@@ -34,7 +35,7 @@ const Index = () => {
       <Testimonials />
       <CTASection />
       <Footer />
-    </div>
+    </PageBackground>
   );
 };
 

@@ -1,9 +1,7 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { ChevronRight, Play, Activity, Brain, Loader } from "lucide-react";
-import { ParallaxGrid, StaggeredFadeIn } from "@/components/animations/AnimationComponents";
-import Background3D from "@/components/background/Background3D";
-import EnhancedParallaxBackground from "@/components/background/EnhancedParallaxBackground";
+import { StaggeredFadeIn } from "@/components/animations/AnimationComponents";
 
 const Hero = () => {
   const [typedText, setTypedText] = useState("");
@@ -71,27 +69,7 @@ const Hero = () => {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Multi-layered Parallax Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-terminal-bg via-terminal-surface to-terminal-bg">
-        {/* Enhanced parallax background with floating elements */}
-        <EnhancedParallaxBackground intensity="medium" className="z-0" />
-        
-        {/* 3D particle field */}
-        <Background3D className="z-10 opacity-60" particleCount={1200} showGeometry={true} />
-        
-        {/* Animated grid overlay */}
-        <ParallaxGrid 
-          speed={0.3} 
-          gridOpacity={0.2}
-          gridColor="rgba(0, 255, 102, 0.08)"
-          className="transform-gpu z-20"
-        />
-        
-        {/* Gradient animation overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-terminal-green/5 via-transparent to-terminal-blue/5 animate-gradient z-30"></div>
-      </div>
-
-      <div className="container mx-auto px-4 lg:px-20 relative z-40">
+      <div className="container mx-auto px-4 lg:px-20 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center min-h-screen">
           {/* Left Side - Headlines */}
           <div className="space-y-8">

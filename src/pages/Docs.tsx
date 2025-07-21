@@ -10,6 +10,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { vscDarkPlus, vs } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import PageBackground from '@/components/background/PageBackground';
 
 interface DocSection {
   id: string;
@@ -740,7 +741,7 @@ export default function Docs() {
   const currentSectionData = sections.find(s => s.id === currentSection);
 
   return (
-    <div className="min-h-screen bg-background">
+    <PageBackground variant="docs">
       {/* Header */}
       <header className="sticky top-0 z-50 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div className="container mx-auto flex h-16 items-center justify-between px-4">
@@ -923,6 +924,6 @@ export default function Docs() {
           })
         }}
       />
-    </div>
+    </PageBackground>
   );
 }
