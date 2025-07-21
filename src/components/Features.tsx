@@ -11,6 +11,7 @@ import {
   ChevronRight 
 } from "lucide-react";
 import { ParallaxGrid, StaggeredFadeIn } from "@/components/animations/AnimationComponents";
+import EnhancedParallaxBackground from "@/components/background/EnhancedParallaxBackground";
 
 const Features = () => {
   const coreFeatures = [
@@ -98,17 +99,18 @@ const Features = () => {
 
   return (
     <section className="py-20 relative overflow-hidden">
-      {/* Subtle parallax background for cognition section */}
-      <div className="absolute inset-0 opacity-20">
+      {/* Multi-layered parallax background for cognition section */}
+      <div className="absolute inset-0 opacity-30">
+        <EnhancedParallaxBackground intensity="subtle" className="z-0" />
         <ParallaxGrid 
-          speed={0.1} 
-          gridOpacity={0.1}
-          gridColor="rgba(0, 255, 255, 0.03)"
-          className="transform-gpu"
+          speed={0.15} 
+          gridOpacity={0.08}
+          gridColor="rgba(0, 255, 255, 0.05)"
+          className="transform-gpu z-10"
         />
       </div>
       
-      <div className="container mx-auto px-4 lg:px-20 relative z-10">
+      <div className="container mx-auto px-4 lg:px-20 relative z-20">
         {/* Core Features */}
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
