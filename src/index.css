@@ -2,41 +2,63 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Gitswhy OS Design System - Terminal-inspired dark theme */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Dark terminal-inspired color palette */
+    --background: 224 47% 5%;  /* #0A0E1A */
+    --foreground: 120 100% 95%;  /* Near white with slight green tint */
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 224 45% 7%;  /* Slightly lighter than background */
+    --card-foreground: 120 100% 95%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 224 50% 8%;
+    --popover-foreground: 120 100% 95%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Core green accent for primary features */
+    --primary: 120 100% 50%;  /* #00FF66 */
+    --primary-foreground: 224 47% 5%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Premium blue accent for pro features */
+    --secondary: 195 100% 50%;  /* #00D4FF */
+    --secondary-foreground: 224 47% 5%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 224 35% 12%;
+    --muted-foreground: 120 20% 70%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 195 100% 50%;  /* Blue accent */
+    --accent-foreground: 224 47% 5%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 120 100% 95%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 224 30% 15%;
+    --input: 224 30% 12%;
+    --ring: 120 100% 50%;
 
     --radius: 0.5rem;
+
+    /* Custom design tokens */
+    --terminal-green: 120 100% 50%;  /* #00FF66 */
+    --terminal-blue: 195 100% 50%;   /* #00D4FF */
+    --terminal-bg: 224 47% 5%;       /* #0A0E1A */
+    --terminal-surface: 224 45% 7%;
+    --terminal-glow: 120 100% 50%;
+    
+    /* Gradients */
+    --gradient-terminal: linear-gradient(135deg, hsl(var(--terminal-bg)), hsl(224 45% 8%));
+    --gradient-glow: linear-gradient(135deg, hsl(var(--terminal-green) / 0.1), hsl(var(--terminal-blue) / 0.1));
+    --gradient-accent: linear-gradient(90deg, hsl(var(--terminal-green)), hsl(var(--terminal-blue)));
+
+    /* Shadows */
+    --shadow-glow: 0 0 20px hsl(var(--terminal-green) / 0.3);
+    --shadow-blue-glow: 0 0 20px hsl(var(--terminal-blue) / 0.3);
+    --shadow-terminal: 0 8px 32px hsl(224 47% 2% / 0.8);
+
+    /* Animations */
+    --transition-glow: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-terminal: all 0.2s ease-out;
 
     --sidebar-background: 0 0% 98%;
 
@@ -100,6 +122,71 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans;
+  }
+
+  /* Terminal-style scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--terminal-bg));
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--terminal-green) / 0.3);
+    border-radius: 4px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--terminal-green) / 0.5);
+  }
+}
+
+@layer components {
+  /* Terminal glow effect */
+  .terminal-glow {
+    box-shadow: var(--shadow-glow);
+    transition: var(--transition-glow);
+  }
+
+  .terminal-glow:hover {
+    box-shadow: 0 0 30px hsl(var(--terminal-green) / 0.5);
+  }
+
+  .blue-glow {
+    box-shadow: var(--shadow-blue-glow);
+    transition: var(--transition-glow);
+  }
+
+  .blue-glow:hover {
+    box-shadow: 0 0 30px hsl(var(--terminal-blue) / 0.5);
+  }
+
+  /* Terminal text animation */
+  .terminal-cursor::after {
+    content: '█';
+    color: hsl(var(--terminal-green));
+    animation: blink 1s infinite;
+  }
+
+  @keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+  }
+
+  /* Glassmorphism effect */
+  .glass {
+    background: hsl(var(--terminal-surface) / 0.8);
+    backdrop-filter: blur(12px);
+    border: 1px solid hsl(var(--border));
+  }
+
+  /* Matrix-style code block */
+  .code-matrix {
+    background: hsl(var(--terminal-bg));
+    border: 1px solid hsl(var(--terminal-green) / 0.2);
+    font-family: 'JetBrains Mono', monospace;
   }
 }
