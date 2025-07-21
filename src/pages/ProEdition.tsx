@@ -1,0 +1,328 @@
+import { useState } from 'react';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+import { 
+  Lock, 
+  Shield, 
+  Zap, 
+  Users, 
+  AlertTriangle, 
+  FileCode, 
+  TrendingUp,
+  BarChart3,
+  PieChart,
+  Activity,
+  ArrowRight,
+  Star,
+  Check
+} from 'lucide-react';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+
+const ProEdition = () => {
+  const [hoveredCard, setHoveredCard] = useState<string | null>(null);
+
+  const premiumFeatures = [
+    {
+      id: 'ai-risk-engine',
+      title: 'AI Risk Engine',
+      subtitle: 'Advanced Rules Pack',
+      description: 'Machine learning-powered risk detection with 50,000+ security rules and real-time threat intelligence.',
+      icon: Shield,
+      gradient: 'from-red-500/20 to-orange-500/20',
+      stats: '99.8% accuracy'
+    },
+    {
+      id: 'auto-fix-patch',
+      title: 'Auto-Fix & Patch Suggestions',
+      subtitle: 'Intelligent Remediation',
+      description: 'AI-generated patches and fixes applied automatically or suggested with one-click approval workflows.',
+      icon: Zap,
+      gradient: 'from-yellow-500/20 to-amber-500/20',
+      stats: '10x faster fixes'
+    },
+    {
+      id: 'team-dashboards',
+      title: 'Team Dashboards & Drift Alerts',
+      subtitle: 'Enterprise Monitoring',
+      description: 'Real-time team performance metrics, configuration drift detection, and customizable alert systems.',
+      icon: Users,
+      gradient: 'from-green-500/20 to-emerald-500/20',
+      stats: 'Real-time alerts'
+    },
+    {
+      id: 'policy-editor',
+      title: 'Policy-as-Code Editor',
+      subtitle: 'Governance Automation',
+      description: 'Visual policy editor with GitOps integration, compliance templates, and automated enforcement.',
+      icon: FileCode,
+      gradient: 'from-purple-500/20 to-violet-500/20',
+      stats: '100+ templates'
+    }
+  ];
+
+  const faqItems = [
+    {
+      question: 'What makes Gitswhy OS Pro different from Open Core?',
+      answer: 'Pro Edition includes AI-powered risk detection, automatic patching, team collaboration tools, and enterprise-grade governance features.'
+    },
+    {
+      question: 'How does the AI Risk Engine work?',
+      answer: 'Our ML models analyze code patterns, security vulnerabilities, and historical data to predict and prevent issues before deployment.'
+    },
+    {
+      question: 'Can I migrate from Open Core to Pro seamlessly?',
+      answer: 'Yes, Pro Edition is fully compatible with Open Core configurations and provides a smooth upgrade path with zero downtime.'
+    },
+    {
+      question: 'What kind of support is included?',
+      answer: 'Pro Edition includes 24/7 priority support, dedicated success manager, and access to our enterprise security team.'
+    }
+  ];
+
+  return (
+    <div className="min-h-screen bg-background text-foreground">
+      <Header />
+      
+      {/* Hero Section with Blue Gradient */}
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        {/* Animated Background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-terminal-blue/20 via-background to-terminal-blue/10" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(0,212,255,0.1),transparent_50%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(0,212,255,0.05),transparent_50%)]" />
+        
+        {/* Grid Pattern */}
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(0,212,255,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(0,212,255,0.1)_1px,transparent_1px)] bg-[size:50px_50px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_110%)]" />
+        
+        <div className="container mx-auto px-4 grid lg:grid-cols-2 gap-12 items-center relative z-10">
+          {/* Left Content */}
+          <div className="space-y-8">
+            <div className="space-y-4">
+              <Badge variant="secondary" className="bg-terminal-blue/20 text-terminal-blue border-terminal-blue/30">
+                Enterprise DevSecOps
+              </Badge>
+              <h1 className="text-5xl lg:text-7xl font-bold font-mono tracking-tight">
+                <span className="text-terminal-blue">Gitswhy</span>{' '}
+                <span className="text-foreground">Pro</span>
+              </h1>
+              <p className="text-xl text-muted-foreground max-w-lg">
+                Enterprise-grade cognition engine with AI-powered risk detection, 
+                automatic patching, and team collaboration tools.
+              </p>
+            </div>
+            
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Button size="lg" className="bg-terminal-blue hover:bg-terminal-blue/90 text-white">
+                Start Pro Trial
+                <ArrowRight className="ml-2 w-4 h-4" />
+              </Button>
+              <Button variant="outline" size="lg" className="border-terminal-blue/30 text-terminal-blue hover:bg-terminal-blue/10">
+                Schedule Demo
+              </Button>
+            </div>
+            
+            <div className="flex items-center gap-6 text-sm text-muted-foreground">
+              <div className="flex items-center gap-2">
+                <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                <span>4.9/5 Enterprise Rating</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Check className="w-4 h-4 text-terminal-green" />
+                <span>SOC 2 Compliant</span>
+              </div>
+            </div>
+          </div>
+          
+          {/* Right Content - Animated Analytics Dashboard */}
+          <div className="relative">
+            <Card className="bg-terminal-surface/50 backdrop-blur-sm border-terminal-blue/20">
+              <CardHeader>
+                <CardTitle className="text-terminal-blue font-mono">Live Analytics Dashboard</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-6">
+                {/* Metrics Row */}
+                <div className="grid grid-cols-3 gap-4">
+                  <div className="text-center">
+                    <div className="text-2xl font-mono text-terminal-green animate-pulse">99.8%</div>
+                    <div className="text-xs text-muted-foreground">Threat Detection</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-2xl font-mono text-terminal-blue animate-pulse">2.3s</div>
+                    <div className="text-xs text-muted-foreground">Avg Fix Time</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-2xl font-mono text-yellow-400 animate-pulse">247</div>
+                    <div className="text-xs text-muted-foreground">Auto Patches</div>
+                  </div>
+                </div>
+                
+                {/* Chart Visualization */}
+                <div className="space-y-3">
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm text-muted-foreground">Security Score</span>
+                    <span className="text-sm text-terminal-green">+23%</span>
+                  </div>
+                  <div className="h-2 bg-muted rounded-full overflow-hidden">
+                    <div className="h-full bg-gradient-to-r from-terminal-green to-terminal-blue rounded-full animate-pulse" style={{width: '87%'}} />
+                  </div>
+                </div>
+                
+                <div className="space-y-3">
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm text-muted-foreground">Deploy Confidence</span>
+                    <span className="text-sm text-terminal-blue">94%</span>
+                  </div>
+                  <div className="h-2 bg-muted rounded-full overflow-hidden">
+                    <div className="h-full bg-terminal-blue rounded-full animate-pulse" style={{width: '94%'}} />
+                  </div>
+                </div>
+                
+                {/* Activity Feed */}
+                <div className="space-y-2 pt-4 border-t border-border">
+                  <div className="text-xs text-muted-foreground">Recent Activity</div>
+                  <div className="space-y-1 font-mono text-xs">
+                    <div className="flex items-center gap-2">
+                      <div className="w-2 h-2 bg-terminal-green rounded-full animate-pulse" />
+                      <span>SQL injection blocked in user-auth.js</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <div className="w-2 h-2 bg-terminal-blue rounded-full animate-pulse" />
+                      <span>Auto-patched dependency vulnerability</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <div className="w-2 h-2 bg-yellow-400 rounded-full animate-pulse" />
+                      <span>Team drift alert: config changes detected</span>
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Premium Features Grid */}
+      <section className="py-24 bg-gradient-to-b from-background to-terminal-surface/20">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold font-mono mb-4">
+              Enterprise Features
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Advanced capabilities designed for teams that ship mission-critical software
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+            {premiumFeatures.map((feature) => {
+              const Icon = feature.icon;
+              const isHovered = hoveredCard === feature.id;
+              
+              return (
+                <Card 
+                  key={feature.id}
+                  className={`relative group cursor-pointer transition-all duration-300 hover:scale-105 border-terminal-blue/20 bg-gradient-to-br ${feature.gradient} backdrop-blur-sm overflow-hidden`}
+                  onMouseEnter={() => setHoveredCard(feature.id)}
+                  onMouseLeave={() => setHoveredCard(null)}
+                >
+                  {/* Lock Overlay */}
+                  <div className={`absolute inset-0 bg-background/80 backdrop-blur-sm flex items-center justify-center transition-opacity duration-300 ${isHovered ? 'opacity-100' : 'opacity-0'} z-10`}>
+                    <div className="text-center space-y-4">
+                      <Lock className="w-12 h-12 text-terminal-blue mx-auto animate-bounce" />
+                      <Button className="bg-terminal-blue hover:bg-terminal-blue/90 text-white">
+                        Upgrade to Unlock
+                      </Button>
+                    </div>
+                  </div>
+                  
+                  <CardHeader>
+                    <div className="flex items-start justify-between">
+                      <div className="space-y-2">
+                        <div className="flex items-center gap-3">
+                          <Icon className={`w-8 h-8 text-terminal-blue transition-all duration-300 ${isHovered ? 'scale-110' : ''}`} />
+                          <div>
+                            <CardTitle className="text-xl">{feature.title}</CardTitle>
+                            <p className="text-sm text-terminal-blue">{feature.subtitle}</p>
+                          </div>
+                        </div>
+                      </div>
+                      <Badge variant="secondary" className="bg-terminal-blue/20 text-terminal-blue">
+                        {feature.stats}
+                      </Badge>
+                    </div>
+                  </CardHeader>
+                  
+                  <CardContent>
+                    <p className="text-muted-foreground leading-relaxed">
+                      {feature.description}
+                    </p>
+                  </CardContent>
+                </Card>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-24 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold font-mono mb-4">
+              Frequently Asked Questions
+            </h2>
+            <p className="text-xl text-muted-foreground">
+              Everything you need to know about Gitswhy OS Pro Edition
+            </p>
+          </div>
+          
+          <div className="max-w-4xl mx-auto space-y-6">
+            {faqItems.map((item, index) => (
+              <Card key={index} className="border-terminal-blue/20">
+                <CardHeader>
+                  <CardTitle className="text-lg">{item.question}</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-muted-foreground leading-relaxed">
+                    {item.answer}
+                  </p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-24 bg-gradient-to-r from-terminal-blue/20 via-terminal-blue/10 to-terminal-blue/20">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-4xl font-bold font-mono mb-6">
+            Ready to Ship Code That Heals Itself?
+          </h2>
+          <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
+            Join thousands of enterprises already using Gitswhy OS Pro to secure their development lifecycle.
+          </p>
+          
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button size="lg" className="bg-terminal-blue hover:bg-terminal-blue/90 text-white">
+              Start 30-Day Pro Trial
+              <ArrowRight className="ml-2 w-4 h-4" />
+            </Button>
+            <Button variant="outline" size="lg" className="border-terminal-blue/30 text-terminal-blue hover:bg-terminal-blue/10">
+              Talk to Sales
+            </Button>
+          </div>
+          
+          <p className="text-sm text-muted-foreground mt-6">
+            No credit card required • Full feature access • Cancel anytime
+          </p>
+        </div>
+      </section>
+
+      <Footer />
+    </div>
+  );
+};
+
+export default ProEdition;
