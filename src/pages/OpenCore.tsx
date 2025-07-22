@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Copy, Github, Star, Download, Terminal, Zap, Database, Shield, RotateCcw } from 'lucide-react';
+import { Copy, Github, Star, Download, Terminal, Zap, Database, Shield, RotateCcw, Heart } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -175,14 +175,10 @@ gitswhy vault sync --env=staging
               Self-healing infrastructure, predictive debugging, and autonomous optimization - all open source.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-terminal-green hover:bg-terminal-green/80 text-terminal-bg font-mono">
-                <Github className="mr-2 h-5 w-5" />
-                Fork on GitHub
-              </Button>
-              <Button variant="outline" size="lg" className="border-terminal-blue text-terminal-blue hover:bg-terminal-blue/10">
-                <Download className="mr-2 h-5 w-5" />
-                Download v2.1.0
+            <div className="flex justify-center">
+              <Button size="lg" className="bg-gradient-to-r from-terminal-green to-terminal-blue hover:from-terminal-green/80 hover:to-terminal-blue/80 text-terminal-bg font-mono">
+                <Heart className="mr-2 h-5 w-5" />
+                Add to Wishlist
               </Button>
             </div>
 
