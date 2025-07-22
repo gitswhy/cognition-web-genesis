@@ -56,9 +56,9 @@ const Hero = () => {
   }, [currentLine]);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden py-12 lg:py-20">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-6 pb-12 lg:pt-8 lg:pb-20">
       <div className="container mx-auto px-4 lg:px-8 xl:px-12 2xl:px-20 relative z-10 max-w-7xl">
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 xl:gap-16 items-center min-h-[calc(100vh-8rem)]">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 xl:gap-16 items-center min-h-[calc(100vh-12rem)]">
           {/* Left Side - Headlines */}
           <div className="space-y-6 lg:space-y-8">
             {/* Badge */}
