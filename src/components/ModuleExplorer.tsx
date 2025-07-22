@@ -509,7 +509,6 @@ console.log('Vault synchronization completed securely');`,
                       >
                         Interactive
                       </Badge>
-                      <ChevronDown className="h-5 w-5 text-terminal-green transition-transform duration-300 group-data-[state=open]:rotate-180" />
                     </div>
                   </div>
                 </AccordionTrigger>
