@@ -50,7 +50,7 @@ const Hero = () => {
           }, 500);
         }
       }
-    }, 67); // ~90 WPM
+    }, 45); // Smoother typing speed
 
     return () => clearInterval(timer);
   }, [currentLine]);
@@ -71,18 +71,18 @@ const Hero = () => {
               <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight">
                 <span className="text-foreground block">
                   {currentLine === 0 ? typedText : lines[0]}
-                  {currentLine === 0 && typedText.length < lines[0].length && <span className="terminal-cursor animate-pulse">|</span>}
+                  {currentLine === 0 && typedText.length < lines[0].length && <span className="animate-pulse text-terminal-green">|</span>}
                 </span>
                 <span className="text-terminal-green block mt-1 lg:mt-2">
                   {currentLine === 1 ? typedText : (currentLine > 1 ? lines[1] : "")}
-                  {currentLine === 1 && typedText.length < lines[1].length && <span className="terminal-cursor animate-pulse">|</span>}
+                  {currentLine === 1 && typedText.length < lines[1].length && <span className="animate-pulse text-terminal-green">|</span>}
                 </span>
               </h1>
               
               <p className="text-base md:text-lg lg:text-xl text-foreground/80 max-w-xl leading-relaxed">
                 {typedSubhead}
                 {typedSubhead.length < subhead.length && typedSubhead.length > 0 && (
-                  <span className="terminal-cursor animate-pulse">|</span>
+                  <span className="animate-pulse text-terminal-green">|</span>
                 )}
               </p>
             </div>
