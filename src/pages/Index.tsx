@@ -11,10 +11,13 @@ import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
 import { useAnalytics } from "@/components/analytics/PlausibleAnalytics";
 import PageBackground from "@/components/background/PageBackground";
+import { SoftwareApplicationSchema } from '@/components/SoftwareApplicationSchema';
+import { useGeolocation } from '@/hooks/useGeolocation';
 
 const Index = () => {
   const { i18n } = useTranslation();
   const { trackPageView } = useAnalytics();
+  const { isEU } = useGeolocation();
 
   React.useEffect(() => {
     trackPageView('/');
@@ -26,6 +29,16 @@ const Index = () => {
   }, [i18n.language]);
   return (
     <PageBackground variant="homepage">
+      {/* SEO Schema */}
+      <SoftwareApplicationSchema
+        name="Gitswhy OS - Cognitive DevSecOps Platform"
+        description="The world's first cognition-native DevSecOps platform. Real-time security scanning, automated code repair, and intent-driven development tools."
+        offers={[
+          { price: "0", priceCurrency: "USD", name: "Open Core Edition" },
+          { price: "49", priceCurrency: "USD", name: "Pro Edition" }
+        ]}
+      />
+      
       <Header />
       <Hero />
       <TrustRibbon />

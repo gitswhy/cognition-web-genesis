@@ -2,8 +2,10 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { ChevronRight, Play, Activity, Brain, Loader } from "lucide-react";
 import { StaggeredFadeIn } from "@/components/animations/AnimationComponents";
+import { useGeolocation } from '@/hooks/useGeolocation';
 
 const Hero = () => {
+  const { isEU, loading } = useGeolocation();
   const [typedText, setTypedText] = useState("");
   const [currentLine, setCurrentLine] = useState(0);
   

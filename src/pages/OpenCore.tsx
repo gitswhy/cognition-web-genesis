@@ -6,6 +6,7 @@ import { Badge } from '@/components/ui/badge';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import ModuleExplorer from '@/components/ModuleExplorer';
+import { SoftwareApplicationSchema } from '@/components/SoftwareApplicationSchema';
 const OpenCore = () => {
   const [copiedCommand, setCopiedCommand] = useState<string | null>(null);
   useEffect(() => {
@@ -110,6 +111,15 @@ gitswhy vault sync --env=staging
     bash: `echo 'export PATH="$PATH:/usr/local/bin/gitswhy"' >> ~/.bashrc && source ~/.bashrc`
   };
   return <div className="min-h-screen bg-background text-foreground">
+      {/* Additional SEO Schema (complementing existing structured data) */}
+      <SoftwareApplicationSchema
+        name="ReflexCore Open Source Edition"
+        description="Free, open-source cognition-native DevSecOps platform with self-healing infrastructure and predictive debugging capabilities."
+        offers={[
+          { price: "0", priceCurrency: "USD", name: "Open Core Edition" }
+        ]}
+      />
+      
       <Header />
       
       {/* Hero Section with Terminal Heatmap Background */}

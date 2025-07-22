@@ -6,6 +6,8 @@ import { Lock, Shield, Zap, Users, AlertTriangle, FileCode, TrendingUp, BarChart
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import EditionComparisonTable from '@/components/EditionComparisonTable';
+import { SoftwareApplicationSchema } from '@/components/SoftwareApplicationSchema';
+import { DynamicHeadline } from '@/components/DynamicHeadline';
 const ProEdition = () => {
   const [hoveredCard, setHoveredCard] = useState<string | null>(null);
   const premiumFeatures = [{
@@ -55,6 +57,16 @@ const ProEdition = () => {
     answer: 'Pro Edition includes 24/7 priority support, dedicated success manager, and access to our enterprise security team.'
   }];
   return <div className="min-h-screen bg-background text-foreground">
+      {/* SEO Schema */}
+      <SoftwareApplicationSchema
+        name="Gitswhy OS Pro Edition"
+        description="Enterprise-grade cognition engine with AI-powered risk detection, automatic patching, and team collaboration tools for professional development teams."
+        offers={[
+          { price: "49", priceCurrency: "USD", name: "Pro Edition Monthly" },
+          { price: "39", priceCurrency: "USD", name: "Pro Edition Annual" }
+        ]}
+      />
+      
       <Header />
       
       {/* Hero Section with Blue Gradient */}
@@ -75,8 +87,10 @@ const ProEdition = () => {
                 Enterprise DevSecOps
               </Badge>
               <h1 className="text-5xl lg:text-7xl font-bold font-mono tracking-tight">
-                <span className="text-terminal-blue">Gitswhy</span>{' '}
-                <span className="text-foreground">Pro</span>
+                <DynamicHeadline 
+                  baseText="Gitswhy Pro for [Location] Teams"
+                  fallbackLocation="Global"
+                />
               </h1>
               <p className="text-xl text-muted-foreground max-w-lg">
                 Enterprise-grade cognition engine with AI-powered risk detection, 
