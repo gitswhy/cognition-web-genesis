@@ -22,12 +22,9 @@ const Header = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link to="/" className="group flex items-center space-x-2 transition-all duration-500 hover-lift relative overflow-visible">
-            {/* Glow Effect - Hidden by default */}
-            <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-terminal-green/0 to-terminal-blue/0 group-hover:from-terminal-green/20 group-hover:to-terminal-blue/20 transition-all duration-500 blur-xl scale-150 pointer-events-none" />
-            
             {/* Terminal Icon with Advanced Animation */}
             <div className="relative">
-              <Terminal className="h-8 w-8 text-terminal-green transition-all duration-500 group-hover:text-terminal-blue group-hover:scale-105 group-hover:rotate-2 group-hover:drop-shadow-[0_0_10px_rgba(0,255,102,0.4)]" />
+              <Terminal className="h-8 w-8 text-terminal-green transition-all duration-500 group-hover:text-terminal-blue group-hover:scale-105 group-hover:rotate-2" />
               {/* Scanning line effect */}
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-terminal-green/30 to-transparent transform -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out opacity-0 group-hover:opacity-100" />
             </div>
@@ -46,9 +43,6 @@ const Header = () => {
                 <span className="inline-block text-terminal-blue transition-all duration-500 group-hover:text-terminal-green group-hover:scale-110 group-hover:-translate-y-1 group-hover:rotate-6" style={{ transitionDelay: '350ms' }}>O</span>
                 <span className="inline-block text-terminal-blue transition-all duration-500 group-hover:text-terminal-green group-hover:scale-110 group-hover:-translate-y-1 group-hover:-rotate-3" style={{ transitionDelay: '400ms' }}>S</span>
               </span>
-              
-              {/* Subtle ripple effect */}
-              <div className="absolute inset-0 rounded-lg border border-terminal-green/0 group-hover:border-terminal-green/30 transition-all duration-500 group-hover:scale-105 pointer-events-none" />
             </div>
             
             {/* Small particle effects */}
