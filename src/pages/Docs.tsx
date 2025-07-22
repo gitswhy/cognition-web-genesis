@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSearchParams, Link, useLocation } from 'react-router-dom';
-import { Search, Menu, Sun, Moon, ChevronRight, ChevronDown, Book, Terminal, Settings, Code, AlertTriangle, X } from 'lucide-react';
+import { Search, Menu, ChevronRight, ChevronDown, Book, Terminal, Settings, Code, AlertTriangle, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
@@ -24,25 +24,12 @@ interface DocSection {
 }
 
 const CodeBlock = ({ children, language = 'bash', ...props }: { children: string; language?: string }) => {
-  const [isDark, setIsDark] = useState(true);
-
-  useEffect(() => {
-    const checkTheme = () => {
-      setIsDark(document.documentElement.classList.contains('dark'));
-    };
-    
-    checkTheme();
-    const observer = new MutationObserver(checkTheme);
-    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
-    
-    return () => observer.disconnect();
-  }, []);
 
   return (
     <div className="relative group">
       <SyntaxHighlighter
         language={language}
-        style={isDark ? vscDarkPlus : vs}
+        style={vscDarkPlus}
         customStyle={{
           background: 'hsl(var(--muted))',
           border: '1px solid hsl(var(--border))',
@@ -690,27 +677,15 @@ export default function Docs() {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedVersion, setSelectedVersion] = useState('v2.0');
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
-  const [isDarkMode, setIsDarkMode] = useState(true);
   const [expandedSections, setExpandedSections] = useState<string[]>(['quick-start']);
 
   const currentSection = searchParams.get('section') || 'quick-start';
   const currentSubsection = searchParams.get('subsection') || 'installation';
 
   useEffect(() => {
-    const checkTheme = () => {
-      setIsDarkMode(document.documentElement.classList.contains('dark'));
-    };
-    
-    checkTheme();
-    const observer = new MutationObserver(checkTheme);
-    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
-    
-    return () => observer.disconnect();
+    // Force dark mode on docs page
+    document.documentElement.classList.add('dark');
   }, []);
-
-  const toggleTheme = () => {
-    document.documentElement.classList.toggle('dark');
-  };
 
   const toggleSection = (sectionId: string) => {
     setExpandedSections(prev => 
@@ -784,13 +759,6 @@ export default function Docs() {
               <option value="v1.8">v1.8</option>
             </select>
 
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={toggleTheme}
-            >
-              {isDarkMode ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
-            </Button>
           </div>
         </div>
       </header>
