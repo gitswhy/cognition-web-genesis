@@ -20,6 +20,7 @@ import Footer from '@/components/Footer';
 import SEOFAQSection from '@/components/SEOFAQSection';
 import { SoftwareApplicationSchema } from '@/components/SoftwareApplicationSchema';
 import { DynamicHeadline } from '@/components/DynamicHeadline';
+import ModuleLottieAnimation from '@/components/ModuleLottieAnimation';
 
 const HowItWorks = () => {
   const [activeStep, setActiveStep] = useState(0);
@@ -324,12 +325,19 @@ const HowItWorks = () => {
                   <div className={`${isEven ? 'lg:order-2' : 'lg:order-1'}`}>
                     <Card className="bg-terminal-surface/50 backdrop-blur-sm border-terminal-surface">
                       <CardContent className="p-8">
-                        {/* Placeholder for Lottie Animation */}
+                        {/* Lottie Animation Container */}
                         <div className="aspect-square bg-gradient-to-br from-terminal-bg to-terminal-surface rounded-lg flex items-center justify-center relative overflow-hidden">
                           {/* Animated Background Grid */}
                           <div className="absolute inset-0 bg-[linear-gradient(rgba(0,255,102,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(0,255,102,0.1)_1px,transparent_1px)] bg-[size:20px_20px]" />
                           
-                          {/* Central Animation Element */}
+                          {/* Lottie Animation */}
+                          <ModuleLottieAnimation 
+                            moduleId={step.id}
+                            isActive={activeStep === index}
+                            reducedMotion={reducedMotion}
+                          />
+                          
+                          {/* Fallback Central Animation Element */}
                           <div className={`relative z-10 ${reducedMotion ? '' : 'animate-pulse'}`}>
                             <Icon className={`w-24 h-24 ${
                               step.type === 'core' ? 'text-terminal-green' : 'text-terminal-blue'
