@@ -5,6 +5,7 @@ import { Badge } from '@/components/ui/badge';
 import { Lock, Shield, Zap, Users, AlertTriangle, FileCode, TrendingUp, BarChart3, PieChart, Activity, ArrowRight, Star, Check } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import EditionComparisonTable from '@/components/EditionComparisonTable';
 const ProEdition = () => {
   const [hoveredCard, setHoveredCard] = useState<string | null>(null);
   const premiumFeatures = [{
@@ -173,6 +174,9 @@ const ProEdition = () => {
           </div>
         </div>
       </section>
+
+      {/* Edition Comparison Table */}
+      <EditionComparisonTable />
 
       {/* Premium Features Grid */}
       <section className="py-24 bg-gradient-to-b from-background to-terminal-surface/20">
