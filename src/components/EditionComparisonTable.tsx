@@ -130,18 +130,18 @@ const EditionComparisonTable = () => {
 
   return (
     <TooltipProvider>
-      <section className="py-24 bg-gradient-to-b from-terminal-surface/10 to-background">
+      <section className="py-16 bg-gradient-to-b from-terminal-surface/10 to-background">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold font-mono mb-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold font-mono mb-3">
               Choose Your Edition
             </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
+            <p className="text-lg text-muted-foreground max-w-xl mx-auto mb-6">
               Compare features and find the perfect plan for your development workflow
             </p>
             
             {/* Pricing Toggle */}
-            <div className="flex items-center justify-center gap-4 mb-12">
+            <div className="flex items-center justify-center gap-3 mb-8">
               <span className={`text-sm ${!isAnnual ? 'text-foreground' : 'text-muted-foreground'}`}>
                 Monthly
               </span>
@@ -152,7 +152,7 @@ const EditionComparisonTable = () => {
               />
               <span className={`text-sm ${isAnnual ? 'text-foreground' : 'text-muted-foreground'}`}>
                 Annual
-                <Badge variant="secondary" className="ml-2 bg-terminal-green/20 text-terminal-green">
+                <Badge variant="secondary" className="ml-2 bg-terminal-green/20 text-terminal-green text-xs">
                   Save 20%
                 </Badge>
               </span>
@@ -160,29 +160,30 @@ const EditionComparisonTable = () => {
           </div>
 
           {/* Comparison Table */}
-          <div className="max-w-6xl mx-auto">
+          <div className="max-w-4xl mx-auto">
             <Card className="overflow-hidden border-terminal-green/20 bg-gradient-to-br from-terminal-surface/40 to-terminal-surface/20">
               <CardContent className="p-0">
                 {/* Header Row */}
                 <div className="grid grid-cols-3 border-b border-border">
                   {/* Feature Column Header */}
-                  <div className="p-6 bg-terminal-surface/20">
-                    <h3 className="font-mono font-bold text-lg">Features</h3>
+                  <div className="p-4 bg-terminal-surface/20 flex items-end">
+                    <h3 className="font-mono font-bold text-base">Features</h3>
                   </div>
                   
                   {/* Free Edition Header */}
-                  <div className="p-6 text-center border-l border-border bg-gradient-to-br from-terminal-green/10 to-terminal-green/5">
-                    <div className="space-y-3">
-                      <h3 className="font-mono font-bold text-xl text-terminal-green">Free Edition</h3>
+                  <div className="p-4 text-center border-l border-border bg-gradient-to-br from-terminal-green/10 to-terminal-green/5">
+                    <div className="space-y-2">
+                      <h3 className="font-mono font-bold text-lg text-terminal-green">Free</h3>
                       <div className="space-y-1">
-                        <div className="text-3xl font-mono font-bold text-terminal-green">
+                        <div className="text-2xl font-mono font-bold text-terminal-green">
                           ${pricing.free.monthly}
                         </div>
-                        <div className="text-sm text-muted-foreground">Forever free</div>
+                        <div className="text-xs text-muted-foreground">Forever free</div>
                       </div>
                       <Button 
+                        size="sm"
                         variant="outline" 
-                        className="w-full border-terminal-green/30 text-terminal-green hover:bg-terminal-green/10"
+                        className="w-full border-terminal-green/30 text-terminal-green hover:bg-terminal-green/10 text-xs"
                       >
                         Get Started
                       </Button>
@@ -190,18 +191,18 @@ const EditionComparisonTable = () => {
                   </div>
                   
                   {/* Pro Edition Header */}
-                  <div className="p-6 text-center border-l border-border bg-gradient-to-br from-terminal-blue/10 to-terminal-blue/5 relative">
-                    <Badge className="absolute -top-3 left-1/2 -translate-x-1/2 bg-terminal-blue text-white">
-                      Most Popular
+                  <div className="p-4 text-center border-l border-border bg-gradient-to-br from-terminal-blue/10 to-terminal-blue/5 relative">
+                    <Badge className="absolute -top-2 left-1/2 -translate-x-1/2 bg-terminal-blue text-white text-xs">
+                      Popular
                     </Badge>
-                    <div className="space-y-3 pt-2">
-                      <h3 className="font-mono font-bold text-xl text-terminal-blue">Pro Edition</h3>
+                    <div className="space-y-2 pt-1">
+                      <h3 className="font-mono font-bold text-lg text-terminal-blue">Pro</h3>
                       <div className="space-y-1">
-                        <div className="text-3xl font-mono font-bold text-terminal-blue">
+                        <div className="text-2xl font-mono font-bold text-terminal-blue">
                           ${isAnnual ? pricing.pro.annual : pricing.pro.monthly}
                         </div>
-                        <div className="text-sm text-muted-foreground">
-                          per month{isAnnual ? ' (billed annually)' : ''}
+                        <div className="text-xs text-muted-foreground">
+                          per month{isAnnual ? ' (annual)' : ''}
                         </div>
                         {isAnnual && (
                           <div className="text-xs text-terminal-green">
@@ -209,9 +210,9 @@ const EditionComparisonTable = () => {
                           </div>
                         )}
                       </div>
-                      <Button className="w-full bg-terminal-blue hover:bg-terminal-blue/90 text-white">
-                        Start Pro Trial
-                        <ArrowRight className="ml-2 w-4 h-4" />
+                      <Button size="sm" className="w-full bg-terminal-blue hover:bg-terminal-blue/90 text-white text-xs">
+                        Start Trial
+                        <ArrowRight className="ml-1 w-3 h-3" />
                       </Button>
                     </div>
                   </div>
@@ -222,7 +223,7 @@ const EditionComparisonTable = () => {
                   <div key={categoryIndex}>
                     {/* Category Header */}
                     <div className="grid grid-cols-3 border-b border-border bg-terminal-surface/10">
-                      <div className="p-4 font-mono font-semibold text-sm uppercase tracking-wider text-muted-foreground col-span-3">
+                      <div className="p-3 font-mono font-semibold text-xs uppercase tracking-wider text-muted-foreground col-span-3">
                         {category.category}
                       </div>
                     </div>
@@ -233,31 +234,33 @@ const EditionComparisonTable = () => {
                       return (
                         <div key={featureIndex} className="grid grid-cols-3 border-b border-border hover:bg-terminal-surface/5 transition-colors">
                           {/* Feature Name & Description */}
-                          <div className="p-6 space-y-2">
-                            <div className="flex items-center gap-3">
-                              <FeatureIcon className="h-5 w-5 text-terminal-green" />
-                              <div>
-                                <h4 className="font-mono font-medium">{feature.name}</h4>
-                                <p className="text-sm text-muted-foreground">{feature.description}</p>
+                          <div className="p-4 space-y-1">
+                            <div className="flex items-start gap-3">
+                              <FeatureIcon className="h-4 w-4 text-terminal-green mt-0.5 flex-shrink-0" />
+                              <div className="min-w-0 flex-1">
+                                <div className="flex items-center gap-2">
+                                  <h4 className="font-mono font-medium text-sm">{feature.name}</h4>
+                                  <Tooltip>
+                                    <TooltipTrigger asChild>
+                                      <Info className="h-3 w-3 text-muted-foreground hover:text-foreground cursor-help flex-shrink-0" />
+                                    </TooltipTrigger>
+                                    <TooltipContent>
+                                      <p className="max-w-xs text-xs">{feature.tooltip}</p>
+                                    </TooltipContent>
+                                  </Tooltip>
+                                </div>
+                                <p className="text-xs text-muted-foreground leading-snug">{feature.description}</p>
                               </div>
-                              <Tooltip>
-                                <TooltipTrigger asChild>
-                                  <Info className="h-4 w-4 text-muted-foreground hover:text-foreground cursor-help" />
-                                </TooltipTrigger>
-                                <TooltipContent>
-                                  <p className="max-w-xs">{feature.tooltip}</p>
-                                </TooltipContent>
-                              </Tooltip>
                             </div>
                           </div>
                           
                           {/* Free Edition Value */}
-                          <div className="p-6 border-l border-border flex items-center justify-center">
+                          <div className="p-4 border-l border-border flex items-center justify-center">
                             {renderFeatureValue(feature.free)}
                           </div>
                           
                           {/* Pro Edition Value */}
-                          <div className="p-6 border-l border-border flex items-center justify-center">
+                          <div className="p-4 border-l border-border flex items-center justify-center">
                             {renderFeatureValue(feature.pro, true)}
                           </div>
                         </div>
@@ -269,50 +272,50 @@ const EditionComparisonTable = () => {
             </Card>
             
             {/* Additional Information */}
-            <div className="grid md:grid-cols-2 gap-6 mt-12">
+            <div className="grid md:grid-cols-2 gap-4 mt-8">
               <Card className="border-terminal-green/20 bg-gradient-to-br from-terminal-green/5 to-terminal-surface/20">
-                <CardHeader>
-                  <CardTitle className="text-terminal-green font-mono">Free Edition</CardTitle>
+                <CardHeader className="pb-3">
+                  <CardTitle className="text-terminal-green font-mono text-base">Free Edition</CardTitle>
                 </CardHeader>
-                <CardContent className="space-y-3">
-                  <div className="flex items-center gap-2 text-sm">
-                    <Check className="h-4 w-4 text-terminal-green" />
+                <CardContent className="space-y-2">
+                  <div className="flex items-center gap-2 text-xs">
+                    <Check className="h-3 w-3 text-terminal-green" />
                     <span>Core cognitive monitoring</span>
                   </div>
-                  <div className="flex items-center gap-2 text-sm">
-                    <Check className="h-4 w-4 text-terminal-green" />
+                  <div className="flex items-center gap-2 text-xs">
+                    <Check className="h-3 w-3 text-terminal-green" />
                     <span>Basic entropy management</span>
                   </div>
-                  <div className="flex items-center gap-2 text-sm">
-                    <Check className="h-4 w-4 text-terminal-green" />
+                  <div className="flex items-center gap-2 text-xs">
+                    <Check className="h-3 w-3 text-terminal-green" />
                     <span>Community support</span>
                   </div>
-                  <div className="flex items-center gap-2 text-sm">
-                    <Check className="h-4 w-4 text-terminal-green" />
+                  <div className="flex items-center gap-2 text-xs">
+                    <Check className="h-3 w-3 text-terminal-green" />
                     <span>Open source modules</span>
                   </div>
                 </CardContent>
               </Card>
               
               <Card className="border-terminal-blue/20 bg-gradient-to-br from-terminal-blue/5 to-terminal-surface/20">
-                <CardHeader>
-                  <CardTitle className="text-terminal-blue font-mono">Pro Edition</CardTitle>
+                <CardHeader className="pb-3">
+                  <CardTitle className="text-terminal-blue font-mono text-base">Pro Edition</CardTitle>
                 </CardHeader>
-                <CardContent className="space-y-3">
-                  <div className="flex items-center gap-2 text-sm">
-                    <Check className="h-4 w-4 text-terminal-blue" />
+                <CardContent className="space-y-2">
+                  <div className="flex items-center gap-2 text-xs">
+                    <Check className="h-3 w-3 text-terminal-blue" />
                     <span>Everything in Free Edition</span>
                   </div>
-                  <div className="flex items-center gap-2 text-sm">
-                    <Check className="h-4 w-4 text-terminal-blue" />
+                  <div className="flex items-center gap-2 text-xs">
+                    <Check className="h-3 w-3 text-terminal-blue" />
                     <span>Advanced AI-powered features</span>
                   </div>
-                  <div className="flex items-center gap-2 text-sm">
-                    <Check className="h-4 w-4 text-terminal-blue" />
+                  <div className="flex items-center gap-2 text-xs">
+                    <Check className="h-3 w-3 text-terminal-blue" />
                     <span>Enterprise security & compliance</span>
                   </div>
-                  <div className="flex items-center gap-2 text-sm">
-                    <Check className="h-4 w-4 text-terminal-blue" />
+                  <div className="flex items-center gap-2 text-xs">
+                    <Check className="h-3 w-3 text-terminal-blue" />
                     <span>24/7 priority support</span>
                   </div>
                 </CardContent>
