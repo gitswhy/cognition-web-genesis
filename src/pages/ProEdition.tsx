@@ -2,87 +2,58 @@ import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { 
-  Lock, 
-  Shield, 
-  Zap, 
-  Users, 
-  AlertTriangle, 
-  FileCode, 
-  TrendingUp,
-  BarChart3,
-  PieChart,
-  Activity,
-  ArrowRight,
-  Star,
-  Check
-} from 'lucide-react';
+import { Lock, Shield, Zap, Users, AlertTriangle, FileCode, TrendingUp, BarChart3, PieChart, Activity, ArrowRight, Star, Check } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-
 const ProEdition = () => {
   const [hoveredCard, setHoveredCard] = useState<string | null>(null);
-
-  const premiumFeatures = [
-    {
-      id: 'ai-risk-engine',
-      title: 'AI Risk Engine',
-      subtitle: 'Advanced Rules Pack',
-      description: 'Machine learning-powered risk detection with 50,000+ security rules and real-time threat intelligence.',
-      icon: Shield,
-      gradient: 'from-red-500/20 to-orange-500/20',
-      stats: '99.8% accuracy'
-    },
-    {
-      id: 'auto-fix-patch',
-      title: 'Auto-Fix & Patch Suggestions',
-      subtitle: 'Intelligent Remediation',
-      description: 'AI-generated patches and fixes applied automatically or suggested with one-click approval workflows.',
-      icon: Zap,
-      gradient: 'from-yellow-500/20 to-amber-500/20',
-      stats: '10x faster fixes'
-    },
-    {
-      id: 'team-dashboards',
-      title: 'Team Dashboards & Drift Alerts',
-      subtitle: 'Enterprise Monitoring',
-      description: 'Real-time team performance metrics, configuration drift detection, and customizable alert systems.',
-      icon: Users,
-      gradient: 'from-green-500/20 to-emerald-500/20',
-      stats: 'Real-time alerts'
-    },
-    {
-      id: 'policy-editor',
-      title: 'Policy-as-Code Editor',
-      subtitle: 'Governance Automation',
-      description: 'Visual policy editor with GitOps integration, compliance templates, and automated enforcement.',
-      icon: FileCode,
-      gradient: 'from-purple-500/20 to-violet-500/20',
-      stats: '100+ templates'
-    }
-  ];
-
-  const faqItems = [
-    {
-      question: 'What makes Gitswhy OS Pro different from Open Core?',
-      answer: 'Pro Edition includes AI-powered risk detection, automatic patching, team collaboration tools, and enterprise-grade governance features.'
-    },
-    {
-      question: 'How does the AI Risk Engine work?',
-      answer: 'Our ML models analyze code patterns, security vulnerabilities, and historical data to predict and prevent issues before deployment.'
-    },
-    {
-      question: 'Can I migrate from Open Core to Pro seamlessly?',
-      answer: 'Yes, Pro Edition is fully compatible with Open Core configurations and provides a smooth upgrade path with zero downtime.'
-    },
-    {
-      question: 'What kind of support is included?',
-      answer: 'Pro Edition includes 24/7 priority support, dedicated success manager, and access to our enterprise security team.'
-    }
-  ];
-
-  return (
-    <div className="min-h-screen bg-background text-foreground">
+  const premiumFeatures = [{
+    id: 'ai-risk-engine',
+    title: 'AI Risk Engine',
+    subtitle: 'Advanced Rules Pack',
+    description: 'Machine learning-powered risk detection with 50,000+ security rules and real-time threat intelligence.',
+    icon: Shield,
+    gradient: 'from-red-500/20 to-orange-500/20',
+    stats: '99.8% accuracy'
+  }, {
+    id: 'auto-fix-patch',
+    title: 'Auto-Fix & Patch Suggestions',
+    subtitle: 'Intelligent Remediation',
+    description: 'AI-generated patches and fixes applied automatically or suggested with one-click approval workflows.',
+    icon: Zap,
+    gradient: 'from-yellow-500/20 to-amber-500/20',
+    stats: '10x faster fixes'
+  }, {
+    id: 'team-dashboards',
+    title: 'Team Dashboards & Drift Alerts',
+    subtitle: 'Enterprise Monitoring',
+    description: 'Real-time team performance metrics, configuration drift detection, and customizable alert systems.',
+    icon: Users,
+    gradient: 'from-green-500/20 to-emerald-500/20',
+    stats: 'Real-time alerts'
+  }, {
+    id: 'policy-editor',
+    title: 'Policy-as-Code Editor',
+    subtitle: 'Governance Automation',
+    description: 'Visual policy editor with GitOps integration, compliance templates, and automated enforcement.',
+    icon: FileCode,
+    gradient: 'from-purple-500/20 to-violet-500/20',
+    stats: '100+ templates'
+  }];
+  const faqItems = [{
+    question: 'What makes Gitswhy OS Pro different from Open Core?',
+    answer: 'Pro Edition includes AI-powered risk detection, automatic patching, team collaboration tools, and enterprise-grade governance features.'
+  }, {
+    question: 'How does the AI Risk Engine work?',
+    answer: 'Our ML models analyze code patterns, security vulnerabilities, and historical data to predict and prevent issues before deployment.'
+  }, {
+    question: 'Can I migrate from Open Core to Pro seamlessly?',
+    answer: 'Yes, Pro Edition is fully compatible with Open Core configurations and provides a smooth upgrade path with zero downtime.'
+  }, {
+    question: 'What kind of support is included?',
+    answer: 'Pro Edition includes 24/7 priority support, dedicated success manager, and access to our enterprise security team.'
+  }];
+  return <div className="min-h-screen bg-background text-foreground">
       <Header />
       
       {/* Hero Section with Blue Gradient */}
@@ -123,10 +94,7 @@ const ProEdition = () => {
             </div>
             
             <div className="flex items-center gap-6 text-sm text-muted-foreground">
-              <div className="flex items-center gap-2">
-                <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-                <span>4.9/5 Enterprise Rating</span>
-              </div>
+              
               <div className="flex items-center gap-2">
                 <Check className="w-4 h-4 text-terminal-green" />
                 <span>SOC 2 Compliant</span>
@@ -164,7 +132,9 @@ const ProEdition = () => {
                     <span className="text-sm text-terminal-green">+23%</span>
                   </div>
                   <div className="h-2 bg-muted rounded-full overflow-hidden">
-                    <div className="h-full bg-gradient-to-r from-terminal-green to-terminal-blue rounded-full animate-pulse" style={{width: '87%'}} />
+                    <div className="h-full bg-gradient-to-r from-terminal-green to-terminal-blue rounded-full animate-pulse" style={{
+                    width: '87%'
+                  }} />
                   </div>
                 </div>
                 
@@ -174,7 +144,9 @@ const ProEdition = () => {
                     <span className="text-sm text-terminal-blue">94%</span>
                   </div>
                   <div className="h-2 bg-muted rounded-full overflow-hidden">
-                    <div className="h-full bg-terminal-blue rounded-full animate-pulse" style={{width: '94%'}} />
+                    <div className="h-full bg-terminal-blue rounded-full animate-pulse" style={{
+                    width: '94%'
+                  }} />
                   </div>
                 </div>
                 
@@ -215,17 +187,10 @@ const ProEdition = () => {
           </div>
           
           <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-            {premiumFeatures.map((feature) => {
-              const Icon = feature.icon;
-              const isHovered = hoveredCard === feature.id;
-              
-              return (
-                <Card 
-                  key={feature.id}
-                  className={`relative group cursor-pointer transition-all duration-300 hover:scale-105 border-terminal-blue/20 bg-gradient-to-br ${feature.gradient} backdrop-blur-sm overflow-hidden`}
-                  onMouseEnter={() => setHoveredCard(feature.id)}
-                  onMouseLeave={() => setHoveredCard(null)}
-                >
+            {premiumFeatures.map(feature => {
+            const Icon = feature.icon;
+            const isHovered = hoveredCard === feature.id;
+            return <Card key={feature.id} className={`relative group cursor-pointer transition-all duration-300 hover:scale-105 border-terminal-blue/20 bg-gradient-to-br ${feature.gradient} backdrop-blur-sm overflow-hidden`} onMouseEnter={() => setHoveredCard(feature.id)} onMouseLeave={() => setHoveredCard(null)}>
                   {/* Lock Overlay */}
                   <div className={`absolute inset-0 bg-background/80 backdrop-blur-sm flex items-center justify-center transition-opacity duration-300 ${isHovered ? 'opacity-100' : 'opacity-0'} z-10`}>
                     <div className="text-center space-y-4">
@@ -258,9 +223,8 @@ const ProEdition = () => {
                       {feature.description}
                     </p>
                   </CardContent>
-                </Card>
-              );
-            })}
+                </Card>;
+          })}
           </div>
         </div>
       </section>
@@ -278,8 +242,7 @@ const ProEdition = () => {
           </div>
           
           <div className="max-w-4xl mx-auto space-y-6">
-            {faqItems.map((item, index) => (
-              <Card key={index} className="border-terminal-blue/20">
+            {faqItems.map((item, index) => <Card key={index} className="border-terminal-blue/20">
                 <CardHeader>
                   <CardTitle className="text-lg">{item.question}</CardTitle>
                 </CardHeader>
@@ -288,8 +251,7 @@ const ProEdition = () => {
                     {item.answer}
                   </p>
                 </CardContent>
-              </Card>
-            ))}
+              </Card>)}
           </div>
         </div>
       </section>
@@ -321,8 +283,6 @@ const ProEdition = () => {
       </section>
 
       <Footer />
-    </div>
-  );
+    </div>;
 };
-
 export default ProEdition;
