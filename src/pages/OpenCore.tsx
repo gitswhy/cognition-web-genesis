@@ -5,6 +5,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Badge } from '@/components/ui/badge';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import ModuleExplorer from '@/components/ModuleExplorer';
 const OpenCore = () => {
   const [copiedCommand, setCopiedCommand] = useState<string | null>(null);
   useEffect(() => {
@@ -221,6 +222,9 @@ gitswhy vault sync --env=staging
           </div>
         </div>
       </section>
+
+      {/* Module Explorer Accordion */}
+      <ModuleExplorer />
 
       {/* Installation Guide */}
       <section className="py-24">
