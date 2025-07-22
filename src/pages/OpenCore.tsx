@@ -153,14 +153,10 @@ gitswhy vault sync --env=staging
               Self-healing infrastructure, predictive debugging, and autonomous optimization - all open source.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-terminal-green hover:bg-terminal-green/80 text-terminal-bg font-mono mx-px">
-                <Github className="mr-2 h-5 w-5" />
-                Fork on GitHub
-              </Button>
-              <Button variant="outline" size="lg" className="border-terminal-blue text-terminal-blue hover:bg-terminal-blue/10">
-                <Download className="mr-2 h-5 w-5" />
-                Download v2.1.0
+            <div className="flex justify-center">
+              <Button size="lg" className="bg-terminal-green hover:bg-terminal-green/80 text-terminal-bg font-mono">
+                <Star className="mr-2 h-5 w-5" />
+                Add to Wishlist
               </Button>
             </div>
 
