@@ -68,7 +68,7 @@ const Hero = () => {
             </div>
 
             <div className="space-y-4 lg:space-y-6 -ml-2">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight">
+              <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight">
                 <span className="text-foreground block">
                   {currentLine === 0 ? typedText : lines[0]}
                   {currentLine === 0 && typedText.length < lines[0].length && <span className="terminal-cursor animate-pulse">|</span>}
@@ -79,7 +79,7 @@ const Hero = () => {
                 </span>
               </h1>
               
-              <p className="text-lg md:text-xl lg:text-2xl text-foreground/80 max-w-xl leading-relaxed">
+              <p className="text-base md:text-lg lg:text-xl text-foreground/80 max-w-xl leading-relaxed">
                 {typedSubhead}
                 {typedSubhead.length < subhead.length && typedSubhead.length > 0 && (
                   <span className="terminal-cursor animate-pulse">|</span>
