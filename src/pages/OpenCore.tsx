@@ -1,28 +1,23 @@
 import { useState, useEffect } from 'react';
-import { Copy, Github, Star, Download, Terminal, Zap, Database, Shield, RotateCcw, Heart } from 'lucide-react';
+import { Copy, Github, Star, Download, Terminal, Zap, Database, Shield, RotateCcw } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-
 const OpenCore = () => {
   const [copiedCommand, setCopiedCommand] = useState<string | null>(null);
-
   useEffect(() => {
     // Update meta tags for SEO
     document.title = 'ReflexCore: Open-Core DevSecOps OS | Gitswhy OS';
-    
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
       metaDescription.setAttribute('content', 'ReflexCore is the open-source foundation of Gitswhy OS - a cognition-native DevSecOps platform with self-healing infrastructure, predictive debugging, and autonomous optimization.');
     }
-
     const ogTitle = document.querySelector('meta[property="og:title"]');
     if (ogTitle) {
       ogTitle.setAttribute('content', 'ReflexCore: Open-Core DevSecOps OS | Gitswhy OS');
     }
-
     const ogDescription = document.querySelector('meta[property="og:description"]');
     if (ogDescription) {
       ogDescription.setAttribute('content', 'The cognition-native core that powers intelligent DevSecOps. Self-healing infrastructure, predictive debugging, and autonomous optimization - all open source.');
@@ -46,12 +41,10 @@ const OpenCore = () => {
       "programmingLanguage": ["JavaScript", "TypeScript", "Python", "Go"],
       "license": "https://opensource.org/licenses/MIT"
     };
-
     const script = document.createElement('script');
     script.type = 'application/ld+json';
     script.textContent = JSON.stringify(structuredData);
     document.head.appendChild(script);
-
     return () => {
       // Cleanup structured data script
       const existingScript = document.querySelector('script[type="application/ld+json"]');
@@ -60,73 +53,62 @@ const OpenCore = () => {
       }
     };
   }, []);
-
   const copyToClipboard = (text: string, type: string) => {
     navigator.clipboard.writeText(text);
     setCopiedCommand(type);
     setTimeout(() => setCopiedCommand(null), 2000);
   };
-
-  const coreModules = [
-    {
-      name: 'Bootstrapping',
-      icon: Terminal,
-      description: 'Self-configuring development environment setup',
-      code: `# Auto-detect and configure your stack
+  const coreModules = [{
+    name: 'Bootstrapping',
+    icon: Terminal,
+    description: 'Self-configuring development environment setup',
+    code: `# Auto-detect and configure your stack
 gitswhy bootstrap --detect
 # Sets up optimal configs for your tech stack
 # Configures linting, testing, CI/CD pipelines`,
-      color: 'from-terminal-green/20 to-terminal-green/5'
-    },
-    {
-      name: 'Overclock',
-      icon: Zap,
-      description: 'Performance optimization and monitoring',
-      code: `# Monitor and optimize build performance
+    color: 'from-terminal-green/20 to-terminal-green/5'
+  }, {
+    name: 'Overclock',
+    icon: Zap,
+    description: 'Performance optimization and monitoring',
+    code: `# Monitor and optimize build performance
 gitswhy overclock --monitor
 # Identifies bottlenecks in real-time
 # Auto-optimizes compilation speeds`,
-      color: 'from-terminal-blue/20 to-terminal-blue/5'
-    },
-    {
-      name: 'QuantumFlush',
-      icon: Database,
-      description: 'Intelligent cache management and cleanup',
-      code: `# Smart cache invalidation
+    color: 'from-terminal-blue/20 to-terminal-blue/5'
+  }, {
+    name: 'QuantumFlush',
+    icon: Database,
+    description: 'Intelligent cache management and cleanup',
+    code: `# Smart cache invalidation
 gitswhy quantum-flush --smart
 # Predicts which caches to clear
 # Prevents stale dependency issues`,
-      color: 'from-terminal-green/15 to-primary/5'
-    },
-    {
-      name: 'CoreMirror',
-      icon: Shield,
-      description: 'Real-time code reflection and analysis',
-      code: `# Deep code analysis and mirroring
+    color: 'from-terminal-green/15 to-primary/5'
+  }, {
+    name: 'CoreMirror',
+    icon: Shield,
+    description: 'Real-time code reflection and analysis',
+    code: `# Deep code analysis and mirroring
 gitswhy mirror --analyze
 # Maps code dependencies and impact
 # Prevents breaking changes`,
-      color: 'from-terminal-blue/15 to-accent/5'
-    },
-    {
-      name: 'VaultSync',
-      icon: RotateCcw,
-      description: 'Secure environment synchronization',
-      code: `# Sync environments securely
+    color: 'from-terminal-blue/15 to-accent/5'
+  }, {
+    name: 'VaultSync',
+    icon: RotateCcw,
+    description: 'Secure environment synchronization',
+    code: `# Sync environments securely
 gitswhy vault sync --env=staging
 # Encrypted env var management
 # Zero-downtime deployments`,
-      color: 'from-terminal-green/25 to-muted/5'
-    }
-  ];
-
+    color: 'from-terminal-green/25 to-muted/5'
+  }];
   const installCommands = {
     zsh: `echo 'export PATH="$PATH:/usr/local/bin/gitswhy"' >> ~/.zshrc && source ~/.zshrc`,
     bash: `echo 'export PATH="$PATH:/usr/local/bin/gitswhy"' >> ~/.bashrc && source ~/.bashrc`
   };
-
-  return (
-    <div className="min-h-screen bg-background text-foreground">
+  return <div className="min-h-screen bg-background text-foreground">
       <Header />
       
       {/* Hero Section with Terminal Heatmap Background */}
@@ -134,21 +116,17 @@ gitswhy vault sync --env=staging
         {/* Terminal Heatmap Background */}
         <div className="absolute inset-0 opacity-20">
           <div className="grid grid-cols-8 md:grid-cols-12 gap-1 h-full">
-            {Array.from({ length: 96 }).map((_, i) => (
-              <div
-                key={i}
-                className={`
+            {Array.from({
+            length: 96
+          }).map((_, i) => <div key={i} className={`
                   animate-glow-pulse bg-terminal-green/30 rounded-sm
                   ${i % 3 === 0 ? 'animate-delay-100' : ''}
                   ${i % 5 === 0 ? 'animate-delay-300' : ''}
                   ${i % 7 === 0 ? 'bg-terminal-blue/20' : ''}
-                `}
-                style={{
-                  animationDelay: `${(i * 100) % 2000}ms`,
-                  height: `${Math.random() * 60 + 20}px`
-                }}
-              />
-            ))}
+                `} style={{
+            animationDelay: `${i * 100 % 2000}ms`,
+            height: `${Math.random() * 60 + 20}px`
+          }} />)}
           </div>
         </div>
 
@@ -175,10 +153,14 @@ gitswhy vault sync --env=staging
               Self-healing infrastructure, predictive debugging, and autonomous optimization - all open source.
             </p>
 
-            <div className="flex justify-center">
-              <Button size="lg" className="bg-gradient-to-r from-terminal-green to-terminal-blue hover:from-terminal-green/80 hover:to-terminal-blue/80 text-terminal-bg font-mono">
-                <Heart className="mr-2 h-5 w-5" />
-                Add to Wishlist
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button size="lg" className="bg-terminal-green hover:bg-terminal-green/80 text-terminal-bg font-mono mx-px">
+                <Github className="mr-2 h-5 w-5" />
+                Fork on GitHub
+              </Button>
+              <Button variant="outline" size="lg" className="border-terminal-blue text-terminal-blue hover:bg-terminal-blue/10">
+                <Download className="mr-2 h-5 w-5" />
+                Download v2.1.0
               </Button>
             </div>
 
@@ -215,12 +197,9 @@ gitswhy vault sync --env=staging
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {coreModules.map((module, index) => (
-              <Card 
-                key={module.name} 
-                className="group relative overflow-hidden bg-terminal-bg/50 border-terminal-green/20 hover:border-terminal-green/50 transition-all duration-300 hover:transform hover:scale-105 animate-fade-in"
-                style={{ animationDelay: `${index * 150}ms` }}
-              >
+            {coreModules.map((module, index) => <Card key={module.name} className="group relative overflow-hidden bg-terminal-bg/50 border-terminal-green/20 hover:border-terminal-green/50 transition-all duration-300 hover:transform hover:scale-105 animate-fade-in" style={{
+            animationDelay: `${index * 150}ms`
+          }}>
                 <div className={`absolute inset-0 bg-gradient-to-br ${module.color} opacity-0 group-hover:opacity-100 transition-opacity duration-300`} />
                 
                 <CardHeader className="relative z-10">
@@ -242,8 +221,7 @@ gitswhy vault sync --env=staging
                     </pre>
                   </div>
                 </CardContent>
-              </Card>
-            ))}
+              </Card>)}
           </div>
         </div>
       </section>
@@ -272,12 +250,7 @@ gitswhy vault sync --env=staging
                   <code className="flex-1 font-mono text-sm text-terminal-green">
                     {installCommands.zsh}
                   </code>
-                  <Button
-                    size="sm"
-                    variant="ghost"
-                    className="text-terminal-green hover:bg-terminal-green/20"
-                    onClick={() => copyToClipboard(installCommands.zsh, 'zsh')}
-                  >
+                  <Button size="sm" variant="ghost" className="text-terminal-green hover:bg-terminal-green/20" onClick={() => copyToClipboard(installCommands.zsh, 'zsh')}>
                     {copiedCommand === 'zsh' ? '✓' : <Copy className="h-4 w-4" />}
                   </Button>
                 </div>
@@ -292,12 +265,7 @@ gitswhy vault sync --env=staging
                   <code className="flex-1 font-mono text-sm text-terminal-blue">
                     {installCommands.bash}
                   </code>
-                  <Button
-                    size="sm"
-                    variant="ghost"
-                    className="text-terminal-blue hover:bg-terminal-blue/20"
-                    onClick={() => copyToClipboard(installCommands.bash, 'bash')}
-                  >
+                  <Button size="sm" variant="ghost" className="text-terminal-blue hover:bg-terminal-blue/20" onClick={() => copyToClipboard(installCommands.bash, 'bash')}>
                     {copiedCommand === 'bash' ? '✓' : <Copy className="h-4 w-4" />}
                   </Button>
                 </div>
@@ -384,8 +352,6 @@ gitswhy vault sync --env=staging
       </section>
 
       <Footer />
-    </div>
-  );
+    </div>;
 };
-
 export default OpenCore;
