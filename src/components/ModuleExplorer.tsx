@@ -560,35 +560,6 @@ console.log('Vault synchronization completed securely');`,
                         </CardContent>
                       </Card>
 
-                      {/* Interactive Animation */}
-                      <Card className="bg-terminal-surface/40 border-terminal-green/30">
-                        <CardHeader className="pb-3">
-                          <div className="flex items-center justify-between">
-                            <CardTitle className="font-mono text-terminal-green text-sm">
-                              Live Simulation
-                            </CardTitle>
-                            <Button
-                              size="sm"
-                              variant="ghost"
-                              onClick={() => runModule(module.id)}
-                              disabled={runningModules.has(module.id)}
-                              className="text-terminal-green hover:bg-terminal-green/20"
-                            >
-                              {runningModules.has(module.id) ? (
-                                <Pause className="h-4 w-4" />
-                              ) : (
-                                <Play className="h-4 w-4" />
-                              )}
-                            </Button>
-                          </div>
-                        </CardHeader>
-                        <CardContent>
-                          <InteractiveAnimation 
-                            moduleId={module.id} 
-                            isRunning={runningModules.has(module.id)} 
-                          />
-                        </CardContent>
-                      </Card>
 
                       {/* Live Output Terminal */}
                       {moduleOutputs[module.id] && moduleOutputs[module.id].length > 0 && (
