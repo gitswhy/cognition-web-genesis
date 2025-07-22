@@ -67,22 +67,22 @@ const Hero = () => {
               <span className="text-sm font-medium text-terminal-green">Cognition-Native Technology</span>
             </div>
 
-            <div className="space-y-4 lg:space-y-6">
+            <div className="space-y-4 lg:space-y-6 -ml-2">
               <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight">
                 <span className="text-foreground block">
                   {currentLine === 0 ? typedText : lines[0]}
-                  {currentLine === 0 && <span className="terminal-cursor animate-glow-pulse"></span>}
+                  {currentLine === 0 && typedText.length < lines[0].length && <span className="terminal-cursor animate-pulse">|</span>}
                 </span>
                 <span className="text-terminal-green block mt-1 lg:mt-2">
                   {currentLine === 1 ? typedText : (currentLine > 1 ? lines[1] : "")}
-                  {currentLine === 1 && <span className="terminal-cursor animate-glow-pulse"></span>}
+                  {currentLine === 1 && typedText.length < lines[1].length && <span className="terminal-cursor animate-pulse">|</span>}
                 </span>
               </h1>
               
               <p className="text-lg md:text-xl lg:text-2xl text-foreground/80 max-w-xl leading-relaxed">
                 {typedSubhead}
                 {typedSubhead.length < subhead.length && typedSubhead.length > 0 && (
-                  <span className="terminal-cursor animate-glow-pulse"></span>
+                  <span className="terminal-cursor animate-pulse">|</span>
                 )}
               </p>
             </div>
