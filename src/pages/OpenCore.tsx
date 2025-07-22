@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Copy, Github, Star, Download, Terminal, Zap, Database, Shield, RotateCcw } from 'lucide-react';
+import { Copy, Github, Star, Download, Terminal, Zap, Database, Shield, RotateCcw, Trash2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -105,6 +105,16 @@ gitswhy vault sync --env=staging
 # Encrypted env var management
 # Zero-downtime deployments`,
     color: 'from-terminal-green/25 to-muted/5'
+  }, {
+    name: 'AutoClean',
+    icon: Trash2,
+    description: 'Autonomous system maintenance and debris detection',
+    code: `# Intelligent cleanup automation
+gitswhy autoclean --scan
+# Removes unused dependencies
+# Clears stale cache files
+# Optimizes storage usage`,
+    color: 'from-orange-500/20 to-orange-500/5'
   }];
   const installCommands = {
     zsh: `echo 'export PATH="$PATH:/usr/local/bin/gitswhy"' >> ~/.zshrc && source ~/.zshrc`,
