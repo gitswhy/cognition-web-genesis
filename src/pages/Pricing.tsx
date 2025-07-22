@@ -412,7 +412,7 @@ const Pricing = () => {
               </p>
             </div>
             
-            <Card className="bg-card/80 backdrop-blur-sm border-terminal-blue/20">
+            <Card className="bg-terminal-surface/50 backdrop-blur-sm border-terminal-blue/20">
               <CardContent className="p-8">
                 <div className="grid md:grid-cols-2 gap-8">
                   {/* Input Section */}

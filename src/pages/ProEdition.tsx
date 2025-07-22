@@ -192,7 +192,7 @@ const ProEdition = () => {
             const isHovered = hoveredCard === feature.id;
             return <Card key={feature.id} className={`relative group cursor-pointer transition-all duration-300 hover:scale-105 border-terminal-blue/20 bg-gradient-to-br ${feature.gradient} backdrop-blur-sm overflow-hidden`} onMouseEnter={() => setHoveredCard(feature.id)} onMouseLeave={() => setHoveredCard(null)}>
                   {/* Lock Overlay */}
-                  <div className={`absolute inset-0 bg-background/80 backdrop-blur-sm flex items-center justify-center transition-opacity duration-300 ${isHovered ? 'opacity-100' : 'opacity-0'} z-10`}>
+                  <div className={`absolute inset-0 bg-terminal-blue/10 backdrop-blur-sm flex items-center justify-center transition-opacity duration-300 ${isHovered ? 'opacity-100' : 'opacity-0'} z-10`}>
                     <div className="text-center space-y-4">
                       <Lock className="w-12 h-12 text-terminal-blue mx-auto animate-bounce" />
                       <Button className="bg-terminal-blue hover:bg-terminal-blue/90 text-white">
@@ -230,7 +230,7 @@ const ProEdition = () => {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-24 bg-background">
+      <section className="py-24 bg-gradient-to-b from-background to-terminal-blue/5">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold font-mono mb-4">

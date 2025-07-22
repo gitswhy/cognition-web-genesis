@@ -193,7 +193,7 @@ gitswhy vault sync --env=staging
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {coreModules.map((module, index) => <Card key={module.name} className="group relative overflow-hidden bg-terminal-bg/50 border-terminal-green/20 hover:border-terminal-green/50 transition-all duration-300 hover:transform hover:scale-105 animate-fade-in" style={{
+            {coreModules.map((module, index) => <Card key={module.name} className="group relative overflow-hidden bg-terminal-surface/30 border-terminal-green/20 hover:border-terminal-green/50 transition-all duration-300 hover:transform hover:scale-105 animate-fade-in" style={{
             animationDelay: `${index * 150}ms`
           }}>
                 <div className={`absolute inset-0 bg-gradient-to-br ${module.color} opacity-0 group-hover:opacity-100 transition-opacity duration-300`} />
@@ -211,7 +211,7 @@ gitswhy vault sync --env=staging
                 </CardHeader>
 
                 <CardContent className="relative z-10">
-                  <div className="bg-terminal-bg/80 rounded-lg p-4 border border-terminal-green/20 group-hover:border-terminal-green/40 transition-colors">
+                  <div className="bg-terminal-surface/60 rounded-lg p-4 border border-terminal-green/20 group-hover:border-terminal-green/40 transition-colors">
                     <pre className="text-sm font-mono text-terminal-green whitespace-pre-wrap overflow-x-auto">
                       {module.code}
                     </pre>
@@ -237,7 +237,7 @@ gitswhy vault sync --env=staging
             </div>
 
             <div className="space-y-6">
-              <div className="bg-terminal-bg/60 rounded-lg border border-terminal-green/30 p-6">
+              <div className="bg-terminal-surface/40 rounded-lg border border-terminal-green/30 p-6">
                 <h3 className="font-mono font-bold text-terminal-green mb-4 flex items-center gap-2">
                   <Terminal className="h-5 w-5" />
                   For Zsh users
@@ -252,7 +252,7 @@ gitswhy vault sync --env=staging
                 </div>
               </div>
 
-              <div className="bg-terminal-bg/60 rounded-lg border border-terminal-blue/30 p-6">
+              <div className="bg-terminal-surface/40 rounded-lg border border-terminal-blue/30 p-6">
                 <h3 className="font-mono font-bold text-terminal-blue mb-4 flex items-center gap-2">
                   <Terminal className="h-5 w-5" />
                   For Bash users
@@ -299,7 +299,7 @@ gitswhy vault sync --env=staging
           </div>
 
           <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-            <Card className="text-center bg-terminal-bg/50 border-terminal-green/20 hover:border-terminal-green/50 transition-colors">
+            <Card className="text-center bg-terminal-surface/30 border-terminal-green/20 hover:border-terminal-green/50 transition-colors">
               <CardHeader>
                 <Github className="h-12 w-12 text-terminal-green mx-auto mb-4" />
                 <CardTitle className="font-mono">Contribute</CardTitle>
@@ -314,7 +314,7 @@ gitswhy vault sync --env=staging
               </CardContent>
             </Card>
 
-            <Card className="text-center bg-terminal-bg/50 border-terminal-blue/20 hover:border-terminal-blue/50 transition-colors">
+            <Card className="text-center bg-terminal-surface/30 border-terminal-blue/20 hover:border-terminal-blue/50 transition-colors">
               <CardHeader>
                 <Star className="h-12 w-12 text-terminal-blue mx-auto mb-4" />
                 <CardTitle className="font-mono">Star us</CardTitle>
@@ -329,7 +329,7 @@ gitswhy vault sync --env=staging
               </CardContent>
             </Card>
 
-            <Card className="text-center bg-terminal-bg/50 border-primary/20 hover:border-primary/50 transition-colors">
+            <Card className="text-center bg-terminal-surface/30 border-primary/20 hover:border-primary/50 transition-colors">
               <CardHeader>
                 <RotateCcw className="h-12 w-12 text-primary mx-auto mb-4" />
                 <CardTitle className="font-mono">Discuss</CardTitle>
