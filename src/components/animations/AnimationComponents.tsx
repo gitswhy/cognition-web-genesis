@@ -31,14 +31,14 @@ export const AnimatedCard: React.FC<AnimatedCardProps> = ({
       initial={{ opacity: 0, y: prefersReducedMotion ? 0 : 20 }}
       animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: prefersReducedMotion ? 0 : 20 }}
       transition={{ 
-        duration: prefersReducedMotion ? 0.1 : 0.6, 
-        delay: delay * 0.4,
-        ease: "easeOut"
+        duration: prefersReducedMotion ? 0.1 : 0.8, 
+        delay: delay * 0.3,
+        ease: "easeOut" // Enhanced easing curve
       }}
       whileHover={prefersReducedMotion ? {} : { 
         scale: hoverScale,
         y: hoverY,
-        transition: { duration: 0.2 }
+        transition: { duration: 0.3, ease: "easeOut" }
       }}
       className={className}
     >
@@ -87,8 +87,8 @@ export const StaggeredContainer: React.FC<StaggeredContainerProps> = ({
               opacity: 1, 
               y: 0,
               transition: { 
-                duration: 0.6,
-                ease: [0.25, 0.46, 0.45, 0.94]
+                duration: 0.8,
+                ease: "easeOut" // Enhanced spring-like easing
               }
             },
           }}
@@ -239,12 +239,13 @@ export const StaggeredFadeIn: React.FC<StaggeredFadeInProps> = ({
     },
     visible: {
       opacity: 1,
-      y: 0,
-      transition: {
-        duration: prefersReducedMotion ? 0.1 : duration,
-        ease: "easeOut" as const
-      }
+      y: 0
     },
+  };
+
+  const transition = {
+    duration: prefersReducedMotion ? 0.1 : duration,
+    ease: "easeOut" as const
   };
 
   return (
@@ -256,7 +257,7 @@ export const StaggeredFadeIn: React.FC<StaggeredFadeInProps> = ({
       className={className}
     >
       {React.Children.map(children, (child, index) => (
-        <motion.div key={index} variants={childVariants}>
+        <motion.div key={index} variants={childVariants} transition={transition}>
           {child}
         </motion.div>
       ))}
@@ -289,8 +290,8 @@ export const FadeInView: React.FC<FadeInViewProps> = ({
       initial={{ opacity: 0, y: prefersReducedMotion ? 0 : 30 }}
       animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: prefersReducedMotion ? 0 : 30 }}
       transition={{ 
-        duration: prefersReducedMotion ? 0.1 : 0.8, 
-        delay: delay * 0.4,
+        duration: prefersReducedMotion ? 0.1 : 1.0, 
+        delay: delay * 0.3,
         ease: "easeOut"
       }}
       className={className}

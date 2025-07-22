@@ -11,10 +11,10 @@ interface ParticleFieldProps {
 }
 
 const ParticleField: React.FC<ParticleFieldProps> = ({
-  count = 1500,
-  radius = 1.2,
+  count = 800, // Reduced from 1500 for better performance
+  radius = 1.0, // Slightly reduced
   color = '#00ff66',
-  speed = 0.0005
+  speed = 0.0003 // Reduced for smoother animation
 }) => {
   const ref = useRef<THREE.Points>(null);
   
@@ -127,7 +127,7 @@ interface Background3DProps {
 
 const Background3D: React.FC<Background3DProps> = ({
   className = '',
-  particleCount = 1500,
+  particleCount = 800, // Reduced default
   showGeometry = true
 }) => {
   const floatingObjects = useMemo(() => [
@@ -143,20 +143,22 @@ const Background3D: React.FC<Background3DProps> = ({
       <Canvas
         camera={{ position: [0, 0, 1], fov: 60 }}
         gl={{ 
-          antialias: true, 
+          antialias: false, // Disabled for better performance
           alpha: true,
           powerPreference: "high-performance"
         }}
         style={{ background: 'transparent' }}
+        frameloop="demand" // Only render when needed
+        dpr={Math.min(window.devicePixelRatio, 2)} // Use dpr prop for pixel ratio
       >
         <ambientLight intensity={0.1} />
         <pointLight position={[10, 10, 10]} intensity={0.3} />
         
         <ParticleField 
           count={particleCount}
-          radius={1.2}
+          radius={1.0} // Use the optimized radius
           color="#00ff66"
-          speed={0.0005}
+          speed={0.0003} // Use the optimized speed
         />
         
         {showGeometry && floatingObjects.map((obj, index) => (

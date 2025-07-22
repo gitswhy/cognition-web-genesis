@@ -50,7 +50,7 @@ const Hero = () => {
           }, 500);
         }
       }
-    }, 45); // Smoother typing speed
+    }, 35); // Even smoother typing speed
 
     return () => clearInterval(timer);
   }, [currentLine]);
@@ -87,14 +87,14 @@ const Hero = () => {
               </p>
             </div>
 
-            {/* CTAs */}
+            {/* CTAs - Enhanced with better hover effects */}
             <div className="flex flex-col sm:flex-row gap-4 pt-4 lg:pt-6">
-              <Button variant="terminal" size="xl" className="min-w-[180px] lg:min-w-[200px]">
+              <Button variant="terminal" size="xl" className="min-w-[180px] lg:min-w-[200px] hover-lift">
                 Start Free Trial
-                <ChevronRight className="h-5 w-5" />
+                <ChevronRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
               </Button>
-              <Button variant="terminal-outline-blue" size="xl" className="min-w-[180px] lg:min-w-[200px]">
-                <Play className="h-5 w-5" />
+              <Button variant="terminal-outline-blue" size="xl" className="min-w-[180px] lg:min-w-[200px] hover-lift">
+                <Play className="h-5 w-5 transition-transform group-hover:scale-110" />
                 Watch Demo
               </Button>
             </div>
@@ -122,10 +122,10 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* Right Side - Live Terminal */}
+          {/* Right Side - Live Terminal - Enhanced with better animations */}
           <StaggeredFadeIn delay={0.3} staggerDelay={0.4}>
-            <div className="relative">
-              <div className="bg-terminal-surface border border-terminal-green/20 rounded-lg code-matrix shadow-2xl overflow-hidden">
+            <div className="relative hover-lift">
+              <div className="bg-terminal-surface border border-terminal-green/20 rounded-lg code-matrix shadow-2xl overflow-hidden hover:shadow-3xl transition-all duration-500">
                 {/* Terminal Header */}
                 <div className="flex items-center justify-between bg-terminal-bg/50 px-6 py-3 border-b border-terminal-green/20">
                   <div className="flex items-center space-x-2">
@@ -183,9 +183,9 @@ const Hero = () => {
                 </div>
               </div>
 
-              {/* Floating Elements */}
-              <div className="absolute -top-4 -right-4 w-3 h-3 bg-terminal-green rounded-full animate-glow-pulse"></div>
-              <div className="absolute -bottom-4 -left-4 w-2 h-2 bg-terminal-blue rounded-full animate-glow-pulse"></div>
+              {/* Enhanced Floating Elements */}
+              <div className="absolute -top-4 -right-4 w-3 h-3 bg-terminal-green rounded-full animate-glow-pulse animate-subtle-bounce"></div>
+              <div className="absolute -bottom-4 -left-4 w-2 h-2 bg-terminal-blue rounded-full animate-glow-pulse animate-subtle-bounce" style={{animationDelay: '1s'}}></div>
             </div>
           </StaggeredFadeIn>
         </div>

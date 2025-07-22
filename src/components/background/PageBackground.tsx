@@ -33,62 +33,62 @@ const PageBackground: React.FC<PageBackgroundProps> = ({ children, variant }) =>
         return {
           bgGradient: 'bg-gradient-to-br from-terminal-bg via-terminal-surface to-terminal-bg',
           parallaxIntensity: 'intense' as const,
-          particleCount: 1200,
+          particleCount: 800, // Reduced for better performance
           showGeometry: true,
-          gridOpacity: 0.2,
-          gridColor: 'rgba(0, 255, 102, 0.08)',
-          overlayGradient: 'bg-gradient-to-r from-terminal-green/5 via-transparent to-terminal-blue/5'
+          gridOpacity: 0.15,
+          gridColor: 'rgba(0, 255, 102, 0.06)',
+          overlayGradient: 'bg-gradient-to-r from-terminal-green/3 via-transparent to-terminal-blue/3'
         };
       case 'docs':
         return {
-          bgGradient: 'bg-gradient-to-b from-background to-terminal-surface/10',
+          bgGradient: 'bg-gradient-to-b from-background to-terminal-surface/8',
           parallaxIntensity: 'subtle' as const,
-          particleCount: 600,
+          particleCount: 400, // Reduced
           showGeometry: false,
-          gridOpacity: 0.1,
-          gridColor: 'rgba(0, 255, 255, 0.05)',
-          overlayGradient: 'bg-gradient-to-br from-terminal-blue/3 via-transparent to-background'
+          gridOpacity: 0.08,
+          gridColor: 'rgba(0, 255, 255, 0.04)',
+          overlayGradient: 'bg-gradient-to-br from-terminal-blue/2 via-transparent to-background'
         };
       case 'pricing':
         return {
-          bgGradient: 'bg-gradient-to-b from-background to-terminal-blue/10',
+          bgGradient: 'bg-gradient-to-b from-background to-terminal-blue/8',
           parallaxIntensity: 'medium' as const,
-          particleCount: 800,
+          particleCount: 600, // Reduced
           showGeometry: true,
-          gridOpacity: 0.15,
-          gridColor: 'rgba(0, 150, 255, 0.06)',
-          overlayGradient: 'bg-gradient-to-tr from-terminal-blue/4 via-transparent to-terminal-green/4'
+          gridOpacity: 0.12,
+          gridColor: 'rgba(0, 150, 255, 0.05)',
+          overlayGradient: 'bg-gradient-to-tr from-terminal-blue/3 via-transparent to-terminal-green/3'
         };
       case 'about':
         return {
-          bgGradient: 'bg-gradient-to-br from-background to-terminal-green/10',
+          bgGradient: 'bg-gradient-to-br from-background to-terminal-green/8',
           parallaxIntensity: 'medium' as const,
-          particleCount: 900,
+          particleCount: 500, // Reduced
           showGeometry: true,
-          gridOpacity: 0.12,
-          gridColor: 'rgba(0, 255, 102, 0.06)',
-          overlayGradient: 'bg-gradient-to-bl from-terminal-green/4 via-transparent to-background'
+          gridOpacity: 0.1,
+          gridColor: 'rgba(0, 255, 102, 0.05)',
+          overlayGradient: 'bg-gradient-to-bl from-terminal-green/3 via-transparent to-background'
         };
       case 'features':
         return {
-          bgGradient: 'bg-gradient-to-b from-background via-terminal-surface/5 to-background',
+          bgGradient: 'bg-gradient-to-b from-background via-terminal-surface/4 to-background',
           parallaxIntensity: 'medium' as const,
-          particleCount: 700,
+          particleCount: 450, // Reduced
           showGeometry: true,
-          gridOpacity: 0.08,
-          gridColor: 'rgba(128, 128, 255, 0.04)',
-          overlayGradient: 'bg-gradient-to-r from-primary/3 via-transparent to-secondary/3'
+          gridOpacity: 0.06,
+          gridColor: 'rgba(128, 128, 255, 0.03)',
+          overlayGradient: 'bg-gradient-to-r from-primary/2 via-transparent to-secondary/2'
         };
       case 'minimal':
       default:
         return {
-          bgGradient: 'bg-gradient-to-b from-background to-muted/20',
+          bgGradient: 'bg-gradient-to-b from-background to-muted/15',
           parallaxIntensity: 'subtle' as const,
-          particleCount: 400,
+          particleCount: 300, // Reduced
           showGeometry: false,
-          gridOpacity: 0.05,
-          gridColor: 'rgba(100, 100, 100, 0.03)',
-          overlayGradient: 'bg-gradient-to-b from-transparent to-muted/10'
+          gridOpacity: 0.04,
+          gridColor: 'rgba(100, 100, 100, 0.02)',
+          overlayGradient: 'bg-gradient-to-b from-transparent to-muted/8'
         };
     }
   };
@@ -105,9 +105,9 @@ const PageBackground: React.FC<PageBackgroundProps> = ({ children, variant }) =>
           className="z-0" 
         />
         
-        {/* 3D particle field */}
+        {/* Optimized 3D particle field - Reduced opacity for better performance */}
         <Background3D 
-          className="z-10 opacity-60" 
+          className="z-10 opacity-40" 
           particleCount={config.particleCount} 
           showGeometry={config.showGeometry} 
         />

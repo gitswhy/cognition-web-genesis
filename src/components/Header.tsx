@@ -21,9 +21,9 @@ const Header = () => {
       <div className="container mx-auto px-4 lg:px-20">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2 hover:opacity-80 transition-opacity">
-            <Terminal className="h-8 w-8 text-terminal-green" />
-            <span className="text-xl font-bold font-mono text-terminal-green">
+          <Link to="/" className="flex items-center space-x-2 hover:opacity-80 transition-all duration-300 hover-lift">
+            <Terminal className="h-8 w-8 text-terminal-green transition-colors duration-300 hover:text-terminal-blue" />
+            <span className="text-xl font-bold font-mono text-terminal-green transition-colors duration-300 hover:text-terminal-blue">
               Gitswhy<span className="text-terminal-blue">OS</span>
             </span>
           </Link>
@@ -34,7 +34,7 @@ const Header = () => {
               <Link
                 key={item.label}
                 to={item.href}
-                className="text-sm font-medium text-foreground/80 hover:text-terminal-green transition-colors duration-200"
+                className="text-sm font-medium text-foreground/80 hover:text-terminal-green transition-all duration-300 hover:scale-105 relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-terminal-green after:transition-all after:duration-300 hover:after:w-full"
               >
                 {item.label}
               </Link>
@@ -43,10 +43,10 @@ const Header = () => {
 
           {/* CTAs */}
           <div className="hidden lg:flex items-center space-x-4">
-            <Button variant="terminal-outline" size="sm" asChild>
+            <Button variant="terminal-outline" size="sm" asChild className="hover-lift">
               <Link to="/open-core">Try Free Core</Link>
             </Button>
-            <Button variant="terminal-blue" size="sm" asChild>
+            <Button variant="terminal-blue" size="sm" asChild className="hover-lift">
               <Link to="/pro-edition">Start Pro Trial</Link>
             </Button>
           </div>

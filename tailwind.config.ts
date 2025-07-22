@@ -110,16 +110,26 @@ export default {
 				'terminal-typing': {
 					'0%': { width: '0' },
 					'100%': { width: '100%' }
+				},
+				'smooth-bounce': {
+					'0%, 100%': { transform: 'translateY(0px)' },
+					'50%': { transform: 'translateY(-4px)' }
+				},
+				'scale-in-out': {
+					'0%, 100%': { transform: 'scale(1)' },
+					'50%': { transform: 'scale(1.05)' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
-				'matrix-rain': 'matrix-rain 3s linear infinite',
-				'fade-in': 'fade-in 0.6s ease-out',
-				'slide-in': 'slide-in 0.6s ease-out',
-				'glow-pulse': 'glow-pulse 2s ease-in-out infinite',
-				'terminal-typing': 'terminal-typing 2s steps(40, end)'
+				'matrix-rain': 'matrix-rain 4s linear infinite',
+				'fade-in': 'fade-in 0.8s cubic-bezier(0.34, 1.56, 0.64, 1)',
+				'slide-in': 'slide-in 0.8s cubic-bezier(0.34, 1.56, 0.64, 1)',
+				'glow-pulse': 'glow-pulse 3s ease-in-out infinite',
+				'terminal-typing': 'terminal-typing 2s steps(40, end)',
+				'smooth-bounce': 'smooth-bounce 2s ease-in-out infinite',
+				'scale-in-out': 'scale-in-out 2s ease-in-out infinite'
 			}
 		}
 	},
