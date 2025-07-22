@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Lock, Shield, Zap, Users, AlertTriangle, FileCode, TrendingUp, BarChart3, PieChart, Activity, ArrowRight, Star, Check } from 'lucide-react';
+import { Lock, Shield, Zap, Users, AlertTriangle, FileCode, TrendingUp, BarChart3, PieChart, Activity, ArrowRight, Star, Check, Mic, Play } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import EditionComparisonTable from '@/components/EditionComparisonTable';
@@ -243,6 +243,89 @@ const ProEdition = () => {
                   </CardContent>
                 </Card>;
           })}
+          </div>
+        </div>
+      </section>
+
+      {/* Voice Integration Teaser */}
+      <section className="py-16 bg-gradient-to-b from-terminal-surface/20 to-background">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <Card className="relative group cursor-pointer transition-all duration-500 hover:scale-105 border-terminal-blue/30 bg-gradient-to-br from-terminal-blue/10 to-terminal-blue/5 backdrop-blur-sm overflow-hidden">
+              {/* Animated Background Pattern */}
+              <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_35%,rgba(0,212,255,0.05)_50%,transparent_65%)] bg-[length:20px_20px] animate-pulse" />
+              
+              <CardContent className="p-8 lg:p-12 relative z-10">
+                <div className="grid lg:grid-cols-2 gap-8 items-center">
+                  {/* Left Content */}
+                  <div className="space-y-6">
+                    <div className="space-y-4">
+                      <Badge variant="secondary" className="bg-terminal-blue/20 text-terminal-blue border-terminal-blue/30">
+                        Coming Soon
+                      </Badge>
+                      <h3 className="text-3xl lg:text-4xl font-bold font-mono text-terminal-blue">
+                        Voice-Activated Healing
+                      </h3>
+                      <p className="text-lg text-muted-foreground leading-relaxed">
+                        Say "Gitswhy, scan this" for hands-free ops. Control your entire DevSecOps workflow with natural voice commands.
+                      </p>
+                    </div>
+                    
+                    <div className="flex flex-col sm:flex-row gap-4">
+                      <Button className="bg-terminal-blue hover:bg-terminal-blue/90 text-white">
+                        <Play className="mr-2 w-4 h-4" />
+                        Watch Demo
+                      </Button>
+                      <Button variant="outline" className="border-terminal-blue/30 text-terminal-blue hover:bg-terminal-blue/10">
+                        Join Waitlist
+                      </Button>
+                    </div>
+                  </div>
+                  
+                  {/* Right Visual */}
+                  <div className="relative">
+                    <div className="bg-terminal-surface/50 rounded-xl p-8 border border-terminal-blue/20">
+                      {/* Microphone Icon */}
+                      <div className="text-center space-y-6">
+                        <div className="relative inline-block">
+                          <Mic className="w-16 h-16 text-terminal-blue mx-auto" />
+                          
+                          {/* Animated Waveform */}
+                          <div className="flex items-end justify-center gap-1 mt-4 group-hover:animate-pulse">
+                            {[...Array(7)].map((_, i) => (
+                              <div
+                                key={i}
+                                className="bg-terminal-blue rounded-full transition-all duration-300 group-hover:bg-terminal-blue/80"
+                                style={{
+                                  width: '3px',
+                                  height: `${12 + (i % 3) * 8}px`,
+                                  animationDelay: `${i * 0.1}s`,
+                                }}
+                              />
+                            ))}
+                          </div>
+                        </div>
+                        
+                        {/* Command Example */}
+                        <div className="bg-terminal-bg/80 rounded-lg p-4 border border-terminal-blue/20">
+                          <div className="font-mono text-sm text-terminal-blue">
+                            <div className="text-terminal-green mb-2">$ listening...</div>
+                            <div className="text-terminal-blue">"Gitswhy, scan this file"</div>
+                            <div className="text-muted-foreground text-xs mt-2">
+                              ✓ Voice command recognized
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    {/* Floating Elements */}
+                    <div className="absolute -top-4 -right-4 w-8 h-8 bg-terminal-blue/20 rounded-full animate-bounce" style={{ animationDelay: '0s' }} />
+                    <div className="absolute -bottom-2 -left-2 w-6 h-6 bg-terminal-blue/30 rounded-full animate-bounce" style={{ animationDelay: '0.5s' }} />
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
