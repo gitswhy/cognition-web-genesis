@@ -191,11 +191,8 @@ const EditionComparisonTable = () => {
                   </div>
                   
                   {/* Pro Edition Header */}
-                  <div className="p-4 text-center border-l border-border bg-gradient-to-br from-terminal-blue/10 to-terminal-blue/5 relative">
-                    <Badge className="absolute -top-2 left-1/2 -translate-x-1/2 bg-terminal-blue text-white text-xs">
-                      Popular
-                    </Badge>
-                    <div className="space-y-2 pt-1">
+                  <div className="p-4 text-center border-l border-border bg-gradient-to-br from-terminal-blue/10 to-terminal-blue/5">
+                    <div className="space-y-2">
                       <h3 className="font-mono font-bold text-lg text-terminal-blue">Pro</h3>
                       <div className="space-y-1">
                         <div className="text-2xl font-mono font-bold text-terminal-blue">
