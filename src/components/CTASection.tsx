@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ChevronRight, Play, Rocket, Shield } from "lucide-react";
 
@@ -19,14 +20,18 @@ const CTASection = () => {
 
           {/* Primary CTAs */}
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
-            <Button variant="terminal" size="xl" className="min-w-[220px] group">
-              <Rocket className="h-5 w-5 group-hover:animate-bounce" />
-              Start Free Trial
-              <ChevronRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
+            <Button variant="terminal" size="xl" className="min-w-[220px] group" asChild>
+              <Link to="/pro-edition">
+                <Rocket className="h-5 w-5 group-hover:animate-bounce" />
+                Start Free Trial
+                <ChevronRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
+              </Link>
             </Button>
-            <Button variant="terminal-outline-blue" size="xl" className="min-w-[220px] group">
-              <Play className="h-5 w-5 group-hover:scale-110 transition-transform" />
-              Watch Demo
+            <Button variant="terminal-outline-blue" size="xl" className="min-w-[220px] group" asChild>
+              <Link to="/how-it-works">
+                <Play className="h-5 w-5 group-hover:scale-110 transition-transform" />
+                Watch Demo
+              </Link>
             </Button>
           </div>
 
