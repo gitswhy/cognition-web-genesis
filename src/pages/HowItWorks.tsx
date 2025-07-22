@@ -38,19 +38,25 @@ const HowItWorks = () => {
   useEffect(() => {
     const handleScroll = () => {
       const sections = document.querySelectorAll('[data-step]');
-      const scrollPosition = window.scrollY + window.innerHeight / 2;
+      const scrollPosition = window.scrollY + window.innerHeight * 0.3; // Adjusted threshold
 
+      let newActiveStep = 0;
       sections.forEach((section, index) => {
         const element = section as HTMLElement;
         const offsetTop = element.offsetTop;
         const offsetBottom = offsetTop + element.offsetHeight;
 
         if (scrollPosition >= offsetTop && scrollPosition < offsetBottom) {
-          setActiveStep(index);
+          newActiveStep = index;
         }
       });
+      
+      setActiveStep(newActiveStep);
     };
 
+    // Call initially to set correct active step
+    handleScroll();
+    
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
