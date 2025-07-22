@@ -1,13 +1,233 @@
-import { useState } from 'react';
-import { ChevronDown, Play, Code, Cpu, Database, Shield, RotateCcw, Zap, Terminal } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { ChevronDown, Play, Code, Cpu, Database, Shield, RotateCcw, Zap, Terminal, Pause, RotateCw, Activity, Settings } from 'lucide-react';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
+import { Slider } from '@/components/ui/slider';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { tomorrow } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
 const ModuleExplorer = () => {
   const [activeModule, setActiveModule] = useState<string | null>(null);
+  const [runningModules, setRunningModules] = useState<Set<string>>(new Set());
+  const [moduleOutputs, setModuleOutputs] = useState<Record<string, string[]>>({});
+  const [moduleParams, setModuleParams] = useState<Record<string, Record<string, number>>>({
+    bootstrapper: { aggressiveness: 75, adaptivity: 80 },
+    overclock: { performance: 85, optimization: 90 },
+    quantumflush: { quantum: 70, temporal: 60 },
+    autoclean: { safety: 95, scope: 65 },
+    coremirror: { sensitivity: 80, tracking: 85 },
+    vaultsync: { security: 100, sync: 75 }
+  });
+
+  const runModule = async (moduleId: string) => {
+    setRunningModules(prev => new Set([...prev, moduleId]));
+    setModuleOutputs(prev => ({ ...prev, [moduleId]: [] }));
+
+    const outputs = getModuleSimulation(moduleId, moduleParams[moduleId]);
+    
+    for (let i = 0; i < outputs.length; i++) {
+      await new Promise(resolve => setTimeout(resolve, 800));
+      setModuleOutputs(prev => ({
+        ...prev,
+        [moduleId]: [...(prev[moduleId] || []), outputs[i]]
+      }));
+    }
+
+    setTimeout(() => {
+      setRunningModules(prev => {
+        const newSet = new Set(prev);
+        newSet.delete(moduleId);
+        return newSet;
+      });
+    }, 1000);
+  };
+
+  const getModuleSimulation = (moduleId: string, params: Record<string, number>) => {
+    const simulations: Record<string, string[]> = {
+      bootstrapper: [
+        `🔍 Detecting development environment...`,
+        `✅ Found: React ${Math.floor(Math.random() * 5) + 16}.x, TypeScript, Vite`,
+        `⚙️  Configuring optimal settings (aggressiveness: ${params.aggressiveness}%)...`,
+        `🚀 Bootstrap completed with ${params.adaptivity}% adaptivity`,
+        `📊 Environment optimized for cognitive development patterns`
+      ],
+      overclock: [
+        `📈 Monitoring system performance...`,
+        `⚡ CPU utilization: ${Math.floor(Math.random() * 30) + 40}% → ${Math.floor(Math.random() * 20) + 70}%`,
+        `🧠 Applying ${params.performance}% performance optimization...`,
+        `🔧 Build time reduced by ${Math.floor(Math.random() * 30) + 25}%`,
+        `✨ System overclocked with ${params.optimization}% efficiency`
+      ],
+      quantumflush: [
+        `🌌 Initializing quantum cache analysis...`,
+        `🔬 Quantum superposition enabled (${params.quantum}% coherence)`,
+        `⏰ Temporal mapping active (${params.temporal}% accuracy)`,
+        `🧹 Flushing ${Math.floor(Math.random() * 50) + 20} stale cache entries...`,
+        `⚛️  Quantum cache optimization complete`
+      ],
+      autoclean: [
+        `🔍 Scanning for system debris...`,
+        `📁 Found ${Math.floor(Math.random() * 100) + 50} unused files`,
+        `🛡️  Safety level: ${params.safety}% (paranoid mode)`,
+        `🗑️  Cleaning with ${params.scope}% scope coverage...`,
+        `✨ Autonomous cleaning cycle completed safely`
+      ],
+      coremirror: [
+        `👀 Activating cognitive tracking...`,
+        `⌨️  Keystroke velocity: ${Math.floor(Math.random() * 50) + 80} WPM`,
+        `🧠 Cognitive drift detected: ${params.sensitivity}% sensitivity`,
+        `📊 Focus intensity: ${params.tracking}% tracking accuracy`,
+        `🔄 Real-time mirroring synchronized`
+      ],
+      vaultsync: [
+        `🔐 Initializing quantum-safe encryption...`,
+        `🌐 Syncing environments with ${params.security}% security`,
+        `🔑 Post-quantum crypto keys generated`,
+        `📡 Bidirectional sync: ${params.sync}% completion`,
+        `✅ Vault synchronization completed securely`
+      ]
+    };
+    return simulations[moduleId] || [];
+  };
+
+  const InteractiveAnimation = ({ moduleId, isRunning }: { moduleId: string; isRunning: boolean }) => {
+    const [animationState, setAnimationState] = useState(0);
+
+    useEffect(() => {
+      if (!isRunning) return;
+      
+      const interval = setInterval(() => {
+        setAnimationState(prev => (prev + 1) % 360);
+      }, 50);
+
+      return () => clearInterval(interval);
+    }, [isRunning]);
+
+    const getAnimationContent = () => {
+      switch (moduleId) {
+        case 'bootstrapper':
+          return (
+            <div className="flex items-center justify-center space-x-2">
+              <Terminal className={`h-6 w-6 text-terminal-green ${isRunning ? 'animate-pulse' : ''}`} />
+              <div className="grid grid-cols-3 gap-1">
+                {[...Array(9)].map((_, i) => (
+                  <div
+                    key={i}
+                    className={`w-2 h-2 rounded-full ${
+                      isRunning && i <= (animationState / 40) % 9 
+                        ? 'bg-terminal-green' 
+                        : 'bg-terminal-green/20'
+                    }`}
+                  />
+                ))}
+              </div>
+            </div>
+          );
+        case 'overclock':
+          return (
+            <div className="flex items-center justify-center">
+              <Zap 
+                className={`h-8 w-8 text-terminal-blue ${isRunning ? 'animate-spin' : ''}`}
+                style={isRunning ? { transform: `rotate(${animationState}deg)` } : {}}
+              />
+              <div className="ml-2 flex flex-col space-y-1">
+                {[...Array(4)].map((_, i) => (
+                  <div
+                    key={i}
+                    className={`h-1 rounded-full transition-all duration-300 ${
+                      isRunning ? 'bg-terminal-blue' : 'bg-terminal-blue/20'
+                    }`}
+                    style={{
+                      width: isRunning ? `${20 + (animationState / 6) % 40}px` : '20px'
+                    }}
+                  />
+                ))}
+              </div>
+            </div>
+          );
+        case 'quantumflush':
+          return (
+            <div className="relative flex items-center justify-center">
+              <Database className="h-6 w-6 text-purple-400" />
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div
+                  className={`w-12 h-12 border-2 border-purple-400/30 rounded-full ${
+                    isRunning ? 'animate-spin' : ''
+                  }`}
+                  style={isRunning ? { 
+                    transform: `rotate(${animationState}deg) scale(${1 + Math.sin(animationState / 10) * 0.2})` 
+                  } : {}}
+                />
+              </div>
+            </div>
+          );
+        case 'autoclean':
+          return (
+            <div className="flex items-center justify-center space-x-2">
+              <RotateCcw 
+                className={`h-6 w-6 text-green-400 ${isRunning ? 'animate-spin' : ''}`}
+              />
+              <div className="flex space-x-1">
+                {[...Array(5)].map((_, i) => (
+                  <div
+                    key={i}
+                    className={`w-1 h-8 rounded-full transition-all duration-500 ${
+                      isRunning && (animationState / 20) % 5 > i
+                        ? 'bg-green-400 scale-y-100' 
+                        : 'bg-green-400/20 scale-y-25'
+                    }`}
+                  />
+                ))}
+              </div>
+            </div>
+          );
+        case 'coremirror':
+          return (
+            <div className="flex items-center justify-center space-x-2">
+              <Shield className="h-6 w-6 text-blue-400" />
+              <div className="relative w-16 h-8">
+                <div
+                  className={`absolute inset-0 bg-gradient-to-r from-blue-400/20 to-blue-400/50 rounded ${
+                    isRunning ? 'animate-pulse' : ''
+                  }`}
+                  style={isRunning ? {
+                    transform: `scaleX(${0.5 + Math.sin(animationState / 10) * 0.5})`
+                  } : {}}
+                />
+              </div>
+            </div>
+          );
+        case 'vaultsync':
+          return (
+            <div className="flex items-center justify-center space-x-2">
+              <Cpu className="h-6 w-6 text-orange-400" />
+              <div className="flex space-x-1">
+                {[...Array(3)].map((_, i) => (
+                  <div
+                    key={i}
+                    className={`w-2 h-6 rounded-full transition-all duration-300 ${
+                      isRunning 
+                        ? `bg-orange-400 opacity-${Math.floor((Math.sin(animationState / 10 + i) + 1) * 50 + 20)}`
+                        : 'bg-orange-400/20'
+                    }`}
+                  />
+                ))}
+              </div>
+            </div>
+          );
+        default:
+          return <Activity className="h-6 w-6 text-terminal-green" />;
+      }
+    };
+
+    return (
+      <div className="h-24 rounded-lg bg-gradient-to-br from-terminal-green/5 to-terminal-blue/5 border border-terminal-green/20 flex items-center justify-center">
+        {getAnimationContent()}
+      </div>
+    );
+  };
 
   const modules = [
     {
@@ -296,7 +516,7 @@ console.log('Vault synchronization completed securely');`,
 
                 <AccordionContent className="px-6 pb-6">
                   <div className="grid lg:grid-cols-2 gap-6 mt-4">
-                    {/* Left side - Description and Animation */}
+                    {/* Left side - Description, Animation and Controls */}
                     <div className="space-y-4">
                       <Card className="bg-terminal-surface/40 border-terminal-green/30">
                         <CardHeader>
@@ -306,35 +526,93 @@ console.log('Vault synchronization completed securely');`,
                           </CardTitle>
                         </CardHeader>
                         <CardContent>
-                          <p className="text-muted-foreground leading-relaxed">
+                          <p className="text-muted-foreground leading-relaxed mb-4">
                             {module.description}
                           </p>
+                          
+                          {/* Interactive Controls */}
+                          <div className="space-y-3">
+                            <h4 className="font-mono text-sm text-terminal-green flex items-center gap-2">
+                              <Settings className="h-4 w-4" />
+                              Interactive Parameters
+                            </h4>
+                            {Object.entries(moduleParams[module.id] || {}).map(([param, value]) => (
+                              <div key={param} className="space-y-1">
+                                <div className="flex justify-between text-xs">
+                                  <span className="text-muted-foreground capitalize font-mono">{param}</span>
+                                  <span className="text-terminal-green font-mono">{value}%</span>
+                                </div>
+                                <Slider
+                                  value={[value]}
+                                  onValueChange={([newValue]) => {
+                                    setModuleParams(prev => ({
+                                      ...prev,
+                                      [module.id]: { ...prev[module.id], [param]: newValue }
+                                    }));
+                                  }}
+                                  max={100}
+                                  step={5}
+                                  className="w-full"
+                                />
+                              </div>
+                            ))}
+                          </div>
                         </CardContent>
                       </Card>
 
-                      {/* Animation placeholder - using a styled div for now */}
+                      {/* Interactive Animation */}
                       <Card className="bg-terminal-surface/40 border-terminal-green/30">
-                        <CardContent className="p-6">
-                          <div className="h-32 rounded-lg bg-gradient-to-br from-terminal-green/10 to-terminal-blue/10 border border-terminal-green/20 flex items-center justify-center">
-                            <div className="flex items-center gap-3">
-                              <module.icon className="h-8 w-8 text-terminal-green animate-pulse" />
-                              <span className="font-mono text-sm text-muted-foreground">
-                                {module.animation} animation
-                              </span>
-                            </div>
+                        <CardHeader className="pb-3">
+                          <div className="flex items-center justify-between">
+                            <CardTitle className="font-mono text-terminal-green text-sm">
+                              Live Simulation
+                            </CardTitle>
+                            <Button
+                              size="sm"
+                              variant="ghost"
+                              onClick={() => runModule(module.id)}
+                              disabled={runningModules.has(module.id)}
+                              className="text-terminal-green hover:bg-terminal-green/20"
+                            >
+                              {runningModules.has(module.id) ? (
+                                <Pause className="h-4 w-4" />
+                              ) : (
+                                <Play className="h-4 w-4" />
+                              )}
+                            </Button>
                           </div>
+                        </CardHeader>
+                        <CardContent>
+                          <InteractiveAnimation 
+                            moduleId={module.id} 
+                            isRunning={runningModules.has(module.id)} 
+                          />
                         </CardContent>
                       </Card>
                     </div>
 
-                    {/* Right side - Code Example */}
+                    {/* Right side - Code Example and Output */}
                     <div className="space-y-4">
                       <div className="flex items-center justify-between">
-                        <h4 className="font-mono font-bold text-terminal-green">Code Example</h4>
-                        <div className="flex items-center gap-2">
-                          <Play className="h-4 w-4 text-terminal-green" />
-                          <span className="text-sm font-mono text-muted-foreground">Interactive</span>
-                        </div>
+                        <h4 className="font-mono font-bold text-terminal-green">Interactive Code</h4>
+                        <Button
+                          size="sm"
+                          onClick={() => runModule(module.id)}
+                          disabled={runningModules.has(module.id)}
+                          className="bg-terminal-green hover:bg-terminal-green/80 text-terminal-bg font-mono"
+                        >
+                          {runningModules.has(module.id) ? (
+                            <>
+                              <RotateCw className="h-4 w-4 mr-2 animate-spin" />
+                              Running...
+                            </>
+                          ) : (
+                            <>
+                              <Play className="h-4 w-4 mr-2" />
+                              Run Code
+                            </>
+                          )}
+                        </Button>
                       </div>
                       
                       <div className="rounded-lg overflow-hidden border border-terminal-green/20 hover:border-terminal-green/40 transition-colors duration-300">
@@ -357,6 +635,37 @@ console.log('Vault synchronization completed securely');`,
                           {module.code}
                         </SyntaxHighlighter>
                       </div>
+
+                      {/* Live Output Terminal */}
+                      {moduleOutputs[module.id] && moduleOutputs[module.id].length > 0 && (
+                        <Card className="bg-terminal-surface/60 border-terminal-green/30">
+                          <CardHeader className="pb-2">
+                            <CardTitle className="font-mono text-terminal-green text-sm flex items-center gap-2">
+                              <Terminal className="h-4 w-4" />
+                              Live Output
+                            </CardTitle>
+                          </CardHeader>
+                          <CardContent>
+                            <div className="bg-terminal-bg/80 rounded-lg p-4 border border-terminal-green/20 font-mono text-sm">
+                              {moduleOutputs[module.id].map((output, idx) => (
+                                <div
+                                  key={idx}
+                                  className="text-terminal-green animate-fade-in mb-1"
+                                  style={{ animationDelay: `${idx * 100}ms` }}
+                                >
+                                  {output}
+                                </div>
+                              ))}
+                              {runningModules.has(module.id) && (
+                                <div className="flex items-center text-terminal-green mt-2">
+                                  <span className="animate-pulse">▋</span>
+                                  <span className="ml-2 text-muted-foreground">Processing...</span>
+                                </div>
+                              )}
+                            </div>
+                          </CardContent>
+                        </Card>
+                      )}
                     </div>
                   </div>
 
