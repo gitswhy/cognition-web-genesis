@@ -516,7 +516,7 @@ console.log('Vault synchronization completed securely');`,
 
                 <AccordionContent className="px-6 pb-6">
                   <div className="grid lg:grid-cols-2 gap-6 mt-4">
-                    {/* Left side - Description, Animation and Controls */}
+                     {/* Left side - Description, Animation and Controls */}
                     <div className="space-y-4">
                       <Card className="bg-terminal-surface/40 border-terminal-green/30">
                         <CardHeader>
@@ -589,9 +589,40 @@ console.log('Vault synchronization completed securely');`,
                           />
                         </CardContent>
                       </Card>
+
+                      {/* Live Output Terminal */}
+                      {moduleOutputs[module.id] && moduleOutputs[module.id].length > 0 && (
+                        <Card className="bg-terminal-surface/60 border-terminal-green/30">
+                          <CardHeader className="pb-2">
+                            <CardTitle className="font-mono text-terminal-green text-sm flex items-center gap-2">
+                              <Terminal className="h-4 w-4" />
+                              Live Output
+                            </CardTitle>
+                          </CardHeader>
+                          <CardContent>
+                            <div className="bg-terminal-bg/80 rounded-lg p-4 border border-terminal-green/20 font-mono text-sm">
+                              {moduleOutputs[module.id].map((output, idx) => (
+                                <div
+                                  key={idx}
+                                  className="text-terminal-green animate-fade-in mb-1"
+                                  style={{ animationDelay: `${idx * 100}ms` }}
+                                >
+                                  {output}
+                                </div>
+                              ))}
+                              {runningModules.has(module.id) && (
+                                <div className="flex items-center text-terminal-green mt-2">
+                                  <span className="animate-pulse">▋</span>
+                                  <span className="ml-2 text-muted-foreground">Processing...</span>
+                                </div>
+                              )}
+                            </div>
+                          </CardContent>
+                        </Card>
+                      )}
                     </div>
 
-                    {/* Right side - Code Example and Output */}
+                     {/* Right side - Code Example and Output */}
                     <div className="space-y-4">
                       <div className="flex items-center justify-between">
                         <h4 className="font-mono font-bold text-terminal-green">Interactive Code</h4>
@@ -635,37 +666,6 @@ console.log('Vault synchronization completed securely');`,
                           {module.code}
                         </SyntaxHighlighter>
                       </div>
-
-                      {/* Live Output Terminal */}
-                      {moduleOutputs[module.id] && moduleOutputs[module.id].length > 0 && (
-                        <Card className="bg-terminal-surface/60 border-terminal-green/30">
-                          <CardHeader className="pb-2">
-                            <CardTitle className="font-mono text-terminal-green text-sm flex items-center gap-2">
-                              <Terminal className="h-4 w-4" />
-                              Live Output
-                            </CardTitle>
-                          </CardHeader>
-                          <CardContent>
-                            <div className="bg-terminal-bg/80 rounded-lg p-4 border border-terminal-green/20 font-mono text-sm">
-                              {moduleOutputs[module.id].map((output, idx) => (
-                                <div
-                                  key={idx}
-                                  className="text-terminal-green animate-fade-in mb-1"
-                                  style={{ animationDelay: `${idx * 100}ms` }}
-                                >
-                                  {output}
-                                </div>
-                              ))}
-                              {runningModules.has(module.id) && (
-                                <div className="flex items-center text-terminal-green mt-2">
-                                  <span className="animate-pulse">▋</span>
-                                  <span className="ml-2 text-muted-foreground">Processing...</span>
-                                </div>
-                              )}
-                            </div>
-                          </CardContent>
-                        </Card>
-                      )}
                     </div>
                   </div>
 
