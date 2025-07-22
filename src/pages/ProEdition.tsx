@@ -87,10 +87,8 @@ const ProEdition = () => {
                 Enterprise DevSecOps
               </Badge>
               <h1 className="text-5xl lg:text-7xl font-bold font-mono tracking-tight">
-                <DynamicHeadline 
-                  baseText="Gitswhy Pro for [Location] Teams"
-                  fallbackLocation="Global"
-                />
+                <span className="text-terminal-blue">Gitswhy</span>{' '}
+                <span className="text-foreground">Pro</span>
               </h1>
               <p className="text-xl text-muted-foreground max-w-lg">
                 Enterprise-grade cognition engine with AI-powered risk detection, 
