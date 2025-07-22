@@ -148,10 +148,7 @@ const HowItWorks = () => {
             Step-by-Step Guide
           </Badge>
           <h1 className="text-5xl lg:text-7xl font-bold font-mono mb-6">
-            <DynamicHeadline 
-              baseText="How Gitswhy Works for [Location] Developers"
-              fallbackLocation="Global"
-            />
+            How <span className="text-terminal-green">Gitswhy</span> Works
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
             From installation to team insights, discover how Gitswhy OS transforms 
