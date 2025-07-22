@@ -11,6 +11,7 @@ import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/component
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { vscDarkPlus, vs } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import PageBackground from '@/components/background/PageBackground';
+import Header from '@/components/Header';
 
 interface DocSection {
   id: string;
@@ -717,8 +718,10 @@ export default function Docs() {
 
   return (
     <PageBackground variant="docs">
-      {/* Header */}
-      <header className="sticky top-0 z-50 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      <Header />
+      
+      {/* Docs Header */}
+      <header className="border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div className="container mx-auto flex h-16 items-center justify-between px-4">
           <div className="flex items-center gap-4">
             <Button
@@ -730,12 +733,7 @@ export default function Docs() {
               <Menu className="h-4 w-4" />
             </Button>
             
-            <Link to="/" className="flex items-center gap-2">
-              <Terminal className="h-6 w-6 text-primary" />
-              <span className="font-bold">Gitswhy OS</span>
-            </Link>
-
-            <Badge variant="outline">Docs</Badge>
+            <Badge variant="outline">Documentation</Badge>
           </div>
 
           <div className="flex items-center gap-4">
@@ -758,7 +756,6 @@ export default function Docs() {
               <option value="v1.9">v1.9</option>
               <option value="v1.8">v1.8</option>
             </select>
-
           </div>
         </div>
       </header>

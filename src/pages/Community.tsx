@@ -20,6 +20,8 @@ import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Separator } from '@/components/ui/separator';
+import PageBackground from '@/components/background/PageBackground';
+import Header from '@/components/Header';
 
 interface GitHubIssue {
   id: number;
@@ -263,37 +265,40 @@ export default function Community() {
   const [activeTab, setActiveTab] = useState('github');
 
   return (
-    <div className="min-h-screen bg-background">
-      {/* SEO Meta Tags */}
-      <head>
-        <title>Community - Gitswhy OS | Open Source DevSecOps Community</title>
-        <meta name="description" content="Join the Gitswhy OS community. Contribute to open source, connect with developers, and help build the future of DevSecOps." />
-        <meta name="keywords" content="open source, community, DevSecOps, contribute, GitHub, Discord, developers" />
-        
-        {/* Open Graph */}
-        <meta property="og:title" content="Community - Gitswhy OS" />
-        <meta property="og:description" content="Join the Gitswhy OS community and help build the future of DevSecOps." />
-        <meta property="og:image" content="https://gitswhy.com/og-community.png" />
-        <meta property="og:url" content="https://gitswhy.com/community" />
-        <meta property="og:type" content="website" />
-        
-        {/* Twitter Card */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Community - Gitswhy OS" />
-        <meta name="twitter:description" content="Join our open source community and contribute to DevSecOps." />
-        <meta name="twitter:image" content="https://gitswhy.com/og-community.png" />
-        
-        <link rel="canonical" href="https://gitswhy.com/community" />
-      </head>
+    <PageBackground variant="about">
+      <Header />
+      
+      <div className="min-h-screen">
+        {/* SEO Meta Tags */}
+        <head>
+          <title>Community - Gitswhy OS | Open Source DevSecOps Community</title>
+          <meta name="description" content="Join the Gitswhy OS community. Contribute to open source, connect with developers, and help build the future of DevSecOps." />
+          <meta name="keywords" content="open source, community, DevSecOps, contribute, GitHub, Discord, developers" />
+          
+          {/* Open Graph */}
+          <meta property="og:title" content="Community - Gitswhy OS" />
+          <meta property="og:description" content="Join the Gitswhy OS community and help build the future of DevSecOps." />
+          <meta property="og:image" content="https://gitswhy.com/og-community.png" />
+          <meta property="og:url" content="https://gitswhy.com/community" />
+          <meta property="og:type" content="website" />
+          
+          {/* Twitter Card */}
+          <meta name="twitter:card" content="summary_large_image" />
+          <meta name="twitter:title" content="Community - Gitswhy OS" />
+          <meta name="twitter:description" content="Join our open source community and contribute to DevSecOps." />
+          <meta name="twitter:image" content="https://gitswhy.com/og-community.png" />
+          
+          <link rel="canonical" href="https://gitswhy.com/community" />
+        </head>
 
-      {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-primary/5 to-secondary/5 py-16">
+        {/* Hero Section */}
+        <section className="relative py-16">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center space-y-6">
             <h1 className="text-4xl md:text-5xl font-bold">
-              Join Our <span className="text-primary">Community</span>
+              Join Our <span className="text-terminal-green">Community</span>
             </h1>
-            <p className="text-xl text-muted-foreground">
+            <p className="text-xl text-foreground/80">
               Connect with developers, security experts, and DevOps engineers building 
               the future of secure software development.
             </p>
@@ -302,31 +307,31 @@ export default function Community() {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-8">
               <div className="text-center animate-fade-in" style={{ animationDelay: '100ms' }}>
                 <div className="flex items-center justify-center gap-1 text-2xl font-bold">
-                  <Star className="w-5 h-5 text-yellow-500" />
+                  <Star className="w-5 h-5 text-terminal-green" />
                   {communityStats.githubStars.toLocaleString()}
                 </div>
-                <p className="text-sm text-muted-foreground">GitHub Stars</p>
+                <p className="text-sm text-foreground/70">GitHub Stars</p>
               </div>
               <div className="text-center animate-fade-in" style={{ animationDelay: '200ms' }}>
                 <div className="flex items-center justify-center gap-1 text-2xl font-bold">
-                  <Users className="w-5 h-5 text-blue-500" />
+                  <Users className="w-5 h-5 text-terminal-blue" />
                   {communityStats.contributors}
                 </div>
-                <p className="text-sm text-muted-foreground">Contributors</p>
+                <p className="text-sm text-foreground/70">Contributors</p>
               </div>
               <div className="text-center animate-fade-in" style={{ animationDelay: '300ms' }}>
                 <div className="flex items-center justify-center gap-1 text-2xl font-bold">
-                  <AlertCircle className="w-5 h-5 text-green-500" />
+                  <AlertCircle className="w-5 h-5 text-terminal-green" />
                   {communityStats.openIssues}
                 </div>
-                <p className="text-sm text-muted-foreground">Open Issues</p>
+                <p className="text-sm text-foreground/70">Open Issues</p>
               </div>
               <div className="text-center animate-fade-in" style={{ animationDelay: '400ms' }}>
                 <div className="flex items-center justify-center gap-1 text-2xl font-bold">
-                  <MessageCircle className="w-5 h-5 text-purple-500" />
+                  <MessageCircle className="w-5 h-5 text-terminal-blue" />
                   {communityStats.discordMembers.toLocaleString()}
                 </div>
-                <p className="text-sm text-muted-foreground">Discord Members</p>
+                <p className="text-sm text-foreground/70">Discord Members</p>
               </div>
             </div>
           </div>
@@ -347,9 +352,9 @@ export default function Community() {
               <div className="space-y-8">
                 <div className="text-center">
                   <h2 className="text-3xl font-bold mb-4">
-                    Latest from <span className="text-primary">GitHub</span>
+                    Latest from <span className="text-terminal-green">GitHub</span>
                   </h2>
-                  <p className="text-muted-foreground max-w-2xl mx-auto">
+                  <p className="text-foreground/80 max-w-2xl mx-auto">
                     Stay updated with the latest issues, discussions, and contributions 
                     to the Gitswhy OS open source project.
                   </p>
@@ -383,9 +388,9 @@ export default function Community() {
               <div className="space-y-8">
                 <div className="text-center">
                   <h2 className="text-3xl font-bold mb-4">
-                    Join Our <span className="text-primary">Discord</span>
+                    Join Our <span className="text-terminal-blue">Discord</span>
                   </h2>
-                  <p className="text-muted-foreground max-w-2xl mx-auto">
+                  <p className="text-foreground/80 max-w-2xl mx-auto">
                     Connect with the community in real-time. Get help, share ideas, 
                     and collaborate with fellow developers.
                   </p>
@@ -550,5 +555,6 @@ export default function Community() {
         }}
       />
     </div>
+    </PageBackground>
   );
 }
