@@ -32,7 +32,7 @@ const Hero = () => {
           setTimeout(() => {
             setCurrentLine(currentLine + 1);
             setTypedText("");
-          }, 500);
+          }, 100);
         } else {
           // Start subhead typing
           setTimeout(() => {
