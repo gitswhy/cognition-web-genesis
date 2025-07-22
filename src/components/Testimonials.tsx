@@ -70,7 +70,7 @@ const Testimonials = () => {
   const currentTestimonial = testimonials[currentIndex];
 
   return (
-    <section className="py-20 bg-gradient-to-r from-terminal-surface/50 to-terminal-bg/50">
+    <section className="py-20">{/* Consistent background from PageBackground */}
       <div className="container mx-auto px-4 lg:px-20">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">

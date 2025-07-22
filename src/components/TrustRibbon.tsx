@@ -22,7 +22,7 @@ const TrustRibbon = () => {
   }, []);
 
   return (
-    <section className="py-12 border-y border-terminal-green/10 bg-terminal-surface/30 backdrop-blur-sm">
+    <section className="py-12 border-y border-terminal-green/10">{/* Consistent background from PageBackground */}
       <div className="container mx-auto px-4 lg:px-20">
         <div className="text-center mb-8">
           <p className="text-sm text-foreground/60 font-medium tracking-wide uppercase">
