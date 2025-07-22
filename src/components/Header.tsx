@@ -21,11 +21,40 @@ const Header = () => {
       <div className="container mx-auto px-4 lg:px-20">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2 hover:opacity-80 transition-all duration-300 hover-lift">
-            <Terminal className="h-8 w-8 text-terminal-green transition-colors duration-300 hover:text-terminal-blue" />
-            <span className="text-xl font-bold font-mono text-terminal-green transition-colors duration-300 hover:text-terminal-blue">
-              Gitswhy<span className="text-terminal-blue">OS</span>
-            </span>
+          <Link to="/" className="group flex items-center space-x-2 transition-all duration-500 hover-lift relative">
+            {/* Glow Effect */}
+            <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-terminal-green/20 to-terminal-blue/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl scale-150" />
+            
+            {/* Terminal Icon with Advanced Animation */}
+            <div className="relative">
+              <Terminal className="h-8 w-8 text-terminal-green transition-all duration-500 group-hover:text-terminal-blue group-hover:scale-110 group-hover:rotate-3 group-hover:drop-shadow-[0_0_15px_rgba(0,255,102,0.6)]" />
+              {/* Scanning line effect */}
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-terminal-green/30 to-transparent transform -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out" />
+            </div>
+            
+            {/* Text with Character Animation */}
+            <div className="relative overflow-hidden">
+              <span className="text-xl font-bold font-mono transition-all duration-500 group-hover:tracking-wider">
+                {/* Individual character animations */}
+                <span className="inline-block text-terminal-green transition-all duration-500 group-hover:text-terminal-blue group-hover:scale-110 group-hover:-translate-y-1" style={{ transitionDelay: '0ms' }}>G</span>
+                <span className="inline-block text-terminal-green transition-all duration-500 group-hover:text-terminal-blue group-hover:scale-110 group-hover:-translate-y-1" style={{ transitionDelay: '50ms' }}>i</span>
+                <span className="inline-block text-terminal-green transition-all duration-500 group-hover:text-terminal-blue group-hover:scale-110 group-hover:-translate-y-1" style={{ transitionDelay: '100ms' }}>t</span>
+                <span className="inline-block text-terminal-green transition-all duration-500 group-hover:text-terminal-blue group-hover:scale-110 group-hover:-translate-y-1" style={{ transitionDelay: '150ms' }}>s</span>
+                <span className="inline-block text-terminal-green transition-all duration-500 group-hover:text-terminal-blue group-hover:scale-110 group-hover:-translate-y-1" style={{ transitionDelay: '200ms' }}>w</span>
+                <span className="inline-block text-terminal-green transition-all duration-500 group-hover:text-terminal-blue group-hover:scale-110 group-hover:-translate-y-1" style={{ transitionDelay: '250ms' }}>h</span>
+                <span className="inline-block text-terminal-green transition-all duration-500 group-hover:text-terminal-blue group-hover:scale-110 group-hover:-translate-y-1" style={{ transitionDelay: '300ms' }}>y</span>
+                <span className="inline-block text-terminal-blue transition-all duration-500 group-hover:text-terminal-green group-hover:scale-125 group-hover:-translate-y-2 group-hover:rotate-12" style={{ transitionDelay: '350ms' }}>O</span>
+                <span className="inline-block text-terminal-blue transition-all duration-500 group-hover:text-terminal-green group-hover:scale-125 group-hover:-translate-y-2 group-hover:-rotate-6" style={{ transitionDelay: '400ms' }}>S</span>
+              </span>
+              
+              {/* Ripple effect */}
+              <div className="absolute inset-0 rounded-lg border-2 border-terminal-green/0 group-hover:border-terminal-green/50 transition-all duration-500 group-hover:scale-105" />
+              <div className="absolute inset-0 rounded-lg border-2 border-terminal-blue/0 group-hover:border-terminal-blue/30 transition-all duration-700 group-hover:scale-110" style={{ transitionDelay: '200ms' }} />
+            </div>
+            
+            {/* Particle effects */}
+            <div className="absolute -top-2 -right-2 w-1 h-1 bg-terminal-green rounded-full opacity-0 group-hover:opacity-100 group-hover:animate-ping transition-opacity duration-300" style={{ transitionDelay: '300ms' }} />
+            <div className="absolute -bottom-1 -left-1 w-1.5 h-1.5 bg-terminal-blue rounded-full opacity-0 group-hover:opacity-100 group-hover:animate-bounce transition-opacity duration-300" style={{ transitionDelay: '500ms' }} />
           </Link>
 
           {/* Desktop Navigation */}
