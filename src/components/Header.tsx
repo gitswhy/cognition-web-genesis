@@ -25,8 +25,6 @@ const Header = () => {
             {/* Terminal Icon with Advanced Animation */}
             <div className="relative">
               <Terminal className="h-8 w-8 text-terminal-green transition-all duration-500 group-hover:text-terminal-blue group-hover:scale-105 group-hover:rotate-2" />
-              {/* Scanning line effect */}
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-terminal-green/30 to-transparent transform -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out opacity-0 group-hover:opacity-100" />
             </div>
             
             {/* Text with Character Animation */}
@@ -43,6 +41,9 @@ const Header = () => {
                 <span className="inline-block text-terminal-blue transition-all duration-500 group-hover:text-terminal-green group-hover:scale-110 group-hover:-translate-y-1 group-hover:rotate-6" style={{ transitionDelay: '350ms' }}>O</span>
                 <span className="inline-block text-terminal-blue transition-all duration-500 group-hover:text-terminal-green group-hover:scale-110 group-hover:-translate-y-1 group-hover:-rotate-3" style={{ transitionDelay: '400ms' }}>S</span>
               </span>
+              
+              {/* Border box effect */}
+              <div className="absolute inset-0 rounded-lg border border-terminal-green/0 group-hover:border-terminal-green/30 transition-all duration-500 group-hover:scale-105 pointer-events-none" />
             </div>
             
             {/* Small particle effects */}
