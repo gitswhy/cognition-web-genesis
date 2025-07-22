@@ -15,7 +15,7 @@ const CTASection = () => {
           {/* Headline */}
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
             <span className="text-foreground">Ship code that</span>{" "}
-            <span className="text-terminal-green animate-glow-pulse">heals itself.</span>
+            <span className="text-terminal-green animate-[glow-pulse_4s_ease-in-out_infinite] opacity-90">heals itself.</span>
           </h2>
 
           <p className="text-xl md:text-2xl text-foreground/80 mb-12 max-w-3xl mx-auto leading-relaxed">
