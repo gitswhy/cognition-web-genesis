@@ -17,8 +17,6 @@ const Hero = () => {
 
   // Terminal animation states
   const [terminalStep, setTerminalStep] = useState(0);
-  const [showDetection, setShowDetection] = useState(false);
-  const [showPatch, setShowPatch] = useState(false);
 
   useEffect(() => {
     const fullText = lines[currentLine] || "";
@@ -56,16 +54,6 @@ const Hero = () => {
 
     return () => clearInterval(timer);
   }, [currentLine]);
-
-  // Terminal animation sequence
-  useEffect(() => {
-    if (terminalStep === 1) {
-      setTimeout(() => setShowDetection(true), 2000);
-    }
-    if (terminalStep === 1 && showDetection) {
-      setTimeout(() => setShowPatch(true), 1500);
-    }
-  }, [terminalStep, showDetection]);
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden py-12 lg:py-20">
@@ -146,7 +134,7 @@ const Hero = () => {
                       <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
                       <div className="w-3 h-3 rounded-full bg-green-500"></div>
                     </div>
-                    <span className="text-sm text-foreground/60 font-mono ml-4">gitswhy@cognition:~</span>
+                    <span className="text-sm text-foreground/60 font-mono ml-4">gitswhy@production:~</span>
                   </div>
                   <div className="flex items-center space-x-2">
                     <Activity className="h-4 w-4 text-terminal-green" />
@@ -157,59 +145,39 @@ const Hero = () => {
                 {/* Terminal Content */}
                 <div className="p-6 font-mono text-sm space-y-3 min-h-[300px]">
                   <div className="text-terminal-green">
-                    $ gitswhy init --cognition-native
+                    $ gitswhy init --production
                   </div>
                   
                   {terminalStep >= 1 && (
                     <>
-                      <div className="text-foreground/70">
-                        ✓ Initializing cognition engine...
-                      </div>
-                      <div className="text-foreground/70">
-                        ✓ Setting up self-healing pipelines...
-                      </div>
-                      <div className="text-foreground/70">
-                        ✓ Configuring intent vault...
-                      </div>
-                    </>
-                  )}
-
-                  {showDetection && (
-                    <div className="bg-yellow-500/10 border border-yellow-500/20 rounded p-3 my-4">
-                      <div className="flex items-center space-x-2 text-yellow-400">
-                        <Brain className="h-4 w-4 animate-pulse" />
-                        <span>Hesitation detected: 2.3s delay on commit</span>
-                      </div>
-                      <div className="text-yellow-300/80 text-xs mt-1">
-                        Analyzing intent: potential security concern in auth.js:42
-                      </div>
-                    </div>
-                  )}
-
-                  {showPatch && (
-                    <>
                       <div className="text-terminal-blue">
-                        🔧 Auto-generating security patch...
+                        🧠 Cognition engine initializing...
                       </div>
                       <div className="text-terminal-green">
-                        ✓ Applied JWT validation fix
+                        ⚡ Detecting developer patterns...
+                      </div>
+                      <div className="text-yellow-400">
+                        ⚠️ Hesitation detected in auth.js:42
+                      </div>
+                      <div className="text-terminal-blue">
+                        🔧 Auto-patching potential vulnerability...
                       </div>
                       <div className="text-terminal-green">
-                        ✓ Updated test coverage
+                        ✅ Security patch applied automatically
                       </div>
                       <div className="text-terminal-green">
-                        ✓ Ready for deployment
+                        📋 Intent vault updated with new pattern
                       </div>
-                      <div className="text-foreground/70 mt-4">
-                        <span className="text-terminal-green">Total time saved:</span> 47 minutes
+                      <div className="text-terminal-green">
+                        ✅ Deploy-ready! Confidence: 99.7%
                       </div>
                     </>
                   )}
 
-                  {!showPatch && terminalStep >= 1 && (
+                  {!terminalStep && (
                     <div className="flex items-center space-x-2 text-foreground/60">
                       <Loader className="h-4 w-4 animate-spin" />
-                      <span>Monitoring development patterns...</span>
+                      <span>Waiting for initialization...</span>
                     </div>
                   )}
                 </div>
