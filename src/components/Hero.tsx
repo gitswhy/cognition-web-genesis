@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { ChevronRight, Play, Activity, Brain, Loader } from "lucide-react";
+import { ChevronRight, Play, Activity, Brain, Loader, Check } from "lucide-react";
 import { StaggeredFadeIn } from "@/components/animations/AnimationComponents";
 import { useGeolocation } from '@/hooks/useGeolocation';
 
@@ -105,19 +105,19 @@ const Hero = () => {
             <div className="flex flex-col sm:flex-row gap-4 sm:gap-8 pt-6 lg:pt-8 text-sm text-foreground/70">
               <div className="flex items-center space-x-2">
                 <div className="w-4 h-4 rounded-full bg-terminal-green flex items-center justify-center">
-                  <div className="w-2 h-2 text-terminal-bg">✓</div>
+                  <Check className="w-2.5 h-2.5 text-terminal-bg" />
                 </div>
                 <span>No credit card required</span>
               </div>
               <div className="flex items-center space-x-2">
                 <div className="w-4 h-4 rounded-full bg-terminal-green flex items-center justify-center">
-                  <div className="w-2 h-2 text-terminal-bg">✓</div>
+                  <Check className="w-2.5 h-2.5 text-terminal-bg" />
                 </div>
                 <span>Open source core</span>
               </div>
               <div className="flex items-center space-x-2">
                 <div className="w-4 h-4 rounded-full bg-terminal-green flex items-center justify-center">
-                  <div className="w-2 h-2 text-terminal-bg">✓</div>
+                  <Check className="w-2.5 h-2.5 text-terminal-bg" />
                 </div>
                 <span>Enterprise ready</span>
               </div>
