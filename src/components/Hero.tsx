@@ -68,24 +68,30 @@ const Hero = () => {
   }, [terminalStep, showDetection]);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      <div className="container mx-auto px-4 lg:px-20 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-center min-h-screen">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden py-12 lg:py-20">
+      <div className="container mx-auto px-4 lg:px-8 xl:px-12 2xl:px-20 relative z-10 max-w-7xl">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 xl:gap-16 items-center min-h-[calc(100vh-8rem)]">
           {/* Left Side - Headlines */}
-          <div className="space-y-8">
-            <div className="space-y-4">
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
+          <div className="space-y-6 lg:space-y-8">
+            {/* Badge */}
+            <div className="inline-flex items-center space-x-2 bg-terminal-green/10 border border-terminal-green/20 rounded-full px-4 py-2">
+              <Brain className="h-4 w-4 text-terminal-green" />
+              <span className="text-sm font-medium text-terminal-green">Cognition-Native Technology</span>
+            </div>
+
+            <div className="space-y-4 lg:space-y-6">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight">
                 <span className="text-foreground block">
                   {currentLine === 0 ? typedText : lines[0]}
                   {currentLine === 0 && <span className="terminal-cursor animate-glow-pulse"></span>}
                 </span>
-                <span className="text-terminal-green block mt-2">
+                <span className="text-terminal-green block mt-1 lg:mt-2">
                   {currentLine === 1 ? typedText : (currentLine > 1 ? lines[1] : "")}
                   {currentLine === 1 && <span className="terminal-cursor animate-glow-pulse"></span>}
                 </span>
               </h1>
               
-              <p className="text-xl md:text-2xl text-foreground/80 max-w-lg leading-relaxed">
+              <p className="text-lg md:text-xl lg:text-2xl text-foreground/80 max-w-xl leading-relaxed">
                 {typedSubhead}
                 {typedSubhead.length < subhead.length && typedSubhead.length > 0 && (
                   <span className="terminal-cursor animate-glow-pulse"></span>
@@ -94,20 +100,37 @@ const Hero = () => {
             </div>
 
             {/* CTAs */}
-            <div className="flex flex-col sm:flex-row gap-4 pt-4">
-              <Button variant="terminal" size="xl" className="min-w-[200px]">
-                Try Free Core
+            <div className="flex flex-col sm:flex-row gap-4 pt-4 lg:pt-6">
+              <Button variant="terminal" size="xl" className="min-w-[180px] lg:min-w-[200px]">
+                Start Free Trial
                 <ChevronRight className="h-5 w-5" />
               </Button>
-              <Button variant="terminal-outline-blue" size="xl" className="min-w-[200px]">
+              <Button variant="terminal-outline-blue" size="xl" className="min-w-[180px] lg:min-w-[200px]">
                 <Play className="h-5 w-5" />
                 Watch Demo
               </Button>
             </div>
 
             {/* Social Proof */}
-            <div className="text-sm text-foreground/60 pt-8">
-              <p>Trusted by developers at 500+ companies worldwide</p>
+            <div className="flex flex-col sm:flex-row gap-4 sm:gap-8 pt-6 lg:pt-8 text-sm text-foreground/70">
+              <div className="flex items-center space-x-2">
+                <div className="w-4 h-4 rounded-full bg-terminal-green flex items-center justify-center">
+                  <div className="w-2 h-2 text-terminal-bg">✓</div>
+                </div>
+                <span>No credit card required</span>
+              </div>
+              <div className="flex items-center space-x-2">
+                <div className="w-4 h-4 rounded-full bg-terminal-green flex items-center justify-center">
+                  <div className="w-2 h-2 text-terminal-bg">✓</div>
+                </div>
+                <span>Open source core</span>
+              </div>
+              <div className="flex items-center space-x-2">
+                <div className="w-4 h-4 rounded-full bg-terminal-green flex items-center justify-center">
+                  <div className="w-2 h-2 text-terminal-bg">✓</div>
+                </div>
+                <span>Enterprise ready</span>
+              </div>
             </div>
           </div>
 
