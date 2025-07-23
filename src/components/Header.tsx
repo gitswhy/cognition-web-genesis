@@ -22,23 +22,10 @@ const Header = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link to="/" className="group flex items-center space-x-2 transition-all duration-500 hover-lift relative overflow-visible">
-            {/* Custom >_< SVG Icon with Gradient Animation */}
+            {/* Custom >_< SVG Icon with Smooth Transition */}
             <div className="relative">
-              {/* Glow effect background */}
-              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-terminal-green/30 to-terminal-blue/30 blur-lg opacity-0 group-hover:opacity-100 transition-all duration-500 scale-150 -z-10" />
-              
-              <svg width="32" height="32" viewBox="0 0 32 32" className="relative z-10 transition-all duration-500 group-hover:scale-105 group-hover:rotate-2">
-                <defs>
-                  <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                    <stop offset="0%" stopColor="#00FF80" />
-                    <stop offset="100%" stopColor="#0080FF" />
-                  </linearGradient>
-                  <linearGradient id="logoGradientHover" x1="0%" y1="0%" x2="100%" y2="0%">
-                    <stop offset="0%" stopColor="#0080FF" />
-                    <stop offset="100%" stopColor="#00FF80" />
-                  </linearGradient>
-                </defs>
-                <text x="16" y="20" textAnchor="middle" fill="url(#logoGradient)" className="font-mono text-lg font-bold group-hover:fill-[url(#logoGradientHover)] transition-all duration-500">&gt;_&lt;</text>
+              <svg width="32" height="32" viewBox="0 0 32 32" className="transition-all duration-500 group-hover:scale-105 group-hover:rotate-2">
+                <text x="16" y="20" textAnchor="middle" className="font-mono text-lg font-bold fill-terminal-green transition-all duration-500 group-hover:fill-terminal-blue">&gt;_&lt;</text>
               </svg>
             </div>
             
