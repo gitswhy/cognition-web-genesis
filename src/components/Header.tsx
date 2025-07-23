@@ -21,7 +21,7 @@ const Header = () => {
       <div className="container mx-auto px-4 lg:px-20">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link to="/" className="group flex items-center space-x-2 transition-all duration-500 hover-lift relative overflow-visible">
+          <Link to="/" className="group flex items-center space-x-2 transition-all duration-500 relative overflow-visible">
             {/* Custom >_< SVG Icon with Smooth Transition */}
             <div className="relative">
               <svg width="32" height="32" viewBox="0 0 32 32" className="transition-all duration-500 group-hover:scale-105 group-hover:rotate-2">
