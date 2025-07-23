@@ -1,10 +1,8 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ChevronRight, Play, Rocket, Shield } from "lucide-react";
-
 const CTASection = () => {
-  return (
-    <section className="relative py-20 overflow-hidden">
+  return <section className="relative py-20 overflow-hidden">
       <div className="container mx-auto px-4 lg:px-20 relative z-10">
         <div className="text-center max-w-4xl mx-auto">
           {/* Headline */}
@@ -69,16 +67,7 @@ const CTASection = () => {
           </div>
 
           {/* Social Proof */}
-          <div className="text-center">
-            <p className="text-foreground/80 mb-4">Trusted by development teams at</p>
-            <div className="flex justify-center items-center space-x-8 text-foreground/60">
-              <span className="font-semibold">TechFlow</span>
-              <span className="font-semibold">CloudScale</span>
-              <span className="font-semibold">InnovateLabs</span>
-              <span className="font-semibold">NextGen</span>
-              <span className="font-semibold">EfficientOps</span>
-            </div>
-          </div>
+          
         </div>
       </div>
 
@@ -87,8 +76,6 @@ const CTASection = () => {
       <div className="absolute top-20 right-20 w-2 h-2 bg-terminal-blue rounded-full animate-glow-pulse"></div>
       <div className="absolute bottom-20 left-20 w-2 h-2 bg-terminal-green rounded-full animate-glow-pulse"></div>
       <div className="absolute bottom-10 right-10 w-3 h-3 bg-terminal-blue rounded-full animate-glow-pulse"></div>
-    </section>
-  );
+    </section>;
 };
-
 export default CTASection;
