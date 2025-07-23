@@ -163,11 +163,18 @@ export const ParallaxGrid: React.FC<ParallaxGridProps> = ({
 
     if (!inView) return;
 
+    let ticking = false;
     const handleScroll = () => {
-      const scrolled = window.pageYOffset;
-      const element = ref as any;
-      if (element.current) {
-        element.current.style.transform = `translate3d(0, ${scrolled * speed}px, 0)`;
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          const scrolled = window.pageYOffset;
+          const element = ref as any;
+          if (element.current) {
+            element.current.style.transform = `translate3d(0, ${scrolled * speed}px, 0)`;
+          }
+          ticking = false;
+        });
+        ticking = true;
       }
     };
 
@@ -175,14 +182,12 @@ export const ParallaxGrid: React.FC<ParallaxGridProps> = ({
     return () => window.removeEventListener('scroll', handleScroll);
   }, [inView, speed, ref]);
 
-  // Create grid SVG pattern with animation
+  // Create static grid SVG pattern for better performance
   const gridSvg = `data:image/svg+xml;base64,${btoa(`
     <svg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
       <defs>
         <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-          <path d="M 40 0 L 0 0 0 40" fill="none" stroke="${gridColor}" stroke-width="1">
-            <animate attributeName="stroke-opacity" values="0.3;0.7;0.3" dur="4s" repeatCount="indefinite"/>
-          </path>
+          <path d="M 40 0 L 0 0 0 40" fill="none" stroke="${gridColor}" stroke-width="1"/>
         </pattern>
       </defs>
       <rect width="100%" height="100%" fill="url(#grid)" />

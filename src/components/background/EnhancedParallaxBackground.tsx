@@ -130,10 +130,17 @@ const ScrollParallaxLayer: React.FC<ScrollParallaxLayerProps> = ({
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (prefersReducedMotion) return;
 
+    let ticking = false;
     const handleScroll = () => {
-      const scrolled = window.pageYOffset;
-      const rate = scrolled * speed;
-      element.style.transform = `translate3d(0, ${rate}px, 0)`;
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          const scrolled = window.pageYOffset;
+          const rate = scrolled * speed;
+          element.style.transform = `translate3d(0, ${rate}px, 0)`;
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });

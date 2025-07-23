@@ -127,8 +127,8 @@ interface Background3DProps {
 
 const Background3D: React.FC<Background3DProps> = ({
   className = '',
-  particleCount = 800, // Reduced default
-  showGeometry = true
+  particleCount = 400, // Further reduced for performance
+  showGeometry = false // Disable by default for performance
 }) => {
   const floatingObjects = useMemo(() => [
     { position: [-0.5, 0.2, -0.3] as [number, number, number], color: '#00ff66', geometry: 'box' as const, scale: 1.2, speed: 0.8 },
@@ -148,8 +148,8 @@ const Background3D: React.FC<Background3DProps> = ({
           powerPreference: "high-performance"
         }}
         style={{ background: 'transparent' }}
-        frameloop="demand" // Only render when needed
-        dpr={Math.min(window.devicePixelRatio, 2)} // Use dpr prop for pixel ratio
+        frameloop="never" // Disable continuous rendering
+        dpr={1} // Fixed DPR for better performance
       >
         <ambientLight intensity={0.1} />
         <pointLight position={[10, 10, 10]} intensity={0.3} />

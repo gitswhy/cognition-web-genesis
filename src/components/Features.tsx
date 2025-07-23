@@ -99,13 +99,12 @@ const Features = () => {
 
   return (
     <section className="py-20 relative overflow-hidden">
-      {/* Multi-layered parallax background for cognition section */}
-      <div className="absolute inset-0 opacity-30">
-        <EnhancedParallaxBackground intensity="subtle" className="z-0" />
+      {/* Simplified background for better performance */}
+      <div className="absolute inset-0 opacity-20">
         <ParallaxGrid 
-          speed={0.15} 
-          gridOpacity={0.08}
-          gridColor="rgba(0, 255, 255, 0.05)"
+          speed={0.05} 
+          gridOpacity={0.04}
+          gridColor="rgba(0, 255, 255, 0.03)"
           className="transform-gpu z-10"
         />
       </div>

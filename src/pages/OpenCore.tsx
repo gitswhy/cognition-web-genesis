@@ -138,15 +138,12 @@ gitswhy autoclean --scan
         <div className="absolute inset-0 opacity-20">
           <div className="grid grid-cols-8 md:grid-cols-12 gap-1 h-full">
             {Array.from({
-            length: 96
+            length: 48
           }).map((_, i) => <div key={i} className={`
-                  animate-glow-pulse bg-terminal-green/30 rounded-sm
-                  ${i % 3 === 0 ? 'animate-delay-100' : ''}
-                  ${i % 5 === 0 ? 'animate-delay-300' : ''}
-                  ${i % 7 === 0 ? 'bg-terminal-blue/20' : ''}
+                  bg-terminal-green/20 rounded-sm
+                  ${i % 7 === 0 ? 'bg-terminal-blue/15' : ''}
                 `} style={{
-            animationDelay: `${i * 100 % 2000}ms`,
-            height: `${Math.random() * 60 + 20}px`
+            height: `${Math.random() * 40 + 15}px`
           }} />)}
           </div>
         </div>
@@ -214,8 +211,8 @@ gitswhy autoclean --scan
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {coreModules.map((module, index) => <Card key={module.name} className="group relative overflow-hidden bg-terminal-surface/30 border-terminal-green/20 hover:border-terminal-green/50 transition-all duration-300 hover:transform hover:scale-105 animate-fade-in" style={{
-            animationDelay: `${index * 150}ms`
+            {coreModules.map((module, index) => <Card key={module.name} className="group relative overflow-hidden bg-terminal-surface/30 border-terminal-green/20 hover:border-terminal-green/50 transition-all duration-200 hover:transform hover:scale-[1.02]" style={{
+            animationDelay: `${index * 50}ms`
           }}>
                 <div className={`absolute inset-0 bg-gradient-to-br ${module.color} opacity-0 group-hover:opacity-100 transition-opacity duration-300`} />
                 
