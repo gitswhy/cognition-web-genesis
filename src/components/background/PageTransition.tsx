@@ -9,48 +9,53 @@ interface PageTransitionProps {
 
 const PageTransition: React.FC<PageTransitionProps> = ({ children }) => {
   const location = useLocation();
-  const [isTransitioning, setIsTransitioning] = useState(false);
+  const [isTransitioning, setIsTransitioning] = useState(true);
+  const [showContent, setShowContent] = useState(false);
 
   useEffect(() => {
     setIsTransitioning(true);
-    const timer = setTimeout(() => setIsTransitioning(false), 400);
+    setShowContent(false);
+    const timer = setTimeout(() => {
+      setShowContent(true);
+      setIsTransitioning(false);
+    }, 150);
     return () => clearTimeout(timer);
   }, [location.pathname]);
 
   return (
-    <AnimatePresence mode="wait" initial={false}>
-      <motion.div
-        key={location.pathname}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        transition={{
-          duration: 0.3,
-          ease: "easeInOut"
-        }}
-        className="relative w-full h-full"
-      >
-        {/* Smooth transition overlay */}
+    <>
+      {/* Transition overlay */}
+      <AnimatePresence>
         {isTransitioning && (
           <motion.div
-            className="fixed inset-0 z-40 pointer-events-none"
+            className="fixed inset-0 z-50 bg-background"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
+            transition={{ duration: 0.15, ease: "easeInOut" }}
+          />
+        )}
+      </AnimatePresence>
+
+      {/* Page content */}
+      <AnimatePresence mode="wait">
+        {showContent && (
+          <motion.div
+            key={location.pathname}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{
+              duration: 0.3,
+              ease: "easeInOut"
+            }}
+            className="relative w-full h-full"
           >
-            <div 
-              className="absolute inset-0 bg-gradient-radial from-transparent via-primary/5 to-transparent"
-              style={{
-                background: 'radial-gradient(circle at center, transparent 0%, rgba(74, 144, 226, 0.05) 50%, transparent 100%)'
-              }}
-            />
+            {children}
           </motion.div>
         )}
-        
-        {children}
-      </motion.div>
-    </AnimatePresence>
+      </AnimatePresence>
+    </>
   );
 };
 
