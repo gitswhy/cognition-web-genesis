@@ -216,7 +216,7 @@ const HowItWorks = () => {
         </nav>
 
         {/* Steps Content */}
-        <div className="container mx-auto px-4 lg:px-16 py-24">
+        <div className="container mx-auto px-4 lg:pl-80 lg:pr-16 py-24">
           {steps.map((step, index) => {
             const Icon = step.icon;
             const isEven = index % 2 === 0;
