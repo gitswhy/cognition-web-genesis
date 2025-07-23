@@ -30,27 +30,15 @@ const Header = () => {
               <svg width="32" height="32" viewBox="0 0 32 32" className="relative z-10 transition-all duration-500 group-hover:scale-105 group-hover:rotate-2">
                 <defs>
                   <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                    <stop offset="0%" stopColor="#00FF80" className="transition-all duration-500">
-                      <animate attributeName="stop-color" 
-                        values="#00FF80;#0080FF;#00FF80" 
-                        dur="2s" 
-                        repeatCount="indefinite"
-                        begin="0s" />
-                    </stop>
-                    <stop offset="100%" stopColor="#0080FF" className="transition-all duration-500">
-                      <animate attributeName="stop-color" 
-                        values="#0080FF;#00FF80;#0080FF" 
-                        dur="2s" 
-                        repeatCount="indefinite"
-                        begin="0s" />
-                    </stop>
+                    <stop offset="0%" stopColor="#00FF80" />
+                    <stop offset="100%" stopColor="#0080FF" />
                   </linearGradient>
                   <linearGradient id="logoGradientHover" x1="0%" y1="0%" x2="100%" y2="0%">
                     <stop offset="0%" stopColor="#0080FF" />
                     <stop offset="100%" stopColor="#00FF80" />
                   </linearGradient>
                 </defs>
-                <text x="16" y="20" textAnchor="middle" fill="url(#logoGradient)" className="font-mono text-lg font-bold transition-all duration-500 group-hover:fill-[url(#logoGradientHover)]">&gt;_&lt;</text>
+                <text x="16" y="20" textAnchor="middle" fill="url(#logoGradient)" className="font-mono text-lg font-bold group-hover:fill-[url(#logoGradientHover)] transition-all duration-500">&gt;_&lt;</text>
               </svg>
             </div>
             
