@@ -3,10 +3,12 @@ import React from 'react';
 import { useLocation } from 'react-router-dom';
 import EnhancedParallaxBackground from './EnhancedParallaxBackground';
 import { ParallaxGrid } from '../animations/AnimationComponents';
+import TerminalMatrix from './TerminalMatrix';
+import PageSpecificAnimations from './PageSpecificAnimations';
 
 interface PageBackgroundProps {
   children: React.ReactNode;
-  variant?: 'homepage' | 'docs' | 'pricing' | 'about' | 'features' | 'minimal';
+  variant?: 'homepage' | 'docs' | 'pricing' | 'about' | 'features' | 'minimal' | 'opencore' | 'pro' | 'community';
 }
 
 const PageBackground: React.FC<PageBackgroundProps> = ({ children, variant }) => {
@@ -18,9 +20,12 @@ const PageBackground: React.FC<PageBackgroundProps> = ({ children, variant }) =>
     
     const path = location.pathname;
     if (path === '/') return 'homepage';
+    if (path.includes('/open-core')) return 'opencore';
+    if (path.includes('/pro-edition')) return 'pro';
     if (path.includes('/docs')) return 'docs';
     if (path.includes('/pricing')) return 'pricing';
     if (path.includes('/about')) return 'about';
+    if (path.includes('/blog') || path.includes('/community')) return 'community';
     if (path.includes('/how-it-works') || path.includes('/integrations')) return 'features';
     return 'minimal';
   };
@@ -61,6 +66,30 @@ const PageBackground: React.FC<PageBackgroundProps> = ({ children, variant }) =>
           gridColor: 'rgba(0, 255, 102, 0.04)',
           overlayGradient: 'bg-gradient-to-bl from-terminal-green/2 via-transparent to-background'
         };
+      case 'opencore':
+        return {
+          bgGradient: 'bg-gradient-to-br from-terminal-bg to-terminal-surface/6',
+          parallaxIntensity: 'medium' as const,
+          gridOpacity: 0.06,
+          gridColor: 'rgba(0, 255, 102, 0.05)',
+          overlayGradient: 'bg-gradient-to-r from-terminal-green/2 via-transparent to-terminal-green/1'
+        };
+      case 'pro':
+        return {
+          bgGradient: 'bg-gradient-to-br from-terminal-bg to-terminal-blue/8',
+          parallaxIntensity: 'medium' as const,
+          gridOpacity: 0.07,
+          gridColor: 'rgba(0, 212, 255, 0.04)',
+          overlayGradient: 'bg-gradient-to-tr from-terminal-blue/2 via-transparent to-terminal-blue/1'
+        };
+      case 'community':
+        return {
+          bgGradient: 'bg-gradient-to-b from-terminal-bg via-terminal-surface/6 to-terminal-bg',
+          parallaxIntensity: 'medium' as const,
+          gridOpacity: 0.05,
+          gridColor: 'rgba(0, 255, 102, 0.04)',
+          overlayGradient: 'bg-gradient-to-bl from-terminal-green/2 via-transparent to-terminal-green/1'
+        };
       case 'features':
         return {
           bgGradient: 'bg-gradient-to-b from-background via-terminal-surface/4 to-background',
@@ -99,6 +128,19 @@ const PageBackground: React.FC<PageBackgroundProps> = ({ children, variant }) =>
           gridOpacity={config.gridOpacity}
           gridColor={config.gridColor}
           className="transform-gpu z-30"
+        />
+        
+        {/* Terminal Matrix Background */}
+        <TerminalMatrix 
+          intensity={config.parallaxIntensity === 'intense' ? 'high' : config.parallaxIntensity === 'medium' ? 'medium' : 'low'}
+          color={config.gridColor.includes('255, 102') ? '#00FF66' : config.gridColor.includes('212, 255') ? '#00D4FF' : '#00FF66'}
+          className="z-35"
+        />
+        
+        {/* Page-specific animations */}
+        <PageSpecificAnimations 
+          variant={currentVariant as any}
+          className="z-36"
         />
         
         {/* Custom gradient animation overlay */}
