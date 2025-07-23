@@ -182,12 +182,15 @@ export const ParallaxGrid: React.FC<ParallaxGridProps> = ({
     return () => window.removeEventListener('scroll', handleScroll);
   }, [inView, speed, ref]);
 
-  // Create static grid SVG pattern for better performance
+  // Create animated grid SVG pattern for beautiful visuals
   const gridSvg = `data:image/svg+xml;base64,${btoa(`
     <svg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
       <defs>
         <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-          <path d="M 40 0 L 0 0 0 40" fill="none" stroke="${gridColor}" stroke-width="1"/>
+          <path d="M 40 0 L 0 0 0 40" fill="none" stroke="${gridColor}" stroke-width="1" opacity="0.8"/>
+          <circle cx="20" cy="20" r="1" fill="${gridColor}" opacity="0.3">
+            <animate attributeName="opacity" values="0.3;0.8;0.3" dur="3s" repeatCount="indefinite"/>
+          </circle>
         </pattern>
       </defs>
       <rect width="100%" height="100%" fill="url(#grid)" />

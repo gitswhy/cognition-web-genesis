@@ -99,24 +99,24 @@ const PageBackground: React.FC<PageBackgroundProps> = ({ children, variant }) =>
     <div className={`min-h-screen relative ${config.bgGradient}`}>
       {/* Multi-layered Background System */}
       <div className="fixed inset-0 overflow-hidden">
-        {/* Enhanced parallax background with floating elements - Reduced intensity */}
+        {/* Enhanced parallax background with floating elements */}
         <EnhancedParallaxBackground 
-          intensity="subtle" 
+          intensity={config.parallaxIntensity} 
           className="z-0" 
         />
         
-        {/* Optimized 3D particle field - Disabled for performance */}
-        {variant === 'homepage' && (
+        {/* Beautiful 3D particle field for enhanced visuals */}
+        {(currentVariant === 'homepage' || currentVariant === 'pricing' || currentVariant === 'about') && (
           <Background3D 
-            className="z-10 opacity-20" 
-            particleCount={200} 
-            showGeometry={false} 
+            className="z-10 opacity-30" 
+            particleCount={config.particleCount} 
+            showGeometry={config.showGeometry} 
           />
         )}
         
-        {/* Animated grid overlay - Reduced speed */}
+        {/* Animated grid overlay */}
         <ParallaxGrid 
-          speed={0.1}
+          speed={0.3}
           gridOpacity={config.gridOpacity}
           gridColor={config.gridColor}
           className="transform-gpu z-20"

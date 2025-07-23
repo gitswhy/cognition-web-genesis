@@ -148,8 +148,8 @@ const Background3D: React.FC<Background3DProps> = ({
           powerPreference: "high-performance"
         }}
         style={{ background: 'transparent' }}
-        frameloop="never" // Disable continuous rendering
-        dpr={1} // Fixed DPR for better performance
+        frameloop="always" // Enable continuous rendering for smooth animations
+        dpr={[1, 2]} // Responsive DPR for better visuals
       >
         <ambientLight intensity={0.1} />
         <pointLight position={[10, 10, 10]} intensity={0.3} />
