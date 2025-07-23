@@ -122,7 +122,7 @@ const Features = () => {
               return (
                 <AnimatedCard 
                   key={feature.title}
-                  delay={index}
+                  delay={index * 0.1}
                   className="h-full"
                   hoverScale={1.03}
                   hoverY={-8}
