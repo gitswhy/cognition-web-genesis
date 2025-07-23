@@ -21,9 +21,17 @@ const Header = () => {
       <div className="container mx-auto px-4 lg:px-20">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link to="/" className="group flex items-center transition-all duration-300 hover:scale-105">
-            <span className="text-2xl font-bold font-mono text-terminal-green group-hover:text-terminal-blue transition-colors duration-300">
-              &gt;_&lt;
+          <Link to="/" className="group flex items-center space-x-2 transition-all duration-300 hover:scale-105">
+            {/* Custom >_< SVG Icon */}
+            <div className="relative">
+              <svg width="32" height="32" viewBox="0 0 32 32" className="text-terminal-green group-hover:text-terminal-blue transition-colors duration-300">
+                <text x="16" y="20" textAnchor="middle" className="fill-current font-mono text-lg font-bold">&gt;_&lt;</text>
+              </svg>
+            </div>
+            
+            {/* Text */}
+            <span className="text-xl font-bold font-mono text-terminal-green group-hover:text-terminal-blue transition-colors duration-300">
+              GitswhyOS
             </span>
           </Link>
 
