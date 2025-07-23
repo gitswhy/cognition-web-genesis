@@ -22,10 +22,21 @@ const Header = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link to="/" className="group flex items-center space-x-2 transition-all duration-500 relative overflow-visible">
-            {/* Custom >_< SVG Icon with Smooth Transition */}
+            {/* Custom >_< SVG Icon with Individual Character Colors */}
             <div className="relative">
               <svg width="32" height="32" viewBox="0 0 32 32" className="transition-all duration-500 group-hover:scale-105 group-hover:rotate-2">
-                <text x="16" y="20" textAnchor="middle" className="font-mono text-lg font-bold fill-terminal-green transition-all duration-500 group-hover:fill-terminal-blue">&gt;_&lt;</text>
+                <defs>
+                  <linearGradient id="underscoreGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stopColor="#0080FF" />
+                    <stop offset="100%" stopColor="#00FF80" />
+                  </linearGradient>
+                </defs>
+                {/* > character - green */}
+                <text x="8" y="20" textAnchor="middle" className="font-mono text-lg font-bold fill-terminal-green transition-all duration-500 group-hover:fill-terminal-blue">&gt;</text>
+                {/* _ character - gradient */}
+                <text x="16" y="20" textAnchor="middle" fill="url(#underscoreGradient)" className="font-mono text-lg font-bold">_</text>
+                {/* < character - blue */}
+                <text x="24" y="20" textAnchor="middle" className="font-mono text-lg font-bold fill-terminal-blue transition-all duration-500 group-hover:fill-terminal-green">&lt;</text>
               </svg>
             </div>
             
