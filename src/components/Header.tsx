@@ -21,34 +21,10 @@ const Header = () => {
       <div className="container mx-auto px-4 lg:px-20">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link to="/" className="group flex items-center space-x-2 transition-all duration-500 hover-lift relative overflow-visible">
-            {/* Terminal Icon with Advanced Animation */}
-            <div className="relative">
-              <Terminal className="h-8 w-8 text-terminal-green transition-all duration-500 group-hover:text-terminal-blue group-hover:scale-105 group-hover:rotate-2" />
-            </div>
-            
-            {/* Text with Character Animation */}
-            <div className="relative">
-              <span className="text-xl font-bold font-mono transition-all duration-500 group-hover:tracking-wide flex">
-                {/* Individual character animations with smaller transforms */}
-                <span className="inline-block text-terminal-green transition-all duration-500 group-hover:text-terminal-blue group-hover:scale-105 group-hover:-translate-y-0.5" style={{ transitionDelay: '0ms' }}>G</span>
-                <span className="inline-block text-terminal-green transition-all duration-500 group-hover:text-terminal-blue group-hover:scale-105 group-hover:-translate-y-0.5" style={{ transitionDelay: '50ms' }}>i</span>
-                <span className="inline-block text-terminal-green transition-all duration-500 group-hover:text-terminal-blue group-hover:scale-105 group-hover:-translate-y-0.5" style={{ transitionDelay: '100ms' }}>t</span>
-                <span className="inline-block text-terminal-green transition-all duration-500 group-hover:text-terminal-blue group-hover:scale-105 group-hover:-translate-y-0.5" style={{ transitionDelay: '150ms' }}>s</span>
-                <span className="inline-block text-terminal-green transition-all duration-500 group-hover:text-terminal-blue group-hover:scale-105 group-hover:-translate-y-0.5" style={{ transitionDelay: '200ms' }}>w</span>
-                <span className="inline-block text-terminal-green transition-all duration-500 group-hover:text-terminal-blue group-hover:scale-105 group-hover:-translate-y-0.5" style={{ transitionDelay: '250ms' }}>h</span>
-                <span className="inline-block text-terminal-green transition-all duration-500 group-hover:text-terminal-blue group-hover:scale-105 group-hover:-translate-y-0.5" style={{ transitionDelay: '300ms' }}>y</span>
-                <span className="inline-block text-terminal-blue transition-all duration-500 group-hover:text-terminal-green group-hover:scale-110 group-hover:-translate-y-1 group-hover:rotate-6" style={{ transitionDelay: '350ms' }}>O</span>
-                <span className="inline-block text-terminal-blue transition-all duration-500 group-hover:text-terminal-green group-hover:scale-110 group-hover:-translate-y-1 group-hover:-rotate-3" style={{ transitionDelay: '400ms' }}>S</span>
-              </span>
-              
-              {/* Border box effect */}
-              <div className="absolute inset-0 rounded-lg border border-terminal-green/0 group-hover:border-terminal-green/30 transition-all duration-500 group-hover:scale-105 pointer-events-none" />
-            </div>
-            
-            {/* Small particle effects */}
-            <div className="absolute -top-1 -right-1 w-1 h-1 bg-terminal-green rounded-full opacity-0 group-hover:opacity-100 group-hover:animate-ping transition-opacity duration-300" style={{ transitionDelay: '300ms' }} />
-            <div className="absolute -bottom-1 -left-1 w-1 h-1 bg-terminal-blue rounded-full opacity-0 group-hover:opacity-100 group-hover:animate-bounce transition-opacity duration-300" style={{ transitionDelay: '500ms' }} />
+          <Link to="/" className="group flex items-center transition-all duration-300 hover:scale-105">
+            <span className="text-2xl font-bold font-mono text-terminal-green group-hover:text-terminal-blue transition-colors duration-300">
+              &gt;_&lt;
+            </span>
           </Link>
 
           {/* Desktop Navigation */}
