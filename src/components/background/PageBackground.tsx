@@ -1,6 +1,7 @@
+
 import React from 'react';
 import { useLocation } from 'react-router-dom';
-import Background3D from './Background3D';
+import BlackHoleBackground from './BlackHoleBackground';
 import EnhancedParallaxBackground from './EnhancedParallaxBackground';
 import { ParallaxGrid } from '../animations/AnimationComponents';
 
@@ -33,62 +34,56 @@ const PageBackground: React.FC<PageBackgroundProps> = ({ children, variant }) =>
         return {
           bgGradient: 'bg-gradient-to-br from-terminal-bg via-terminal-surface to-terminal-bg',
           parallaxIntensity: 'intense' as const,
-          particleCount: 800, // Reduced for better performance
-          showGeometry: true,
-          gridOpacity: 0.15,
-          gridColor: 'rgba(0, 255, 102, 0.06)',
-          overlayGradient: 'bg-gradient-to-r from-terminal-green/3 via-transparent to-terminal-blue/3'
+          showBlackHole: true,
+          gridOpacity: 0.08,
+          gridColor: 'rgba(0, 255, 102, 0.04)',
+          overlayGradient: 'bg-gradient-to-r from-terminal-green/2 via-transparent to-terminal-blue/2'
         };
       case 'docs':
         return {
           bgGradient: 'bg-gradient-to-b from-background to-terminal-surface/8',
           parallaxIntensity: 'subtle' as const,
-          particleCount: 400, // Reduced
-          showGeometry: false,
-          gridOpacity: 0.08,
-          gridColor: 'rgba(0, 255, 255, 0.04)',
-          overlayGradient: 'bg-gradient-to-br from-terminal-blue/2 via-transparent to-background'
+          showBlackHole: true,
+          gridOpacity: 0.05,
+          gridColor: 'rgba(0, 255, 255, 0.03)',
+          overlayGradient: 'bg-gradient-to-br from-terminal-blue/1 via-transparent to-background'
         };
       case 'pricing':
         return {
           bgGradient: 'bg-gradient-to-b from-background to-terminal-blue/8',
           parallaxIntensity: 'medium' as const,
-          particleCount: 600, // Reduced
-          showGeometry: true,
-          gridOpacity: 0.12,
-          gridColor: 'rgba(0, 150, 255, 0.05)',
-          overlayGradient: 'bg-gradient-to-tr from-terminal-blue/3 via-transparent to-terminal-green/3'
+          showBlackHole: true,
+          gridOpacity: 0.06,
+          gridColor: 'rgba(0, 150, 255, 0.04)',
+          overlayGradient: 'bg-gradient-to-tr from-terminal-blue/2 via-transparent to-terminal-green/2'
         };
       case 'about':
         return {
           bgGradient: 'bg-gradient-to-br from-background to-terminal-green/8',
           parallaxIntensity: 'medium' as const,
-          particleCount: 500, // Reduced
-          showGeometry: true,
-          gridOpacity: 0.1,
-          gridColor: 'rgba(0, 255, 102, 0.05)',
-          overlayGradient: 'bg-gradient-to-bl from-terminal-green/3 via-transparent to-background'
+          showBlackHole: true,
+          gridOpacity: 0.05,
+          gridColor: 'rgba(0, 255, 102, 0.04)',
+          overlayGradient: 'bg-gradient-to-bl from-terminal-green/2 via-transparent to-background'
         };
       case 'features':
         return {
           bgGradient: 'bg-gradient-to-b from-background via-terminal-surface/4 to-background',
           parallaxIntensity: 'medium' as const,
-          particleCount: 450, // Reduced
-          showGeometry: true,
-          gridOpacity: 0.06,
+          showBlackHole: true,
+          gridOpacity: 0.04,
           gridColor: 'rgba(128, 128, 255, 0.03)',
-          overlayGradient: 'bg-gradient-to-r from-primary/2 via-transparent to-secondary/2'
+          overlayGradient: 'bg-gradient-to-r from-primary/1 via-transparent to-secondary/1'
         };
       case 'minimal':
       default:
         return {
           bgGradient: 'bg-gradient-to-b from-background to-muted/15',
           parallaxIntensity: 'subtle' as const,
-          particleCount: 300, // Reduced
-          showGeometry: false,
-          gridOpacity: 0.04,
+          showBlackHole: true,
+          gridOpacity: 0.03,
           gridColor: 'rgba(100, 100, 100, 0.02)',
-          overlayGradient: 'bg-gradient-to-b from-transparent to-muted/8'
+          overlayGradient: 'bg-gradient-to-b from-transparent to-muted/5'
         };
     }
   };
@@ -97,45 +92,41 @@ const PageBackground: React.FC<PageBackgroundProps> = ({ children, variant }) =>
 
   return (
     <div className={`min-h-screen relative ${config.bgGradient}`}>
-      {/* Multi-layered Background System */}
+      {/* Multi-layered Background System with Black Hole */}
       <div className="fixed inset-0 overflow-hidden">
-        {/* Enhanced parallax background with floating elements */}
+        {/* Black Hole Background - Primary cosmic effect */}
+        {config.showBlackHole && (
+          <BlackHoleBackground className="z-10 opacity-60" />
+        )}
+        
+        {/* Enhanced parallax background for additional depth */}
         <EnhancedParallaxBackground 
           intensity={config.parallaxIntensity} 
-          className="z-0" 
+          className="z-20 opacity-30" 
         />
-        
-        {/* Beautiful 3D particle field for enhanced visuals */}
-        {(currentVariant === 'homepage' || currentVariant === 'pricing' || currentVariant === 'about') && (
-          <Background3D 
-            className="z-10 opacity-30" 
-            particleCount={config.particleCount} 
-            showGeometry={config.showGeometry} 
-          />
-        )}
         
         {/* Animated grid overlay */}
         <ParallaxGrid 
-          speed={0.3}
+          speed={0.4}
           gridOpacity={config.gridOpacity}
           gridColor={config.gridColor}
-          className="transform-gpu z-20"
+          className="transform-gpu z-30"
         />
         
         {/* Custom gradient animation overlay */}
-        <div className={`absolute inset-0 ${config.overlayGradient} animate-gradient z-30`}></div>
+        <div className={`absolute inset-0 ${config.overlayGradient} animate-gradient z-40`}></div>
         
-        {/* Subtle noise texture */}
+        {/* Cosmic noise texture */}
         <div 
-          className="absolute inset-0 opacity-[0.015] z-35"
+          className="absolute inset-0 opacity-[0.01] z-45"
           style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Ccircle cx='7' cy='7' r='1'/%3E%3Ccircle cx='27' cy='7' r='1'/%3E%3Ccircle cx='47' cy='7' r='1'/%3E%3Ccircle cx='7' cy='27' r='1'/%3E%3Ccircle cx='27' cy='27' r='1'/%3E%3Ccircle cx='47' cy='27' r='1'/%3E%3Ccircle cx='7' cy='47' r='1'/%3E%3Ccircle cx='27' cy='47' r='1'/%3E%3Ccircle cx='47' cy='47' r='1'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Ccircle cx='20' cy='20' r='1'/%3E%3Ccircle cx='80' cy='20' r='1'/%3E%3Ccircle cx='50' cy='50' r='1'/%3E%3Ccircle cx='20' cy='80' r='1'/%3E%3Ccircle cx='80' cy='80' r='1'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
           }}
         />
       </div>
 
       {/* Page Content */}
-      <div className="relative z-40">
+      <div className="relative z-50">
         {children}
       </div>
     </div>
