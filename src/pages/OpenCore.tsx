@@ -7,7 +7,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import ModuleExplorer from '@/components/ModuleExplorer';
 import { SoftwareApplicationSchema } from '@/components/SoftwareApplicationSchema';
-import DynamicBackground from '@/components/background/DynamicBackground';
+import WebsiteBackground from '@/components/background/WebsiteBackground';
 const OpenCore = () => {
   const [copiedCommand, setCopiedCommand] = useState<string | null>(null);
   useEffect(() => {
@@ -121,7 +121,7 @@ gitswhy autoclean --scan
     zsh: `echo 'export PATH="$PATH:/usr/local/bin/gitswhy"' >> ~/.zshrc && source ~/.zshrc`,
     bash: `echo 'export PATH="$PATH:/usr/local/bin/gitswhy"' >> ~/.bashrc && source ~/.bashrc`
   };
-  return <DynamicBackground variant="opencore">
+  return <WebsiteBackground>
       {/* Additional SEO Schema (complementing existing structured data) */}
       <SoftwareApplicationSchema
         name="ReflexCore Open Source Edition"
@@ -370,6 +370,6 @@ gitswhy autoclean --scan
       </section>
 
       <Footer />
-    </DynamicBackground>;
+    </WebsiteBackground>;
 };
 export default OpenCore;
