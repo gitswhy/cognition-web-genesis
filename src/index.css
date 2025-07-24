@@ -411,4 +411,66 @@
     outline: none;
     box-shadow: 0 0 0 3px hsl(var(--terminal-green) / 0.3);
   }
+
+  /* Terminal Grid Background */
+  .terminal-grid {
+    background-image: 
+      linear-gradient(rgba(0, 255, 102, 0.1) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 255, 102, 0.1) 1px, transparent 1px);
+    background-size: 50px 50px;
+    animation: grid-pulse 4s ease-in-out infinite;
+  }
+
+  @keyframes grid-pulse {
+    0%, 100% { opacity: 0.1; }
+    50% { opacity: 0.3; }
+  }
+
+  /* Enhanced Text Glow */
+  .text-glow {
+    text-shadow: 
+      0 0 10px currentColor,
+      0 0 20px currentColor,
+      0 0 40px currentColor;
+  }
+
+  /* Neon Button Effects */
+  .neon-button {
+    position: relative;
+    background: transparent;
+    border: 1px solid currentColor;
+    transition: all 0.3s ease;
+  }
+
+  .neon-button::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: currentColor;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+  }
+
+  .neon-button:hover::before {
+    opacity: 0.1;
+  }
+
+  .neon-button:hover {
+    box-shadow: 
+      0 0 10px currentColor,
+      0 0 20px currentColor,
+      inset 0 0 10px currentColor;
+  }
+
+  /* Reduced Motion Updates */
+  @media (prefers-reduced-motion: reduce) {
+    .terminal-grid {
+      animation: none;
+    }
+    
+    .neon-button {
+      transition: none;
+    }
+  }
 }

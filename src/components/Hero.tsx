@@ -70,7 +70,7 @@ const Hero = () => {
             </div>
 
             <div className="space-y-4 lg:space-y-6 -ml-2">
-              <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight">
+              <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight text-glow">
                 <span className="text-foreground block">
                   {currentLine === 0 ? typedText : lines[0]}
                   {currentLine === 0 && typedText.length < lines[0].length && <span className="animate-pulse text-terminal-green">|</span>}
@@ -91,11 +91,11 @@ const Hero = () => {
 
             {/* CTAs - Enhanced with better hover effects */}
             <div className="flex flex-col sm:flex-row gap-4 pt-4 lg:pt-6">
-              <Button variant="terminal" size="xl" className="min-w-[180px] lg:min-w-[200px] hover-lift">
+              <Button variant="terminal" size="xl" className="min-w-[180px] lg:min-w-[200px] hover-lift terminal-glow neon-button">
                 Start Free Trial
                 <ChevronRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
               </Button>
-              <Button variant="terminal-outline-blue" size="xl" className="min-w-[180px] lg:min-w-[200px] hover-lift">
+              <Button variant="terminal-outline-blue" size="xl" className="min-w-[180px] lg:min-w-[200px] hover-lift blue-glow neon-button">
                 <Play className="h-5 w-5 transition-transform group-hover:scale-110" />
                 Watch Demo
               </Button>
