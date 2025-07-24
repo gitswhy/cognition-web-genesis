@@ -36,21 +36,6 @@ const PricingBackground: React.FC = () => {
         <div className="absolute bottom-1/3 right-1/4 w-2 h-20 bg-gradient-to-t from-terminal-blue/20 to-transparent animate-pulse" 
              style={{ animationDelay: '1s' }} />
         
-        {/* Currency symbols */}
-        {Array.from({ length: 8 }).map((_, i) => (
-          <div
-            key={i}
-            className="absolute text-2xl text-terminal-green/10 animate-pulse font-bold"
-            style={{
-              top: `${15 + Math.random() * 70}%`,
-              left: `${10 + Math.random() * 80}%`,
-              animationDelay: `${Math.random() * 3}s`,
-              animationDuration: `${2 + Math.random() * 2}s`
-            }}
-          >
-            $
-          </div>
-        ))}
       </div>
       
       {/* Pricing grid */}
