@@ -119,7 +119,7 @@ const Footer = () => {
         {/* Bottom section */}
         <div className="border-t border-terminal-green/20 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
           <div className="text-sm text-foreground/60">
-            © 2024 GitswhyOS. All rights reserved.
+            © 2025 GitswhyOS. All rights reserved.
           </div>
           <div className="flex space-x-6 mt-4 md:mt-0">
             <a href="#" className="text-sm text-foreground/60 hover:text-terminal-green transition-colors">
