@@ -87,7 +87,6 @@ const DynamicBackground: React.FC<DynamicBackgroundProps> = ({ children, variant
     else if (path === '/open-core') setCurrentVariant('opencore');
     else if (path === '/pro-edition') setCurrentVariant('pro');
     else if (path === '/how-it-works') setCurrentVariant('howitworks');
-    else if (path === '/integrations') setCurrentVariant('integrations');
     else if (path === '/pricing') setCurrentVariant('pricing');
     else if (path === '/docs') setCurrentVariant('docs');
     else if (path.includes('/blog') || path.includes('/resources')) setCurrentVariant('blog');
@@ -121,12 +120,6 @@ const DynamicBackground: React.FC<DynamicBackgroundProps> = ({ children, variant
         baseColor: '#0A0E1A',
         accentColor: '#00FF66',
         motif: <WaveformLines />
-      },
-      integrations: {
-        name: 'integrations',
-        baseColor: '#0A0E1A',
-        accentColor: '#00D4FF',
-        motif: <NetworkNodes />
       },
       pricing: {
         name: 'pricing',

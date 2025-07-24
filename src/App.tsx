@@ -12,7 +12,6 @@ import Index from "./pages/Index";
 import OpenCore from "./pages/OpenCore";
 import ProEdition from "./pages/ProEdition";
 import HowItWorks from "./pages/HowItWorks";
-import Integrations from "./pages/Integrations";
 import Pricing from "./pages/Pricing";
 import Docs from "./pages/Docs";
 import BlogResources from "./pages/BlogResources";
@@ -31,7 +30,6 @@ const AnimatedRoutes = () => {
       <Route path="/open-core" element={<OpenCore />} />
       <Route path="/pro-edition" element={<ProEdition />} />
       <Route path="/how-it-works" element={<HowItWorks />} />
-      <Route path="/integrations" element={<Integrations />} />
       <Route path="/pricing" element={<Pricing />} />
       <Route path="/docs" element={<Docs />} />
       <Route path="/blog" element={<BlogResources />} />

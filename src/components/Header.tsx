@@ -10,7 +10,6 @@ const Header = () => {
     { label: "Open Core", href: "/open-core" },
     { label: "Pro Edition", href: "/pro-edition" },
     { label: "How It Works", href: "/how-it-works" },
-    { label: "Integrations", href: "/integrations" },
     { label: "Pricing", href: "/pricing" },
     { label: "Docs", href: "/docs" },
     { label: "Community", href: "/community" },

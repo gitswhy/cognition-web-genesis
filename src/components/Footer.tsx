@@ -16,7 +16,6 @@ const Footer = () => {
       title: "Resources",
       links: [
         { label: "Documentation", href: "/docs" },
-        { label: "Integrations", href: "/integrations" },
         { label: "Blog", href: "/blog" },
         { label: "Community", href: "/community" }
       ]
