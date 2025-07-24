@@ -9,7 +9,7 @@ import EditionComparisonTable from '@/components/EditionComparisonTable';
 import { SoftwareApplicationSchema } from '@/components/SoftwareApplicationSchema';
 import { DynamicHeadline } from '@/components/DynamicHeadline';
 import WebsiteBackground from '@/components/background/WebsiteBackground';
-import ProEdition3D from '@/components/background/ProEdition3D';
+import ProEditionBackground from '@/components/background/ProEditionBackground';
 const ProEdition = () => {
   const [hoveredCard, setHoveredCard] = useState<string | null>(null);
   const premiumFeatures = [{
@@ -69,8 +69,8 @@ const ProEdition = () => {
         ]}
       />
       
-      {/* Pro Edition 3D Background */}
-      <ProEdition3D />
+      {/* Pro Edition CSS Background */}
+      <ProEditionBackground />
       
       <Header />
       
