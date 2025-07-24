@@ -155,7 +155,7 @@ gitswhy autoclean --scan
               <Badge variant="secondary" className="bg-terminal-green/20 text-terminal-green border-terminal-green/50">
                 Open Source
               </Badge>
-              <span className="text-muted-foreground">MIT Licensed</span>
+              <span className="text-muted-foreground">Apache Licensed</span>
             </div>
 
             <h1 className="text-5xl md:text-7xl font-mono font-bold mb-6 bg-gradient-to-r from-terminal-green via-primary to-terminal-blue bg-clip-text text-transparent">
