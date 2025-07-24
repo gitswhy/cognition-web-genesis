@@ -5,7 +5,7 @@ import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 button-hover-glow",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 active:scale-95",
   {
     variants: {
       variant: {
@@ -18,10 +18,10 @@ const buttonVariants = cva(
           "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
-        terminal: "bg-terminal-green text-terminal-bg font-semibold border border-terminal-green/20 hover:bg-terminal-green/90 hover:scale-105 hover:shadow-lg terminal-glow transition-all duration-300",
-        "terminal-blue": "bg-terminal-blue text-terminal-bg font-semibold border border-terminal-blue/20 hover:bg-terminal-blue/90 hover:scale-105 hover:shadow-lg blue-glow transition-all duration-300",
-        "terminal-outline": "border border-terminal-green text-terminal-green bg-transparent hover:bg-terminal-green/10 hover:scale-105 terminal-glow transition-all duration-300",
-        "terminal-outline-blue": "border border-terminal-blue text-terminal-blue bg-transparent hover:bg-terminal-blue/10 hover:scale-105 blue-glow transition-all duration-300",
+        terminal: "bg-terminal-green text-terminal-bg font-semibold border border-terminal-green/20 hover:bg-terminal-green/90 hover:scale-105 transition-all duration-200",
+        "terminal-blue": "bg-terminal-blue text-terminal-bg font-semibold border border-terminal-blue/20 hover:bg-terminal-blue/90 hover:scale-105 transition-all duration-200",
+        "terminal-outline": "border border-terminal-green text-terminal-green bg-transparent hover:bg-terminal-green/10 hover:scale-105 transition-all duration-200",
+        "terminal-outline-blue": "border border-terminal-blue text-terminal-blue bg-transparent hover:bg-terminal-blue/10 hover:scale-105 transition-all duration-200",
       },
       size: {
         default: "h-10 px-4 py-2",
