@@ -53,6 +53,9 @@ const HowItWorks = () => {
 
         if (scrollPosition >= offsetTop && scrollPosition < offsetBottom) {
           newActiveStep = index;
+        } else if (scrollPosition >= offsetTop) {
+          // If we're past this section, keep it as the active step (for the last section)
+          newActiveStep = Math.max(newActiveStep, index);
         }
       });
       
