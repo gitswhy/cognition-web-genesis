@@ -5,9 +5,9 @@ const Footer = () => {
     {
       title: "Product",
       links: [
-        { label: "Open Core", href: "/core" },
-        { label: "Pro Edition", href: "/pro" },
-        { label: "Enterprise", href: "/enterprise" },
+        { label: "Open Core", href: "/open-core" },
+        { label: "Pro Edition", href: "/pro-edition" },
+        { label: "How It Works", href: "/how-it-works" },
         { label: "Pricing", href: "/pricing" }
       ]
     },
@@ -15,27 +15,27 @@ const Footer = () => {
       title: "Resources",
       links: [
         { label: "Documentation", href: "/docs" },
-        { label: "API Reference", href: "/api" },
+        { label: "Integrations", href: "/integrations" },
         { label: "Blog", href: "/blog" },
-        { label: "Tutorials", href: "/tutorials" }
+        { label: "Community", href: "/community" }
       ]
     },
     {
       title: "Company",
       links: [
         { label: "About", href: "/about" },
-        { label: "Careers", href: "/careers" },
-        { label: "Contact", href: "/contact" },
-        { label: "Privacy", href: "/privacy" }
+        { label: "Careers", href: "#" },
+        { label: "Contact", href: "#" },
+        { label: "Privacy", href: "#" }
       ]
     },
     {
       title: "Community",
       links: [
         { label: "GitHub", href: "https://github.com/gitswhy" },
-        { label: "Discord", href: "/discord" },
-        { label: "Forums", href: "/forums" },
-        { label: "Contributors", href: "/contributors" }
+        { label: "Discord", href: "#" },
+        { label: "Forums", href: "#" },
+        { label: "Contributors", href: "#" }
       ]
     }
   ];
