@@ -8,24 +8,33 @@ interface DynamicBackgroundProps {
 const DynamicBackground: React.FC<DynamicBackgroundProps> = ({ children }) => {
   return (
     <div className="relative min-h-screen overflow-hidden bg-background">
-      {/* Floating Geometric Shapes */}
+      {/* 3D Floating Geometric Shapes */}
       <div className="absolute inset-0">
-        {/* Large Floating Circles */}
-        {Array.from({ length: 6 }).map((_, i) => (
+        {/* 3D Cubes */}
+        {Array.from({ length: 4 }).map((_, i) => (
           <motion.div
-            key={`circle-${i}`}
-            className="absolute rounded-full border border-terminal-green/20 bg-terminal-green/5"
+            key={`cube-${i}`}
+            className="absolute"
             style={{
-              width: `${100 + i * 30}px`,
-              height: `${100 + i * 30}px`,
-              left: `${10 + i * 15}%`,
-              top: `${5 + i * 12}%`,
+              left: `${15 + i * 20}%`,
+              top: `${10 + i * 15}%`,
+              width: `${60 + i * 15}px`,
+              height: `${60 + i * 15}px`,
+              background: `linear-gradient(45deg, 
+                hsl(var(--terminal-green) / 0.2), 
+                hsl(var(--terminal-green) / 0.1))`,
+              border: '1px solid hsl(var(--terminal-green) / 0.3)',
+              transform: 'rotateX(45deg) rotateY(45deg)',
+              boxShadow: `
+                0 0 20px hsl(var(--terminal-green) / 0.2),
+                inset 0 0 20px hsl(var(--terminal-green) / 0.1)
+              `,
             }}
             animate={{
-              y: [0, -30, 0],
-              x: [0, 20, 0],
-              scale: [1, 1.1, 1],
-              opacity: [0.3, 0.6, 0.3],
+              rotateX: [45, 135, 45],
+              rotateY: [45, 135, 45],
+              y: [0, -40, 0],
+              scale: [1, 1.2, 1],
             }}
             transition={{
               duration: 8 + i * 2,
@@ -36,24 +45,36 @@ const DynamicBackground: React.FC<DynamicBackgroundProps> = ({ children }) => {
           />
         ))}
 
-        {/* Floating Squares */}
-        {Array.from({ length: 4 }).map((_, i) => (
+        {/* 3D Dodecahedrons */}
+        {Array.from({ length: 3 }).map((_, i) => (
           <motion.div
-            key={`square-${i}`}
-            className="absolute border border-terminal-blue/20 bg-terminal-blue/5"
+            key={`dodeca-${i}`}
+            className="absolute"
             style={{
-              width: `${60 + i * 20}px`,
-              height: `${60 + i * 20}px`,
-              right: `${10 + i * 10}%`,
-              top: `${20 + i * 15}%`,
+              right: `${10 + i * 15}%`,
+              top: `${20 + i * 20}%`,
+              width: `${80 + i * 20}px`,
+              height: `${80 + i * 20}px`,
+              background: `conic-gradient(
+                hsl(var(--terminal-blue) / 0.3), 
+                hsl(var(--terminal-green) / 0.2), 
+                hsl(var(--terminal-blue) / 0.3)
+              )`,
+              borderRadius: '30%',
+              border: '2px solid hsl(var(--terminal-blue) / 0.4)',
+              clipPath: 'polygon(50% 0%, 80% 20%, 100% 50%, 80% 80%, 50% 100%, 20% 80%, 0% 50%, 20% 20%)',
+              boxShadow: `
+                0 0 30px hsl(var(--terminal-blue) / 0.3),
+                inset 0 0 15px hsl(var(--terminal-blue) / 0.2)
+              `,
             }}
             animate={{
-              rotate: [0, 45, 0],
-              y: [0, -25, 0],
-              scale: [1, 1.2, 1],
+              rotate: [0, 360],
+              scale: [1, 1.3, 1.1, 1.4, 1],
+              y: [0, -50, 0],
             }}
             transition={{
-              duration: 6 + i * 1.5,
+              duration: 12 + i * 3,
               repeat: Infinity,
               ease: 'easeInOut',
               delay: i * 2,
@@ -61,30 +82,69 @@ const DynamicBackground: React.FC<DynamicBackgroundProps> = ({ children }) => {
           />
         ))}
 
-        {/* Floating Triangles */}
+        {/* 3D Pyramids */}
         {Array.from({ length: 5 }).map((_, i) => (
           <motion.div
-            key={`triangle-${i}`}
-            className="absolute border-terminal-green/20"
+            key={`pyramid-${i}`}
+            className="absolute"
             style={{
+              left: `${60 + (i % 2) * 25}%`,
+              top: `${5 + i * 18}%`,
               width: 0,
               height: 0,
-              borderLeft: `${25 + i * 10}px solid transparent`,
-              borderRight: `${25 + i * 10}px solid transparent`,
-              borderBottom: `${40 + i * 15}px solid hsl(var(--terminal-green) / 0.1)`,
-              left: `${70 + (i % 2) * 10}%`,
-              top: `${10 + i * 18}%`,
+              borderLeft: `${30 + i * 8}px solid transparent`,
+              borderRight: `${30 + i * 8}px solid transparent`,
+              borderBottom: `${50 + i * 12}px solid hsl(var(--terminal-green) / 0.2)`,
+              filter: `drop-shadow(0 0 15px hsl(var(--terminal-green) / 0.4))`,
+              transform: 'rotateX(20deg) rotateZ(45deg)',
             }}
             animate={{
-              rotate: [0, 120, 240, 360],
-              y: [0, -40, 0],
-              scale: [1, 1.3, 1],
+              rotateZ: [45, 225, 45],
+              rotateX: [20, 80, 20],
+              y: [0, -60, 0],
+              scale: [1, 1.4, 1],
             }}
             transition={{
               duration: 10 + i * 2,
               repeat: Infinity,
               ease: 'easeInOut',
               delay: i * 1.8,
+            }}
+          />
+        ))}
+
+        {/* 3D Torus/Rings */}
+        {Array.from({ length: 3 }).map((_, i) => (
+          <motion.div
+            key={`torus-${i}`}
+            className="absolute rounded-full border-4"
+            style={{
+              left: `${25 + i * 30}%`,
+              top: `${50 + i * 10}%`,
+              width: `${100 + i * 25}px`,
+              height: `${100 + i * 25}px`,
+              borderColor: `hsl(var(--terminal-green) / 0.3)`,
+              borderStyle: 'dashed',
+              background: `radial-gradient(circle at 30% 30%, 
+                hsl(var(--terminal-green) / 0.1), 
+                transparent 70%)`,
+              boxShadow: `
+                0 0 25px hsl(var(--terminal-green) / 0.2),
+                inset 0 0 25px hsl(var(--terminal-green) / 0.1)
+              `,
+              transform: 'rotateX(60deg)',
+            }}
+            animate={{
+              rotateY: [0, 360],
+              rotateX: [60, 120, 60],
+              scale: [1, 1.2, 1],
+              y: [0, -30, 0],
+            }}
+            transition={{
+              duration: 15 + i * 4,
+              repeat: Infinity,
+              ease: 'easeInOut',
+              delay: i * 2.5,
             }}
           />
         ))}
@@ -145,25 +205,49 @@ const DynamicBackground: React.FC<DynamicBackgroundProps> = ({ children }) => {
         ))}
       </div>
 
-      {/* Energy Waves */}
-      <svg className="absolute inset-0 w-full h-full opacity-20">
-        {Array.from({ length: 8 }).map((_, i) => (
+      {/* Enhanced Energy Waves */}
+      <svg className="absolute inset-0 w-full h-full opacity-25">
+        {/* Top flowing lines */}
+        {Array.from({ length: 12 }).map((_, i) => (
           <motion.path
             key={`wave-${i}`}
-            d={`M 0 ${30 + i * 12} Q ${25 + i * 5} ${20 + i * 8} ${50 + i * 3} ${35 + i * 6} T 100 ${25 + i * 8}`}
-            stroke="hsl(var(--terminal-green))"
-            strokeWidth="2"
+            d={`M 0 ${15 + i * 8} Q ${15 + i * 3} ${10 + i * 6} ${30 + i * 4} ${20 + i * 5} T ${60 + i * 2} ${18 + i * 7} T 100 ${12 + i * 6}`}
+            stroke={i % 3 === 0 ? "hsl(var(--terminal-green))" : i % 3 === 1 ? "hsl(var(--terminal-blue))" : "hsl(var(--terminal-green))"}
+            strokeWidth={i % 2 === 0 ? "2" : "1"}
             fill="none"
             initial={{ pathLength: 0, opacity: 0 }}
             animate={{ 
-              pathLength: [0, 1, 0.5, 1, 0], 
-              opacity: [0, 0.7, 0.3, 0.8, 0] 
+              pathLength: [0, 1, 0.3, 1, 0], 
+              opacity: [0, 0.8, 0.4, 0.9, 0] 
+            }}
+            transition={{
+              duration: 8 + i * 1.5,
+              repeat: Infinity,
+              ease: 'easeInOut',
+              delay: i * 0.8,
+            }}
+          />
+        ))}
+        
+        {/* Side flowing lines */}
+        {Array.from({ length: 8 }).map((_, i) => (
+          <motion.path
+            key={`side-wave-${i}`}
+            d={`M ${85 + i * 2} 0 Q ${80 + i * 3} ${25 + i * 8} ${90 + i} ${50 + i * 6} T ${95 - i} ${75 + i * 4} T ${88 + i * 2} 100`}
+            stroke="hsl(var(--terminal-blue))"
+            strokeWidth="1"
+            fill="none"
+            strokeDasharray="5,10"
+            initial={{ pathLength: 0 }}
+            animate={{ 
+              pathLength: [0, 1, 0.5, 1, 0],
+              strokeDashoffset: [0, -20, -40]
             }}
             transition={{
               duration: 10 + i * 2,
               repeat: Infinity,
               ease: 'easeInOut',
-              delay: i * 1.8,
+              delay: i * 1.2,
             }}
           />
         ))}
@@ -211,33 +295,6 @@ const DynamicBackground: React.FC<DynamicBackgroundProps> = ({ children }) => {
         </motion.div>
       </motion.div>
 
-      {/* Floating Text Elements */}
-      <div className="absolute inset-0 pointer-events-none">
-        {['✨', '💫', '⭐', '🌟', '💎'].map((emoji, i) => (
-          <motion.div
-            key={`emoji-${i}`}
-            className="absolute text-2xl opacity-60"
-            style={{
-              left: `${20 + i * 15}%`,
-              top: `${30 + i * 12}%`,
-            }}
-            animate={{
-              y: [0, -50, 0],
-              rotate: [0, 180, 360],
-              scale: [1, 1.3, 1],
-              opacity: [0.3, 0.8, 0.3],
-            }}
-            transition={{
-              duration: 8 + i * 2,
-              repeat: Infinity,
-              ease: 'easeInOut',
-              delay: i * 1.2,
-            }}
-          >
-            {emoji}
-          </motion.div>
-        ))}
-      </div>
 
       {/* Terminal Grid */}
       <div 
