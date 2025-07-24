@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { ChevronRight, Play, Activity, Brain, Loader, Check } from "lucide-react";
+import { ChevronRight, Play, Activity, FileText, Loader, Check } from "lucide-react";
 import { StaggeredFadeIn } from "@/components/animations/AnimationComponents";
 import { useGeolocation } from '@/hooks/useGeolocation';
 
@@ -64,9 +64,9 @@ const Hero = () => {
           {/* Left Side - Headlines */}
           <div className="space-y-6 lg:space-y-8">
             {/* Badge */}
-            <div className="inline-flex items-center space-x-2 bg-terminal-green/10 border border-terminal-green/20 rounded-full px-4 py-2">
-              <Brain className="h-4 w-4 text-terminal-green" />
-              <span className="text-sm font-medium text-terminal-green">Apache licensed</span>
+            <div className="inline-flex items-center space-x-2 bg-terminal-green/10 border border-terminal-green/20 rounded-md px-3 py-1.5">
+              <FileText className="h-4 w-4 text-terminal-green" />
+              <span className="text-sm font-medium text-terminal-green font-mono">Apache licensed</span>
             </div>
 
             <div className="space-y-4 lg:space-y-6">
