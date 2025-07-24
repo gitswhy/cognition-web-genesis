@@ -24,6 +24,9 @@ export default {
 			}
 		},
 		extend: {
+			backgroundImage: {
+				'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+			},
 			fontFamily: {
 				'mono': ['JetBrains Mono', 'monospace'],
 				'sans': ['Inter', 'system-ui', 'sans-serif'],
