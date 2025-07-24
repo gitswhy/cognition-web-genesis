@@ -20,167 +20,201 @@ const WebsiteBackground: React.FC<WebsiteBackgroundProps> = ({ children }) => {
            }} 
       />
       
-      {/* Multiple animated horizontal data streams */}
+      {/* Smooth flowing horizontal line animations */}
       <div className="absolute inset-0 overflow-hidden">
-        {/* Primary data streams */}
-        <motion.div
-          className="absolute top-[15%] left-0 w-full h-px bg-gradient-to-r from-transparent via-terminal-green/40 to-transparent"
-          animate={{
-            scaleX: [0, 1, 0],
-            opacity: [0, 1, 0]
-          }}
-          transition={{
-            duration: 3,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 0
-          }}
-        />
-        <motion.div
-          className="absolute top-[25%] left-0 w-full h-px bg-gradient-to-r from-transparent via-terminal-blue/35 to-transparent"
-          animate={{
-            scaleX: [0, 1, 0],
-            opacity: [0, 0.8, 0]
-          }}
-          transition={{
-            duration: 4,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 1
-          }}
-        />
-        <motion.div
-          className="absolute top-[35%] left-0 w-full h-px bg-gradient-to-r from-transparent via-terminal-green/30 to-transparent"
-          animate={{
-            scaleX: [0, 1, 0],
-            opacity: [0, 0.7, 0]
-          }}
-          transition={{
-            duration: 5,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 2.5
-          }}
-        />
-        <motion.div
-          className="absolute top-[45%] left-0 w-full h-px bg-gradient-to-r from-transparent via-terminal-blue/25 to-transparent"
-          animate={{
-            scaleX: [0, 1, 0],
-            opacity: [0, 0.6, 0]
-          }}
-          transition={{
-            duration: 3.5,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 1.5
-          }}
-        />
-        <motion.div
-          className="absolute top-[55%] left-0 w-full h-px bg-gradient-to-r from-transparent via-terminal-green/35 to-transparent"
-          animate={{
-            scaleX: [0, 1, 0],
-            opacity: [0, 0.9, 0]
-          }}
-          transition={{
-            duration: 4.5,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 3
-          }}
-        />
-        <motion.div
-          className="absolute top-[65%] left-0 w-full h-px bg-gradient-to-r from-transparent via-terminal-blue/40 to-transparent"
-          animate={{
-            scaleX: [0, 1, 0],
-            opacity: [0, 0.8, 0]
-          }}
-          transition={{
-            duration: 6,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 0.5
-          }}
-        />
-        <motion.div
-          className="absolute top-[75%] left-0 w-full h-px bg-gradient-to-r from-transparent via-terminal-green/25 to-transparent"
-          animate={{
-            scaleX: [0, 1, 0],
-            opacity: [0, 0.7, 0]
-          }}
-          transition={{
-            duration: 3.8,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 2
-          }}
-        />
-        <motion.div
-          className="absolute top-[85%] left-0 w-full h-px bg-gradient-to-r from-transparent via-terminal-blue/30 to-transparent"
-          animate={{
-            scaleX: [0, 1, 0],
-            opacity: [0, 0.6, 0]
-          }}
-          transition={{
-            duration: 5.5,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 4
-          }}
-        />
+        {/* Flowing energy streams with moving gradients */}
+        <div className="absolute top-[15%] left-0 w-full h-px bg-terminal-green/20">
+          <motion.div
+            className="w-full h-full bg-gradient-to-r from-transparent via-terminal-green to-transparent"
+            style={{ width: '30%' }}
+            animate={{
+              x: ['-30%', '130%']
+            }}
+            transition={{
+              duration: 4,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: 0
+            }}
+          />
+        </div>
+        
+        <div className="absolute top-[25%] left-0 w-full h-px bg-terminal-blue/15">
+          <motion.div
+            className="w-full h-full bg-gradient-to-r from-transparent via-terminal-blue to-transparent"
+            style={{ width: '25%' }}
+            animate={{
+              x: ['-25%', '125%']
+            }}
+            transition={{
+              duration: 5,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: 1.5
+            }}
+          />
+        </div>
 
-        {/* Secondary thinner streams for density */}
-        <motion.div
-          className="absolute top-[20%] left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-terminal-green/20 to-transparent"
-          animate={{
-            scaleX: [0, 1, 0],
-            opacity: [0, 0.5, 0]
-          }}
-          transition={{
-            duration: 7,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 1.2
-          }}
-        />
-        <motion.div
-          className="absolute top-[40%] left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-terminal-blue/15 to-transparent"
-          animate={{
-            scaleX: [0, 1, 0],
-            opacity: [0, 0.4, 0]
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 3.7
-          }}
-        />
-        <motion.div
-          className="absolute top-[60%] left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-terminal-green/18 to-transparent"
-          animate={{
-            scaleX: [0, 1, 0],
-            opacity: [0, 0.45, 0]
-          }}
-          transition={{
-            duration: 6.5,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 2.8
-          }}
-        />
-        <motion.div
-          className="absolute top-[80%] left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-terminal-blue/12 to-transparent"
-          animate={{
-            scaleX: [0, 1, 0],
-            opacity: [0, 0.3, 0]
-          }}
-          transition={{
-            duration: 9,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 5.2
-          }}
-        />
+        <div className="absolute top-[35%] left-0 w-full h-px bg-terminal-green/18">
+          <motion.div
+            className="w-full h-full bg-gradient-to-r from-transparent via-terminal-green/80 to-transparent"
+            style={{ width: '35%' }}
+            animate={{
+              x: ['-35%', '135%']
+            }}
+            transition={{
+              duration: 6,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: 3
+            }}
+          />
+        </div>
+
+        <div className="absolute top-[45%] left-0 w-full h-px bg-terminal-blue/12">
+          <motion.div
+            className="w-full h-full bg-gradient-to-r from-transparent via-terminal-blue/70 to-transparent"
+            style={{ width: '28%' }}
+            animate={{
+              x: ['-28%', '128%']
+            }}
+            transition={{
+              duration: 4.5,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: 2
+            }}
+          />
+        </div>
+
+        <div className="absolute top-[55%] left-0 w-full h-px bg-terminal-green/16">
+          <motion.div
+            className="w-full h-full bg-gradient-to-r from-transparent via-terminal-green/90 to-transparent"
+            style={{ width: '40%' }}
+            animate={{
+              x: ['-40%', '140%']
+            }}
+            transition={{
+              duration: 7,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: 0.8
+            }}
+          />
+        </div>
+
+        <div className="absolute top-[65%] left-0 w-full h-px bg-terminal-blue/20">
+          <motion.div
+            className="w-full h-full bg-gradient-to-r from-transparent via-terminal-blue/85 to-transparent"
+            style={{ width: '32%' }}
+            animate={{
+              x: ['-32%', '132%']
+            }}
+            transition={{
+              duration: 5.5,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: 4.2
+            }}
+          />
+        </div>
+
+        <div className="absolute top-[75%] left-0 w-full h-px bg-terminal-green/14">
+          <motion.div
+            className="w-full h-full bg-gradient-to-r from-transparent via-terminal-green/75 to-transparent"
+            style={{ width: '26%' }}
+            animate={{
+              x: ['-26%', '126%']
+            }}
+            transition={{
+              duration: 4.8,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: 1.8
+            }}
+          />
+        </div>
+
+        <div className="absolute top-[85%] left-0 w-full h-px bg-terminal-blue/18">
+          <motion.div
+            className="w-full h-full bg-gradient-to-r from-transparent via-terminal-blue/60 to-transparent"
+            style={{ width: '38%' }}
+            animate={{
+              x: ['-38%', '138%']
+            }}
+            transition={{
+              duration: 6.2,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: 3.5
+            }}
+          />
+        </div>
+
+        {/* Additional thinner streams */}
+        <div className="absolute top-[20%] left-0 w-full h-0.5 bg-terminal-green/8">
+          <motion.div
+            className="w-full h-full bg-gradient-to-r from-transparent via-terminal-green/50 to-transparent"
+            style={{ width: '20%' }}
+            animate={{
+              x: ['-20%', '120%']
+            }}
+            transition={{
+              duration: 8,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: 2.5
+            }}
+          />
+        </div>
+
+        <div className="absolute top-[40%] left-0 w-full h-0.5 bg-terminal-blue/10">
+          <motion.div
+            className="w-full h-full bg-gradient-to-r from-transparent via-terminal-blue/45 to-transparent"
+            style={{ width: '22%' }}
+            animate={{
+              x: ['-22%', '122%']
+            }}
+            transition={{
+              duration: 9,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: 4.8
+            }}
+          />
+        </div>
+
+        <div className="absolute top-[60%] left-0 w-full h-0.5 bg-terminal-green/12">
+          <motion.div
+            className="w-full h-full bg-gradient-to-r from-transparent via-terminal-green/55 to-transparent"
+            style={{ width: '24%' }}
+            animate={{
+              x: ['-24%', '124%']
+            }}
+            transition={{
+              duration: 7.5,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: 1.2
+            }}
+          />
+        </div>
+
+        <div className="absolute top-[80%] left-0 w-full h-0.5 bg-terminal-blue/8">
+          <motion.div
+            className="w-full h-full bg-gradient-to-r from-transparent via-terminal-blue/40 to-transparent"
+            style={{ width: '18%' }}
+            animate={{
+              x: ['-18%', '118%']
+            }}
+            transition={{
+              duration: 10,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: 6
+            }}
+          />
+        </div>
       </div>
 
       {/* Enhanced gradient orbs with more complexity */}
