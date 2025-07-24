@@ -11,6 +11,7 @@ import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
 import { useAnalytics } from "@/components/analytics/PlausibleAnalytics";
 import { useGeolocation } from '@/hooks/useGeolocation';
+import DynamicBackground from "@/components/background/DynamicBackground";
 
 const Index = () => {
   const { i18n } = useTranslation();
@@ -27,7 +28,7 @@ const Index = () => {
   }, [i18n.language]);
   
   return (
-    <div className="min-h-screen bg-background">
+    <DynamicBackground>
       <Header />
       <Hero />
       <TrustRibbon />
@@ -37,7 +38,7 @@ const Index = () => {
       <Testimonials />
       <CTASection />
       <Footer />
-    </div>
+    </DynamicBackground>
   );
 };
 

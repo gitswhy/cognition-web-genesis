@@ -463,6 +463,48 @@
       inset 0 0 10px currentColor;
   }
 
+  /* Enhanced Parallax Particles */
+  @keyframes particle-float {
+    0%, 100% { transform: translateY(0px) scale(1); }
+    33% { transform: translateY(-20px) scale(1.1); }
+    66% { transform: translateY(10px) scale(0.9); }
+  }
+
+  @keyframes particle-glow {
+    0%, 100% { 
+      opacity: 0.4; 
+      box-shadow: 0 0 5px currentColor; 
+    }
+    50% { 
+      opacity: 0.9; 
+      box-shadow: 0 0 15px currentColor, 0 0 25px currentColor; 
+    }
+  }
+
+  .animate-particle-float {
+    animation: particle-float 6s ease-in-out infinite;
+  }
+
+  .animate-particle-glow {
+    animation: particle-glow 3s ease-in-out infinite;
+  }
+
+  /* Scroll-responsive effects */
+  .scroll-glow {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Performance optimizations for mobile */
+  @media (max-width: 768px) {
+    .parallax-container {
+      transform: none !important;
+    }
+    
+    .particle-system {
+      display: none;
+    }
+  }
+
   /* Reduced Motion Updates */
   @media (prefers-reduced-motion: reduce) {
     .terminal-grid {
@@ -471,6 +513,15 @@
     
     .neon-button {
       transition: none;
+    }
+
+    .animate-particle-float,
+    .animate-particle-glow {
+      animation: none;
+    }
+
+    .parallax-container {
+      transform: none !important;
     }
   }
 }
