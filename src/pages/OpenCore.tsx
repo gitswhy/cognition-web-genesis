@@ -134,21 +134,8 @@ gitswhy autoclean --scan
       
       <Header />
       
-      {/* Hero Section with Terminal Heatmap Background */}
+      {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        {/* Terminal Heatmap Background */}
-        <div className="absolute inset-0 opacity-20">
-          <div className="grid grid-cols-8 md:grid-cols-12 gap-1 h-full">
-            {Array.from({
-            length: 48
-          }).map((_, i) => <div key={i} className={`
-                  bg-terminal-green/20 rounded-sm
-                  ${i % 7 === 0 ? 'bg-terminal-blue/15' : ''}
-                `} style={{
-            height: `${Math.random() * 40 + 15}px`
-          }} />)}
-          </div>
-        </div>
 
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center max-w-4xl mx-auto">
