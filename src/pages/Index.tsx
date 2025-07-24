@@ -11,7 +11,7 @@ import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
 import { useAnalytics } from "@/components/analytics/PlausibleAnalytics";
 import { useGeolocation } from '@/hooks/useGeolocation';
-import TechBackground from "@/components/background/TechBackground";
+import ResponsiveBackground from "@/components/background/TechBackground";
 
 const Index = () => {
   const { i18n } = useTranslation();
@@ -28,7 +28,7 @@ const Index = () => {
   }, [i18n.language]);
   
   return (
-    <TechBackground>
+    <ResponsiveBackground>
       <Header />
       <Hero />
       <TrustRibbon />
@@ -38,7 +38,7 @@ const Index = () => {
       <Testimonials />
       <CTASection />
       <Footer />
-    </TechBackground>
+    </ResponsiveBackground>
   );
 };
 
