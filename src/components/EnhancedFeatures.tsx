@@ -81,17 +81,6 @@ const Features = () => {
         <StaggeredContainer className="max-w-6xl mx-auto">
           {/* Header */}
           <div className="text-center space-y-4 mb-16">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              <Badge variant="outline" className="px-4 py-2 mb-4">
-                <Zap className="w-4 h-4 mr-2" />
-                {t('features.title')}
-              </Badge>
-            </motion.div>
             
             <motion.h2 
               className="text-3xl md:text-5xl font-bold"
