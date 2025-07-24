@@ -11,6 +11,7 @@ import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
 import { useAnalytics } from "@/components/analytics/PlausibleAnalytics";
 import { useGeolocation } from '@/hooks/useGeolocation';
+import WebsiteBackground from "@/components/background/WebsiteBackground";
 
 
 const Index = () => {
@@ -28,7 +29,7 @@ const Index = () => {
   }, [i18n.language]);
   
   return (
-    <div className="min-h-screen bg-background">
+    <WebsiteBackground>
       <Header />
       <Hero />
       <TrustRibbon />
@@ -38,7 +39,7 @@ const Index = () => {
       <Testimonials />
       <CTASection />
       <Footer />
-    </div>
+    </WebsiteBackground>
   );
 };
 
