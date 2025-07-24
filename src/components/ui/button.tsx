@@ -5,23 +5,23 @@ import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 active:scale-95",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 active:scale-98",
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground hover:bg-primary/90",
+        default: "bg-primary text-primary-foreground hover:bg-primary/90 hover:shadow-lg hover:-translate-y-0.5",
         destructive:
-          "bg-destructive text-destructive-foreground hover:bg-destructive/90",
+          "bg-destructive text-destructive-foreground hover:bg-destructive/90 hover:shadow-lg hover:-translate-y-0.5",
         outline:
-          "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
+          "border border-input bg-background hover:bg-accent hover:text-accent-foreground hover:border-accent hover:-translate-y-0.5",
         secondary:
-          "bg-secondary text-secondary-foreground hover:bg-secondary/80",
-        ghost: "hover:bg-accent hover:text-accent-foreground",
-        link: "text-primary underline-offset-4 hover:underline",
-        terminal: "bg-terminal-green text-terminal-bg font-semibold border border-terminal-green/20 hover:bg-terminal-green/90 hover:scale-105 transition-all duration-200",
-        "terminal-blue": "bg-terminal-blue text-terminal-bg font-semibold border border-terminal-blue/20 hover:bg-terminal-blue/90 hover:scale-105 transition-all duration-200",
-        "terminal-outline": "border border-terminal-green text-terminal-green bg-transparent hover:bg-terminal-green/10 hover:scale-105 transition-all duration-200",
-        "terminal-outline-blue": "border border-terminal-blue text-terminal-blue bg-transparent hover:bg-terminal-blue/10 hover:scale-105 transition-all duration-200",
+          "bg-secondary text-secondary-foreground hover:bg-secondary/80 hover:shadow-lg hover:-translate-y-0.5",
+        ghost: "hover:bg-accent hover:text-accent-foreground hover:-translate-y-0.5",
+        link: "text-primary underline-offset-4 hover:underline hover:text-primary/80",
+        terminal: "bg-terminal-green text-terminal-bg font-semibold border border-terminal-green/30 hover:bg-terminal-green/90 hover:shadow-terminal-glow hover:-translate-y-0.5 hover:border-terminal-green/50 focus:shadow-terminal-glow",
+        "terminal-blue": "bg-terminal-blue text-terminal-bg font-semibold border border-terminal-blue/30 hover:bg-terminal-blue/90 hover:shadow-blue-glow hover:-translate-y-0.5 hover:border-terminal-blue/50 focus:shadow-blue-glow",
+        "terminal-outline": "border border-terminal-green/50 text-terminal-green bg-transparent hover:bg-terminal-green/5 hover:border-terminal-green/70 hover:-translate-y-0.5 hover:shadow-terminal-glow/30 focus:shadow-terminal-glow/30",
+        "terminal-outline-blue": "border border-terminal-blue/50 text-terminal-blue bg-transparent hover:bg-terminal-blue/5 hover:border-terminal-blue/70 hover:-translate-y-0.5 hover:shadow-blue-glow/30 focus:shadow-blue-glow/30",
       },
       size: {
         default: "h-10 px-4 py-2",

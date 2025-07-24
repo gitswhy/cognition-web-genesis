@@ -29,17 +29,19 @@ const Index = () => {
   }, [i18n.language]);
   
   return (
-    <WebsiteBackground>
-      <Header />
-      <Hero />
-      <TrustRibbon />
-      <EnhancedFeatures />
-      <CoreFeaturesGrid />
-      <DemoPlayground />
-      <CTASection />
-      <BottomCTA />
-      <Footer />
-    </WebsiteBackground>
+    <div className="page-fade-in">
+      <WebsiteBackground>
+        <Header />
+        <Hero />
+        <TrustRibbon />
+        <EnhancedFeatures />
+        <CoreFeaturesGrid />
+        <DemoPlayground />
+        <CTASection />
+        <BottomCTA />
+        <Footer />
+      </WebsiteBackground>
+    </div>
   );
 };
 

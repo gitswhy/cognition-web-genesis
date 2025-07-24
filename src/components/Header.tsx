@@ -69,7 +69,7 @@ const Header = () => {
               <Link
                 key={item.label}
                 to={item.href}
-                className="text-sm font-medium text-foreground/80 hover:text-terminal-green transition-all duration-300 hover:scale-105 relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-terminal-green after:transition-all after:duration-300 hover:after:w-full"
+                className="nav-link text-sm font-medium text-foreground/80 hover:text-terminal-green"
               >
                 {item.label}
               </Link>
@@ -78,10 +78,10 @@ const Header = () => {
 
           {/* CTAs */}
           <div className="hidden lg:flex items-center space-x-4">
-            <Button variant="terminal-outline" size="sm" asChild className="hover-lift">
+            <Button variant="terminal-outline" size="sm" asChild className="terminal-clean">
               <Link to="/open-core">Try Free Core</Link>
             </Button>
-            <Button variant="terminal-blue" size="sm" asChild className="hover-lift">
+            <Button variant="terminal-blue" size="sm" asChild className="terminal-clean">
               <Link to="/pro-edition">Start Pro Trial</Link>
             </Button>
           </div>
