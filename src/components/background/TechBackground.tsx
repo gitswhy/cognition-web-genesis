@@ -253,47 +253,6 @@ const DynamicBackground: React.FC<DynamicBackgroundProps> = ({ children }) => {
         ))}
       </svg>
 
-      {/* Dancing Duck with Hat */}
-      <motion.div
-        className="absolute bottom-8 left-8 text-6xl z-20"
-        animate={{
-          rotate: [-5, 5, -5],
-          y: [0, -10, 0],
-          scale: [1, 1.1, 1],
-        }}
-        transition={{
-          duration: 2,
-          repeat: Infinity,
-          ease: 'easeInOut',
-        }}
-      >
-        <motion.div
-          animate={{
-            rotate: [0, 10, -10, 0],
-          }}
-          transition={{
-            duration: 1.5,
-            repeat: Infinity,
-            ease: 'easeInOut',
-          }}
-        >
-          🦆
-        </motion.div>
-        <motion.div
-          className="absolute -top-4 left-3 text-4xl"
-          animate={{
-            rotate: [-10, 10, -10],
-            y: [0, -2, 0],
-          }}
-          transition={{
-            duration: 1.8,
-            repeat: Infinity,
-            ease: 'easeInOut',
-          }}
-        >
-          🎩
-        </motion.div>
-      </motion.div>
 
 
       {/* Terminal Grid */}
