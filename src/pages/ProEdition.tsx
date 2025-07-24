@@ -8,7 +8,6 @@ import Footer from '@/components/Footer';
 import EditionComparisonTable from '@/components/EditionComparisonTable';
 import { SoftwareApplicationSchema } from '@/components/SoftwareApplicationSchema';
 import { DynamicHeadline } from '@/components/DynamicHeadline';
-import WebsiteBackground from '@/components/background/WebsiteBackground';
 import ProEditionBackground from '@/components/background/ProEditionBackground';
 const ProEdition = () => {
   const [hoveredCard, setHoveredCard] = useState<string | null>(null);
@@ -58,7 +57,7 @@ const ProEdition = () => {
     question: 'What kind of support is included?',
     answer: 'Pro Edition includes 24/7 priority support, dedicated success manager, and access to our enterprise security team.'
   }];
-  return <WebsiteBackground>
+  return <div className="relative">
       {/* SEO Schema */}
       <SoftwareApplicationSchema
         name="Gitswhy OS Pro Edition"
@@ -69,20 +68,13 @@ const ProEdition = () => {
         ]}
       />
       
-      {/* Pro Edition CSS Background */}
+      {/* Pro Edition Background */}
       <ProEditionBackground />
       
       <Header />
       
-      {/* Hero Section with Blue Gradient */}
+      {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        {/* Animated Background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-terminal-blue/20 via-background to-terminal-blue/10" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(0,212,255,0.1),transparent_50%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(0,212,255,0.05),transparent_50%)]" />
-        
-        {/* Grid Pattern */}
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(0,212,255,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(0,212,255,0.1)_1px,transparent_1px)] bg-[size:50px_50px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_110%)]" />
         
         <div className="container mx-auto px-4 grid lg:grid-cols-2 gap-12 items-center relative z-10">
           {/* Left Content */}
@@ -387,6 +379,6 @@ const ProEdition = () => {
       </section>
 
       <Footer />
-    </WebsiteBackground>;
+    </div>;
 };
 export default ProEdition;
