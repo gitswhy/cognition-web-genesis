@@ -8,7 +8,8 @@ import Footer from '@/components/Footer';
 import EditionComparisonTable from '@/components/EditionComparisonTable';
 import { SoftwareApplicationSchema } from '@/components/SoftwareApplicationSchema';
 import { DynamicHeadline } from '@/components/DynamicHeadline';
-import DynamicBackground from '@/components/background/DynamicBackground';
+import WebsiteBackground from '@/components/background/WebsiteBackground';
+import ProEdition3D from '@/components/background/ProEdition3D';
 const ProEdition = () => {
   const [hoveredCard, setHoveredCard] = useState<string | null>(null);
   const premiumFeatures = [{
@@ -57,7 +58,7 @@ const ProEdition = () => {
     question: 'What kind of support is included?',
     answer: 'Pro Edition includes 24/7 priority support, dedicated success manager, and access to our enterprise security team.'
   }];
-  return <DynamicBackground variant="pro">
+  return <WebsiteBackground>
       {/* SEO Schema */}
       <SoftwareApplicationSchema
         name="Gitswhy OS Pro Edition"
@@ -67,6 +68,9 @@ const ProEdition = () => {
           { price: "39", priceCurrency: "USD", name: "Pro Edition Annual" }
         ]}
       />
+      
+      {/* Pro Edition 3D Background */}
+      <ProEdition3D />
       
       <Header />
       
@@ -383,6 +387,6 @@ const ProEdition = () => {
       </section>
 
       <Footer />
-    </DynamicBackground>;
+    </WebsiteBackground>;
 };
 export default ProEdition;
