@@ -20,42 +20,24 @@ const WebsiteBackground: React.FC<WebsiteBackgroundProps> = ({ children }) => {
            }} 
       />
       
-      {/* Dynamic wave patterns */}
+      {/* Multiple animated horizontal data streams */}
       <div className="absolute inset-0 overflow-hidden">
+        {/* Primary data streams */}
         <motion.div
-          className="absolute inset-0 opacity-20"
-          style={{
-            background: `
-              radial-gradient(circle at 20% 30%, hsl(var(--terminal-green) / 0.15) 0%, transparent 50%),
-              radial-gradient(circle at 80% 70%, hsl(var(--terminal-blue) / 0.15) 0%, transparent 50%),
-              radial-gradient(circle at 40% 80%, hsl(var(--terminal-green) / 0.1) 0%, transparent 50%)
-            `
-          }}
+          className="absolute top-[15%] left-0 w-full h-px bg-gradient-to-r from-transparent via-terminal-green/40 to-transparent"
           animate={{
-            background: [
-              `radial-gradient(circle at 20% 30%, hsl(var(--terminal-green) / 0.15) 0%, transparent 50%),
-               radial-gradient(circle at 80% 70%, hsl(var(--terminal-blue) / 0.15) 0%, transparent 50%),
-               radial-gradient(circle at 40% 80%, hsl(var(--terminal-green) / 0.1) 0%, transparent 50%)`,
-              `radial-gradient(circle at 60% 20%, hsl(var(--terminal-green) / 0.15) 0%, transparent 50%),
-               radial-gradient(circle at 30% 60%, hsl(var(--terminal-blue) / 0.15) 0%, transparent 50%),
-               radial-gradient(circle at 70% 90%, hsl(var(--terminal-green) / 0.1) 0%, transparent 50%)`,
-              `radial-gradient(circle at 20% 30%, hsl(var(--terminal-green) / 0.15) 0%, transparent 50%),
-               radial-gradient(circle at 80% 70%, hsl(var(--terminal-blue) / 0.15) 0%, transparent 50%),
-               radial-gradient(circle at 40% 80%, hsl(var(--terminal-green) / 0.1) 0%, transparent 50%)`
-            ]
+            scaleX: [0, 1, 0],
+            opacity: [0, 1, 0]
           }}
           transition={{
-            duration: 15,
+            duration: 3,
             repeat: Infinity,
-            ease: "easeInOut"
+            ease: "easeInOut",
+            delay: 0
           }}
         />
-      </div>
-
-      {/* Animated circuit-like lines */}
-      <div className="absolute inset-0 overflow-hidden">
         <motion.div
-          className="absolute top-1/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-terminal-green/30 to-transparent"
+          className="absolute top-[25%] left-0 w-full h-px bg-gradient-to-r from-transparent via-terminal-blue/35 to-transparent"
           animate={{
             scaleX: [0, 1, 0],
             opacity: [0, 0.8, 0]
@@ -64,33 +46,139 @@ const WebsiteBackground: React.FC<WebsiteBackgroundProps> = ({ children }) => {
             duration: 4,
             repeat: Infinity,
             ease: "easeInOut",
-            delay: 0
+            delay: 1
           }}
         />
         <motion.div
-          className="absolute top-2/3 left-0 w-full h-px bg-gradient-to-r from-transparent via-terminal-blue/30 to-transparent"
+          className="absolute top-[35%] left-0 w-full h-px bg-gradient-to-r from-transparent via-terminal-green/30 to-transparent"
+          animate={{
+            scaleX: [0, 1, 0],
+            opacity: [0, 0.7, 0]
+          }}
+          transition={{
+            duration: 5,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 2.5
+          }}
+        />
+        <motion.div
+          className="absolute top-[45%] left-0 w-full h-px bg-gradient-to-r from-transparent via-terminal-blue/25 to-transparent"
           animate={{
             scaleX: [0, 1, 0],
             opacity: [0, 0.6, 0]
           }}
           transition={{
-            duration: 5,
+            duration: 3.5,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 1.5
+          }}
+        />
+        <motion.div
+          className="absolute top-[55%] left-0 w-full h-px bg-gradient-to-r from-transparent via-terminal-green/35 to-transparent"
+          animate={{
+            scaleX: [0, 1, 0],
+            opacity: [0, 0.9, 0]
+          }}
+          transition={{
+            duration: 4.5,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 3
+          }}
+        />
+        <motion.div
+          className="absolute top-[65%] left-0 w-full h-px bg-gradient-to-r from-transparent via-terminal-blue/40 to-transparent"
+          animate={{
+            scaleX: [0, 1, 0],
+            opacity: [0, 0.8, 0]
+          }}
+          transition={{
+            duration: 6,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 0.5
+          }}
+        />
+        <motion.div
+          className="absolute top-[75%] left-0 w-full h-px bg-gradient-to-r from-transparent via-terminal-green/25 to-transparent"
+          animate={{
+            scaleX: [0, 1, 0],
+            opacity: [0, 0.7, 0]
+          }}
+          transition={{
+            duration: 3.8,
             repeat: Infinity,
             ease: "easeInOut",
             delay: 2
           }}
         />
         <motion.div
-          className="absolute top-1/2 left-1/4 w-px h-1/2 bg-gradient-to-b from-transparent via-terminal-green/25 to-transparent"
+          className="absolute top-[85%] left-0 w-full h-px bg-gradient-to-r from-transparent via-terminal-blue/30 to-transparent"
           animate={{
-            scaleY: [0, 1, 0],
-            opacity: [0, 0.7, 0]
+            scaleX: [0, 1, 0],
+            opacity: [0, 0.6, 0]
           }}
           transition={{
-            duration: 6,
+            duration: 5.5,
             repeat: Infinity,
             ease: "easeInOut",
-            delay: 1
+            delay: 4
+          }}
+        />
+
+        {/* Secondary thinner streams for density */}
+        <motion.div
+          className="absolute top-[20%] left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-terminal-green/20 to-transparent"
+          animate={{
+            scaleX: [0, 1, 0],
+            opacity: [0, 0.5, 0]
+          }}
+          transition={{
+            duration: 7,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 1.2
+          }}
+        />
+        <motion.div
+          className="absolute top-[40%] left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-terminal-blue/15 to-transparent"
+          animate={{
+            scaleX: [0, 1, 0],
+            opacity: [0, 0.4, 0]
+          }}
+          transition={{
+            duration: 8,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 3.7
+          }}
+        />
+        <motion.div
+          className="absolute top-[60%] left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-terminal-green/18 to-transparent"
+          animate={{
+            scaleX: [0, 1, 0],
+            opacity: [0, 0.45, 0]
+          }}
+          transition={{
+            duration: 6.5,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 2.8
+          }}
+        />
+        <motion.div
+          className="absolute top-[80%] left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-terminal-blue/12 to-transparent"
+          animate={{
+            scaleX: [0, 1, 0],
+            opacity: [0, 0.3, 0]
+          }}
+          transition={{
+            duration: 9,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 5.2
           }}
         />
       </div>
@@ -141,160 +229,171 @@ const WebsiteBackground: React.FC<WebsiteBackgroundProps> = ({ children }) => {
         />
       </div>
 
-      {/* Enhanced flowing energy lines with data streams */}
-      <svg className="absolute inset-0 w-full h-full opacity-50" viewBox="0 0 1200 800">
+      {/* Simplified energy flows to complement the data streams */}
+      <svg className="absolute inset-0 w-full h-full opacity-30" viewBox="0 0 1200 800">
         <defs>
-          <linearGradient id="energyGradient1" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="hsl(var(--terminal-green))" stopOpacity="0.8" />
-            <stop offset="50%" stopColor="hsl(var(--terminal-blue))" stopOpacity="0.6" />
-            <stop offset="100%" stopColor="hsl(var(--terminal-green))" stopOpacity="0.4" />
+          <linearGradient id="streamGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stopColor="hsl(var(--terminal-green))" stopOpacity="0" />
+            <stop offset="50%" stopColor="hsl(var(--terminal-green))" stopOpacity="0.6" />
+            <stop offset="100%" stopColor="hsl(var(--terminal-green))" stopOpacity="0" />
           </linearGradient>
-          <linearGradient id="energyGradient2" x1="100%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" stopColor="hsl(var(--terminal-blue))" stopOpacity="0.7" />
-            <stop offset="50%" stopColor="hsl(var(--terminal-green))" stopOpacity="0.5" />
-            <stop offset="100%" stopColor="hsl(var(--terminal-blue))" stopOpacity="0.3" />
+          <linearGradient id="streamGradientBlue" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stopColor="hsl(var(--terminal-blue))" stopOpacity="0" />
+            <stop offset="50%" stopColor="hsl(var(--terminal-blue))" stopOpacity="0.5" />
+            <stop offset="100%" stopColor="hsl(var(--terminal-blue))" stopOpacity="0" />
           </linearGradient>
-          <filter id="glow">
-            <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
-            <feMerge> 
-              <feMergeNode in="coloredBlur"/>
-              <feMergeNode in="SourceGraphic"/>
-            </feMerge>
-          </filter>
         </defs>
         
-        {/* Main data flow line */}
-        <motion.path
-          d="M0,400 Q300,200 600,400 T1200,400"
-          stroke="url(#energyGradient1)"
-          strokeWidth="3"
-          fill="none"
-          filter="url(#glow)"
-          initial={{ pathLength: 0, opacity: 0 }}
-          animate={{ 
-            pathLength: [0, 1, 0],
-            opacity: [0, 1, 0]
-          }}
-          transition={{
-            duration: 6,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        />
-        
-        {/* Secondary flow */}
-        <motion.path
-          d="M0,300 Q400,100 800,300 T1200,300"
-          stroke="url(#energyGradient2)"
-          strokeWidth="2"
-          fill="none"
-          filter="url(#glow)"
-          initial={{ pathLength: 0, opacity: 0 }}
-          animate={{ 
-            pathLength: [0, 1, 0],
+        {/* Moving data packets along the streams */}
+        <motion.circle
+          cx="0"
+          cy="120"
+          r="2"
+          fill="hsl(var(--terminal-green))"
+          opacity="0.8"
+          animate={{
+            cx: [0, 1200, 0],
             opacity: [0, 0.8, 0]
           }}
           transition={{
             duration: 8,
             repeat: Infinity,
             ease: "easeInOut",
-            delay: 2,
           }}
         />
-        
-        {/* Complex network path */}
-        <motion.path
-          d="M0,500 Q200,350 400,500 Q600,650 800,500 Q1000,350 1200,500"
-          stroke="url(#energyGradient1)"
-          strokeWidth="1.5"
-          fill="none"
-          initial={{ pathLength: 0, opacity: 0 }}
-          animate={{ 
-            pathLength: [0, 1, 0],
+        <motion.circle
+          cx="0"
+          cy="200"
+          r="1.5"
+          fill="hsl(var(--terminal-blue))"
+          opacity="0.6"
+          animate={{
+            cx: [0, 1200, 0],
             opacity: [0, 0.6, 0]
+          }}
+          transition={{
+            duration: 6,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 2
+          }}
+        />
+        <motion.circle
+          cx="0"
+          cy="440"
+          r="2.5"
+          fill="hsl(var(--terminal-green))"
+          opacity="0.7"
+          animate={{
+            cx: [0, 1200, 0],
+            opacity: [0, 0.7, 0]
           }}
           transition={{
             duration: 10,
             repeat: Infinity,
             ease: "easeInOut",
-            delay: 4,
+            delay: 4
+          }}
+        />
+        <motion.circle
+          cx="0"
+          cy="520"
+          r="1.8"
+          fill="hsl(var(--terminal-blue))"
+          opacity="0.5"
+          animate={{
+            cx: [0, 1200, 0],
+            opacity: [0, 0.5, 0]
+          }}
+          transition={{
+            duration: 7,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 1
           }}
         />
       </svg>
 
-      {/* Dynamic geometric shapes with complex animations */}
+      {/* Connection nodes and intersections */}
       <div className="absolute inset-0 overflow-hidden">
+        {/* Left side connection nodes */}
         <motion.div
-          className="absolute top-1/3 left-1/6 w-8 h-8 border-2 border-terminal-green/40"
+          className="absolute top-[25%] left-8 w-2 h-2 bg-terminal-green/70 rounded-full"
           animate={{
-            rotate: [0, 360],
-            scale: [1, 1.5, 1],
-            opacity: [0.4, 0.8, 0.4],
-            borderRadius: ["0%", "50%", "0%"]
-          }}
-          transition={{
-            duration: 12,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        />
-        
-        <motion.div
-          className="absolute top-2/3 right-1/5 w-12 h-12 bg-terminal-blue/10 rounded-full border border-terminal-blue/30"
-          animate={{
-            scale: [1, 2, 1],
-            opacity: [0.3, 0.7, 0.3],
-            y: [0, -40, 0],
-            rotate: [0, 180, 360]
-          }}
-          transition={{
-            duration: 10,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 2,
-          }}
-        />
-        
-        <motion.div
-          className="absolute top-1/5 right-1/3 w-6 h-16 bg-gradient-to-b from-terminal-green/20 to-transparent rounded-full"
-          animate={{
-            rotate: [0, 360],
-            opacity: [0.5, 1, 0.5],
-            scaleY: [1, 1.5, 1]
-          }}
-          transition={{
-            duration: 15,
-            repeat: Infinity,
-            ease: "linear",
-            delay: 5,
-          }}
-        />
-
-        {/* Pulsing nodes */}
-        <motion.div
-          className="absolute top-1/2 left-1/2 w-4 h-4 bg-terminal-green/60 rounded-full"
-          animate={{
-            scale: [1, 3, 1],
-            opacity: [0.8, 0.2, 0.8],
-          }}
-          transition={{
-            duration: 3,
-            repeat: Infinity,
-            ease: "easeOut",
-          }}
-        />
-        
-        <motion.div
-          className="absolute top-1/4 right-1/2 w-3 h-3 bg-terminal-blue/60 rounded-full"
-          animate={{
-            scale: [1, 2.5, 1],
-            opacity: [0.7, 0.1, 0.7],
+            scale: [1, 1.8, 1],
+            opacity: [0.7, 1, 0.7],
           }}
           transition={{
             duration: 4,
             repeat: Infinity,
-            ease: "easeOut",
+            ease: "easeInOut",
+          }}
+        />
+        <motion.div
+          className="absolute top-[45%] left-12 w-1.5 h-1.5 bg-terminal-blue/60 rounded-full"
+          animate={{
+            scale: [1, 2, 1],
+            opacity: [0.6, 0.9, 0.6],
+          }}
+          transition={{
+            duration: 5,
+            repeat: Infinity,
+            ease: "easeInOut",
             delay: 1.5,
+          }}
+        />
+        <motion.div
+          className="absolute top-[65%] left-6 w-1.8 h-1.8 bg-terminal-green/60 rounded-full"
+          animate={{
+            scale: [1, 1.6, 1],
+            opacity: [0.6, 1, 0.6],
+          }}
+          transition={{
+            duration: 3.5,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 2.5,
+          }}
+        />
+
+        {/* Right side connection nodes */}
+        <motion.div
+          className="absolute top-[35%] right-10 w-2 h-2 bg-terminal-blue/70 rounded-full"
+          animate={{
+            scale: [1, 1.7, 1],
+            opacity: [0.7, 1, 0.7],
+          }}
+          transition={{
+            duration: 4.5,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 1,
+          }}
+        />
+        <motion.div
+          className="absolute top-[55%] right-8 w-1.5 h-1.5 bg-terminal-green/65 rounded-full"
+          animate={{
+            scale: [1, 2.2, 1],
+            opacity: [0.6, 0.9, 0.6],
+          }}
+          transition={{
+            duration: 6,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 3,
+          }}
+        />
+        <motion.div
+          className="absolute top-[75%] right-12 w-1.8 h-1.8 bg-terminal-blue/55 rounded-full"
+          animate={{
+            scale: [1, 1.5, 1],
+            opacity: [0.5, 0.8, 0.5],
+          }}
+          transition={{
+            duration: 5.5,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 0.8,
           }}
         />
       </div>
