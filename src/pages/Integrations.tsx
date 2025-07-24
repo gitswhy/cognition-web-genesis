@@ -4,7 +4,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Filter, ExternalLink, Copy, CheckCircle, Code, Terminal, FileCode, Zap, Cloud, MessageSquare, Search, Github, GitBranch, FileText, Brain, CloudCog, Workflow, Hash, Gamepad2 } from 'lucide-react';
+import { Filter, ExternalLink, Copy, CheckCircle, Code, Terminal, FileCode, Zap, Cloud, MessageSquare, Search, Github, GitMerge, Code2, Braces, Server, CloudLightning, Hash, Users } from 'lucide-react';
 import Header from '@/components/Header';
 import IntegrationsBackground from '@/components/background/IntegrationsBackground';
 import Footer from '@/components/Footer';
@@ -60,7 +60,7 @@ jobs:
     name: 'GitLab',
     category: 'cicd',
     description: 'GitLab CI/CD pipeline integration with merge request security validation.',
-    logo: GitBranch,
+    logo: GitMerge,
     logoAlt: 'GitLab CI/CD integration for Gitswhy OS security scanning',
     status: 'stable',
     yamlConfig: `gitswhy-scan:
@@ -83,7 +83,7 @@ jobs:
     name: 'VS Code',
     category: 'ide',
     description: 'Real-time security feedback directly in your VS Code editor with inline suggestions.',
-    logo: FileText,
+    logo: Code2,
     logoAlt: 'Visual Studio Code extension for real-time Gitswhy OS security analysis',
     status: 'stable',
     yamlConfig: `{
@@ -104,7 +104,7 @@ jobs:
     name: 'JetBrains IDEs',
     category: 'ide',
     description: 'Support for IntelliJ IDEA, PyCharm, WebStorm, and other JetBrains IDEs.',
-    logo: Brain,
+    logo: Braces,
     logoAlt: 'JetBrains IDE plugin for Gitswhy OS intelligent code analysis',
     status: 'stable',
     yamlConfig: `<component name="Gitswhy">
@@ -122,7 +122,7 @@ jobs:
     name: 'AWS',
     category: 'cloud',
     description: 'Deploy Gitswhy OS on AWS with CloudFormation templates and Lambda functions.',
-    logo: CloudCog,
+    logo: Server,
     logoAlt: 'Amazon Web Services cloud deployment for Gitswhy OS enterprise',
     status: 'stable',
     yamlConfig: `AWSTemplateFormatVersion: '2010-09-09'
@@ -145,7 +145,7 @@ Resources:
     name: 'Azure DevOps',
     category: 'cloud',
     description: 'Complete Azure DevOps integration with pipeline extensions and security gates.',
-    logo: Workflow,
+    logo: CloudLightning,
     logoAlt: 'Microsoft Azure DevOps integration for Gitswhy OS security pipelines',
     status: 'beta',
     yamlConfig: `trigger:
@@ -192,7 +192,7 @@ steps:
     name: 'Discord',
     category: 'chat',
     description: 'Security notifications and bot commands for Discord servers and communities.',
-    logo: Gamepad2,
+    logo: Users,
     logoAlt: 'Discord bot integration for Gitswhy OS developer community notifications',
     status: 'beta',
     yamlConfig: `discord:
