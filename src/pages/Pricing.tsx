@@ -260,7 +260,7 @@ const Pricing = () => {
       <Header />
       
       {/* Hero Section */}
-      <section className="relative py-24 bg-gradient-to-b from-background to-terminal-surface/20 overflow-hidden">
+      <section className="relative py-24 overflow-hidden">
         <div className="absolute inset-0 bg-[linear-gradient(rgba(0,255,102,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(0,255,102,0.05)_1px,transparent_1px)] bg-[size:50px_50px]" />
         
         <div className="container mx-auto px-4 text-center relative z-10">
@@ -306,7 +306,7 @@ const Pricing = () => {
                   tier.popular 
                     ? 'border-terminal-blue shadow-lg shadow-terminal-blue/20 scale-105' 
                     : 'border-terminal-surface'
-                } ${tier.type === 'core' ? 'bg-gradient-to-br from-card to-terminal-green/5' : 'bg-gradient-to-br from-card to-terminal-blue/5'}`}
+                } ${tier.type === 'core' ? '' : ''}`}
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 {tier.popular && (
@@ -559,7 +559,7 @@ const Pricing = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 bg-gradient-to-r from-terminal-green/20 via-terminal-green/10 to-terminal-blue/20">
+      <section className="py-24">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-4xl font-bold font-mono mb-6">
             Ready to Secure Your Code?

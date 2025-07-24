@@ -141,7 +141,7 @@ const HowItWorks = () => {
       <Header />
       
       {/* Hero Section */}
-      <section className="relative py-24 bg-gradient-to-b from-background to-terminal-surface/20 overflow-hidden">
+      <section className="relative py-24 overflow-hidden">
         <div className="absolute inset-0 bg-[linear-gradient(rgba(0,255,102,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(0,255,102,0.05)_1px,transparent_1px)] bg-[size:50px_50px]" />
         
         <div className="container mx-auto px-4 text-center relative z-10">
@@ -324,7 +324,7 @@ const HowItWorks = () => {
                     <Card className="bg-terminal-surface/50 backdrop-blur-sm border-terminal-surface">
                       <CardContent className="p-8">
                         {/* Lottie Animation Container */}
-                        <div className="aspect-square bg-gradient-to-br from-terminal-bg to-terminal-surface rounded-lg flex items-center justify-center relative overflow-hidden">
+                        <div className="aspect-square rounded-lg flex items-center justify-center relative overflow-hidden">
                           {/* Animated Background Grid */}
                           <div className="absolute inset-0 bg-[linear-gradient(rgba(0,255,102,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(0,255,102,0.1)_1px,transparent_1px)] bg-[size:20px_20px]" />
                           
@@ -369,7 +369,7 @@ const HowItWorks = () => {
       </div>
 
       {/* Final CTA Section */}
-      <section className="py-24 bg-gradient-to-r from-terminal-green/20 via-terminal-green/10 to-terminal-blue/20">
+      <section className="py-24">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-4xl font-bold font-mono mb-6">
             Ready to Transform Your Workflow?

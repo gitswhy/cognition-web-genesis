@@ -13,7 +13,7 @@ const BottomCTA = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.6 }}
         >
-          <Card className="max-w-2xl mx-auto bg-gradient-to-r from-primary/5 to-secondary/5 border-primary/20">
+          <Card className="max-w-2xl mx-auto border-primary/20">
             <CardContent className="p-8 text-center space-y-4">
               <h3 className="text-2xl font-bold">Ready to Secure Your Code?</h3>
               <p className="text-muted-foreground">

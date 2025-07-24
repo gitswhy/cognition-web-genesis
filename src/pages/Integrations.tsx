@@ -278,7 +278,7 @@ steps:
       <Header />
       
       {/* Hero Section */}
-      <section className="relative py-24 bg-gradient-to-b from-background to-terminal-surface/20 overflow-hidden">
+      <section className="relative py-24 overflow-hidden">
         <div className="absolute inset-0 bg-[linear-gradient(rgba(0,255,102,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(0,255,102,0.05)_1px,transparent_1px)] bg-[size:50px_50px]" />
         
         <div className="container mx-auto px-4 text-center relative z-10">
@@ -343,7 +343,7 @@ steps:
               <Dialog key={integration.id}>
                 <DialogTrigger asChild>
                   <Card 
-                    className="group cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-lg border-terminal-surface bg-gradient-to-br from-card to-terminal-surface/50 backdrop-blur-sm animate-fade-in"
+                    className="group cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-lg border-terminal-surface backdrop-blur-sm animate-fade-in"
                     style={{ animationDelay: `${index * 100}ms` }}
                     onClick={() => setSelectedIntegration(integration)}
                   >
@@ -528,7 +528,7 @@ steps:
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 bg-gradient-to-r from-terminal-green/20 via-terminal-green/10 to-terminal-blue/20">
+      <section className="py-24">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-4xl font-bold font-mono mb-6">
             Don't See Your Tool?

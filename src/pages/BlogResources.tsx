@@ -260,7 +260,7 @@ export default function BlogResources() {
       </head>
 
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-primary/5 to-secondary/5 py-16">
+      <section className="relative py-16">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center space-y-6">
             <h1 className="text-4xl md:text-5xl font-bold">

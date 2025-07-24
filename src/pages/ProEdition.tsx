@@ -192,7 +192,7 @@ const ProEdition = () => {
       <EditionComparisonTable />
 
       {/* Premium Features Grid */}
-      <section className="py-24 bg-gradient-to-b from-background to-terminal-surface/20">
+      <section className="py-24">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold font-mono mb-4">
@@ -207,7 +207,7 @@ const ProEdition = () => {
             {premiumFeatures.map(feature => {
             const Icon = feature.icon;
             const isHovered = hoveredCard === feature.id;
-            return <Card key={feature.id} className={`relative group cursor-pointer transition-all duration-300 hover:scale-105 border-terminal-blue/20 bg-gradient-to-br ${feature.gradient} backdrop-blur-sm overflow-hidden`} onMouseEnter={() => setHoveredCard(feature.id)} onMouseLeave={() => setHoveredCard(null)}>
+            return <Card key={feature.id} className={`relative group cursor-pointer transition-all duration-300 hover:scale-105 border-terminal-blue/20 backdrop-blur-sm overflow-hidden`} onMouseEnter={() => setHoveredCard(feature.id)} onMouseLeave={() => setHoveredCard(null)}>
                   {/* Lock Overlay */}
                   <div className={`absolute inset-0 bg-terminal-blue/10 backdrop-blur-sm flex items-center justify-center transition-opacity duration-300 ${isHovered ? 'opacity-100' : 'opacity-0'} z-10`}>
                     <div className="text-center space-y-4">
@@ -247,10 +247,10 @@ const ProEdition = () => {
       </section>
 
       {/* Voice Integration Teaser */}
-      <section className="py-16 bg-gradient-to-b from-terminal-surface/20 to-background">
+      <section className="py-16">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <Card className="relative group cursor-pointer transition-all duration-500 hover:scale-105 border-terminal-blue/30 bg-gradient-to-br from-terminal-blue/10 to-terminal-blue/5 backdrop-blur-sm overflow-hidden">
+            <Card className="relative group cursor-pointer transition-all duration-500 hover:scale-105 border-terminal-blue/30 backdrop-blur-sm overflow-hidden">
               {/* Animated Background Pattern */}
               <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_35%,rgba(0,212,255,0.05)_50%,transparent_65%)] bg-[length:20px_20px] animate-pulse" />
               
@@ -330,7 +330,7 @@ const ProEdition = () => {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-24 bg-gradient-to-b from-background to-terminal-blue/5">
+      <section className="py-24">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold font-mono mb-4">
@@ -357,7 +357,7 @@ const ProEdition = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 bg-gradient-to-r from-terminal-blue/20 via-terminal-blue/10 to-terminal-blue/20">
+      <section className="py-24">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-4xl font-bold font-mono mb-6">
             Ready to Ship Code That Heals Itself?

@@ -40,7 +40,7 @@ const SEOFAQSection = () => {
   ];
 
   return (
-    <section className="py-16 bg-gradient-to-b from-background to-terminal-surface/10">
+    <section className="py-16">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <div className="flex items-center justify-center gap-3 mb-4">
@@ -55,7 +55,7 @@ const SEOFAQSection = () => {
         </div>
 
         <div className="max-w-4xl mx-auto">
-          <Card className="border-terminal-green/20 bg-gradient-to-br from-terminal-surface/20 to-terminal-surface/10">
+          <Card className="border-terminal-green/20">
             <CardContent className="p-6">
               <Accordion type="single" collapsible className="space-y-4">
                 {faqData.map((faq, index) => (
