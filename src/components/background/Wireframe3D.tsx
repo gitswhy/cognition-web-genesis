@@ -1,227 +1,91 @@
-import React, { useRef } from 'react';
+import React, { useRef, useMemo } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
-import { OrbitControls } from '@react-three/drei';
 import * as THREE from 'three';
 
-// Wireframe Cube Component
-const WireframeCube = ({ position, scale = 1, color, speed = 1 }) => {
+// Optimized Wireframe Shape Component
+const OptimizedWireframeShape = ({ position, geometryType, color, speed = 1 }) => {
   const meshRef = useRef<THREE.Mesh>(null);
   
-  useFrame((state) => {
-    if (meshRef.current) {
-      meshRef.current.rotation.x += 0.01 * speed;
-      meshRef.current.rotation.y += 0.01 * speed;
-      meshRef.current.position.y = position[1] + Math.sin(state.clock.elapsedTime * speed) * 0.5;
+  // Memoize geometry to prevent recreation
+  const geometry = useMemo(() => {
+    switch (geometryType) {
+      case 'cube': return new THREE.BoxGeometry(1, 1, 1);
+      case 'octahedron': return new THREE.OctahedronGeometry(1);
+      case 'icosahedron': return new THREE.IcosahedronGeometry(1);
+      default: return new THREE.BoxGeometry(1, 1, 1);
     }
-  });
+  }, [geometryType]);
 
-  return (
-    <mesh ref={meshRef} position={position} scale={scale}>
-      <boxGeometry args={[1, 1, 1]} />
-      <meshBasicMaterial color={color} wireframe />
-    </mesh>
+  // Memoize material to prevent recreation
+  const material = useMemo(() => 
+    new THREE.MeshBasicMaterial({ color, wireframe: true }), 
+    [color]
   );
-};
-
-// Wireframe Octahedron Component
-const WireframeOctahedron = ({ position, scale = 1, color, speed = 1 }) => {
-  const meshRef = useRef<THREE.Mesh>(null);
   
   useFrame((state) => {
     if (meshRef.current) {
-      meshRef.current.rotation.x += 0.008 * speed;
-      meshRef.current.rotation.z += 0.012 * speed;
-      meshRef.current.position.x = position[0] + Math.cos(state.clock.elapsedTime * speed * 0.8) * 0.3;
-    }
-  });
-
-  return (
-    <mesh ref={meshRef} position={position} scale={scale}>
-      <octahedronGeometry args={[1]} />
-      <meshBasicMaterial color={color} wireframe />
-    </mesh>
-  );
-};
-
-// Wireframe Icosahedron Component
-const WireframeIcosahedron = ({ position, scale = 1, color, speed = 1 }) => {
-  const meshRef = useRef<THREE.Mesh>(null);
-  
-  useFrame((state) => {
-    if (meshRef.current) {
-      meshRef.current.rotation.y += 0.015 * speed;
       meshRef.current.rotation.x += 0.005 * speed;
-      meshRef.current.position.z = position[2] + Math.sin(state.clock.elapsedTime * speed * 1.2) * 0.4;
-    }
-  });
-
-  return (
-    <mesh ref={meshRef} position={position} scale={scale}>
-      <icosahedronGeometry args={[1]} />
-      <meshBasicMaterial color={color} wireframe />
-    </mesh>
-  );
-};
-
-// Wireframe Dodecahedron Component
-const WireframeDodecahedron = ({ position, scale = 1, color, speed = 1 }) => {
-  const meshRef = useRef<THREE.Mesh>(null);
-  
-  useFrame((state) => {
-    if (meshRef.current) {
-      meshRef.current.rotation.x += 0.006 * speed;
-      meshRef.current.rotation.y += 0.009 * speed;
-      meshRef.current.rotation.z += 0.003 * speed;
-      meshRef.current.position.y = position[1] + Math.cos(state.clock.elapsedTime * speed * 0.6) * 0.6;
-    }
-  });
-
-  return (
-    <mesh ref={meshRef} position={position} scale={scale}>
-      <dodecahedronGeometry args={[1]} />
-      <meshBasicMaterial color={color} wireframe />
-    </mesh>
-  );
-};
-
-// Wireframe Torus Component
-const WireframeTorus = ({ position, scale = 1, color, speed = 1 }) => {
-  const meshRef = useRef<THREE.Mesh>(null);
-  
-  useFrame((state) => {
-    if (meshRef.current) {
-      meshRef.current.rotation.x += 0.01 * speed;
       meshRef.current.rotation.y += 0.008 * speed;
-      meshRef.current.position.x = position[0] + Math.sin(state.clock.elapsedTime * speed * 0.7) * 0.5;
-      meshRef.current.position.y = position[1] + Math.cos(state.clock.elapsedTime * speed * 0.9) * 0.3;
+      meshRef.current.position.y = position[1] + Math.sin(state.clock.elapsedTime * speed * 0.5) * 0.3;
     }
   });
 
   return (
-    <mesh ref={meshRef} position={position} scale={scale}>
-      <torusGeometry args={[1, 0.4, 16, 32]} />
-      <meshBasicMaterial color={color} wireframe />
-    </mesh>
+    <mesh ref={meshRef} position={position} scale={0.6} geometry={geometry} material={material} />
   );
 };
 
-// Wireframe Cone Component
-const WireframeCone = ({ position, scale = 1, color, speed = 1 }) => {
-  const meshRef = useRef<THREE.Mesh>(null);
-  
-  useFrame((state) => {
-    if (meshRef.current) {
-      meshRef.current.rotation.z += 0.012 * speed;
-      meshRef.current.rotation.y += 0.008 * speed;
-      meshRef.current.position.z = position[2] + Math.cos(state.clock.elapsedTime * speed * 1.1) * 0.4;
-    }
-  });
-
-  return (
-    <mesh ref={meshRef} position={position} scale={scale}>
-      <coneGeometry args={[1, 2, 8]} />
-      <meshBasicMaterial color={color} wireframe />
-    </mesh>
-  );
-};
-
-// Main 3D Scene Component
-const Scene3D = () => {
+// Simplified 3D Scene with fewer shapes
+const OptimizedScene3D = () => {
   return (
     <>
-      {/* Ambient lighting */}
-      <ambientLight intensity={0.3} />
-      <pointLight position={[10, 10, 10]} intensity={0.5} />
-
-      {/* Wireframe Geometric Shapes */}
-      <WireframeCube 
-        position={[-4, 2, -2]} 
-        scale={0.8} 
+      <OptimizedWireframeShape 
+        position={[-3, 1, -1]} 
+        geometryType="cube"
         color="#00FF66" 
-        speed={1.2} 
+        speed={1} 
       />
       
-      <WireframeOctahedron 
-        position={[3, -1, 1]} 
-        scale={0.6} 
+      <OptimizedWireframeShape 
+        position={[2, -1, 1]} 
+        geometryType="octahedron"
         color="#00D4FF" 
         speed={0.8} 
       />
       
-      <WireframeIcosahedron 
-        position={[-2, -3, 2]} 
-        scale={0.7} 
+      <OptimizedWireframeShape 
+        position={[-1, -2, 2]} 
+        geometryType="icosahedron"
         color="#00FF66" 
-        speed={1.5} 
+        speed={1.2} 
       />
       
-      <WireframeDodecahedron 
-        position={[4, 3, -1]} 
-        scale={0.5} 
+      <OptimizedWireframeShape 
+        position={[3, 2, -2]} 
+        geometryType="cube"
         color="#00D4FF" 
-        speed={0.9} 
-      />
-      
-      <WireframeTorus 
-        position={[-3, -1, -3]} 
-        scale={0.6} 
-        color="#00FF66" 
-        speed={1.1} 
-      />
-      
-      <WireframeCone 
-        position={[2, 1, 3]} 
-        scale={0.4} 
-        color="#00D4FF" 
-        speed={1.3} 
-      />
-
-      {/* Additional smaller shapes */}
-      <WireframeCube 
-        position={[6, -2, -1]} 
-        scale={0.4} 
-        color="#00FF66" 
-        speed={1.8} 
-      />
-      
-      <WireframeOctahedron 
-        position={[-5, 1, 2]} 
-        scale={0.5} 
-        color="#00D4FF" 
-        speed={0.7} 
-      />
-      
-      <WireframeIcosahedron 
-        position={[1, -4, -2]} 
-        scale={0.3} 
-        color="#00FF66" 
-        speed={2.1} 
+        speed={0.6} 
       />
     </>
   );
 };
 
-// Main Wireframe3D Component
+// Optimized Wireframe3D Component
 const Wireframe3D = () => {
   return (
-    <div className="absolute inset-0 opacity-60">
+    <div className="absolute inset-0 opacity-40">
       <Canvas
-        camera={{ 
-          position: [0, 0, 10], 
-          fov: 60,
-          near: 0.1,
-          far: 1000 
-        }}
+        camera={{ position: [0, 0, 8], fov: 50 }}
         style={{ background: 'transparent' }}
         gl={{ 
-          antialias: true, 
+          antialias: false, // Disable antialiasing for better performance
           alpha: true,
           powerPreference: "high-performance"
         }}
+        dpr={[1, 1.5]} // Limit device pixel ratio for performance
+        performance={{ min: 0.5 }} // Auto-adjust quality based on performance
       >
-        <Scene3D />
-        {/* Optional orbit controls for development - remove in production */}
-        {/* <OrbitControls enableZoom={false} enablePan={false} /> */}
+        <OptimizedScene3D />
       </Canvas>
     </div>
   );
