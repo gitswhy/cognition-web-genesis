@@ -70,7 +70,7 @@ const Hero = () => {
             </div>
 
             <div className="space-y-4 lg:space-y-6 -ml-2">
-              <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight text-glow">
+              <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight">
                 <span className="text-foreground block">
                   {currentLine === 0 ? typedText : lines[0]}
                   {currentLine === 0 && typedText.length < lines[0].length && <span className="animate-pulse text-terminal-green">|</span>}
