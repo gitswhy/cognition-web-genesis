@@ -130,7 +130,7 @@ const EditionComparisonTable = () => {
 
   return (
     <TooltipProvider>
-      <section className="py-16 bg-gradient-to-b from-terminal-surface/10 to-background">
+      <section className="py-16 bg-terminal-surface/5">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold font-mono mb-3">
