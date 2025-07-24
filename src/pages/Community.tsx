@@ -428,7 +428,7 @@ export default function Community() {
                     </div>
                     
                     <Button asChild size="lg" className="w-full sm:w-auto">
-                      <a href="https://discord.gg/gitswhy" target="_blank" rel="noopener noreferrer">
+                      <a href="https://discord.com/invite/NuevNNzQwm" target="_blank" rel="noopener noreferrer">
                         <MessageCircle className="w-4 h-4 mr-2" />
                         Join Discord Server
                         <ExternalLink className="w-3 h-3 ml-1" />
@@ -546,7 +546,7 @@ export default function Community() {
             "logo": "https://gitswhy.com/logo.png",
             "sameAs": [
               "https://github.com/gitswhy/core",
-              "https://discord.gg/gitswhy"
+              "https://discord.com/invite/NuevNNzQwm"
             ],
             "memberOf": {
               "@type": "SoftwareSourceCode",

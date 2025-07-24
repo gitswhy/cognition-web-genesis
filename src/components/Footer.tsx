@@ -34,7 +34,7 @@ const Footer = () => {
       title: "Community",
       links: [
         { label: "GitHub", href: "https://github.com/gitswhy" },
-        { label: "Discord", href: "#" },
+        { label: "Discord", href: "https://discord.com/invite/NuevNNzQwm" },
         { label: "Forums", href: "#" },
         { label: "Contributors", href: "#" }
       ]

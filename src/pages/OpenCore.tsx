@@ -361,8 +361,10 @@ gitswhy autoclean --scan
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <Button variant="outline" className="w-full border-primary text-primary hover:bg-primary/10">
-                  Join Discord
+                <Button variant="outline" className="w-full border-primary text-primary hover:bg-primary/10" asChild>
+                  <a href="https://discord.com/invite/NuevNNzQwm" target="_blank" rel="noopener noreferrer">
+                    Join Discord
+                  </a>
                 </Button>
               </CardContent>
             </Card>
