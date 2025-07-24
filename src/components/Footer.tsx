@@ -1,4 +1,5 @@
 import { Terminal, Github, Twitter, Linkedin, Mail } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   const footerSections = [
@@ -92,12 +93,22 @@ const Footer = () => {
               <ul className="space-y-2">
                 {section.links.map((link, linkIndex) => (
                   <li key={linkIndex}>
-                    <a 
-                      href={link.href}
-                      className="text-foreground/70 hover:text-terminal-green transition-colors text-sm"
-                    >
-                      {link.label}
-                    </a>
+                    {link.href.startsWith('http') || link.href === '#' ? (
+                      <a 
+                        href={link.href}
+                        className="text-foreground/70 hover:text-terminal-green transition-colors text-sm"
+                        {...(link.href.startsWith('http') && { target: "_blank", rel: "noopener noreferrer" })}
+                      >
+                        {link.label}
+                      </a>
+                    ) : (
+                      <Link 
+                        to={link.href}
+                        className="text-foreground/70 hover:text-terminal-green transition-colors text-sm"
+                      >
+                        {link.label}
+                      </Link>
+                    )}
                   </li>
                 ))}
               </ul>
@@ -111,13 +122,13 @@ const Footer = () => {
             © 2024 GitswhyOS. All rights reserved.
           </div>
           <div className="flex space-x-6 mt-4 md:mt-0">
-            <a href="/terms" className="text-sm text-foreground/60 hover:text-terminal-green transition-colors">
+            <a href="#" className="text-sm text-foreground/60 hover:text-terminal-green transition-colors">
               Terms of Service
             </a>
-            <a href="/privacy" className="text-sm text-foreground/60 hover:text-terminal-green transition-colors">
+            <a href="#" className="text-sm text-foreground/60 hover:text-terminal-green transition-colors">
               Privacy Policy
             </a>
-            <a href="/security" className="text-sm text-foreground/60 hover:text-terminal-green transition-colors">
+            <a href="#" className="text-sm text-foreground/60 hover:text-terminal-green transition-colors">
               Security
             </a>
           </div>
