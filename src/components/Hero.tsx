@@ -62,7 +62,7 @@ const Hero = () => {
       <div className="container mx-auto px-4 lg:px-8 xl:px-12 2xl:px-20 relative z-10 max-w-7xl">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 xl:gap-16 items-center">
           {/* Left Side - Headlines */}
-          <div className="space-y-6 lg:space-y-8 order-1 lg:order-1">
+          <div className="space-y-6 lg:space-y-8">
             {/* Badge */}
             <div className="inline-flex items-center space-x-2 bg-terminal-green/10 border border-terminal-green/20 rounded-full px-4 py-2">
               <Brain className="h-4 w-4 text-terminal-green" />
@@ -126,7 +126,7 @@ const Hero = () => {
 
           {/* Right Side - Live Terminal - Enhanced with better animations */}
           <StaggeredFadeIn delay={0.3} staggerDelay={0.4}>
-            <div className="relative hover-lift order-2 lg:order-2 max-w-full">
+            <div className="relative hover-lift max-w-full">
               <div className="bg-terminal-surface border border-terminal-green/20 rounded-lg code-matrix shadow-2xl overflow-hidden hover:shadow-3xl transition-all duration-500 max-w-full">
                 {/* Terminal Header */}
                 <div className="flex items-center justify-between bg-terminal-bg/50 px-4 py-2 border-b border-terminal-green/20">
