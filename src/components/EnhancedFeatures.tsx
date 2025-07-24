@@ -8,6 +8,10 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import digitalVaultImg from '@/assets/digital-vault.png';
 import cliDemoImg from '@/assets/cli-demo.png';
+import lightningPerformanceImg from '@/assets/lightning-performance.png';
+import multiLanguageImg from '@/assets/multi-language.png';
+import zeroTrustImg from '@/assets/zero-trust.png';
+import codeAnalysisImg from '@/assets/code-analysis.png';
 const Features = () => {
   const {
     t
@@ -28,7 +32,7 @@ const Features = () => {
     description: 'Scan millions of lines of code in seconds with our optimized Rust engine and intelligent caching.',
     badge: 'Core',
     badgeVariant: 'default' as const,
-    image: null,
+    image: lightningPerformanceImg,
     lottieData: null,
     stats: '<100ms response'
   }, {
@@ -37,7 +41,7 @@ const Features = () => {
     description: 'Native support for 20+ programming languages with smart pattern recognition and context awareness.',
     badge: 'Core',
     badgeVariant: 'default' as const,
-    image: null,
+    image: multiLanguageImg,
     lottieData: null,
     stats: '20+ languages'
   }, {
@@ -55,7 +59,7 @@ const Features = () => {
     description: 'Built-in compliance checks for SOC2, GDPR, and industry standards with automated reporting.',
     badge: 'Pro',
     badgeVariant: 'secondary' as const,
-    image: null,
+    image: zeroTrustImg,
     lottieData: null,
     stats: 'Full compliance'
   }, {
@@ -64,7 +68,7 @@ const Features = () => {
     description: 'Advanced static analysis that understands code context, data flow, and business logic patterns.',
     badge: 'Pro',
     badgeVariant: 'secondary' as const,
-    image: null,
+    image: codeAnalysisImg,
     lottieData: null,
     stats: 'Context-aware'
   }];
