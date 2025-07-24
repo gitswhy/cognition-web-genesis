@@ -1,20 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { 
-  Github, 
-  MessageCircle, 
-  Users, 
-  Star, 
-  GitBranch, 
-  Heart,
-  ExternalLink,
-  Code,
-  BookOpen,
-  Zap,
-  ArrowRight,
-  Calendar,
-  AlertCircle,
-  CheckCircle
-} from 'lucide-react';
+import { Github, MessageCircle, Users, Star, GitBranch, Heart, ExternalLink, Code, BookOpen, Zap, ArrowRight, Calendar, AlertCircle, CheckCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -23,7 +8,6 @@ import { Separator } from '@/components/ui/separator';
 import PageBackground from '@/components/background/PageBackground';
 import Header from '@/components/Header';
 import CommunityBackground from '@/components/background/CommunityBackground';
-
 interface GitHubIssue {
   id: number;
   title: string;
@@ -35,127 +19,110 @@ interface GitHubIssue {
   comments: number;
   url: string;
 }
-
 interface CommunityStats {
   contributors: number;
   openIssues: number;
   discordMembers: number;
 }
-
-const mockIssues: GitHubIssue[] = [
-  {
-    id: 1234,
-    title: 'Add support for Go module scanning',
-    body: 'It would be great to have native support for Go modules in the security scanner...',
-    state: 'open',
-    labels: ['enhancement', 'go', 'help wanted'],
-    author: 'developer123',
-    createdAt: '2024-01-15T10:30:00Z',
-    comments: 8,
-    url: 'https://github.com/gitswhy/core/issues/1234'
-  },
-  {
-    id: 1233,
-    title: 'False positive in dependency scanner for npm packages',
-    body: 'The scanner is flagging lodash as vulnerable when it\'s actually safe...',
-    state: 'open',
-    labels: ['bug', 'scanner', 'npm'],
-    author: 'security_dev',
-    createdAt: '2024-01-14T15:20:00Z',
-    comments: 12,
-    url: 'https://github.com/gitswhy/core/issues/1233'
-  },
-  {
-    id: 1232,
-    title: 'Integration with Jenkins CI/CD pipeline',
-    body: 'Documentation and examples for Jenkins integration would be helpful...',
-    state: 'open',
-    labels: ['documentation', 'integration', 'jenkins'],
-    author: 'devops_guru',
-    createdAt: '2024-01-13T09:15:00Z',
-    comments: 5,
-    url: 'https://github.com/gitswhy/core/issues/1232'
-  },
-  {
-    id: 1231,
-    title: 'Memory optimization for large repositories',
-    body: 'Scanner uses too much memory when scanning repositories with 100k+ files...',
-    state: 'closed',
-    labels: ['performance', 'memory', 'optimization'],
-    author: 'perf_engineer',
-    createdAt: '2024-01-10T14:45:00Z',
-    comments: 15,
-    url: 'https://github.com/gitswhy/core/issues/1231'
-  }
-];
-
+const mockIssues: GitHubIssue[] = [{
+  id: 1234,
+  title: 'Add support for Go module scanning',
+  body: 'It would be great to have native support for Go modules in the security scanner...',
+  state: 'open',
+  labels: ['enhancement', 'go', 'help wanted'],
+  author: 'developer123',
+  createdAt: '2024-01-15T10:30:00Z',
+  comments: 8,
+  url: 'https://github.com/gitswhy/core/issues/1234'
+}, {
+  id: 1233,
+  title: 'False positive in dependency scanner for npm packages',
+  body: 'The scanner is flagging lodash as vulnerable when it\'s actually safe...',
+  state: 'open',
+  labels: ['bug', 'scanner', 'npm'],
+  author: 'security_dev',
+  createdAt: '2024-01-14T15:20:00Z',
+  comments: 12,
+  url: 'https://github.com/gitswhy/core/issues/1233'
+}, {
+  id: 1232,
+  title: 'Integration with Jenkins CI/CD pipeline',
+  body: 'Documentation and examples for Jenkins integration would be helpful...',
+  state: 'open',
+  labels: ['documentation', 'integration', 'jenkins'],
+  author: 'devops_guru',
+  createdAt: '2024-01-13T09:15:00Z',
+  comments: 5,
+  url: 'https://github.com/gitswhy/core/issues/1232'
+}, {
+  id: 1231,
+  title: 'Memory optimization for large repositories',
+  body: 'Scanner uses too much memory when scanning repositories with 100k+ files...',
+  state: 'closed',
+  labels: ['performance', 'memory', 'optimization'],
+  author: 'perf_engineer',
+  createdAt: '2024-01-10T14:45:00Z',
+  comments: 15,
+  url: 'https://github.com/gitswhy/core/issues/1231'
+}];
 const communityStats: CommunityStats = {
   contributors: 89,
   openIssues: 42,
   discordMembers: 3200
 };
-
-const contributionAreas = [
-  {
-    title: 'Core Engine',
-    description: 'Help improve the scanning algorithms and detection capabilities',
-    icon: Zap,
-    skills: ['Rust', 'Go', 'Security'],
-    difficulty: 'Advanced',
-    issues: 8
-  },
-  {
-    title: 'Documentation',
-    description: 'Write guides, tutorials, and improve existing documentation',
-    icon: BookOpen,
-    skills: ['Writing', 'Markdown', 'Examples'],
-    difficulty: 'Beginner',
-    issues: 15
-  },
-  {
-    title: 'Integrations',
-    description: 'Build connectors for CI/CD tools and development platforms',
-    icon: Code,
-    skills: ['API', 'CI/CD', 'Webhooks'],
-    difficulty: 'Intermediate',
-    issues: 12
-  },
-  {
-    title: 'Web Interface',
-    description: 'Enhance the dashboard and reporting features',
-    icon: Users,
-    skills: ['React', 'TypeScript', 'Design'],
-    difficulty: 'Intermediate',
-    issues: 7
-  }
-];
-
-const IssueCard = ({ issue, index }: { issue: GitHubIssue; index: number }) => {
+const contributionAreas = [{
+  title: 'Core Engine',
+  description: 'Help improve the scanning algorithms and detection capabilities',
+  icon: Zap,
+  skills: ['Rust', 'Go', 'Security'],
+  difficulty: 'Advanced',
+  issues: 8
+}, {
+  title: 'Documentation',
+  description: 'Write guides, tutorials, and improve existing documentation',
+  icon: BookOpen,
+  skills: ['Writing', 'Markdown', 'Examples'],
+  difficulty: 'Beginner',
+  issues: 15
+}, {
+  title: 'Integrations',
+  description: 'Build connectors for CI/CD tools and development platforms',
+  icon: Code,
+  skills: ['API', 'CI/CD', 'Webhooks'],
+  difficulty: 'Intermediate',
+  issues: 12
+}, {
+  title: 'Web Interface',
+  description: 'Enhance the dashboard and reporting features',
+  icon: Users,
+  skills: ['React', 'TypeScript', 'Design'],
+  difficulty: 'Intermediate',
+  issues: 7
+}];
+const IssueCard = ({
+  issue,
+  index
+}: {
+  issue: GitHubIssue;
+  index: number;
+}) => {
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
     const now = new Date();
     const diffTime = Math.abs(now.getTime() - date.getTime());
     const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-    
     if (diffDays === 1) return '1 day ago';
     if (diffDays < 7) return `${diffDays} days ago`;
     if (diffDays < 30) return `${Math.ceil(diffDays / 7)} weeks ago`;
     return `${Math.ceil(diffDays / 30)} months ago`;
   };
-
-  return (
-    <Card 
-      className="transition-all duration-300 hover:shadow-md hover:-translate-y-1 animate-fade-in"
-      style={{ animationDelay: `${index * 100}ms` }}
-    >
+  return <Card className="transition-all duration-300 hover:shadow-md hover:-translate-y-1 animate-fade-in" style={{
+    animationDelay: `${index * 100}ms`
+  }}>
       <CardHeader className="space-y-2">
         <div className="flex items-start justify-between">
           <div className="flex items-center gap-2">
-            {issue.state === 'open' ? (
-              <AlertCircle className="w-4 h-4 text-green-500" />
-            ) : (
-              <CheckCircle className="w-4 h-4 text-purple-500" />
-            )}
+            {issue.state === 'open' ? <AlertCircle className="w-4 h-4 text-green-500" /> : <CheckCircle className="w-4 h-4 text-purple-500" />}
             <span className="text-sm text-muted-foreground">#{issue.id}</span>
           </div>
           <Badge variant={issue.state === 'open' ? 'default' : 'secondary'}>
@@ -164,12 +131,7 @@ const IssueCard = ({ issue, index }: { issue: GitHubIssue; index: number }) => {
         </div>
         
         <CardTitle className="text-lg leading-tight">
-          <a 
-            href={issue.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-primary transition-colors"
-          >
+          <a href={issue.url} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
             {issue.title}
           </a>
         </CardTitle>
@@ -181,11 +143,9 @@ const IssueCard = ({ issue, index }: { issue: GitHubIssue; index: number }) => {
         </p>
         
         <div className="flex flex-wrap gap-1">
-          {issue.labels.map((label) => (
-            <Badge key={label} variant="outline" className="text-xs">
+          {issue.labels.map(label => <Badge key={label} variant="outline" className="text-xs">
               {label}
-            </Badge>
-          ))}
+            </Badge>)}
         </div>
         
         <div className="flex items-center justify-between text-xs text-muted-foreground">
@@ -199,18 +159,19 @@ const IssueCard = ({ issue, index }: { issue: GitHubIssue; index: number }) => {
           </div>
         </div>
       </CardContent>
-    </Card>
-  );
+    </Card>;
 };
-
-const ContributionCard = ({ area, index }: { area: typeof contributionAreas[0]; index: number }) => {
+const ContributionCard = ({
+  area,
+  index
+}: {
+  area: typeof contributionAreas[0];
+  index: number;
+}) => {
   const Icon = area.icon;
-  
-  return (
-    <Card 
-      className="transition-all duration-300 hover:shadow-lg hover:-translate-y-1 animate-fade-in"
-      style={{ animationDelay: `${index * 150}ms` }}
-    >
+  return <Card className="transition-all duration-300 hover:shadow-lg hover:-translate-y-1 animate-fade-in" style={{
+    animationDelay: `${index * 150}ms`
+  }}>
       <CardHeader>
         <div className="flex items-center gap-3">
           <div className="p-2 rounded-lg bg-primary/10">
@@ -218,11 +179,7 @@ const ContributionCard = ({ area, index }: { area: typeof contributionAreas[0]; 
           </div>
           <div>
             <CardTitle className="text-lg">{area.title}</CardTitle>
-            <Badge 
-              variant={area.difficulty === 'Beginner' ? 'secondary' : 
-                      area.difficulty === 'Intermediate' ? 'default' : 'destructive'}
-              className="text-xs"
-            >
+            <Badge variant={area.difficulty === 'Beginner' ? 'secondary' : area.difficulty === 'Intermediate' ? 'default' : 'destructive'} className="text-xs">
               {area.difficulty}
             </Badge>
           </div>
@@ -237,11 +194,9 @@ const ContributionCard = ({ area, index }: { area: typeof contributionAreas[0]; 
         <div>
           <p className="text-xs font-medium mb-2">Skills needed:</p>
           <div className="flex flex-wrap gap-1">
-            {area.skills.map((skill) => (
-              <Badge key={skill} variant="outline" className="text-xs">
+            {area.skills.map(skill => <Badge key={skill} variant="outline" className="text-xs">
                 {skill}
-              </Badge>
-            ))}
+              </Badge>)}
           </div>
         </div>
         
@@ -256,15 +211,11 @@ const ContributionCard = ({ area, index }: { area: typeof contributionAreas[0]; 
           </Button>
         </div>
       </CardContent>
-    </Card>
-  );
+    </Card>;
 };
-
 export default function Community() {
   const [activeTab, setActiveTab] = useState('github');
-
-  return (
-    <div className="min-h-screen">
+  return <div className="min-h-screen">
       <CommunityBackground />
       <Header />
       
@@ -304,29 +255,7 @@ export default function Community() {
             </p>
             
             {/* Stats */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
-              <div className="text-center animate-fade-in" style={{ animationDelay: '100ms' }}>
-                <div className="flex items-center justify-center gap-1 text-2xl font-bold">
-                  <Users className="w-5 h-5 text-terminal-blue" />
-                  {communityStats.contributors}
-                </div>
-                <p className="text-sm text-foreground/70">Contributors</p>
-              </div>
-              <div className="text-center animate-fade-in" style={{ animationDelay: '300ms' }}>
-                <div className="flex items-center justify-center gap-1 text-2xl font-bold">
-                  <AlertCircle className="w-5 h-5 text-terminal-green" />
-                  {communityStats.openIssues}
-                </div>
-                <p className="text-sm text-foreground/70">Open Issues</p>
-              </div>
-              <div className="text-center animate-fade-in" style={{ animationDelay: '400ms' }}>
-                <div className="flex items-center justify-center gap-1 text-2xl font-bold">
-                  <MessageCircle className="w-5 h-5 text-terminal-blue" />
-                  {communityStats.discordMembers.toLocaleString()}
-                </div>
-                <p className="text-sm text-foreground/70">Discord Members</p>
-              </div>
-            </div>
+            
           </div>
         </div>
       </section>
@@ -370,9 +299,7 @@ export default function Community() {
                 </div>
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  {mockIssues.map((issue, index) => (
-                    <IssueCard key={issue.id} issue={issue} index={index} />
-                  ))}
+                  {mockIssues.map((issue, index) => <IssueCard key={issue.id} issue={issue} index={index} />)}
                 </div>
               </div>
             </TabsContent>
@@ -458,9 +385,7 @@ export default function Community() {
                 </div>
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  {contributionAreas.map((area, index) => (
-                    <ContributionCard key={area.title} area={area} index={index} />
-                  ))}
+                  {contributionAreas.map((area, index) => <ContributionCard key={area.title} area={area} index={index} />)}
                 </div>
                 
                 <Card className="max-w-4xl mx-auto">
@@ -525,29 +450,22 @@ export default function Community() {
       </section>
 
       {/* Structured Data */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Organization",
-            "name": "Gitswhy OS Community",
-            "description": "Open source DevSecOps community building secure software development tools",
-            "url": "https://gitswhy.com/community",
-            "logo": "https://gitswhy.com/logo.png",
-            "sameAs": [
-              "https://github.com/gitswhy/core",
-              "https://discord.com/invite/NuevNNzQwm"
-            ],
-            "memberOf": {
-              "@type": "SoftwareSourceCode",
-              "name": "Gitswhy OS",
-              "codeRepository": "https://github.com/gitswhy/core"
-            }
-          })
-        }}
-      />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{
+        __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "name": "Gitswhy OS Community",
+          "description": "Open source DevSecOps community building secure software development tools",
+          "url": "https://gitswhy.com/community",
+          "logo": "https://gitswhy.com/logo.png",
+          "sameAs": ["https://github.com/gitswhy/core", "https://discord.com/invite/NuevNNzQwm"],
+          "memberOf": {
+            "@type": "SoftwareSourceCode",
+            "name": "Gitswhy OS",
+            "codeRepository": "https://github.com/gitswhy/core"
+          }
+        })
+      }} />
     </div>
-    </div>
-  );
+    </div>;
 }
