@@ -11,12 +11,18 @@ import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
 import { useAnalytics } from "@/components/analytics/PlausibleAnalytics";
 import { useGeolocation } from '@/hooks/useGeolocation';
-import DynamicBackground from "@/components/background/DynamicBackground";
+import InteractiveBackground from "@/components/background/InteractiveBackground";
+import BackgroundControls from "@/components/background/BackgroundControls";
 
 const Index = () => {
   const { i18n } = useTranslation();
   const { trackPageView } = useAnalytics();
   const { isEU } = useGeolocation();
+  const [backgroundConfig, setBackgroundConfig] = React.useState({
+    intensity: 0.8,
+    speed: 1.0,
+    enabled: true
+  });
 
   React.useEffect(() => {
     trackPageView('/');
@@ -28,7 +34,7 @@ const Index = () => {
   }, [i18n.language]);
   
   return (
-    <DynamicBackground variant="home">
+    <InteractiveBackground config={backgroundConfig}>
       <Header />
       <Hero />
       <TrustRibbon />
@@ -38,7 +44,11 @@ const Index = () => {
       <Testimonials />
       <CTASection />
       <Footer />
-    </DynamicBackground>
+      <BackgroundControls 
+        config={backgroundConfig} 
+        onConfigChange={setBackgroundConfig}
+      />
+    </InteractiveBackground>
   );
 };
 
