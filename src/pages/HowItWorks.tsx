@@ -171,7 +171,7 @@ const HowItWorks = () => {
       {/* Main Content */}
       <div className="relative">
         {/* Sticky Progress Navigation */}
-        <nav className="fixed left-8 top-1/3 transform -translate-y-1/4 z-40 hidden lg:block">
+        <nav className="fixed left-8 top-1/2 transform -translate-y-1/2 z-40 hidden lg:block">
           <div className="bg-terminal-surface/80 backdrop-blur-sm rounded-lg border border-terminal-green/20 p-4 shadow-lg">
             <h3 className="text-sm font-medium mb-4 text-muted-foreground">Progress</h3>
             <div className="space-y-3">
