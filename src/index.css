@@ -625,22 +625,21 @@
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
-}
-    .terminal-grid {
-      animation: none;
-    }
-    
-    .neon-button {
-      transition: none;
-    }
+  
+  .terminal-grid {
+    animation: none;
+  }
+  
+  .neon-button {
+    transition: none;
+  }
 
-    .animate-particle-float,
-    .animate-particle-glow {
-      animation: none;
-    }
+  .animate-particle-float,
+  .animate-particle-glow {
+    animation: none;
+  }
 
-    .parallax-container {
-      transform: none !important;
-    }
+  .parallax-container {
+    transform: none !important;
   }
 }
