@@ -20,205 +20,310 @@ const WebsiteBackground: React.FC<WebsiteBackgroundProps> = ({ children }) => {
            }} 
       />
       
-      {/* Wavy lines that travel from side to side */}
-      <svg className="absolute inset-0 w-full h-full" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice">
-        <defs>
-          <linearGradient id="wavyGradient1" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="hsl(var(--terminal-green))" stopOpacity="0" />
-            <stop offset="20%" stopColor="hsl(var(--terminal-green))" stopOpacity="0.9" />
-            <stop offset="80%" stopColor="hsl(var(--terminal-green))" stopOpacity="0.9" />
-            <stop offset="100%" stopColor="hsl(var(--terminal-green))" stopOpacity="0" />
-          </linearGradient>
-          <linearGradient id="wavyGradient2" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="hsl(var(--terminal-blue))" stopOpacity="0" />
-            <stop offset="20%" stopColor="hsl(var(--terminal-blue))" stopOpacity="0.8" />
-            <stop offset="80%" stopColor="hsl(var(--terminal-blue))" stopOpacity="0.8" />
-            <stop offset="100%" stopColor="hsl(var(--terminal-blue))" stopOpacity="0" />
-          </linearGradient>
-          <filter id="glow">
-            <feGaussianBlur stdDeviation="1.5" result="coloredBlur"/>
-            <feMerge> 
-              <feMergeNode in="coloredBlur"/>
-              <feMergeNode in="SourceGraphic"/>
-            </feMerge>
-          </filter>
-        </defs>
-
-        {/* Wavy line 1 - gentle wave */}
-        <motion.path
-          d="M0,120 Q100,100 200,120 Q300,140 400,120"
-          stroke="url(#wavyGradient1)"
-          strokeWidth="0.8"
-          fill="none"
-          filter="url(#glow)"
-          initial={{ x: -400, opacity: 0 }}
-          animate={{ 
-            x: [0, 1200],
-            opacity: [0, 1, 1, 0]
+      {/* Floating wireframe 3D geometric shapes */}
+      <div className="absolute inset-0 overflow-hidden">
+        {/* Wireframe Cube 1 */}
+        <motion.div
+          className="absolute w-16 h-16 border border-terminal-green/40"
+          style={{
+            top: '20%',
+            left: '10%',
+            transformStyle: 'preserve-3d',
+          }}
+          animate={{
+            rotateX: [0, 360],
+            rotateY: [0, 360],
+            y: [0, -20, 0],
+            x: [0, 10, 0],
           }}
           transition={{
-            duration: 4,
+            duration: 12,
             repeat: Infinity,
             ease: "easeInOut",
-            times: [0, 0.1, 0.9, 1],
-            repeatDelay: 2
           }}
-        />
+        >
+          <div className="absolute inset-0 border border-terminal-green/30 transform translate-z-8" />
+          <div className="absolute w-full h-0 border-l border-terminal-green/30 transform rotate-45 origin-left" />
+          <div className="absolute w-0 h-full border-t border-terminal-green/30 transform rotate-45 origin-top" />
+        </motion.div>
 
-        {/* Wavy line 2 - deeper wave */}
-        <motion.path
-          d="M0,200 Q80,170 160,200 Q240,230 320,200 Q400,170 480,200"
-          stroke="url(#wavyGradient2)"
-          strokeWidth="0.6"
-          fill="none"
-          filter="url(#glow)"
-          initial={{ x: -480, opacity: 0 }}
-          animate={{ 
-            x: [0, 1200],
-            opacity: [0, 1, 1, 0]
+        {/* Wireframe Pyramid */}
+        <motion.div
+          className="absolute"
+          style={{
+            top: '15%',
+            right: '15%',
+            width: '60px',
+            height: '60px',
+          }}
+          animate={{
+            rotateX: [0, 180, 360],
+            rotateZ: [0, 180, 360],
+            y: [0, 15, 0],
+            scale: [1, 1.1, 1],
           }}
           transition={{
-            duration: 5,
+            duration: 15,
             repeat: Infinity,
             ease: "easeInOut",
-            delay: 1.5,
-            times: [0, 0.1, 0.9, 1],
-            repeatDelay: 3
+            delay: 2,
           }}
-        />
+        >
+          <svg viewBox="0 0 60 60" className="w-full h-full">
+            <path
+              d="M30,10 L10,50 L50,50 Z"
+              fill="none"
+              stroke="hsl(var(--terminal-blue))"
+              strokeWidth="1"
+              opacity="0.6"
+            />
+            <path
+              d="M30,10 L10,50 M30,10 L50,50 M30,10 L30,35"
+              stroke="hsl(var(--terminal-blue))"
+              strokeWidth="1"
+              opacity="0.4"
+            />
+          </svg>
+        </motion.div>
 
-        {/* Wavy line 3 - tight wave */}
-        <motion.path
-          d="M0,280 Q60,260 120,280 Q180,300 240,280 Q300,260 360,280"
-          stroke="url(#wavyGradient1)"
-          strokeWidth="0.7"
-          fill="none"
-          filter="url(#glow)"
-          initial={{ x: -360, opacity: 0 }}
-          animate={{ 
-            x: [0, 1200],
-            opacity: [0, 1, 1, 0]
+        {/* Wireframe Octahedron */}
+        <motion.div
+          className="absolute"
+          style={{
+            top: '45%',
+            left: '20%',
+            width: '50px',
+            height: '50px',
+          }}
+          animate={{
+            rotateY: [0, 360],
+            rotateX: [0, 180, 0],
+            y: [0, -25, 0],
+            opacity: [0.6, 1, 0.6],
           }}
           transition={{
-            duration: 4.5,
+            duration: 10,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 1,
+          }}
+        >
+          <svg viewBox="0 0 50 50" className="w-full h-full">
+            <path
+              d="M25,5 L45,25 L25,45 L5,25 Z"
+              fill="none"
+              stroke="hsl(var(--terminal-green))"
+              strokeWidth="1"
+              opacity="0.7"
+            />
+            <path
+              d="M25,5 L25,45 M5,25 L45,25"
+              stroke="hsl(var(--terminal-green))"
+              strokeWidth="1"
+              opacity="0.5"
+            />
+          </svg>
+        </motion.div>
+
+        {/* Wireframe Dodecahedron-like shape */}
+        <motion.div
+          className="absolute"
+          style={{
+            top: '60%',
+            right: '25%',
+            width: '70px',
+            height: '70px',
+          }}
+          animate={{
+            rotateX: [0, 360],
+            rotateY: [360, 0],
+            y: [0, 20, 0],
+            x: [0, -15, 0],
+          }}
+          transition={{
+            duration: 18,
             repeat: Infinity,
             ease: "easeInOut",
             delay: 3,
-            times: [0, 0.1, 0.9, 1],
-            repeatDelay: 2.5
           }}
-        />
+        >
+          <svg viewBox="0 0 70 70" className="w-full h-full">
+            <polygon
+              points="35,10 55,20 50,40 20,40 15,20"
+              fill="none"
+              stroke="hsl(var(--terminal-blue))"
+              strokeWidth="1"
+              opacity="0.6"
+            />
+            <polygon
+              points="35,25 50,30 45,50 25,50 20,30"
+              fill="none"
+              stroke="hsl(var(--terminal-blue))"
+              strokeWidth="1"
+              opacity="0.4"
+            />
+            <path
+              d="M35,10 L35,25 M55,20 L50,30 M50,40 L45,50 M20,40 L25,50 M15,20 L20,30"
+              stroke="hsl(var(--terminal-blue))"
+              strokeWidth="1"
+              opacity="0.3"
+            />
+          </svg>
+        </motion.div>
 
-        {/* Wavy line 4 - medium wave */}
-        <motion.path
-          d="M0,360 Q90,340 180,360 Q270,380 360,360 Q450,340 540,360"
-          stroke="url(#wavyGradient2)"
-          strokeWidth="0.9"
-          fill="none"
-          filter="url(#glow)"
-          initial={{ x: -540, opacity: 0 }}
-          animate={{ 
-            x: [0, 1200],
-            opacity: [0, 1, 1, 0]
+        {/* Wireframe Tetrahedron */}
+        <motion.div
+          className="absolute"
+          style={{
+            top: '75%',
+            left: '15%',
+            width: '45px',
+            height: '45px',
+          }}
+          animate={{
+            rotateZ: [0, 360],
+            rotateY: [0, 180, 360],
+            y: [0, -10, 0],
+            scale: [1, 1.2, 1],
           }}
           transition={{
-            duration: 3.8,
+            duration: 8,
             repeat: Infinity,
             ease: "easeInOut",
-            delay: 0.8,
-            times: [0, 0.1, 0.9, 1],
-            repeatDelay: 4
+            delay: 4,
           }}
-        />
+        >
+          <svg viewBox="0 0 45 45" className="w-full h-full">
+            <path
+              d="M22.5,5 L40,35 L5,35 Z"
+              fill="none"
+              stroke="hsl(var(--terminal-green))"
+              strokeWidth="1"
+              opacity="0.7"
+            />
+            <path
+              d="M22.5,5 L12.5,35 M22.5,5 L32.5,35"
+              stroke="hsl(var(--terminal-green))"
+              strokeWidth="1"
+              opacity="0.5"
+            />
+          </svg>
+        </motion.div>
 
-        {/* Wavy line 5 - gentle curve */}
-        <motion.path
-          d="M0,440 Q120,420 240,440 Q360,460 480,440"
-          stroke="url(#wavyGradient1)"
-          strokeWidth="0.5"
-          fill="none"
-          filter="url(#glow)"
-          initial={{ x: -480, opacity: 0 }}
-          animate={{ 
-            x: [0, 1200],
-            opacity: [0, 1, 1, 0]
+        {/* Complex Wireframe Cube */}
+        <motion.div
+          className="absolute w-20 h-20"
+          style={{
+            top: '30%',
+            right: '10%',
+          }}
+          animate={{
+            rotateX: [45, 405],
+            rotateY: [45, 405],
+            y: [0, 25, 0],
+            opacity: [0.5, 0.9, 0.5],
+          }}
+          transition={{
+            duration: 20,
+            repeat: Infinity,
+            ease: "linear",
+            delay: 1.5,
+          }}
+        >
+          <div className="absolute inset-0 border border-terminal-green/50 transform-gpu" />
+          <div className="absolute inset-1 border border-terminal-green/30 transform translate-x-2 translate-y-2" />
+          <div className="absolute top-0 left-0 w-full border-b border-terminal-green/40 transform skew-x-12" />
+          <div className="absolute top-0 left-0 h-full border-r border-terminal-green/40 transform skew-y-12" />
+        </motion.div>
+
+        {/* Floating Wireframe Hexagon */}
+        <motion.div
+          className="absolute"
+          style={{
+            top: '35%',
+            left: '50%',
+            width: '55px',
+            height: '55px',
+          }}
+          animate={{
+            rotateZ: [0, 360],
+            y: [0, -30, 0],
+            x: [0, 20, 0],
+          }}
+          transition={{
+            duration: 14,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 2.5,
+          }}
+        >
+          <svg viewBox="0 0 55 55" className="w-full h-full">
+            <polygon
+              points="27.5,5 45,15 45,35 27.5,45 10,35 10,15"
+              fill="none"
+              stroke="hsl(var(--terminal-blue))"
+              strokeWidth="1"
+              opacity="0.6"
+            />
+            <path
+              d="M27.5,5 L27.5,45 M45,15 L10,35 M45,35 L10,15"
+              stroke="hsl(var(--terminal-blue))"
+              strokeWidth="1"
+              opacity="0.3"
+            />
+          </svg>
+        </motion.div>
+
+        {/* Small floating cubes */}
+        <motion.div
+          className="absolute w-8 h-8 border border-terminal-green/30"
+          style={{ top: '80%', right: '40%' }}
+          animate={{
+            rotateX: [0, 360],
+            rotateY: [360, 0],
+            y: [0, -15, 0],
           }}
           transition={{
             duration: 6,
             repeat: Infinity,
             ease: "easeInOut",
-            delay: 2.2,
-            times: [0, 0.1, 0.9, 1],
-            repeatDelay: 1.8
+            delay: 0.5,
           }}
         />
 
-        {/* Wavy line 6 - sharp waves */}
-        <motion.path
-          d="M0,520 Q50,500 100,520 Q150,540 200,520 Q250,500 300,520 Q350,540 400,520"
-          stroke="url(#wavyGradient2)"
-          strokeWidth="0.6"
-          fill="none"
-          filter="url(#glow)"
-          initial={{ x: -400, opacity: 0 }}
-          animate={{ 
-            x: [0, 1200],
-            opacity: [0, 1, 1, 0]
+        <motion.div
+          className="absolute w-10 h-10 border border-terminal-blue/40"
+          style={{ top: '10%', left: '60%' }}
+          animate={{
+            rotateZ: [0, 360],
+            y: [0, 20, 0],
+            x: [0, -10, 0],
           }}
           transition={{
-            duration: 5.2,
+            duration: 9,
             repeat: Infinity,
             ease: "easeInOut",
-            delay: 4.5,
-            times: [0, 0.1, 0.9, 1],
-            repeatDelay: 3.2
+            delay: 3.5,
           }}
         />
 
-        {/* Wavy line 7 - long gentle wave */}
-        <motion.path
-          d="M0,600 Q150,580 300,600 Q450,620 600,600"
-          stroke="url(#wavyGradient1)"
-          strokeWidth="0.8"
-          fill="none"
-          filter="url(#glow)"
-          initial={{ x: -600, opacity: 0 }}
-          animate={{ 
-            x: [0, 1200],
-            opacity: [0, 1, 1, 0]
+        <motion.div
+          className="absolute w-6 h-6 border border-terminal-green/50"
+          style={{ top: '50%', left: '80%' }}
+          animate={{
+            rotateX: [0, 180, 360],
+            rotateY: [0, 360],
+            y: [0, -20, 0],
+            scale: [1, 1.3, 1],
           }}
           transition={{
-            duration: 4.2,
+            duration: 11,
             repeat: Infinity,
             ease: "easeInOut",
-            delay: 1.2,
-            times: [0, 0.1, 0.9, 1],
-            repeatDelay: 2.8
+            delay: 1.8,
           }}
         />
-
-        {/* Wavy line 8 - subtle wave */}
-        <motion.path
-          d="M0,680 Q110,670 220,680 Q330,690 440,680"
-          stroke="url(#wavyGradient2)"
-          strokeWidth="0.4"
-          fill="none"
-          filter="url(#glow)"
-          initial={{ x: -440, opacity: 0 }}
-          animate={{ 
-            x: [0, 1200],
-            opacity: [0, 1, 1, 0]
-          }}
-          transition={{
-            duration: 5.8,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 3.8,
-            times: [0, 0.1, 0.9, 1],
-            repeatDelay: 2.2
-          }}
-        />
-      </svg>
+      </div>
 
       {/* Enhanced gradient orbs with more complexity */}
       <div className="absolute inset-0 overflow-hidden">
