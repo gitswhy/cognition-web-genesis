@@ -20,202 +20,197 @@ const WebsiteBackground: React.FC<WebsiteBackgroundProps> = ({ children }) => {
            }} 
       />
       
-      {/* Smooth flowing horizontal line animations */}
-      <div className="absolute inset-0 overflow-hidden">
-        {/* Flowing energy streams with moving gradients */}
-        <div className="absolute top-[15%] left-0 w-full h-px bg-terminal-green/20">
-          <motion.div
-            className="w-full h-full bg-gradient-to-r from-transparent via-terminal-green to-transparent"
-            style={{ width: '30%' }}
-            animate={{
-              x: ['-30%', '130%']
-            }}
-            transition={{
-              duration: 4,
-              repeat: Infinity,
-              ease: "easeInOut",
-              delay: 0
-            }}
-          />
-        </div>
-        
-        <div className="absolute top-[25%] left-0 w-full h-px bg-terminal-blue/15">
-          <motion.div
-            className="w-full h-full bg-gradient-to-r from-transparent via-terminal-blue to-transparent"
-            style={{ width: '25%' }}
-            animate={{
-              x: ['-25%', '125%']
-            }}
-            transition={{
-              duration: 5,
-              repeat: Infinity,
-              ease: "easeInOut",
-              delay: 1.5
-            }}
-          />
-        </div>
+      {/* Smooth wavy flowing lines */}
+      <svg className="absolute inset-0 w-full h-full" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice">
+        <defs>
+          <linearGradient id="wavyGradient1" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stopColor="hsl(var(--terminal-green))" stopOpacity="0" />
+            <stop offset="30%" stopColor="hsl(var(--terminal-green))" stopOpacity="0.8" />
+            <stop offset="70%" stopColor="hsl(var(--terminal-green))" stopOpacity="0.8" />
+            <stop offset="100%" stopColor="hsl(var(--terminal-green))" stopOpacity="0" />
+          </linearGradient>
+          <linearGradient id="wavyGradient2" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stopColor="hsl(var(--terminal-blue))" stopOpacity="0" />
+            <stop offset="30%" stopColor="hsl(var(--terminal-blue))" stopOpacity="0.7" />
+            <stop offset="70%" stopColor="hsl(var(--terminal-blue))" stopOpacity="0.7" />
+            <stop offset="100%" stopColor="hsl(var(--terminal-blue))" stopOpacity="0" />
+          </linearGradient>
+          <filter id="glow">
+            <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+            <feMerge> 
+              <feMergeNode in="coloredBlur"/>
+              <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+          </filter>
+        </defs>
 
-        <div className="absolute top-[35%] left-0 w-full h-px bg-terminal-green/18">
-          <motion.div
-            className="w-full h-full bg-gradient-to-r from-transparent via-terminal-green/80 to-transparent"
-            style={{ width: '35%' }}
-            animate={{
-              x: ['-35%', '135%']
-            }}
-            transition={{
-              duration: 6,
-              repeat: Infinity,
-              ease: "easeInOut",
-              delay: 3
-            }}
-          />
-        </div>
+        {/* Wavy line 1 */}
+        <motion.path
+          d="M-400,120 Q-200,100 0,120 T400,120 T800,120 T1200,120 T1600,120"
+          stroke="url(#wavyGradient1)"
+          strokeWidth="2"
+          fill="none"
+          filter="url(#glow)"
+          initial={{ x: -400, opacity: 0 }}
+          animate={{ 
+            x: [0, 400],
+            opacity: [0, 1, 1, 0]
+          }}
+          transition={{
+            duration: 6,
+            repeat: Infinity,
+            ease: "easeInOut",
+            times: [0, 0.2, 0.8, 1]
+          }}
+        />
 
-        <div className="absolute top-[45%] left-0 w-full h-px bg-terminal-blue/12">
-          <motion.div
-            className="w-full h-full bg-gradient-to-r from-transparent via-terminal-blue/70 to-transparent"
-            style={{ width: '28%' }}
-            animate={{
-              x: ['-28%', '128%']
-            }}
-            transition={{
-              duration: 4.5,
-              repeat: Infinity,
-              ease: "easeInOut",
-              delay: 2
-            }}
-          />
-        </div>
+        {/* Wavy line 2 */}
+        <motion.path
+          d="M-400,200 Q-200,180 0,200 T400,200 T800,200 T1200,200 T1600,200"
+          stroke="url(#wavyGradient2)"
+          strokeWidth="1.5"
+          fill="none"
+          filter="url(#glow)"
+          initial={{ x: -400, opacity: 0 }}
+          animate={{ 
+            x: [0, 400],
+            opacity: [0, 1, 1, 0]
+          }}
+          transition={{
+            duration: 8,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 2,
+            times: [0, 0.2, 0.8, 1]
+          }}
+        />
 
-        <div className="absolute top-[55%] left-0 w-full h-px bg-terminal-green/16">
-          <motion.div
-            className="w-full h-full bg-gradient-to-r from-transparent via-terminal-green/90 to-transparent"
-            style={{ width: '40%' }}
-            animate={{
-              x: ['-40%', '140%']
-            }}
-            transition={{
-              duration: 7,
-              repeat: Infinity,
-              ease: "easeInOut",
-              delay: 0.8
-            }}
-          />
-        </div>
+        {/* Wavy line 3 */}
+        <motion.path
+          d="M-400,280 Q-300,260 -100,280 Q100,300 300,280 Q500,260 700,280 Q900,300 1100,280 Q1300,260 1500,280"
+          stroke="url(#wavyGradient1)"
+          strokeWidth="1.8"
+          fill="none"
+          filter="url(#glow)"
+          initial={{ x: -400, opacity: 0 }}
+          animate={{ 
+            x: [0, 400],
+            opacity: [0, 1, 1, 0]
+          }}
+          transition={{
+            duration: 7,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 4,
+            times: [0, 0.2, 0.8, 1]
+          }}
+        />
 
-        <div className="absolute top-[65%] left-0 w-full h-px bg-terminal-blue/20">
-          <motion.div
-            className="w-full h-full bg-gradient-to-r from-transparent via-terminal-blue/85 to-transparent"
-            style={{ width: '32%' }}
-            animate={{
-              x: ['-32%', '132%']
-            }}
-            transition={{
-              duration: 5.5,
-              repeat: Infinity,
-              ease: "easeInOut",
-              delay: 4.2
-            }}
-          />
-        </div>
+        {/* Wavy line 4 */}
+        <motion.path
+          d="M-400,360 Q-250,340 -50,360 Q150,380 350,360 Q550,340 750,360 Q950,380 1150,360 Q1350,340 1550,360"
+          stroke="url(#wavyGradient2)"
+          strokeWidth="2.2"
+          fill="none"
+          filter="url(#glow)"
+          initial={{ x: -400, opacity: 0 }}
+          animate={{ 
+            x: [0, 400],
+            opacity: [0, 1, 1, 0]
+          }}
+          transition={{
+            duration: 5.5,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 1,
+            times: [0, 0.2, 0.8, 1]
+          }}
+        />
 
-        <div className="absolute top-[75%] left-0 w-full h-px bg-terminal-green/14">
-          <motion.div
-            className="w-full h-full bg-gradient-to-r from-transparent via-terminal-green/75 to-transparent"
-            style={{ width: '26%' }}
-            animate={{
-              x: ['-26%', '126%']
-            }}
-            transition={{
-              duration: 4.8,
-              repeat: Infinity,
-              ease: "easeInOut",
-              delay: 1.8
-            }}
-          />
-        </div>
+        {/* Wavy line 5 */}
+        <motion.path
+          d="M-400,440 Q-200,420 0,440 T400,440 T800,440 T1200,440 T1600,440"
+          stroke="url(#wavyGradient1)"
+          strokeWidth="1.6"
+          fill="none"
+          filter="url(#glow)"
+          initial={{ x: -400, opacity: 0 }}
+          animate={{ 
+            x: [0, 400],
+            opacity: [0, 1, 1, 0]
+          }}
+          transition={{
+            duration: 9,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 3,
+            times: [0, 0.2, 0.8, 1]
+          }}
+        />
 
-        <div className="absolute top-[85%] left-0 w-full h-px bg-terminal-blue/18">
-          <motion.div
-            className="w-full h-full bg-gradient-to-r from-transparent via-terminal-blue/60 to-transparent"
-            style={{ width: '38%' }}
-            animate={{
-              x: ['-38%', '138%']
-            }}
-            transition={{
-              duration: 6.2,
-              repeat: Infinity,
-              ease: "easeInOut",
-              delay: 3.5
-            }}
-          />
-        </div>
+        {/* Wavy line 6 */}
+        <motion.path
+          d="M-400,520 Q-300,500 -100,520 Q100,540 300,520 Q500,500 700,520 Q900,540 1100,520 Q1300,500 1500,520"
+          stroke="url(#wavyGradient2)"
+          strokeWidth="1.4"
+          fill="none"
+          filter="url(#glow)"
+          initial={{ x: -400, opacity: 0 }}
+          animate={{ 
+            x: [0, 400],
+            opacity: [0, 1, 1, 0]
+          }}
+          transition={{
+            duration: 6.5,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 5,
+            times: [0, 0.2, 0.8, 1]
+          }}
+        />
 
-        {/* Additional thinner streams */}
-        <div className="absolute top-[20%] left-0 w-full h-0.5 bg-terminal-green/8">
-          <motion.div
-            className="w-full h-full bg-gradient-to-r from-transparent via-terminal-green/50 to-transparent"
-            style={{ width: '20%' }}
-            animate={{
-              x: ['-20%', '120%']
-            }}
-            transition={{
-              duration: 8,
-              repeat: Infinity,
-              ease: "easeInOut",
-              delay: 2.5
-            }}
-          />
-        </div>
+        {/* Wavy line 7 */}
+        <motion.path
+          d="M-400,600 Q-250,580 -50,600 Q150,620 350,600 Q550,580 750,600 Q950,620 1150,600 Q1350,580 1550,600"
+          stroke="url(#wavyGradient1)"
+          strokeWidth="2"
+          fill="none"
+          filter="url(#glow)"
+          initial={{ x: -400, opacity: 0 }}
+          animate={{ 
+            x: [0, 400],
+            opacity: [0, 1, 1, 0]
+          }}
+          transition={{
+            duration: 7.5,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 0.5,
+            times: [0, 0.2, 0.8, 1]
+          }}
+        />
 
-        <div className="absolute top-[40%] left-0 w-full h-0.5 bg-terminal-blue/10">
-          <motion.div
-            className="w-full h-full bg-gradient-to-r from-transparent via-terminal-blue/45 to-transparent"
-            style={{ width: '22%' }}
-            animate={{
-              x: ['-22%', '122%']
-            }}
-            transition={{
-              duration: 9,
-              repeat: Infinity,
-              ease: "easeInOut",
-              delay: 4.8
-            }}
-          />
-        </div>
-
-        <div className="absolute top-[60%] left-0 w-full h-0.5 bg-terminal-green/12">
-          <motion.div
-            className="w-full h-full bg-gradient-to-r from-transparent via-terminal-green/55 to-transparent"
-            style={{ width: '24%' }}
-            animate={{
-              x: ['-24%', '124%']
-            }}
-            transition={{
-              duration: 7.5,
-              repeat: Infinity,
-              ease: "easeInOut",
-              delay: 1.2
-            }}
-          />
-        </div>
-
-        <div className="absolute top-[80%] left-0 w-full h-0.5 bg-terminal-blue/8">
-          <motion.div
-            className="w-full h-full bg-gradient-to-r from-transparent via-terminal-blue/40 to-transparent"
-            style={{ width: '18%' }}
-            animate={{
-              x: ['-18%', '118%']
-            }}
-            transition={{
-              duration: 10,
-              repeat: Infinity,
-              ease: "easeInOut",
-              delay: 6
-            }}
-          />
-        </div>
-      </div>
+        {/* Wavy line 8 */}
+        <motion.path
+          d="M-400,680 Q-200,660 0,680 T400,680 T800,680 T1200,680 T1600,680"
+          stroke="url(#wavyGradient2)"
+          strokeWidth="1.7"
+          fill="none"
+          filter="url(#glow)"
+          initial={{ x: -400, opacity: 0 }}
+          animate={{ 
+            x: [0, 400],
+            opacity: [0, 1, 1, 0]
+          }}
+          transition={{
+            duration: 8.5,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 2.5,
+            times: [0, 0.2, 0.8, 1]
+          }}
+        />
+      </svg>
 
       {/* Enhanced gradient orbs with more complexity */}
       <div className="absolute inset-0 overflow-hidden">
