@@ -25,6 +25,9 @@ const TrustRibbon = () => {
     <section className="py-12 border-y border-terminal-green/10">{/* Consistent background from PageBackground */}
       <div className="container mx-auto px-4 lg:px-20">
         <div className="text-center mb-8">
+          <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
+            Your second brain for secure, self‑healing code.
+          </h2>
           <p className="text-sm text-foreground/60 font-medium tracking-wide uppercase">
             Trusted by teams using
           </p>
