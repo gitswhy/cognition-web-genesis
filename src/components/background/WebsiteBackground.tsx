@@ -20,23 +20,23 @@ const WebsiteBackground: React.FC<WebsiteBackgroundProps> = ({ children }) => {
            }} 
       />
       
-      {/* Smooth wavy flowing lines */}
+      {/* Wavy lines that travel from side to side */}
       <svg className="absolute inset-0 w-full h-full" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice">
         <defs>
           <linearGradient id="wavyGradient1" x1="0%" y1="0%" x2="100%" y2="0%">
             <stop offset="0%" stopColor="hsl(var(--terminal-green))" stopOpacity="0" />
-            <stop offset="30%" stopColor="hsl(var(--terminal-green))" stopOpacity="0.8" />
-            <stop offset="70%" stopColor="hsl(var(--terminal-green))" stopOpacity="0.8" />
+            <stop offset="20%" stopColor="hsl(var(--terminal-green))" stopOpacity="0.9" />
+            <stop offset="80%" stopColor="hsl(var(--terminal-green))" stopOpacity="0.9" />
             <stop offset="100%" stopColor="hsl(var(--terminal-green))" stopOpacity="0" />
           </linearGradient>
           <linearGradient id="wavyGradient2" x1="0%" y1="0%" x2="100%" y2="0%">
             <stop offset="0%" stopColor="hsl(var(--terminal-blue))" stopOpacity="0" />
-            <stop offset="30%" stopColor="hsl(var(--terminal-blue))" stopOpacity="0.7" />
-            <stop offset="70%" stopColor="hsl(var(--terminal-blue))" stopOpacity="0.7" />
+            <stop offset="20%" stopColor="hsl(var(--terminal-blue))" stopOpacity="0.8" />
+            <stop offset="80%" stopColor="hsl(var(--terminal-blue))" stopOpacity="0.8" />
             <stop offset="100%" stopColor="hsl(var(--terminal-blue))" stopOpacity="0" />
           </linearGradient>
           <filter id="glow">
-            <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+            <feGaussianBlur stdDeviation="1.5" result="coloredBlur"/>
             <feMerge> 
               <feMergeNode in="coloredBlur"/>
               <feMergeNode in="SourceGraphic"/>
@@ -44,170 +44,178 @@ const WebsiteBackground: React.FC<WebsiteBackgroundProps> = ({ children }) => {
           </filter>
         </defs>
 
-        {/* Wavy line 1 */}
+        {/* Wavy line 1 - gentle wave */}
         <motion.path
-          d="M-400,120 Q-200,100 0,120 T400,120 T800,120 T1200,120 T1600,120"
+          d="M0,120 Q100,100 200,120 Q300,140 400,120"
           stroke="url(#wavyGradient1)"
-          strokeWidth="2"
+          strokeWidth="0.8"
           fill="none"
           filter="url(#glow)"
           initial={{ x: -400, opacity: 0 }}
           animate={{ 
-            x: [0, 400],
+            x: [0, 1200],
+            opacity: [0, 1, 1, 0]
+          }}
+          transition={{
+            duration: 4,
+            repeat: Infinity,
+            ease: "easeInOut",
+            times: [0, 0.1, 0.9, 1],
+            repeatDelay: 2
+          }}
+        />
+
+        {/* Wavy line 2 - deeper wave */}
+        <motion.path
+          d="M0,200 Q80,170 160,200 Q240,230 320,200 Q400,170 480,200"
+          stroke="url(#wavyGradient2)"
+          strokeWidth="0.6"
+          fill="none"
+          filter="url(#glow)"
+          initial={{ x: -480, opacity: 0 }}
+          animate={{ 
+            x: [0, 1200],
+            opacity: [0, 1, 1, 0]
+          }}
+          transition={{
+            duration: 5,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 1.5,
+            times: [0, 0.1, 0.9, 1],
+            repeatDelay: 3
+          }}
+        />
+
+        {/* Wavy line 3 - tight wave */}
+        <motion.path
+          d="M0,280 Q60,260 120,280 Q180,300 240,280 Q300,260 360,280"
+          stroke="url(#wavyGradient1)"
+          strokeWidth="0.7"
+          fill="none"
+          filter="url(#glow)"
+          initial={{ x: -360, opacity: 0 }}
+          animate={{ 
+            x: [0, 1200],
+            opacity: [0, 1, 1, 0]
+          }}
+          transition={{
+            duration: 4.5,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 3,
+            times: [0, 0.1, 0.9, 1],
+            repeatDelay: 2.5
+          }}
+        />
+
+        {/* Wavy line 4 - medium wave */}
+        <motion.path
+          d="M0,360 Q90,340 180,360 Q270,380 360,360 Q450,340 540,360"
+          stroke="url(#wavyGradient2)"
+          strokeWidth="0.9"
+          fill="none"
+          filter="url(#glow)"
+          initial={{ x: -540, opacity: 0 }}
+          animate={{ 
+            x: [0, 1200],
+            opacity: [0, 1, 1, 0]
+          }}
+          transition={{
+            duration: 3.8,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 0.8,
+            times: [0, 0.1, 0.9, 1],
+            repeatDelay: 4
+          }}
+        />
+
+        {/* Wavy line 5 - gentle curve */}
+        <motion.path
+          d="M0,440 Q120,420 240,440 Q360,460 480,440"
+          stroke="url(#wavyGradient1)"
+          strokeWidth="0.5"
+          fill="none"
+          filter="url(#glow)"
+          initial={{ x: -480, opacity: 0 }}
+          animate={{ 
+            x: [0, 1200],
             opacity: [0, 1, 1, 0]
           }}
           transition={{
             duration: 6,
             repeat: Infinity,
             ease: "easeInOut",
-            times: [0, 0.2, 0.8, 1]
+            delay: 2.2,
+            times: [0, 0.1, 0.9, 1],
+            repeatDelay: 1.8
           }}
         />
 
-        {/* Wavy line 2 */}
+        {/* Wavy line 6 - sharp waves */}
         <motion.path
-          d="M-400,200 Q-200,180 0,200 T400,200 T800,200 T1200,200 T1600,200"
+          d="M0,520 Q50,500 100,520 Q150,540 200,520 Q250,500 300,520 Q350,540 400,520"
           stroke="url(#wavyGradient2)"
-          strokeWidth="1.5"
+          strokeWidth="0.6"
           fill="none"
           filter="url(#glow)"
           initial={{ x: -400, opacity: 0 }}
           animate={{ 
-            x: [0, 400],
+            x: [0, 1200],
             opacity: [0, 1, 1, 0]
           }}
           transition={{
-            duration: 8,
+            duration: 5.2,
             repeat: Infinity,
             ease: "easeInOut",
-            delay: 2,
-            times: [0, 0.2, 0.8, 1]
+            delay: 4.5,
+            times: [0, 0.1, 0.9, 1],
+            repeatDelay: 3.2
           }}
         />
 
-        {/* Wavy line 3 */}
+        {/* Wavy line 7 - long gentle wave */}
         <motion.path
-          d="M-400,280 Q-300,260 -100,280 Q100,300 300,280 Q500,260 700,280 Q900,300 1100,280 Q1300,260 1500,280"
+          d="M0,600 Q150,580 300,600 Q450,620 600,600"
           stroke="url(#wavyGradient1)"
-          strokeWidth="1.8"
+          strokeWidth="0.8"
           fill="none"
           filter="url(#glow)"
-          initial={{ x: -400, opacity: 0 }}
+          initial={{ x: -600, opacity: 0 }}
           animate={{ 
-            x: [0, 400],
+            x: [0, 1200],
             opacity: [0, 1, 1, 0]
           }}
           transition={{
-            duration: 7,
+            duration: 4.2,
             repeat: Infinity,
             ease: "easeInOut",
-            delay: 4,
-            times: [0, 0.2, 0.8, 1]
+            delay: 1.2,
+            times: [0, 0.1, 0.9, 1],
+            repeatDelay: 2.8
           }}
         />
 
-        {/* Wavy line 4 */}
+        {/* Wavy line 8 - subtle wave */}
         <motion.path
-          d="M-400,360 Q-250,340 -50,360 Q150,380 350,360 Q550,340 750,360 Q950,380 1150,360 Q1350,340 1550,360"
+          d="M0,680 Q110,670 220,680 Q330,690 440,680"
           stroke="url(#wavyGradient2)"
-          strokeWidth="2.2"
+          strokeWidth="0.4"
           fill="none"
           filter="url(#glow)"
-          initial={{ x: -400, opacity: 0 }}
+          initial={{ x: -440, opacity: 0 }}
           animate={{ 
-            x: [0, 400],
+            x: [0, 1200],
             opacity: [0, 1, 1, 0]
           }}
           transition={{
-            duration: 5.5,
+            duration: 5.8,
             repeat: Infinity,
             ease: "easeInOut",
-            delay: 1,
-            times: [0, 0.2, 0.8, 1]
-          }}
-        />
-
-        {/* Wavy line 5 */}
-        <motion.path
-          d="M-400,440 Q-200,420 0,440 T400,440 T800,440 T1200,440 T1600,440"
-          stroke="url(#wavyGradient1)"
-          strokeWidth="1.6"
-          fill="none"
-          filter="url(#glow)"
-          initial={{ x: -400, opacity: 0 }}
-          animate={{ 
-            x: [0, 400],
-            opacity: [0, 1, 1, 0]
-          }}
-          transition={{
-            duration: 9,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 3,
-            times: [0, 0.2, 0.8, 1]
-          }}
-        />
-
-        {/* Wavy line 6 */}
-        <motion.path
-          d="M-400,520 Q-300,500 -100,520 Q100,540 300,520 Q500,500 700,520 Q900,540 1100,520 Q1300,500 1500,520"
-          stroke="url(#wavyGradient2)"
-          strokeWidth="1.4"
-          fill="none"
-          filter="url(#glow)"
-          initial={{ x: -400, opacity: 0 }}
-          animate={{ 
-            x: [0, 400],
-            opacity: [0, 1, 1, 0]
-          }}
-          transition={{
-            duration: 6.5,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 5,
-            times: [0, 0.2, 0.8, 1]
-          }}
-        />
-
-        {/* Wavy line 7 */}
-        <motion.path
-          d="M-400,600 Q-250,580 -50,600 Q150,620 350,600 Q550,580 750,600 Q950,620 1150,600 Q1350,580 1550,600"
-          stroke="url(#wavyGradient1)"
-          strokeWidth="2"
-          fill="none"
-          filter="url(#glow)"
-          initial={{ x: -400, opacity: 0 }}
-          animate={{ 
-            x: [0, 400],
-            opacity: [0, 1, 1, 0]
-          }}
-          transition={{
-            duration: 7.5,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 0.5,
-            times: [0, 0.2, 0.8, 1]
-          }}
-        />
-
-        {/* Wavy line 8 */}
-        <motion.path
-          d="M-400,680 Q-200,660 0,680 T400,680 T800,680 T1200,680 T1600,680"
-          stroke="url(#wavyGradient2)"
-          strokeWidth="1.7"
-          fill="none"
-          filter="url(#glow)"
-          initial={{ x: -400, opacity: 0 }}
-          animate={{ 
-            x: [0, 400],
-            opacity: [0, 1, 1, 0]
-          }}
-          transition={{
-            duration: 8.5,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 2.5,
-            times: [0, 0.2, 0.8, 1]
+            delay: 3.8,
+            times: [0, 0.1, 0.9, 1],
+            repeatDelay: 2.2
           }}
         />
       </svg>
