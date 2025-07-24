@@ -192,7 +192,7 @@ const Features = () => {
               }} whileTap={{
                 scale: 0.95
               }}>
-                  Start Your Free Scan
+                  Wishlist
                 </motion.button>
               </CardContent>
             </Card>
