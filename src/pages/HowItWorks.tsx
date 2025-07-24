@@ -46,6 +46,8 @@ const HowItWorks = () => {
       const scrollPosition = window.scrollY + window.innerHeight * 0.3; // Adjusted threshold
 
       let newActiveStep = 0;
+      let foundActiveSection = false;
+      
       sections.forEach((section, index) => {
         const element = section as HTMLElement;
         const offsetTop = element.offsetTop;
@@ -53,11 +55,17 @@ const HowItWorks = () => {
 
         if (scrollPosition >= offsetTop && scrollPosition < offsetBottom) {
           newActiveStep = index;
-        } else if (scrollPosition >= offsetTop) {
-          // If we're past this section, keep it as the active step (for the last section)
-          newActiveStep = Math.max(newActiveStep, index);
+          foundActiveSection = true;
         }
       });
+      
+      // If we're past all sections, set activeStep to steps.length to show all as completed
+      if (!foundActiveSection && scrollPosition > 0) {
+        const lastSection = sections[sections.length - 1] as HTMLElement;
+        if (lastSection && scrollPosition >= lastSection.offsetTop + lastSection.offsetHeight) {
+          newActiveStep = sections.length;
+        }
+      }
       
       setActiveStep(newActiveStep);
     };
