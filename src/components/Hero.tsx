@@ -81,6 +81,10 @@ const Hero = () => {
                 </span>
               </h1>
               
+              <p className="text-lg md:text-xl lg:text-2xl text-terminal-green/90 font-medium mb-2">
+                Your second brain for secure, self‑healing code.
+              </p>
+              
               <p className="text-base md:text-lg lg:text-xl text-foreground/80 max-w-xl leading-relaxed">
                 {typedSubhead}
                 {typedSubhead.length < subhead.length && typedSubhead.length > 0 && (
