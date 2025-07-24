@@ -5,6 +5,7 @@ import { Badge } from '@/components/ui/badge';
 import { Lock, Shield, Zap, Users, AlertTriangle, FileCode, TrendingUp, BarChart3, PieChart, Activity, ArrowRight, Star, Check, Mic, Play } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import EditionComparisonTable from '@/components/EditionComparisonTable';
 import { SoftwareApplicationSchema } from '@/components/SoftwareApplicationSchema';
 import { DynamicHeadline } from '@/components/DynamicHeadline';
@@ -337,17 +338,23 @@ const ProEdition = () => {
             </p>
           </div>
           
-          <div className="max-w-4xl mx-auto space-y-6">
-            {faqItems.map((item, index) => <Card key={index} className="border-terminal-blue/20">
-                <CardHeader>
-                  <CardTitle className="text-lg">{item.question}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground leading-relaxed">
+          <div className="max-w-4xl mx-auto">
+            <Accordion type="multiple" className="w-full space-y-4">
+              {faqItems.map((item, index) => (
+                <AccordionItem 
+                  key={index} 
+                  value={`item-${index}`}
+                  className="border border-terminal-blue/20 rounded-lg bg-terminal-surface/30 backdrop-blur-sm px-6"
+                >
+                  <AccordionTrigger className="text-left hover:no-underline hover:text-terminal-blue transition-colors">
+                    <span className="text-lg font-medium">{item.question}</span>
+                  </AccordionTrigger>
+                  <AccordionContent className="text-muted-foreground leading-relaxed">
                     {item.answer}
-                  </p>
-                </CardContent>
-              </Card>)}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
           </div>
         </div>
       </section>
