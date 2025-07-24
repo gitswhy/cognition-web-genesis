@@ -267,11 +267,7 @@ const ProEdition = () => {
                       </p>
                     </div>
                     
-                    <div className="flex flex-col sm:flex-row gap-4">
-                      <Button className="bg-terminal-blue hover:bg-terminal-blue/90 text-white">
-                        <Play className="mr-2 w-4 h-4" />
-                        Watch Demo
-                      </Button>
+                    <div className="flex justify-start">
                       <Button variant="outline" className="border-terminal-blue/30 text-terminal-blue hover:bg-terminal-blue/10">
                         Join Waitlist
                       </Button>
