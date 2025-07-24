@@ -101,19 +101,29 @@ const Features = () => {
             {features.map((feature, index) => {
             const Icon = feature.icon;
             return <AnimatedCard key={feature.title} delay={index * 0.1} className="h-full" hoverScale={1.03} hoverY={-8}>
-                  <Card className="h-full group relative overflow-hidden">
+                  <Card className={`h-full group relative overflow-hidden ${
+                    feature.badge === 'Pro' ? 'hover:shadow-blue-glow' : 'hover:shadow-terminal-glow'
+                  } transition-all duration-300`}>
                     {/* Background Gradient */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <div className={`absolute inset-0 bg-gradient-to-br opacity-0 group-hover:opacity-100 transition-opacity duration-300 ${
+                      feature.badge === 'Pro' ? 'from-terminal-blue/5 to-transparent' : 'from-primary/5 to-transparent'
+                    }`} />
                     
                     <CardHeader className="relative">
                       <div className="flex items-start justify-between mb-4">
-                        <motion.div className="p-3 rounded-xl bg-primary/10 group-hover:bg-primary/20 transition-colors duration-300" whileHover={{
+                        <motion.div className={`p-3 rounded-xl transition-colors duration-300 ${
+                          feature.badge === 'Pro' 
+                            ? 'bg-terminal-blue/10 group-hover:bg-terminal-blue/20' 
+                            : 'bg-primary/10 group-hover:bg-primary/20'
+                        }`} whileHover={{
                       rotate: 5,
                       scale: 1.1
                     }} transition={{
                       duration: 0.2
                     }}>
-                          <Icon className="w-6 h-6 text-primary group-hover:scale-110 transition-transform duration-300" />
+                          <Icon className={`w-6 h-6 group-hover:scale-110 transition-transform duration-300 ${
+                            feature.badge === 'Pro' ? 'text-terminal-blue' : 'text-primary'
+                          }`} />
                         </motion.div>
                         
                         <Badge variant={feature.badgeVariant} className="text-xs font-medium">
@@ -121,7 +131,9 @@ const Features = () => {
                         </Badge>
                       </div>
                       
-                      <CardTitle className="text-xl group-hover:text-primary transition-colors duration-300">
+                      <CardTitle className={`text-xl transition-colors duration-300 ${
+                        feature.badge === 'Pro' ? 'group-hover:text-terminal-blue' : 'group-hover:text-primary'
+                      }`}>
                         {feature.title}
                       </CardTitle>
                     </CardHeader>
@@ -160,7 +172,9 @@ const Features = () => {
                     </CardContent>
                     
                     {/* Hover Effect Overlay */}
-                    <motion.div className="absolute inset-0 border-2 border-primary/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" initial={false} whileHover={{
+                    <motion.div className={`absolute inset-0 border-2 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none ${
+                      feature.badge === 'Pro' ? 'border-terminal-blue/20' : 'border-primary/20'
+                    }`} initial={false} whileHover={{
                   scale: 1.02
                 }} />
                   </Card>

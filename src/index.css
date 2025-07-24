@@ -267,6 +267,15 @@
     transform: translateY(0) scale(0.98);
   }
 
+  /* Shadow glow effects for cards */
+  .shadow-terminal-glow {
+    box-shadow: 0 10px 25px -5px hsl(var(--terminal-green) / 0.2), 0 4px 6px -2px hsl(var(--terminal-green) / 0.1);
+  }
+
+  .shadow-blue-glow {
+    box-shadow: 0 10px 25px -5px hsl(var(--terminal-blue) / 0.2), 0 4px 6px -2px hsl(var(--terminal-blue) / 0.1);
+  }
+
   /* Terminal text animation */
   .terminal-cursor::after {
     content: '█';
