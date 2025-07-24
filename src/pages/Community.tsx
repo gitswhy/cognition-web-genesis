@@ -37,7 +37,6 @@ interface GitHubIssue {
 }
 
 interface CommunityStats {
-  githubStars: number;
   contributors: number;
   openIssues: number;
   discordMembers: number;
@@ -91,7 +90,6 @@ const mockIssues: GitHubIssue[] = [
 ];
 
 const communityStats: CommunityStats = {
-  githubStars: 12500,
   contributors: 89,
   openIssues: 42,
   discordMembers: 3200
@@ -306,15 +304,8 @@ export default function Community() {
             </p>
             
             {/* Stats */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-8">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
               <div className="text-center animate-fade-in" style={{ animationDelay: '100ms' }}>
-                <div className="flex items-center justify-center gap-1 text-2xl font-bold">
-                  <Star className="w-5 h-5 text-terminal-green" />
-                  {communityStats.githubStars.toLocaleString()}
-                </div>
-                <p className="text-sm text-foreground/70">GitHub Stars</p>
-              </div>
-              <div className="text-center animate-fade-in" style={{ animationDelay: '200ms' }}>
                 <div className="flex items-center justify-center gap-1 text-2xl font-bold">
                   <Users className="w-5 h-5 text-terminal-blue" />
                   {communityStats.contributors}

@@ -167,21 +167,6 @@ gitswhy autoclean --scan
               </Button>
             </div>
 
-            {/* GitHub Stats */}
-            <div className="flex justify-center gap-8 mt-12 text-sm text-muted-foreground">
-              <div className="flex items-center gap-2">
-                <Star className="h-4 w-4 text-terminal-green" />
-                <span className="font-mono">12.4k stars</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Github className="h-4 w-4" />
-                <span className="font-mono">2.1k forks</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Download className="h-4 w-4 text-terminal-blue" />
-                <span className="font-mono">156k downloads</span>
-              </div>
-            </div>
           </div>
         </div>
       </section>

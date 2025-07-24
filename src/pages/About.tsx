@@ -109,7 +109,7 @@ const teamMembers: TeamMember[] = [
   {
     name: 'Alex Thompson',
     role: 'Developer Relations',
-    bio: 'Community builder and developer advocate. Former maintainer of popular open source security tools with 500k+ downloads.',
+    bio: 'Community builder and developer advocate. Former maintainer of popular open source security tools.',
     image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face',
     expertise: ['Community', 'Open Source', 'Developer Relations', 'Public Speaking'],
     social: {
