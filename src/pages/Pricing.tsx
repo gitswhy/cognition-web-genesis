@@ -23,7 +23,7 @@ import {
 } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import PageBackground from '@/components/background/PageBackground';
+import PricingBackground from '@/components/background/PricingBackground';
 
 interface PricingTier {
   id: string;
@@ -256,7 +256,8 @@ const Pricing = () => {
   };
 
   return (
-    <PageBackground variant="pricing">
+    <div className="min-h-screen">
+      <PricingBackground />
       <Header />
       
       {/* Hero Section */}
@@ -629,7 +630,7 @@ const Pricing = () => {
           })
         }}
       />
-    </PageBackground>
+    </div>
   );
 };
 

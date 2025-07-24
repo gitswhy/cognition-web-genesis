@@ -5,6 +5,7 @@ import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
+import BlogBackground from '@/components/background/BlogBackground';
 
 interface BlogPost {
   id: string;
@@ -237,6 +238,7 @@ export default function BlogResources() {
 
   return (
     <div className="min-h-screen bg-background">
+      <BlogBackground />
       {/* SEO Meta Tags */}
       <head>
         <title>Blog & Resources - Gitswhy OS | DevSecOps Insights & Tutorials</title>

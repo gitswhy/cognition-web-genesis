@@ -21,7 +21,7 @@ import SEOFAQSection from '@/components/SEOFAQSection';
 import { SoftwareApplicationSchema } from '@/components/SoftwareApplicationSchema';
 import { DynamicHeadline } from '@/components/DynamicHeadline';
 import ModuleLottieAnimation from '@/components/ModuleLottieAnimation';
-import DynamicBackground from '@/components/background/DynamicBackground';
+import HowItWorksBackground from '@/components/background/HowItWorksBackground';
 
 const HowItWorks = () => {
   const [activeStep, setActiveStep] = useState(0);
@@ -137,7 +137,8 @@ const HowItWorks = () => {
   };
 
   return (
-    <DynamicBackground variant="howitworks">
+    <div className="min-h-screen">
+      <HowItWorksBackground />
       <Header />
       
       {/* Hero Section */}
@@ -402,7 +403,7 @@ const HowItWorks = () => {
       />
 
       <Footer />
-    </DynamicBackground>
+    </div>
   );
 };
 

@@ -20,7 +20,7 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
-import PageBackground from '@/components/background/PageBackground';
+import AboutBackground from '@/components/background/AboutBackground';
 
 interface TeamMember {
   name: string;
@@ -446,7 +446,8 @@ const CareersCarousel = () => {
 
 export default function AboutCareers() {
   return (
-    <PageBackground variant="about">
+    <div className="min-h-screen">
+      <AboutBackground />
       {/* SEO Meta Tags */}
       <head>
         <title>About & Careers - Gitswhy OS | Join Our Mission to Secure Software</title>
@@ -795,6 +796,6 @@ export default function AboutCareers() {
           })
         }}
       />
-    </PageBackground>
+    </div>
   );
 }

@@ -18,6 +18,7 @@ import {
   Search
 } from 'lucide-react';
 import Header from '@/components/Header';
+import IntegrationsBackground from '@/components/background/IntegrationsBackground';
 import Footer from '@/components/Footer';
 import { useToast } from '@/hooks/use-toast';
 
@@ -275,6 +276,7 @@ steps:
 
   return (
     <div className="min-h-screen bg-background text-foreground">
+      <IntegrationsBackground />
       <Header />
       
       {/* Hero Section */}

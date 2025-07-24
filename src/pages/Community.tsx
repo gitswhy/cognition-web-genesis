@@ -22,6 +22,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Separator } from '@/components/ui/separator';
 import PageBackground from '@/components/background/PageBackground';
 import Header from '@/components/Header';
+import CommunityBackground from '@/components/background/CommunityBackground';
 
 interface GitHubIssue {
   id: number;
@@ -265,7 +266,8 @@ export default function Community() {
   const [activeTab, setActiveTab] = useState('github');
 
   return (
-    <PageBackground variant="about">
+    <div className="min-h-screen">
+      <CommunityBackground />
       <Header />
       
       <div className="min-h-screen">
@@ -555,6 +557,6 @@ export default function Community() {
         }}
       />
     </div>
-    </PageBackground>
+    </div>
   );
 }
