@@ -139,7 +139,7 @@ gitswhy autoclean --scan
 
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center max-w-4xl mx-auto">
-            <div className="inline-flex items-center gap-2 bg-terminal-surface/50 border border-terminal-green/30 rounded-full px-6 py-2 mb-8">
+            <div className="inline-flex items-center gap-2 bg-terminal-surface/80 border border-terminal-green/30 rounded-full px-6 py-2 mb-8">
               <Badge variant="secondary" className="bg-terminal-green/20 text-terminal-green border-terminal-green/50">
                 Open Source
               </Badge>
@@ -187,7 +187,7 @@ gitswhy autoclean --scan
       </section>
 
       {/* Core Modules Features */}
-      <section className="py-24 bg-terminal-surface/30">
+      <section className="py-24 bg-terminal-surface/10">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-mono font-bold mb-4">
@@ -200,7 +200,7 @@ gitswhy autoclean --scan
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {coreModules.map((module, index) => <Card key={module.name} className="group relative overflow-hidden bg-terminal-surface/30 border-terminal-green/20 hover:border-terminal-green/50 transition-all duration-200 hover:transform hover:scale-[1.02]" style={{
+            {coreModules.map((module, index) => <Card key={module.name} className="group relative overflow-hidden bg-terminal-surface/60 border-terminal-green/30 hover:border-terminal-green/50 transition-all duration-200 hover:transform hover:scale-[1.02]" style={{
             animationDelay: `${index * 50}ms`
           }}>
                 <div className={`absolute inset-0 bg-gradient-to-br ${module.color} opacity-0 group-hover:opacity-100 transition-opacity duration-300`} />
@@ -233,7 +233,7 @@ gitswhy autoclean --scan
       <ModuleExplorer />
 
       {/* Installation Guide */}
-      <section className="py-24">
+      <section className="py-24 bg-terminal-surface/5">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-16">
@@ -247,12 +247,12 @@ gitswhy autoclean --scan
             </div>
 
             <div className="space-y-6">
-              <div className="bg-terminal-surface/40 rounded-lg border border-terminal-green/30 p-6">
+              <div className="bg-terminal-surface/70 rounded-lg border border-terminal-green/30 p-6">
                 <h3 className="font-mono font-bold text-terminal-green mb-4 flex items-center gap-2">
                   <Terminal className="h-5 w-5" />
                   For Zsh users
                 </h3>
-                <div className="flex items-center gap-3 bg-terminal-surface/50 rounded-lg p-4">
+                <div className="flex items-center gap-3 bg-terminal-surface/80 rounded-lg p-4">
                   <code className="flex-1 font-mono text-sm text-terminal-green">
                     {installCommands.zsh}
                   </code>
@@ -262,12 +262,12 @@ gitswhy autoclean --scan
                 </div>
               </div>
 
-              <div className="bg-terminal-surface/40 rounded-lg border border-terminal-blue/30 p-6">
+              <div className="bg-terminal-surface/70 rounded-lg border border-terminal-blue/30 p-6">
                 <h3 className="font-mono font-bold text-terminal-blue mb-4 flex items-center gap-2">
                   <Terminal className="h-5 w-5" />
                   For Bash users
                 </h3>
-                <div className="flex items-center gap-3 bg-terminal-surface/50 rounded-lg p-4">
+                <div className="flex items-center gap-3 bg-terminal-surface/80 rounded-lg p-4">
                   <code className="flex-1 font-mono text-sm text-terminal-blue">
                     {installCommands.bash}
                   </code>
@@ -296,7 +296,7 @@ gitswhy autoclean --scan
       </section>
 
       {/* Community Section */}
-      <section className="py-24 bg-terminal-surface/20">
+      <section className="py-24 bg-terminal-surface/10">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-mono font-bold mb-4">
@@ -309,7 +309,7 @@ gitswhy autoclean --scan
           </div>
 
           <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-            <Card className="text-center bg-terminal-surface/30 border-terminal-green/20 hover:border-terminal-green/50 transition-colors">
+            <Card className="text-center bg-terminal-surface/60 border-terminal-green/30 hover:border-terminal-green/50 transition-colors">
               <CardHeader>
                 <Github className="h-12 w-12 text-terminal-green mx-auto mb-4" />
                 <CardTitle className="font-mono">Contribute</CardTitle>
@@ -324,7 +324,7 @@ gitswhy autoclean --scan
               </CardContent>
             </Card>
 
-            <Card className="text-center bg-terminal-surface/30 border-terminal-blue/20 hover:border-terminal-blue/50 transition-colors">
+            <Card className="text-center bg-terminal-surface/60 border-terminal-blue/30 hover:border-terminal-blue/50 transition-colors">
               <CardHeader>
                 <Star className="h-12 w-12 text-terminal-blue mx-auto mb-4" />
                 <CardTitle className="font-mono">Star us</CardTitle>
@@ -339,7 +339,7 @@ gitswhy autoclean --scan
               </CardContent>
             </Card>
 
-            <Card className="text-center bg-terminal-surface/30 border-primary/20 hover:border-primary/50 transition-colors">
+            <Card className="text-center bg-terminal-surface/60 border-primary/30 hover:border-primary/50 transition-colors">
               <CardHeader>
                 <RotateCcw className="h-12 w-12 text-primary mx-auto mb-4" />
                 <CardTitle className="font-mono">Discuss</CardTitle>
