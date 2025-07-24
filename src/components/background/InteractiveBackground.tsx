@@ -1,82 +1,63 @@
 import React, { useRef, useMemo, useEffect, useState } from 'react';
-import { Canvas, useFrame, useThree, extend } from '@react-three/fiber';
-import { shaderMaterial } from '@react-three/drei';
+import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import * as THREE from 'three';
 
-// Extend THREE for the shader material
-declare global {
-  namespace JSX {
-    interface IntrinsicElements {
-      plasmaShaderMaterial: any;
-    }
-  }
-}
+// Create a simple plasma shader using THREE.ShaderMaterial
+const createPlasmaShader = () => {
+  return new THREE.ShaderMaterial({
+    uniforms: {
+      uTime: { value: 0 },
+      uIntensity: { value: 1.0 },
+      uSpeed: { value: 1.0 },
+      uMouse: { value: new THREE.Vector2(0, 0) },
+      uResolution: { value: new THREE.Vector2(1, 1) },
+    },
+    vertexShader: `
+      varying vec2 vUv;
+      void main() {
+        vUv = uv;
+        gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+      }
+    `,
+    fragmentShader: `
+      uniform float uTime;
+      uniform float uIntensity;
+      uniform float uSpeed;
+      uniform vec2 uMouse;
+      uniform vec2 uResolution;
+      varying vec2 vUv;
 
-// Create the shader material
-const PlasmaShaderMaterial = shaderMaterial(
-  {
-    uTime: 0,
-    uIntensity: 1.0,
-    uSpeed: 1.0,
-    uMouse: new THREE.Vector2(0, 0),
-    uResolution: new THREE.Vector2(1, 1),
-  },
-  // Vertex shader
-  `
-    varying vec2 vUv;
-    void main() {
-      vUv = uv;
-      gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
-    }
-  `,
-  // Fragment shader - optimized plasma effect
-  `
-    uniform float uTime;
-    uniform float uIntensity;
-    uniform float uSpeed;
-    uniform vec2 uMouse;
-    uniform vec2 uResolution;
-    varying vec2 vUv;
+      vec3 plasma(vec2 uv, float time) {
+        float x = uv.x;
+        float y = uv.y;
+        
+        float v1 = sin(x * 10.0 + time * uSpeed);
+        float v2 = sin(10.0 * (x * sin(time * 0.2) + y * cos(time * 0.3)) + time * uSpeed);
+        float v3 = sin(sqrt(100.0 * (x * x + y * y) + 1.0) + time * uSpeed);
+        
+        float plasma = v1 + v2 + v3;
+        
+        // Deep blues and purples
+        vec3 color1 = vec3(0.1, 0.1, 0.4);
+        vec3 color2 = vec3(0.2, 0.1, 0.6);
+        vec3 color3 = vec3(0.05, 0.15, 0.3);
+        
+        vec3 finalColor = mix(color1, color2, sin(plasma * 0.5) * 0.5 + 0.5);
+        finalColor = mix(finalColor, color3, cos(plasma * 0.3) * 0.5 + 0.5);
+        
+        return finalColor * uIntensity;
+      }
 
-    vec3 plasma(vec2 uv, float time) {
-      // Simple plasma calculation for performance
-      float x = uv.x;
-      float y = uv.y;
-      
-      float v1 = sin(x * 10.0 + time * uSpeed);
-      float v2 = sin(10.0 * (x * sin(time * 0.2) + y * cos(time * 0.3)) + time * uSpeed);
-      float v3 = sin(sqrt(100.0 * (x * x + y * y) + 1.0) + time * uSpeed);
-      
-      float plasma = v1 + v2 + v3;
-      
-      // Deep blues and purples
-      vec3 color1 = vec3(0.1, 0.1, 0.4); // Deep blue
-      vec3 color2 = vec3(0.2, 0.1, 0.6); // Purple
-      vec3 color3 = vec3(0.05, 0.15, 0.3); // Dark blue
-      
-      vec3 finalColor = mix(color1, color2, sin(plasma * 0.5) * 0.5 + 0.5);
-      finalColor = mix(finalColor, color3, cos(plasma * 0.3) * 0.5 + 0.5);
-      
-      return finalColor * uIntensity;
-    }
-
-    void main() {
-      vec2 uv = vUv;
-      
-      // Mouse interaction - subtle distortion
-      vec2 mouse = uMouse * 0.1;
-      uv += mouse * 0.05;
-      
-      vec3 color = plasma(uv, uTime);
-      
-      gl_FragColor = vec4(color, 1.0);
-    }
-  `
-);
-
-// Make it available to React
-// @ts-ignore
-extend({ PlasmaShaderMaterial });
+      void main() {
+        vec2 uv = vUv;
+        vec2 mouse = uMouse * 0.1;
+        uv += mouse * 0.05;
+        vec3 color = plasma(uv, uTime);
+        gl_FragColor = vec4(color, 1.0);
+      }
+    `,
+  });
+};
 
 // Particle system component
 const ParticleSystem: React.FC<{ mouse: THREE.Vector2; intensity: number; speed: number }> = ({ mouse, intensity, speed }) => {
@@ -199,15 +180,17 @@ const LightGradient: React.FC<{ intensity: number }> = ({ intensity }) => {
 // Main scene component
 const InteractiveScene: React.FC<{ mouse: THREE.Vector2; config: BackgroundConfig }> = ({ mouse, config }) => {
   const { viewport } = useThree();
-  const plasmaRef = useRef<any>(null);
+  const materialRef = useRef<THREE.ShaderMaterial>(null);
+  
+  const shaderMaterial = useMemo(() => createPlasmaShader(), []);
 
   useFrame(({ clock }) => {
-    if (plasmaRef.current) {
-      plasmaRef.current.uTime = clock.elapsedTime;
-      plasmaRef.current.uMouse = mouse;
-      plasmaRef.current.uIntensity = config.intensity;
-      plasmaRef.current.uSpeed = config.speed;
-      plasmaRef.current.uResolution.set(viewport.width, viewport.height);
+    if (shaderMaterial) {
+      shaderMaterial.uniforms.uTime.value = clock.elapsedTime;
+      shaderMaterial.uniforms.uMouse.value = mouse;
+      shaderMaterial.uniforms.uIntensity.value = config.intensity;
+      shaderMaterial.uniforms.uSpeed.value = config.speed;
+      shaderMaterial.uniforms.uResolution.value.set(viewport.width, viewport.height);
     }
   });
 
@@ -216,7 +199,7 @@ const InteractiveScene: React.FC<{ mouse: THREE.Vector2; config: BackgroundConfi
       {/* Plasma background */}
       <mesh scale={[viewport.width, viewport.height, 1]}>
         <planeGeometry args={[1, 1]} />
-        <plasmaShaderMaterial ref={plasmaRef} />
+        <primitive object={shaderMaterial} ref={materialRef} />
       </mesh>
       
       {/* Particle system */}
