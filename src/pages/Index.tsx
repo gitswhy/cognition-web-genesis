@@ -10,8 +10,6 @@ import Testimonials from "@/components/Testimonials";
 import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
 import { useAnalytics } from "@/components/analytics/PlausibleAnalytics";
-import PageBackground from "@/components/background/PageBackground";
-
 import { useGeolocation } from '@/hooks/useGeolocation';
 
 const Index = () => {
@@ -27,9 +25,9 @@ const Index = () => {
     // Set document language
     document.documentElement.lang = i18n.language;
   }, [i18n.language]);
+  
   return (
-    <PageBackground variant="homepage">
-      
+    <div className="min-h-screen bg-background">
       <Header />
       <Hero />
       <TrustRibbon />
@@ -39,7 +37,7 @@ const Index = () => {
       <Testimonials />
       <CTASection />
       <Footer />
-    </PageBackground>
+    </div>
   );
 };
 
