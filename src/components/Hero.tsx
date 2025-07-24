@@ -81,10 +81,6 @@ const Hero = () => {
                 </span>
               </h1>
               
-              <p className="text-lg md:text-xl lg:text-2xl text-terminal-green/90 font-medium mb-2">
-                Your second brain for secure, self‑healing code.
-              </p>
-              
               <p className="text-base md:text-lg lg:text-xl text-foreground/80 max-w-xl leading-relaxed">
                 {typedSubhead}
                 {typedSubhead.length < subhead.length && typedSubhead.length > 0 && (
@@ -194,6 +190,13 @@ const Hero = () => {
               <div className="absolute -bottom-4 -left-4 w-2 h-2 bg-terminal-blue rounded-full animate-glow-pulse animate-subtle-bounce" style={{animationDelay: '1s'}}></div>
             </div>
           </StaggeredFadeIn>
+        </div>
+        
+        {/* Tagline positioned at bottom of hero section */}
+        <div className="text-center mt-16 lg:mt-20">
+          <p className="text-xl md:text-2xl lg:text-3xl font-medium text-foreground">
+            Your second brain for secure, <span className="text-terminal-green">self‑healing</span> code.
+          </p>
         </div>
       </div>
     </section>
