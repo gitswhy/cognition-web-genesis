@@ -199,4 +199,4 @@ const EnhancedFeatures = () => {
       </div>
     </section>;
 };
-export default Features;
+export default EnhancedFeatures;
