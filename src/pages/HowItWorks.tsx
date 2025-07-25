@@ -243,7 +243,7 @@ const HowItWorks = () => {
               >
                 {/* Parallax Background Elements */}
                 <div 
-                  className={`absolute inset-0 ${reducedMotion ? '' : 'transform'}`}
+                  className={`absolute inset-0 pointer-events-none ${reducedMotion ? '' : 'transform'}`}
                   style={{
                     transform: reducedMotion ? 'none' : `translateY(${(activeStep - index) * 50}px)`,
                     transition: reducedMotion ? 'none' : 'transform 0.6s ease-out'
