@@ -67,21 +67,21 @@ const Pricing = () => {
       type: 'core',
       features: [
         {
-          category: 'Core Security',
+          category: 'Security & Scanning',
           items: [
-            { name: 'Real-time vulnerability scanning', included: true },
-            { name: 'Secret detection', included: true },
-            { name: 'Code quality analysis', included: true },
-            { name: 'Basic security alerts', included: true }
+            { name: 'Real-Time Security Scanning', included: true, description: 'Basic rules' },
+            { name: 'AI Auto-Patching', included: false, description: 'Manual only' },
+            { name: 'Self-Healing Remediation', included: false },
+            { name: 'Encrypted Vault Logging', included: 'limited', description: 'Basic logs' }
           ]
         },
         {
           category: 'Development Tools',
           items: [
-            { name: 'IDE integrations', included: true },
-            { name: 'Git hooks', included: true },
-            { name: 'CLI tools', included: true },
-            { name: 'Basic reporting', included: 'limited', description: 'Up to 10 scans/month' }
+            { name: 'Voice Commands', included: false },
+            { name: 'Policy Compliance', included: 'limited', description: 'Basic policies' },
+            { name: 'Cross-Repo Risk Graphs', included: 'limited', description: 'Single repo' },
+            { name: 'Team Dashboards', included: 'limited', description: 'Individual only' }
           ]
         },
         {
@@ -106,30 +106,30 @@ const Pricing = () => {
       type: 'pro',
       features: [
         {
-          category: 'Core Security',
+          category: 'Security & Scanning',
           items: [
-            { name: 'Real-time vulnerability scanning', included: true },
-            { name: 'Secret detection', included: true },
-            { name: 'Code quality analysis', included: true },
-            { name: 'Advanced threat intelligence', included: true }
+            { name: 'Real-Time Security Scanning', included: true, description: '30,000+ rules' },
+            { name: 'AI Auto-Patching', included: true, description: 'Full LLM fixes' },
+            { name: 'Self-Healing Remediation', included: true, description: 'Self Healing' },
+            { name: 'Encrypted Vault Logging', included: true, description: 'Encrypted vault' }
           ]
         },
         {
-          category: 'AI-Powered Features',
+          category: 'Development Tools',
           items: [
-            { name: 'Auto-fix suggestions', included: true },
-            { name: 'Intent logging', included: true },
-            { name: 'Pattern recognition', included: true },
-            { name: 'Smart notifications', included: true }
+            { name: 'Voice Commands', included: 'limited', description: 'Coming soon' },
+            { name: 'Policy Compliance', included: true, description: 'Custom templates' },
+            { name: 'Cross-Repo Risk Graphs', included: true, description: 'Multi-repo' },
+            { name: 'Team Dashboards', included: true, description: 'Team insights' }
           ]
         },
         {
           category: 'Team Collaboration',
           items: [
-            { name: 'Team dashboards', included: true },
             { name: 'Slack/Discord integration', included: true },
             { name: 'Pull request checks', included: true },
-            { name: 'Unlimited team members', included: true }
+            { name: 'Unlimited team members', included: true },
+            { name: 'Team performance metrics', included: true }
           ]
         },
         {
@@ -153,21 +153,21 @@ const Pricing = () => {
       type: 'pro',
       features: [
         {
-          category: 'Enterprise Security',
+          category: 'Security & Scanning',
           items: [
-            { name: 'All Team features', included: true },
-            { name: 'Advanced compliance reporting', included: true },
-            { name: 'Custom security policies', included: true },
-            { name: 'SAML/SSO integration', included: true }
+            { name: 'Real-Time Security Scanning', included: true, description: '50,000+ rules + Custom' },
+            { name: 'AI Auto-Patching', included: true, description: 'Advanced ML + Custom' },
+            { name: 'Self-Healing Remediation', included: true, description: 'Advanced + Predictive' },
+            { name: 'Encrypted Vault Logging', included: true, description: 'Advanced encryption' }
           ]
         },
         {
-          category: 'AI Risk Engine',
+          category: 'Development Tools',
           items: [
-            { name: 'ML-powered risk assessment', included: true },
-            { name: 'Predictive security insights', included: true },
-            { name: 'Custom rule engine', included: true },
-            { name: 'Automated patch deployment', included: true }
+            { name: 'Voice Commands', included: true, description: 'Beta access' },
+            { name: 'Policy Compliance', included: true, description: 'Custom policies' },
+            { name: 'Cross-Repo Risk Graphs', included: true, description: 'Organization-wide' },
+            { name: 'Team Dashboards', included: true, description: 'Enterprise analytics' }
           ]
         },
         {
