@@ -300,7 +300,6 @@ gitswhy autoclean --scan
             <div className="text-center mb-16">
               <h2 className="text-4xl font-mono font-bold mb-4">
                 Quick Installation
-                <span className="inline-block w-1 h-8 bg-terminal-blue ml-2 animate-pulse" />
               </h2>
               <p className="text-lg text-muted-foreground">
                 Get ReflexCore running in seconds with one command
@@ -362,7 +361,6 @@ gitswhy autoclean --scan
           <div className="text-center mb-16">
             <h2 className="text-4xl font-mono font-bold mb-4">
               Join the Community
-              <span className="inline-block w-1 h-8 bg-terminal-green ml-2 animate-pulse" />
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Be part of the movement building the future of cognition-native DevSecOps
