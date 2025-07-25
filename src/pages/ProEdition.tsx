@@ -10,6 +10,7 @@ import EditionComparisonTable from '@/components/EditionComparisonTable';
 import { SoftwareApplicationSchema } from '@/components/SoftwareApplicationSchema';
 import { DynamicHeadline } from '@/components/DynamicHeadline';
 import ProEditionBackground from '@/components/background/ProEditionBackground';
+import PremiumAddOnsCarousel from '@/components/PremiumAddOnsCarousel';
 const ProEdition = () => {
   const [hoveredCard, setHoveredCard] = useState<string | null>(null);
   const premiumFeatures = [{
@@ -187,6 +188,9 @@ const ProEdition = () => {
 
       {/* Edition Comparison Table */}
       <EditionComparisonTable />
+
+      {/* Premium Add-Ons Carousel */}
+      <PremiumAddOnsCarousel />
 
       {/* Premium Features Grid */}
       <section className="py-24">
