@@ -10,11 +10,11 @@ const Hero = () => {
   const [currentLine, setCurrentLine] = useState(0);
   
   const lines = [
-    "The First Cognition-Native",
-    "DevSecOps OS"
+    "Your Shell, Supercharged with",
+    "Cognition-Native Intelligence"
   ];
   
-  const subhead = "Monitors every keystroke. Understands why. Self-heals before deploy.";
+  const subhead = "ReflexCore vs Pro: From intent detection to auto-patching vulnerabilities. Your second brain for secure, self-healing code.";
   const [typedSubhead, setTypedSubhead] = useState("");
 
   // Terminal animation states
@@ -58,7 +58,7 @@ const Hero = () => {
   }, [currentLine]);
 
   return (
-    <section className="relative py-8 sm:py-12 md:py-16 lg:py-20 overflow-hidden">
+    <section className="relative py-8 sm:py-12 md:py-16 lg:py-20 overflow-hidden bg-gradient-to-br from-[#0f1629] via-[#1a1a2e] to-[#16213e]">
       <div className="container mx-auto px-3 sm:px-4 lg:px-8 xl:px-12 2xl:px-20 relative z-10 max-w-7xl">
         <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 xl:gap-16 items-center">
           {/* Left Side - Headlines */}
@@ -92,12 +92,12 @@ const Hero = () => {
             {/* CTAs - Enhanced with better hover effects */}
             <div className="flex flex-col sm:flex-row gap-2.5 sm:gap-3 pt-3 sm:pt-4 lg:pt-6">
               <Button variant="terminal" size="default" className="w-full sm:w-auto sm:min-w-[140px] lg:min-w-[160px] hover-lift terminal-glow neon-button text-sm sm:text-base">
-                Start Free Trial
+                Install ReflexCore Free
                 <ChevronRight className="h-3.5 w-3.5 sm:h-4 sm:w-4 transition-transform group-hover:translate-x-1" />
               </Button>
               <Button variant="terminal-outline-blue" size="default" className="w-full sm:w-auto sm:min-w-[140px] lg:min-w-[160px] hover-lift blue-glow neon-button text-sm sm:text-base">
+                Start 30-Day Pro Trial
                 <Play className="h-3.5 w-3.5 sm:h-4 sm:w-4 transition-transform group-hover:scale-110" />
-                Watch Demo
               </Button>
             </div>
 
