@@ -368,15 +368,15 @@ gitswhy autoclean --scan
           </div>
 
           <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            <Card className="text-center bg-terminal-surface/60 border-terminal-blue/30 hover:border-terminal-blue/50 transition-colors">
-              <CardHeader>
+            <Card className="text-center bg-terminal-surface/60 border-terminal-blue/30 hover:border-terminal-blue/50 transition-colors h-full flex flex-col">
+              <CardHeader className="flex-grow">
                 <Star className="h-12 w-12 text-terminal-blue mx-auto mb-4" />
                 <CardTitle className="font-mono">Star us</CardTitle>
                 <CardDescription>
                   Show your support and help others discover ReflexCore
                 </CardDescription>
               </CardHeader>
-              <CardContent>
+              <CardContent className="mt-auto">
                 <Button variant="outline" className="w-full border-terminal-blue text-terminal-blue hover:bg-terminal-blue/10" asChild>
                   <a href="https://github.com/gitswhy/reflexcore" target="_blank" rel="noopener noreferrer">
                     Star on GitHub
@@ -385,15 +385,15 @@ gitswhy autoclean --scan
               </CardContent>
             </Card>
 
-            <Card className="text-center bg-terminal-surface/60 border-primary/30 hover:border-primary/50 transition-colors">
-              <CardHeader>
+            <Card className="text-center bg-terminal-surface/60 border-primary/30 hover:border-primary/50 transition-colors h-full flex flex-col">
+              <CardHeader className="flex-grow">
                 <RotateCcw className="h-12 w-12 text-primary mx-auto mb-4" />
                 <CardTitle className="font-mono">Discuss</CardTitle>
                 <CardDescription>
                   Join discussions, ask questions, and share your experience
                 </CardDescription>
               </CardHeader>
-              <CardContent>
+              <CardContent className="mt-auto">
                 <Button variant="outline" className="w-full border-primary text-primary hover:bg-primary/10" asChild>
                   <a href="https://discord.com/invite/NuevNNzQwm" target="_blank" rel="noopener noreferrer">
                     Join Discord
