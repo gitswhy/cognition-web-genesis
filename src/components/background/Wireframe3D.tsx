@@ -176,7 +176,7 @@ const EnhancedScene3D = () => {
   );
 };
 
-// Optimized Wireframe3D Component
+// Enhanced Wireframe3D Component
 const Wireframe3D = () => {
   return (
     <div className="absolute inset-0 opacity-40">
