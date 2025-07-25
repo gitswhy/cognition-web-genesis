@@ -61,14 +61,15 @@ const ProEdition = () => {
   }];
   return <div className="relative">
       {/* SEO Schema */}
-      <SoftwareApplicationSchema
-        name="Gitswhy OS Pro Edition"
-        description="Enterprise-grade cognition engine with AI-powered risk detection, automatic patching, and team collaboration tools for professional development teams."
-        offers={[
-          { price: "49", priceCurrency: "USD", name: "Pro Edition Monthly" },
-          { price: "39", priceCurrency: "USD", name: "Pro Edition Annual" }
-        ]}
-      />
+      <SoftwareApplicationSchema name="Gitswhy OS Pro Edition" description="Enterprise-grade cognition engine with AI-powered risk detection, automatic patching, and team collaboration tools for professional development teams." offers={[{
+      price: "49",
+      priceCurrency: "USD",
+      name: "Pro Edition Monthly"
+    }, {
+      price: "39",
+      priceCurrency: "USD",
+      name: "Pro Edition Annual"
+    }]} />
       
       {/* Pro Edition Background */}
       <ProEditionBackground />
@@ -224,73 +225,63 @@ const ProEdition = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  {[
-                    {
-                      feature: 'Real-Time Security Scanning',
-                      description: 'Continuous monitoring for vulnerabilities and threats',
-                      free: 'Basic rules',
-                      pro: '30,000+ rules',
-                      freeIcon: 'check',
-                      proIcon: 'check'
-                    },
-                    {
-                      feature: 'AI Auto-Patching',
-                      description: 'AI-powered automatic fixes and suggestions',
-                      free: 'Manual only',
-                      pro: 'Full LLM fixes',
-                      freeIcon: 'lock',
-                      proIcon: 'check'
-                    },
-                    {
-                      feature: 'Self-Healing Remediation',
-                      description: 'Automatic code healing and recovery',
-                      free: 'Not available',
-                      pro: 'Self Healing',
-                      freeIcon: 'lock',
-                      proIcon: 'check'
-                    },
-                    {
-                      feature: 'Encrypted Vault Logging',
-                      description: 'Secure encrypted audit logs and compliance',
-                      free: 'Basic logs',
-                      pro: 'Encrypted vault',
-                      freeIcon: 'check',
-                      proIcon: 'check'
-                    },
-                    {
-                      feature: 'Voice Commands',
-                      description: 'Hands-free DevSecOps workflow control',
-                      free: 'Not available',
-                      pro: 'Coming soon',
-                      freeIcon: 'lock',
-                      proIcon: 'info'
-                    },
-                    {
-                      feature: 'Policy Compliance',
-                      description: 'Automated compliance and governance',
-                      free: 'Basic policies',
-                      pro: 'Custom templates',
-                      freeIcon: 'check',
-                      proIcon: 'check'
-                    },
-                    {
-                      feature: 'Cross-Repo Risk Graphs',
-                      description: 'Visual risk analysis across repositories',
-                      free: 'Single repo',
-                      pro: 'Multi-repo',
-                      freeIcon: 'check',
-                      proIcon: 'check'
-                    },
-                    {
-                      feature: 'Team Dashboards',
-                      description: 'Real-time team performance metrics',
-                      free: 'Individual only',
-                      pro: 'Team insights',
-                      freeIcon: 'check',
-                      proIcon: 'check'
-                    }
-                  ].map((row, index) => (
-                    <tr key={index} className="border-b border-terminal-blue/10 hover:bg-terminal-blue/5 transition-colors">
+                  {[{
+                  feature: 'Real-Time Security Scanning',
+                  description: 'Continuous monitoring for vulnerabilities and threats',
+                  free: 'Basic rules',
+                  pro: '30,000+ rules',
+                  freeIcon: 'check',
+                  proIcon: 'check'
+                }, {
+                  feature: 'AI Auto-Patching',
+                  description: 'AI-powered automatic fixes and suggestions',
+                  free: 'Manual only',
+                  pro: 'Full LLM fixes',
+                  freeIcon: 'lock',
+                  proIcon: 'check'
+                }, {
+                  feature: 'Self-Healing Remediation',
+                  description: 'Automatic code healing and recovery',
+                  free: 'Not available',
+                  pro: 'Self Healing',
+                  freeIcon: 'lock',
+                  proIcon: 'check'
+                }, {
+                  feature: 'Encrypted Vault Logging',
+                  description: 'Secure encrypted audit logs and compliance',
+                  free: 'Basic logs',
+                  pro: 'Encrypted vault',
+                  freeIcon: 'check',
+                  proIcon: 'check'
+                }, {
+                  feature: 'Voice Commands',
+                  description: 'Hands-free DevSecOps workflow control',
+                  free: 'Not available',
+                  pro: 'Coming soon',
+                  freeIcon: 'lock',
+                  proIcon: 'info'
+                }, {
+                  feature: 'Policy Compliance',
+                  description: 'Automated compliance and governance',
+                  free: 'Basic policies',
+                  pro: 'Custom templates',
+                  freeIcon: 'check',
+                  proIcon: 'check'
+                }, {
+                  feature: 'Cross-Repo Risk Graphs',
+                  description: 'Visual risk analysis across repositories',
+                  free: 'Single repo',
+                  pro: 'Multi-repo',
+                  freeIcon: 'check',
+                  proIcon: 'check'
+                }, {
+                  feature: 'Team Dashboards',
+                  description: 'Real-time team performance metrics',
+                  free: 'Individual only',
+                  pro: 'Team insights',
+                  freeIcon: 'check',
+                  proIcon: 'check'
+                }].map((row, index) => <tr key={index} className="border-b border-terminal-blue/10 hover:bg-terminal-blue/5 transition-colors">
                       <td className="p-6">
                         <div className="space-y-1">
                           <div className="font-medium">{row.feature}</div>
@@ -313,47 +304,88 @@ const ProEdition = () => {
                           <span className="text-sm">{row.pro}</span>
                         </div>
                       </td>
-                    </tr>
-                  ))}
+                    </tr>)}
                 </tbody>
               </table>
             </div>
             
             {/* Mobile Cards */}
             <div className="lg:hidden space-y-6">
-              {[
-                {
-                  title: 'Free Core',
-                  price: 'Open Source',
-                  accent: 'terminal-green',
-                  features: [
-                    { name: 'Real-Time Security Scanning', value: 'Basic rules', available: true },
-                    { name: 'AI Auto-Patching', value: 'Manual only', available: false },
-                    { name: 'Self-Healing Remediation', value: 'Not available', available: false },
-                    { name: 'Encrypted Vault Logging', value: 'Basic logs', available: true },
-                    { name: 'Voice Commands', value: 'Not available', available: false },
-                    { name: 'Policy Compliance', value: 'Basic policies', available: true },
-                    { name: 'Cross-Repo Risk Graphs', value: 'Single repo', available: true },
-                    { name: 'Team Dashboards', value: 'Individual only', available: true }
-                  ]
-                },
-                {
-                  title: 'Pro Edition',
-                  price: '$49/month',
-                  accent: 'terminal-blue',
-                  features: [
-                    { name: 'Real-Time Security Scanning', value: '30,000+ rules', available: true },
-                    { name: 'AI Auto-Patching', value: 'Full LLM fixes', available: true },
-                    { name: 'Self-Healing Remediation', value: 'Self Healing', available: true },
-                    { name: 'Encrypted Vault Logging', value: 'Encrypted vault', available: true },
-                    { name: 'Voice Commands', value: 'Coming soon', available: 'coming' },
-                    { name: 'Policy Compliance', value: 'Custom templates', available: true },
-                    { name: 'Cross-Repo Risk Graphs', value: 'Multi-repo', available: true },
-                    { name: 'Team Dashboards', value: 'Team insights', available: true }
-                  ]
-                }
-              ].map((edition, index) => (
-                <Card key={index} className="border-terminal-blue/20 backdrop-blur-sm">
+              {[{
+              title: 'Free Core',
+              price: 'Open Source',
+              accent: 'terminal-green',
+              features: [{
+                name: 'Real-Time Security Scanning',
+                value: 'Basic rules',
+                available: true
+              }, {
+                name: 'AI Auto-Patching',
+                value: 'Manual only',
+                available: false
+              }, {
+                name: 'Self-Healing Remediation',
+                value: 'Not available',
+                available: false
+              }, {
+                name: 'Encrypted Vault Logging',
+                value: 'Basic logs',
+                available: true
+              }, {
+                name: 'Voice Commands',
+                value: 'Not available',
+                available: false
+              }, {
+                name: 'Policy Compliance',
+                value: 'Basic policies',
+                available: true
+              }, {
+                name: 'Cross-Repo Risk Graphs',
+                value: 'Single repo',
+                available: true
+              }, {
+                name: 'Team Dashboards',
+                value: 'Individual only',
+                available: true
+              }]
+            }, {
+              title: 'Pro Edition',
+              price: '$49/month',
+              accent: 'terminal-blue',
+              features: [{
+                name: 'Real-Time Security Scanning',
+                value: '30,000+ rules',
+                available: true
+              }, {
+                name: 'AI Auto-Patching',
+                value: 'Full LLM fixes',
+                available: true
+              }, {
+                name: 'Self-Healing Remediation',
+                value: 'Self Healing',
+                available: true
+              }, {
+                name: 'Encrypted Vault Logging',
+                value: 'Encrypted vault',
+                available: true
+              }, {
+                name: 'Voice Commands',
+                value: 'Coming soon',
+                available: 'coming'
+              }, {
+                name: 'Policy Compliance',
+                value: 'Custom templates',
+                available: true
+              }, {
+                name: 'Cross-Repo Risk Graphs',
+                value: 'Multi-repo',
+                available: true
+              }, {
+                name: 'Team Dashboards',
+                value: 'Team insights',
+                available: true
+              }]
+            }].map((edition, index) => <Card key={index} className="border-terminal-blue/20 backdrop-blur-sm">
                   <CardHeader>
                     <div className="text-center space-y-2">
                       <CardTitle className={`text-xl font-mono text-${edition.accent}`}>
@@ -365,8 +397,7 @@ const ProEdition = () => {
                     </div>
                   </CardHeader>
                   <CardContent className="space-y-4">
-                    {edition.features.map((feature, featureIndex) => (
-                      <div key={featureIndex} className="flex items-center justify-between">
+                    {edition.features.map((feature, featureIndex) => <div key={featureIndex} className="flex items-center justify-between">
                         <div className="flex items-center gap-2">
                           {feature.available === true && <Check className={`w-4 h-4 text-${edition.accent}`} />}
                           {feature.available === false && <X className="w-4 h-4 text-muted-foreground" />}
@@ -374,11 +405,9 @@ const ProEdition = () => {
                           <span className="text-sm font-medium">{feature.name}</span>
                         </div>
                         <span className="text-xs text-muted-foreground">{feature.value}</span>
-                      </div>
-                    ))}
+                      </div>)}
                   </CardContent>
-                </Card>
-              ))}
+                </Card>)}
             </div>
           </div>
         </div>
@@ -483,17 +512,11 @@ const ProEdition = () => {
                           
                           {/* Animated Waveform */}
                           <div className="flex items-end justify-center gap-1 mt-4 group-hover:animate-pulse">
-                            {[...Array(7)].map((_, i) => (
-                              <div
-                                key={i}
-                                className="bg-terminal-blue rounded-full transition-all duration-300 group-hover:bg-terminal-blue/80"
-                                style={{
-                                  width: '3px',
-                                  height: `${12 + (i % 3) * 8}px`,
-                                  animationDelay: `${i * 0.1}s`,
-                                }}
-                              />
-                            ))}
+                            {[...Array(7)].map((_, i) => <div key={i} className="bg-terminal-blue rounded-full transition-all duration-300 group-hover:bg-terminal-blue/80" style={{
+                            width: '3px',
+                            height: `${12 + i % 3 * 8}px`,
+                            animationDelay: `${i * 0.1}s`
+                          }} />)}
                           </div>
                         </div>
                         
@@ -511,8 +534,12 @@ const ProEdition = () => {
                     </div>
                     
                     {/* Floating Elements */}
-                    <div className="absolute -top-4 -right-4 w-8 h-8 bg-terminal-blue/20 rounded-full animate-bounce" style={{ animationDelay: '0s' }} />
-                    <div className="absolute -bottom-2 -left-2 w-6 h-6 bg-terminal-blue/30 rounded-full animate-bounce" style={{ animationDelay: '0.5s' }} />
+                    <div className="absolute -top-4 -right-4 w-8 h-8 bg-terminal-blue/20 rounded-full animate-bounce" style={{
+                    animationDelay: '0s'
+                  }} />
+                    <div className="absolute -bottom-2 -left-2 w-6 h-6 bg-terminal-blue/30 rounded-full animate-bounce" style={{
+                    animationDelay: '0.5s'
+                  }} />
                   </div>
                 </div>
               </CardContent>
@@ -535,20 +562,14 @@ const ProEdition = () => {
           
           <div className="max-w-4xl mx-auto">
             <Accordion type="multiple" className="w-full space-y-4">
-              {faqItems.map((item, index) => (
-                <AccordionItem 
-                  key={index} 
-                  value={`item-${index}`}
-                  className="border border-terminal-blue/20 rounded-lg bg-terminal-surface/30 backdrop-blur-sm px-6"
-                >
+              {faqItems.map((item, index) => <AccordionItem key={index} value={`item-${index}`} className="border border-terminal-blue/20 rounded-lg bg-terminal-surface/30 backdrop-blur-sm px-6">
                   <AccordionTrigger className="text-left hover:no-underline hover:text-terminal-blue transition-colors">
                     <span className="text-lg font-medium">{item.question}</span>
                   </AccordionTrigger>
                   <AccordionContent className="text-muted-foreground leading-relaxed">
                     {item.answer}
                   </AccordionContent>
-                </AccordionItem>
-              ))}
+                </AccordionItem>)}
             </Accordion>
           </div>
         </div>
@@ -560,9 +581,7 @@ const ProEdition = () => {
           <h2 className="text-4xl font-bold font-mono mb-6">
             Ready to Ship Code That Heals Itself?
           </h2>
-          <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Join thousands of enterprises already using Gitswhy OS Pro to secure their development lifecycle.
-          </p>
+          
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" className="bg-terminal-blue hover:bg-terminal-blue/90 text-white">
