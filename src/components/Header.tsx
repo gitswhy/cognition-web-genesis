@@ -1,7 +1,13 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Menu, X, Terminal } from "lucide-react";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { Menu, X, Terminal, ChevronDown } from "lucide-react";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -11,8 +17,12 @@ const Header = () => {
     { label: "Pro Edition", href: "/pro-edition" },
     { label: "How It Works", href: "/how-it-works" },
     { label: "Pricing", href: "/pricing" },
+  ];
+
+  const dropdownItems = [
     { label: "Docs", href: "/docs" },
     { label: "Community", href: "/community" },
+    { label: "Patent", href: "/patent" },
   ];
 
   return (
@@ -74,6 +84,29 @@ const Header = () => {
                 {item.label}
               </Link>
             ))}
+            
+            {/* Resources Dropdown */}
+            <DropdownMenu>
+              <DropdownMenuTrigger className="flex items-center space-x-1 text-xs xl:text-sm font-medium text-foreground/80 hover:text-terminal-green transition-colors cursor-pointer">
+                <span>Resources</span>
+                <ChevronDown className="h-3 w-3" />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent 
+                className="z-[200] bg-background border border-border shadow-lg min-w-[140px]"
+                align="start"
+              >
+                {dropdownItems.map((item) => (
+                  <DropdownMenuItem key={item.label} className="focus:bg-muted">
+                    <Link
+                      to={item.href}
+                      className="w-full text-sm text-foreground hover:text-terminal-green"
+                    >
+                      {item.label}
+                    </Link>
+                  </DropdownMenuItem>
+                ))}
+              </DropdownMenuContent>
+            </DropdownMenu>
           </nav>
 
           {/* CTAs */}
@@ -109,6 +142,21 @@ const Header = () => {
                   {item.label}
                 </Link>
               ))}
+              
+              {/* Mobile Resources Section */}
+              <div className="space-y-2 border-t border-terminal-green/20 pt-3">
+                <div className="text-xs font-semibold text-foreground/60 px-2 uppercase tracking-wide">Resources</div>
+                {dropdownItems.map((item) => (
+                  <Link
+                    key={item.label}
+                    to={item.href}
+                    className="text-sm font-medium text-foreground/80 hover:text-terminal-green transition-colors duration-200 px-2 py-1.5 rounded hover:bg-terminal-green/5 block"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
               <div className="flex flex-col space-y-2.5 sm:space-y-3 pt-3 sm:pt-4 border-t border-terminal-green/20">
                 <Button variant="terminal-outline" size="sm" asChild className="w-full">
                   <Link to="/open-core" onClick={() => setIsMenuOpen(false)}>Try Free Core</Link>
