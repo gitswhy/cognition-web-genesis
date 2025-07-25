@@ -133,8 +133,9 @@ const Hero = () => {
           </div>
 
           {/* Right Side - Live Terminal - Enhanced with better animations */}
-          <StaggeredFadeIn delay={0.3} staggerDelay={0.4}>
-            <div className="relative hover-lift max-w-full mt-6 lg:mt-0 order-2 lg:order-2">
+          <div className="order-2 lg:order-2">
+            <StaggeredFadeIn delay={0.3} staggerDelay={0.4}>
+              <div className="relative hover-lift max-w-full mt-6 lg:mt-0">
               <div className="bg-terminal-surface border border-terminal-green/20 rounded-lg code-matrix shadow-2xl overflow-hidden hover:shadow-3xl transition-all duration-500 max-w-full">
                 {/* Terminal Header */}
                 <div className="flex items-center justify-between bg-terminal-bg/50 px-3 sm:px-4 py-2 border-b border-terminal-green/20">
@@ -197,7 +198,8 @@ const Hero = () => {
               <div className="absolute -top-2 -right-2 w-2 h-2 bg-terminal-green rounded-full animate-glow-pulse animate-subtle-bounce"></div>
               <div className="absolute -bottom-2 -left-2 w-1.5 h-1.5 bg-terminal-blue rounded-full animate-glow-pulse animate-subtle-bounce" style={{animationDelay: '1s'}}></div>
             </div>
-          </StaggeredFadeIn>
+            </StaggeredFadeIn>
+          </div>
         </div>
         
         {/* Tagline positioned at bottom of hero section */}
