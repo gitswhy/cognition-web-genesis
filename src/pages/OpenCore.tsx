@@ -255,17 +255,25 @@ gitswhy autoclean --scan
                   </CardHeader>
 
                   {/* Code Content with Absolute Positioning */}
-                  {openCards[module.name] && (
-                    <div className="absolute top-full left-0 right-0 z-20 mt-2">
+                  <div className={`absolute top-full left-0 right-0 z-20 mt-2 transition-all duration-500 ease-out transform-gpu ${
+                    openCards[module.name] 
+                      ? 'opacity-100 scale-100 translate-y-0' 
+                      : 'opacity-0 scale-95 translate-y-[-10px] pointer-events-none'
+                  }`}>
+                    <div className={`transition-all duration-300 delay-100 ${
+                      openCards[module.name] ? 'opacity-100 transform-none' : 'opacity-0 translate-y-2'
+                    }`}>
                       <CardContent className="p-4">
-                        <div className="bg-terminal-surface/95 rounded-xl p-4 border border-terminal-green/50 backdrop-blur-sm shadow-xl shadow-terminal-green/20">
+                        <div className={`bg-terminal-surface/95 rounded-xl p-4 border border-terminal-green/50 backdrop-blur-sm shadow-xl shadow-terminal-green/20 transition-all duration-400 ${
+                          openCards[module.name] ? 'scale-100 border-terminal-green/50' : 'scale-95 border-terminal-green/30'
+                        }`}>
                           <pre className="text-sm font-mono text-terminal-green whitespace-pre-wrap overflow-x-auto leading-relaxed max-h-48 overflow-y-auto">
                             {module.code}
                           </pre>
                         </div>
                       </CardContent>
                     </div>
-                  )}
+                  </div>
 
                   {/* Floating Particles Effect */}
                   {openCards[module.name] && (
