@@ -193,15 +193,18 @@ gitswhy autoclean --scan
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-6xl mx-auto" style={{ gridAutoRows: 'max-content' }}>
             {coreModules.map((module, index) => (
               <div
                 key={module.name}
-                className="group relative animate-fade-in h-full"
-                style={{ animationDelay: `${index * 100}ms` }}
+                className="group relative animate-fade-in"
+                style={{ 
+                  animationDelay: `${index * 100}ms`,
+                  zIndex: openCards[module.name] ? 10 : 1
+                }}
               >
                 <Card 
-                  className={`relative overflow-hidden bg-terminal-surface/60 border-terminal-green/30 hover:border-terminal-green/50 transition-all duration-500 cursor-pointer transform hover:scale-[1.02] hover:shadow-xl hover:shadow-terminal-green/20 h-fit ${
+                  className={`relative overflow-visible bg-terminal-surface/60 border-terminal-green/30 hover:border-terminal-green/50 transition-all duration-500 cursor-pointer transform hover:scale-[1.02] hover:shadow-xl hover:shadow-terminal-green/20 ${
                     openCards[module.name] ? 'scale-[1.02] border-terminal-green/50 shadow-lg shadow-terminal-green/10' : ''
                   }`}
                   onClick={() => toggleCard(module.name)}
@@ -251,22 +254,18 @@ gitswhy autoclean --scan
                     </div>
                   </CardHeader>
 
-                  {/* Code Content with Smooth Reveal */}
-                  <div className={`relative z-10 overflow-hidden transition-all duration-500 ease-out ${
-                    openCards[module.name] 
-                      ? 'max-h-96 opacity-100' 
-                      : 'max-h-0 opacity-0'
-                  }`}>
-                    <CardContent className="px-6 pb-6 pt-0">
-                      <div className={`bg-terminal-surface/90 rounded-xl p-4 border border-terminal-green/30 backdrop-blur-sm transition-all duration-500 ${
-                        openCards[module.name] ? 'border-terminal-green/50 shadow-inner' : ''
-                      }`}>
-                        <pre className="text-sm font-mono text-terminal-green whitespace-pre-wrap overflow-x-auto leading-relaxed">
-                          {module.code}
-                        </pre>
-                      </div>
-                    </CardContent>
-                  </div>
+                  {/* Code Content with Absolute Positioning */}
+                  {openCards[module.name] && (
+                    <div className="absolute top-full left-0 right-0 z-20 mt-2">
+                      <CardContent className="p-4">
+                        <div className="bg-terminal-surface/95 rounded-xl p-4 border border-terminal-green/50 backdrop-blur-sm shadow-xl shadow-terminal-green/20">
+                          <pre className="text-sm font-mono text-terminal-green whitespace-pre-wrap overflow-x-auto leading-relaxed max-h-48 overflow-y-auto">
+                            {module.code}
+                          </pre>
+                        </div>
+                      </CardContent>
+                    </div>
+                  )}
 
                   {/* Floating Particles Effect */}
                   {openCards[module.name] && (
