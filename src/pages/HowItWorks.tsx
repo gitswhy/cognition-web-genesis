@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -25,7 +25,6 @@ import ModuleLottieAnimation from '@/components/ModuleLottieAnimation';
 import HowItWorksBackground from '@/components/background/HowItWorksBackground';
 
 const HowItWorks = () => {
-  const navigate = useNavigate();
   const [activeStep, setActiveStep] = useState(0);
   const [reducedMotion, setReducedMotion] = useState(false);
 
@@ -326,10 +325,12 @@ const HowItWorks = () => {
                       <Button 
                         className="bg-terminal-blue hover:bg-terminal-blue/90 text-white"
                         size="lg"
-                        onClick={() => navigate('/pro-edition')}
+                        asChild
                       >
-                        Upgrade to Pro
-                        <ArrowRight className="ml-2 w-4 h-4" />
+                        <Link to="/pro-edition">
+                          Upgrade to Pro
+                          <ArrowRight className="ml-2 w-4 h-4" />
+                        </Link>
                       </Button>
                     )}
                   </div>
@@ -397,18 +398,22 @@ const HowItWorks = () => {
             <Button 
               size="lg" 
               className="bg-terminal-green hover:bg-terminal-green/90 text-background"
-              onClick={() => navigate('/open-core')}
+              asChild
             >
-              <Code className="mr-2 w-4 h-4" />
-              Try Open Core
+              <Link to="/open-core">
+                <Code className="mr-2 w-4 h-4" />
+                Try Open Core
+              </Link>
             </Button>
             <Button 
               size="lg" 
               className="bg-terminal-blue hover:bg-terminal-blue/90 text-white"
-              onClick={() => navigate('/pro-edition')}
+              asChild
             >
-              <Shield className="mr-2 w-4 h-4" />
-              Start Pro Trial
+              <Link to="/pro-edition">
+                <Shield className="mr-2 w-4 h-4" />
+                Start Pro Trial
+              </Link>
             </Button>
           </div>
         </div>
