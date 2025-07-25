@@ -68,38 +68,66 @@ const EnhancedWireframeShape = ({ position, geometryType, color, speed = 1, anim
   );
 };
 
-// Simplified 3D Scene - positioned around the visible center area
+// Optimized 3D Scene with strategic positioning
 const EnhancedScene3D = () => {
   return (
     <>
-      {/* Left side - half visible */}
+      {/* Left side */}
       <EnhancedWireframeShape 
         position={[-4, 1, 0]} 
         geometryType="cube"
         color="#00FF66" 
-        speed={0.5}
+        speed={0.4}
         animationType="rotate"
-        scale={0.6}
+        scale={0.5}
       />
       
-      {/* Right side - half visible */}
+      {/* Right side */}
       <EnhancedWireframeShape 
         position={[4, -1, 0]} 
         geometryType="icosahedron"
         color="#00D4FF" 
-        speed={0.7}
+        speed={0.5}
         animationType="float"
-        scale={0.5}
+        scale={0.4}
       />
 
-      {/* Center background - very subtle */}
+      {/* Center - the red spinning torus */}
       <EnhancedWireframeShape 
-        position={[0, 2, -2]} 
+        position={[0, 0, 1]} 
+        geometryType="torus"
+        color="#FF6B6B" 
+        speed={0.8}
+        animationType="spin"
+        scale={0.6}
+      />
+      
+      {/* Background elements */}
+      <EnhancedWireframeShape 
+        position={[0, 3, -1]} 
         geometryType="sphere"
         color="#4ECDC4" 
         speed={0.3}
         animationType="rotate"
+        scale={0.3}
+      />
+
+      <EnhancedWireframeShape 
+        position={[-2, -2, -1]} 
+        geometryType="tetrahedron"
+        color="#9B59B6" 
+        speed={0.6}
+        animationType="wobble"
         scale={0.4}
+      />
+
+      <EnhancedWireframeShape 
+        position={[2, 2, -1]} 
+        geometryType="octahedron"
+        color="#FFD700" 
+        speed={0.4}
+        animationType="orbit"
+        scale={0.3}
       />
     </>
   );
