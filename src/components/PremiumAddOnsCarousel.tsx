@@ -1,12 +1,14 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from '@/components/ui/carousel';
 import { Brain, Zap, TrendingUp, Lock } from 'lucide-react';
+import type { CarouselApi } from '@/components/ui/carousel';
 
 const PremiumAddOnsCarousel = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [api, setApi] = useState<CarouselApi>();
   
   const addOns = [
     {
@@ -38,14 +40,25 @@ const PremiumAddOnsCarousel = () => {
     }
   ];
 
+  // Track carousel API and current slide
+  useEffect(() => {
+    if (!api) return;
+
+    api.on("select", () => {
+      setCurrentSlide(api.selectedScrollSnap());
+    });
+  }, [api]);
+
   // Auto-rotate every 5 seconds
   useEffect(() => {
+    if (!api) return;
+
     const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % addOns.length);
+      api.scrollNext();
     }, 5000);
 
     return () => clearInterval(interval);
-  }, [addOns.length]);
+  }, [api]);
 
   return (
     <section className="py-24">
@@ -60,19 +73,19 @@ const PremiumAddOnsCarousel = () => {
         </div>
         
         <div className="max-w-4xl mx-auto">
-          <Carousel className="w-full">
+          <Carousel className="w-full" setApi={setApi}>
             <CarouselContent>
               {addOns.map((addOn, index) => {
                 const Icon = addOn.icon;
                 return (
                   <CarouselItem key={addOn.id}>
-                    <Card className="relative group cursor-pointer transition-all duration-500 hover:scale-105 border-terminal-blue/30 backdrop-blur-sm overflow-hidden">
-                      {/* Lock Overlay */}
-                      <div className="absolute inset-0 bg-terminal-blue/10 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
+                     <Card className="relative group cursor-pointer transition-all duration-500 hover:shadow-2xl border-terminal-blue/30 backdrop-blur-sm overflow-hidden">
+                      {/* Lock Overlay - Always visible at front */}
+                      <div className="absolute inset-0 bg-terminal-blue/10 backdrop-blur-sm flex items-center justify-center transition-all duration-300 z-20">
                         <div className="text-center space-y-4">
-                          <Lock className="w-12 h-12 text-terminal-blue mx-auto animate-bounce" />
+                          <Lock className="w-12 h-12 text-terminal-blue mx-auto group-hover:scale-110 transition-transform duration-300" />
                           <Button className="bg-terminal-blue hover:bg-terminal-blue/90 text-white">
-                            Unlock in Enterprise
+                            Upgrade to Unlock
                           </Button>
                         </div>
                       </div>
@@ -149,8 +162,8 @@ const PremiumAddOnsCarousel = () => {
                 );
               })}
             </CarouselContent>
-            <CarouselPrevious className="border-terminal-blue/30 text-terminal-blue hover:bg-terminal-blue/10" />
-            <CarouselNext className="border-terminal-blue/30 text-terminal-blue hover:bg-terminal-blue/10" />
+            <CarouselPrevious className="border-terminal-blue/30 text-terminal-blue hover:bg-terminal-blue/10 hover:scale-110 transition-transform duration-300" />
+            <CarouselNext className="border-terminal-blue/30 text-terminal-blue hover:bg-terminal-blue/10 hover:scale-110 transition-transform duration-300" />
           </Carousel>
           
           {/* Slide Indicators */}
@@ -163,7 +176,7 @@ const PremiumAddOnsCarousel = () => {
                     ? 'bg-terminal-blue' 
                     : 'bg-terminal-blue/30 hover:bg-terminal-blue/50'
                 }`}
-                onClick={() => setCurrentSlide(index)}
+                onClick={() => api?.scrollTo(index)}
               />
             ))}
           </div>
