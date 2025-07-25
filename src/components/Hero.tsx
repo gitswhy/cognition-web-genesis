@@ -61,8 +61,8 @@ const Hero = () => {
     <section className="relative padding-responsive overflow-hidden hero-landscape safe-area-padding">
       <div className="container mx-auto relative z-10 max-w-7xl">
         <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 xl:gap-20 items-center">
-          {/* Left Side - Headlines */}
-          <div className="space-responsive order-2 lg:order-1">
+          {/* Right Side - Text Content */}
+          <div className="space-responsive order-2 lg:order-2">
             {/* Badge */}
             <div className="inline-flex items-center space-x-2 bg-terminal-green/10 border border-terminal-green/20 rounded-lg px-3 sm:px-4 py-2 sm:py-2.5">
               <FileText className="h-4 w-4 text-terminal-green flex-shrink-0" />
@@ -132,9 +132,9 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* Right Side - Live Terminal - Enhanced with better animations */}
+          {/* Left Side - Live Terminal - Enhanced with better animations */}
           <StaggeredFadeIn delay={0.3} staggerDelay={0.4}>
-            <div className="relative hover-lift max-w-full mt-6 lg:mt-0">
+            <div className="relative hover-lift max-w-full mt-6 lg:mt-0 order-1 lg:order-1">
               <div className="bg-terminal-surface border border-terminal-green/20 rounded-lg code-matrix shadow-2xl overflow-hidden hover:shadow-3xl transition-all duration-500 max-w-full">
                 {/* Terminal Header */}
                 <div className="flex items-center justify-between bg-terminal-bg/50 px-3 sm:px-4 py-2 border-b border-terminal-green/20">
