@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
-import { Copy, Github, Star, Download, Terminal, Zap, Database, Shield, RotateCcw, Trash2 } from 'lucide-react';
+import { Copy, Github, Star, Download, Terminal, Zap, Database, Shield, RotateCcw, Trash2, ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import ModuleExplorer from '@/components/ModuleExplorer';
@@ -10,6 +11,7 @@ import { SoftwareApplicationSchema } from '@/components/SoftwareApplicationSchem
 import OpenCoreBackground from '@/components/background/OpenCoreBackground';
 const OpenCore = () => {
   const [copiedCommand, setCopiedCommand] = useState<string | null>(null);
+  const [openCards, setOpenCards] = useState<Record<string, boolean>>({});
   useEffect(() => {
     // Update meta tags for SEO
     document.title = 'ReflexCore: Open-Core DevSecOps OS | Gitswhy OS';
@@ -60,6 +62,13 @@ const OpenCore = () => {
     navigator.clipboard.writeText(text);
     setCopiedCommand(type);
     setTimeout(() => setCopiedCommand(null), 2000);
+  };
+
+  const toggleCard = (cardName: string) => {
+    setOpenCards(prev => ({
+      ...prev,
+      [cardName]: !prev[cardName]
+    }));
   };
   const coreModules = [{
     name: 'Bootstrapping',
@@ -179,39 +188,61 @@ gitswhy autoclean --scan
           <div className="text-center mb-16">
             <h2 className="text-4xl font-mono font-bold mb-4">
               Core Modules
-              <span className="inline-block w-1 h-8 bg-terminal-green ml-2 animate-pulse" />
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Five foundational modules that make up the ReflexCore open-source foundation
+              Six foundational modules that make up the ReflexCore open-source foundation
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {coreModules.map((module, index) => <Card key={module.name} className="group relative overflow-hidden bg-terminal-surface/60 border-terminal-green/30 hover:border-terminal-green/50 transition-all duration-200 hover:transform hover:scale-[1.02]" style={{
-            animationDelay: `${index * 50}ms`
-          }}>
-                <div className={`absolute inset-0 bg-gradient-to-br ${module.color} opacity-0 group-hover:opacity-100 transition-opacity duration-300`} />
-                
-                <CardHeader className="relative z-10">
-                  <div className="flex items-center gap-3 mb-2">
-                    <div className="p-2 rounded-lg bg-terminal-green/20 group-hover:bg-terminal-green/30 transition-colors">
-                      <module.icon className="h-5 w-5 text-terminal-green" />
-                    </div>
-                    <CardTitle className="font-mono text-lg">{module.name}</CardTitle>
-                  </div>
-                  <CardDescription className="text-muted-foreground">
-                    {module.description}
-                  </CardDescription>
-                </CardHeader>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+            {coreModules.map((module, index) => (
+              <Collapsible 
+                key={module.name}
+                open={openCards[module.name]}
+                onOpenChange={() => toggleCard(module.name)}
+              >
+                <Card className="group relative overflow-hidden bg-terminal-surface/60 border-terminal-green/30 hover:border-terminal-green/50 transition-all duration-300 hover:shadow-lg hover:shadow-terminal-green/20 animate-fade-in" 
+                  style={{ animationDelay: `${index * 100}ms` }}>
+                  
+                  <div className={`absolute inset-0 bg-gradient-to-br ${module.color} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
+                  
+                  <CollapsibleTrigger asChild>
+                    <CardHeader className="relative z-10 cursor-pointer hover:bg-terminal-surface/20 transition-colors duration-200 p-6">
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center gap-3">
+                          <div className="p-3 rounded-xl bg-terminal-green/20 group-hover:bg-terminal-green/30 transition-all duration-300 group-hover:scale-110">
+                            <module.icon className="h-6 w-6 text-terminal-green transition-transform duration-300 group-hover:rotate-6" />
+                          </div>
+                          <div>
+                            <CardTitle className="font-mono text-lg text-left group-hover:text-terminal-green transition-colors duration-200">
+                              {module.name}
+                            </CardTitle>
+                            <CardDescription className="text-muted-foreground text-left text-sm mt-1">
+                              {module.description}
+                            </CardDescription>
+                          </div>
+                        </div>
+                        <ChevronDown 
+                          className={`h-5 w-5 text-terminal-green transition-transform duration-300 ${
+                            openCards[module.name] ? 'rotate-180' : ''
+                          }`}
+                        />
+                      </div>
+                    </CardHeader>
+                  </CollapsibleTrigger>
 
-                <CardContent className="relative z-10">
-                  <div className="bg-terminal-surface/60 rounded-lg p-4 border border-terminal-green/20 group-hover:border-terminal-green/40 transition-colors">
-                    <pre className="text-sm font-mono text-terminal-green whitespace-pre-wrap overflow-x-auto">
-                      {module.code}
-                    </pre>
-                  </div>
-                </CardContent>
-              </Card>)}
+                  <CollapsibleContent className="data-[state=open]:animate-accordion-down data-[state=closed]:animate-accordion-up">
+                    <CardContent className="relative z-10 px-6 pb-6 pt-0">
+                      <div className="bg-terminal-surface/80 rounded-xl p-4 border border-terminal-green/20 group-hover:border-terminal-green/40 transition-all duration-300 backdrop-blur-sm">
+                        <pre className="text-sm font-mono text-terminal-green whitespace-pre-wrap overflow-x-auto leading-relaxed">
+                          {module.code}
+                        </pre>
+                      </div>
+                    </CardContent>
+                  </CollapsibleContent>
+                </Card>
+              </Collapsible>
+            ))}
           </div>
         </div>
       </section>
