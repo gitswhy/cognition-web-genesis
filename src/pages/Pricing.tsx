@@ -304,25 +304,83 @@ const Pricing = () => {
       {/* Enterprise Section */}
       <section className="py-16 bg-terminal-surface/10">
         <div className="container mx-auto px-4">
-          <div className="max-w-2xl mx-auto text-center">
+          <div className="max-w-4xl mx-auto">
             <Card className="bg-gradient-to-br from-terminal-blue/10 to-terminal-green/10 backdrop-blur-sm border-terminal-blue/30">
-              <CardContent className="p-8 text-center">
-                <div className="space-y-6">
-                  <div>
-                    <h3 className="text-2xl font-bold mb-2">Enterprise</h3>
+              <CardContent className="p-8">
+                <div className="grid lg:grid-cols-2 gap-8 items-center">
+                  <div className="space-y-6">
+                    <div>
+                      <h3 className="text-3xl font-bold mb-3">Enterprise: Custom DevSecOps at Scale</h3>
+                      <p className="text-muted-foreground text-lg">
+                        Tailored enterprise-grade security platform designed for large organizations requiring 
+                        custom integrations, dedicated support, and advanced compliance features.
+                      </p>
+                    </div>
+                    
+                    <div className="space-y-3">
+                      <div className="flex items-start gap-3">
+                        <Check className="w-5 h-5 text-terminal-green mt-0.5" />
+                        <span className="text-sm">Tailored onboarding with dedicated success manager</span>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <Check className="w-5 h-5 text-terminal-green mt-0.5" />
+                        <span className="text-sm">Scalable infrastructure with 99.99% SLA guarantee</span>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <Check className="w-5 h-5 text-terminal-green mt-0.5" />
+                        <span className="text-sm">Custom policy frameworks and compliance reporting</span>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <Check className="w-5 h-5 text-terminal-green mt-0.5" />
+                        <span className="text-sm">White-label solutions and API customization</span>
+                      </div>
+                    </div>
+                    
+                    <div className="bg-terminal-surface/20 rounded-lg p-4">
+                      <div className="text-2xl font-bold font-mono mb-1">Custom Quote</div>
+                      <p className="text-sm text-muted-foreground">Based on team size and requirements</p>
+                    </div>
                   </div>
                   
-                  <div className="space-y-2">
-                    <div className="text-4xl font-bold font-mono">Custom</div>
+                  <div className="space-y-6">
+                    <div className="bg-terminal-surface/20 rounded-lg p-6 space-y-4">
+                      <blockquote className="text-sm italic">
+                        "Gitswhy Enterprise reduced our security incidents by 89% and saved us $2.3M in 
+                        potential breach costs within the first year."
+                      </blockquote>
+                      <div className="text-sm text-muted-foreground">
+                        — Sarah Chen, CISO at TechCorp (5,000+ developers)
+                      </div>
+                    </div>
+                    
+                    <div className="bg-terminal-surface/20 rounded-lg p-6 space-y-4">
+                      <blockquote className="text-sm italic">
+                        "The custom integration with our existing DevOps pipeline was seamless. 
+                        ROI achieved in under 3 months."
+                      </blockquote>
+                      <div className="text-sm text-muted-foreground">
+                        — Mike Rodriguez, VP Engineering at DataFlow Inc
+                      </div>
+                    </div>
+                    
+                    <div className="space-y-3">
+                      <Button 
+                        size="lg" 
+                        className="bg-terminal-blue hover:bg-terminal-blue/90 text-white w-full"
+                      >
+                        Request Demo
+                        <ArrowRight className="ml-2 w-4 h-4" />
+                      </Button>
+                      <Button 
+                        size="lg" 
+                        variant="outline"
+                        className="border-terminal-blue/30 text-terminal-blue hover:bg-terminal-blue/10 w-full"
+                      >
+                        Contact Sales
+                        <Users className="ml-2 w-4 h-4" />
+                      </Button>
+                    </div>
                   </div>
-                  
-                  <Button 
-                    size="lg" 
-                    className="bg-terminal-blue hover:bg-terminal-blue/90 text-white w-full"
-                  >
-                    Contact Us
-                    <ArrowRight className="ml-2 w-4 h-4" />
-                  </Button>
                 </div>
               </CardContent>
             </Card>
