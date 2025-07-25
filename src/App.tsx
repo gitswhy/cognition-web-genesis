@@ -17,6 +17,7 @@ import Docs from "./pages/Docs";
 import BlogResources from "./pages/BlogResources";
 import Community from "./pages/Community";
 import About from "./pages/About";
+import Patent from "./pages/Patent";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -35,6 +36,7 @@ const AnimatedRoutes = () => {
       <Route path="/blog" element={<BlogResources />} />
       <Route path="/community" element={<Community />} />
       <Route path="/about" element={<About />} />
+      <Route path="/patent" element={<Patent />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   );
