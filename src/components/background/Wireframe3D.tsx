@@ -69,13 +69,13 @@ const EnhancedWireframeShape = ({ position, geometryType, color, speed = 1, anim
   );
 };
 
-// Optimized 3D Scene with strategic positioning
+// Optimized 3D Scene - one shape per section, all on-screen
 const EnhancedScene3D = () => {
   return (
     <>
-      {/* Left side */}
+      {/* Top section - Hero area */}
       <EnhancedWireframeShape 
-        position={[-4, 1, 0]} 
+        position={[-2, 2, 0]} 
         geometryType="cube"
         color="#00FF66" 
         speed={0.4}
@@ -83,17 +83,7 @@ const EnhancedScene3D = () => {
         scale={0.5}
       />
       
-      {/* Right side */}
-      <EnhancedWireframeShape 
-        position={[4, -1, 0]} 
-        geometryType="icosahedron"
-        color="#00D4FF" 
-        speed={0.5}
-        animationType="float"
-        scale={0.4}
-      />
-
-      {/* Center - the red spinning torus */}
+      {/* Center - Main focus area */}
       <EnhancedWireframeShape 
         position={[0, 0, 1]} 
         geometryType="torus"
@@ -102,32 +92,14 @@ const EnhancedScene3D = () => {
         animationType="spin"
         scale={0.6}
       />
-      
-      {/* Background elements - brought closer */}
-      <EnhancedWireframeShape 
-        position={[0, 2.5, 0]} 
-        geometryType="sphere"
-        color="#4ECDC4" 
-        speed={0.3}
-        animationType="rotate"
-        scale={0.4}
-      />
 
+      {/* Bottom section */}
       <EnhancedWireframeShape 
-        position={[-2.5, -1.5, 0]} 
-        geometryType="tetrahedron"
-        color="#9B59B6" 
-        speed={0.6}
-        animationType="wobble"
-        scale={0.5}
-      />
-
-      <EnhancedWireframeShape 
-        position={[2.5, 1.5, 0]} 
-        geometryType="octahedron"
-        color="#FFD700" 
-        speed={0.4}
-        animationType="orbit"
+        position={[2, -2, 0]} 
+        geometryType="icosahedron"
+        color="#00D4FF" 
+        speed={0.5}
+        animationType="float"
         scale={0.4}
       />
     </>
