@@ -161,9 +161,11 @@ gitswhy autoclean --scan
             </p>
 
             <div className="flex justify-center">
-              <Button size="lg" className="bg-terminal-green hover:bg-terminal-green/80 text-terminal-bg font-mono">
-                <Star className="mr-2 h-5 w-5" />
-                Add to Wishlist
+              <Button size="lg" className="bg-terminal-green hover:bg-terminal-green/80 text-terminal-bg font-mono" asChild>
+                <a href="https://github.com/gitswhy/reflexcore" target="_blank" rel="noopener noreferrer">
+                  <Download className="mr-2 h-5 w-5" />
+                  Download
+                </a>
               </Button>
             </div>
 
