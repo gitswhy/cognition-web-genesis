@@ -58,7 +58,7 @@ const Hero = () => {
   }, [currentLine]);
 
   return (
-    <section className="relative py-8 sm:py-12 md:py-16 lg:py-20 overflow-hidden">
+    <section className="relative pt-16 sm:pt-20 pb-8 sm:pb-12 md:pb-16 lg:pb-20 overflow-hidden">
       <div className="container mx-auto px-3 sm:px-4 lg:px-8 xl:px-12 2xl:px-20 relative z-10 max-w-7xl">
         <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 xl:gap-16 items-center">
           {/* Left Side - Headlines */}
