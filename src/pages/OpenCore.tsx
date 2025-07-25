@@ -3,7 +3,6 @@ import { Copy, Github, Star, Download, Terminal, Zap, Database, Shield, RotateCc
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import ModuleExplorer from '@/components/ModuleExplorer';
@@ -196,52 +195,89 @@ gitswhy autoclean --scan
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
             {coreModules.map((module, index) => (
-              <Collapsible 
+              <div
                 key={module.name}
-                open={openCards[module.name]}
-                onOpenChange={() => toggleCard(module.name)}
+                className="group relative animate-fade-in"
+                style={{ animationDelay: `${index * 100}ms` }}
               >
-                <Card className="group relative overflow-hidden bg-terminal-surface/60 border-terminal-green/30 hover:border-terminal-green/50 transition-all duration-300 hover:shadow-lg hover:shadow-terminal-green/20 animate-fade-in" 
-                  style={{ animationDelay: `${index * 100}ms` }}>
+                <Card 
+                  className={`relative overflow-hidden bg-terminal-surface/60 border-terminal-green/30 hover:border-terminal-green/50 transition-all duration-500 cursor-pointer transform hover:scale-[1.02] hover:shadow-xl hover:shadow-terminal-green/20 ${
+                    openCards[module.name] ? 'scale-[1.02] border-terminal-green/50 shadow-lg shadow-terminal-green/10' : ''
+                  }`}
+                  onClick={() => toggleCard(module.name)}
+                >
+                  {/* Animated Background Gradient */}
+                  <div className={`absolute inset-0 bg-gradient-to-br ${module.color} opacity-0 transition-all duration-500 ${
+                    openCards[module.name] ? 'opacity-100' : 'group-hover:opacity-50'
+                  }`} />
                   
-                  <div className={`absolute inset-0 bg-gradient-to-br ${module.color} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
+                  {/* Glowing Border Effect */}
+                  <div className={`absolute inset-0 rounded-lg transition-all duration-500 ${
+                    openCards[module.name] ? 'shadow-[inset_0_0_20px_rgba(34,197,94,0.2)]' : ''
+                  }`} />
                   
-                  <CollapsibleTrigger asChild>
-                    <CardHeader className="relative z-10 cursor-pointer hover:bg-terminal-surface/20 transition-colors duration-200 p-6">
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-center gap-3">
-                          <div className="p-3 rounded-xl bg-terminal-green/20 group-hover:bg-terminal-green/30 transition-all duration-300 group-hover:scale-110">
-                            <module.icon className="h-6 w-6 text-terminal-green transition-transform duration-300 group-hover:rotate-6" />
-                          </div>
-                          <div>
-                            <CardTitle className="font-mono text-lg text-left group-hover:text-terminal-green transition-colors duration-200">
-                              {module.name}
-                            </CardTitle>
-                            <CardDescription className="text-muted-foreground text-left text-sm mt-1">
-                              {module.description}
-                            </CardDescription>
-                          </div>
+                  <CardHeader className="relative z-10 p-6">
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-4">
+                        <div className={`p-3 rounded-xl bg-terminal-green/20 transition-all duration-500 ${
+                          openCards[module.name] 
+                            ? 'bg-terminal-green/40 scale-110 rotate-6' 
+                            : 'group-hover:bg-terminal-green/30 group-hover:scale-105'
+                        }`}>
+                          <module.icon className={`h-6 w-6 text-terminal-green transition-all duration-500 ${
+                            openCards[module.name] ? 'scale-110' : ''
+                          }`} />
                         </div>
+                        <div>
+                          <CardTitle className={`font-mono text-lg text-left transition-all duration-300 ${
+                            openCards[module.name] ? 'text-terminal-green' : 'group-hover:text-terminal-green'
+                          }`}>
+                            {module.name}
+                          </CardTitle>
+                          <CardDescription className="text-muted-foreground text-left text-sm mt-1">
+                            {module.description}
+                          </CardDescription>
+                        </div>
+                      </div>
+                      <div className={`p-2 rounded-full transition-all duration-500 ${
+                        openCards[module.name] ? 'bg-terminal-green/20' : 'group-hover:bg-terminal-green/10'
+                      }`}>
                         <ChevronDown 
-                          className={`h-5 w-5 text-terminal-green transition-transform duration-300 ${
-                            openCards[module.name] ? 'rotate-180' : ''
+                          className={`h-5 w-5 text-terminal-green transition-all duration-500 ${
+                            openCards[module.name] ? 'rotate-180 scale-110' : 'group-hover:scale-110'
                           }`}
                         />
                       </div>
-                    </CardHeader>
-                  </CollapsibleTrigger>
+                    </div>
+                  </CardHeader>
 
-                  <CollapsibleContent className="data-[state=open]:animate-accordion-down data-[state=closed]:animate-accordion-up">
-                    <CardContent className="relative z-10 px-6 pb-6 pt-0">
-                      <div className="bg-terminal-surface/80 rounded-xl p-4 border border-terminal-green/20 group-hover:border-terminal-green/40 transition-all duration-300 backdrop-blur-sm">
+                  {/* Code Content with Smooth Reveal */}
+                  <div className={`relative z-10 overflow-hidden transition-all duration-500 ease-out ${
+                    openCards[module.name] 
+                      ? 'max-h-96 opacity-100' 
+                      : 'max-h-0 opacity-0'
+                  }`}>
+                    <CardContent className="px-6 pb-6 pt-0">
+                      <div className={`bg-terminal-surface/90 rounded-xl p-4 border border-terminal-green/30 backdrop-blur-sm transition-all duration-500 ${
+                        openCards[module.name] ? 'border-terminal-green/50 shadow-inner' : ''
+                      }`}>
                         <pre className="text-sm font-mono text-terminal-green whitespace-pre-wrap overflow-x-auto leading-relaxed">
                           {module.code}
                         </pre>
                       </div>
                     </CardContent>
-                  </CollapsibleContent>
+                  </div>
+
+                  {/* Floating Particles Effect */}
+                  {openCards[module.name] && (
+                    <div className="absolute inset-0 pointer-events-none">
+                      <div className="absolute top-4 right-4 w-2 h-2 bg-terminal-green/40 rounded-full animate-pulse" />
+                      <div className="absolute bottom-6 left-6 w-1 h-1 bg-terminal-green/30 rounded-full animate-pulse" style={{ animationDelay: '0.5s' }} />
+                      <div className="absolute top-1/2 right-8 w-1.5 h-1.5 bg-terminal-green/20 rounded-full animate-pulse" style={{ animationDelay: '1s' }} />
+                    </div>
+                  )}
                 </Card>
-              </Collapsible>
+              </div>
             ))}
           </div>
         </div>
