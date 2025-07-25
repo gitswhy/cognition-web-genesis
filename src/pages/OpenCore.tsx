@@ -182,10 +182,10 @@ gitswhy autoclean --scan
       </section>
 
       {/* Core Modules Features */}
-      <section className="py-24 bg-terminal-surface/10">
+      <section className="py-16 bg-terminal-surface/10">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-mono font-bold mb-4">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-mono font-bold mb-3">
               Core Modules
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
@@ -193,7 +193,7 @@ gitswhy autoclean --scan
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-6xl mx-auto">
             {coreModules.map((module, index) => (
               <div
                 key={module.name}
@@ -216,7 +216,7 @@ gitswhy autoclean --scan
                     openCards[module.name] ? 'shadow-[inset_0_0_20px_rgba(34,197,94,0.2)]' : ''
                   }`} />
                   
-                  <CardHeader className="relative z-10 p-6">
+                  <CardHeader className="relative z-10 p-4">
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-4">
                         <div className={`p-3 rounded-xl bg-terminal-green/20 transition-all duration-500 ${
