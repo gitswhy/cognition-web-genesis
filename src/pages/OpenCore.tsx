@@ -367,22 +367,7 @@ gitswhy autoclean --scan
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-            <Card className="text-center bg-terminal-surface/60 border-terminal-green/30 hover:border-terminal-green/50 transition-colors">
-              <CardHeader>
-                <Github className="h-12 w-12 text-terminal-green mx-auto mb-4" />
-                <CardTitle className="font-mono">Contribute</CardTitle>
-                <CardDescription>
-                  Help build the next generation of intelligent DevOps tools
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <Button className="w-full bg-terminal-green hover:bg-terminal-green/80 text-terminal-bg">
-                  View Issues
-                </Button>
-              </CardContent>
-            </Card>
-
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             <Card className="text-center bg-terminal-surface/60 border-terminal-blue/30 hover:border-terminal-blue/50 transition-colors">
               <CardHeader>
                 <Star className="h-12 w-12 text-terminal-blue mx-auto mb-4" />
@@ -392,8 +377,10 @@ gitswhy autoclean --scan
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <Button variant="outline" className="w-full border-terminal-blue text-terminal-blue hover:bg-terminal-blue/10">
-                  Star on GitHub
+                <Button variant="outline" className="w-full border-terminal-blue text-terminal-blue hover:bg-terminal-blue/10" asChild>
+                  <a href="https://github.com/gitswhy/reflexcore" target="_blank" rel="noopener noreferrer">
+                    Star on GitHub
+                  </a>
                 </Button>
               </CardContent>
             </Card>
