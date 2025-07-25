@@ -302,9 +302,6 @@ const Pricing = () => {
         </div>
       </section>
 
-      {/* ROI Calculator */}
-      <ROICalculator />
-
       {/* Enterprise Section */}
       <section className="py-16 bg-terminal-surface/10">
         <div className="container mx-auto px-4">
@@ -333,6 +330,9 @@ const Pricing = () => {
           </div>
         </div>
       </section>
+
+      {/* ROI Calculator */}
+      <ROICalculator />
 
       {/* FAQ Section */}
       <section className="py-24">
