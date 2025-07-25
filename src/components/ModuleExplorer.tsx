@@ -460,12 +460,11 @@ console.log('Vault synchronization completed securely');`,
   };
 
   return (
-    <section className="py-24 bg-terminal-surface/10">
+    <section className="py-16 bg-terminal-surface/10">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-mono font-bold mb-4">
+        <div className="text-center mb-12">
+          <h2 className="text-4xl font-mono font-bold mb-3">
             Module Explorer
-            <span className="inline-block w-1 h-8 bg-terminal-green ml-2 animate-pulse" />
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Deep dive into each ReflexCore module with interactive code examples and cognitive insights
@@ -484,8 +483,8 @@ console.log('Vault synchronization completed securely');`,
               <AccordionItem
                 key={module.id}
                 value={module.id}
-                className="group bg-terminal-surface/30 border border-terminal-green/20 rounded-lg overflow-hidden hover:border-terminal-green/50 transition-all duration-300 animate-fade-in"
-                style={{ animationDelay: `${index * 100}ms` }}
+                className="group bg-terminal-surface/30 border border-terminal-green/20 rounded-lg overflow-hidden hover:border-terminal-green/50 transition-all duration-500 animate-fade-in hover:shadow-lg hover:shadow-terminal-green/10 hover:scale-[1.01]"
+                style={{ animationDelay: `${index * 150}ms` }}
               >
                 <AccordionTrigger className="px-6 py-4 hover:no-underline hover:bg-terminal-green/5 transition-colors duration-300">
                   <div className="flex items-center justify-between w-full">
