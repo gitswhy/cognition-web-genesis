@@ -12,7 +12,7 @@ import lightningPerformanceImg from '@/assets/lightning-performance.png';
 import multiLanguageImg from '@/assets/multi-language.png';
 import zeroTrustImg from '@/assets/zero-trust.png';
 import codeAnalysisImg from '@/assets/code-analysis.png';
-const Features = () => {
+const EnhancedFeatures = () => {
   const {
     t
   } = useTranslation();
@@ -90,10 +90,23 @@ const Features = () => {
             duration: 0.6,
             delay: 0.1
           }}>
-              Powerful Security Features
+              {t('features.title')}
             </motion.h2>
             
-            
+            <motion.p className="text-xl text-muted-foreground max-w-3xl mx-auto" initial={{
+              opacity: 0,
+              y: 20
+            }} whileInView={{
+              opacity: 1,
+              y: 0
+            }} viewport={{
+              once: true
+            }} transition={{
+              duration: 0.6,
+              delay: 0.2
+            }}>
+              {t('features.subtitle')}
+            </motion.p>
           </div>
 
           {/* Features Grid */}
