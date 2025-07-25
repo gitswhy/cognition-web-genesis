@@ -40,28 +40,28 @@ const OptimizedScene3D = () => {
   return (
     <>
       <OptimizedWireframeShape 
-        position={[-2, 1, -1]} 
+        position={[-5, 1, -1]} 
         geometryType="cube"
         color="#00FF66" 
         speed={1} 
       />
       
       <OptimizedWireframeShape 
-        position={[3, -1, 1]} 
+        position={[-4, -1, 1]} 
         geometryType="octahedron"
         color="#00D4FF" 
         speed={0.8} 
       />
       
       <OptimizedWireframeShape 
-        position={[0, -2, 2]} 
+        position={[-6, -2, 2]} 
         geometryType="icosahedron"
         color="#00FF66" 
         speed={1.2} 
       />
       
       <OptimizedWireframeShape 
-        position={[4, 2, -2]} 
+        position={[-3, 2, -2]} 
         geometryType="cube"
         color="#00D4FF" 
         speed={0.6} 
