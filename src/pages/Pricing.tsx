@@ -22,6 +22,7 @@ import {
   ChevronUp
 } from 'lucide-react';
 import Header from '@/components/Header';
+import ROICalculator from '@/components/ROICalculator';
 import Footer from '@/components/Footer';
 import PricingBackground from '@/components/background/PricingBackground';
 
@@ -55,8 +56,6 @@ interface FAQItem {
 
 const Pricing = () => {
   const [isAnnual, setIsAnnual] = useState(false);
-  const [teamSize, setTeamSize] = useState([10]);
-  const [avgSalary, setAvgSalary] = useState(100000);
   const [openFAQ, setOpenFAQ] = useState<string | null>(null);
 
   const pricingTiers: PricingTier[] = [
@@ -228,18 +227,6 @@ const Pricing = () => {
     }
   ];
 
-  // ROI Calculation
-  const hoursPerDeveloper = 40;
-  const weeksPerYear = 50;
-  const vulnerabilitiesPreventedPerDev = 25; // per year
-  const avgTimeToFixVuln = 4; // hours
-  const totalDevelopers = teamSize[0];
-  const totalHoursSaved = totalDevelopers * vulnerabilitiesPreventedPerDev * avgTimeToFixVuln;
-  const hourlyRate = avgSalary / (hoursPerDeveloper * weeksPerYear);
-  const totalCostSaved = totalHoursSaved * hourlyRate;
-  const annualTeamCost = totalDevelopers * (isAnnual ? 24 : 29) * 12;
-  const netSavings = totalCostSaved - annualTeamCost;
-  const roi = ((netSavings / annualTeamCost) * 100);
 
   const toggleFAQ = (question: string) => {
     setOpenFAQ(openFAQ === question ? null : question);
@@ -400,121 +387,7 @@ const Pricing = () => {
       </section>
 
       {/* ROI Calculator */}
-      <section className="py-24 bg-terminal-surface/20">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold font-mono mb-4 flex items-center justify-center gap-3">
-                <Calculator className="w-8 h-8 text-terminal-blue" />
-                ROI Calculator
-              </h2>
-              <p className="text-xl text-muted-foreground">
-                See how much time and money Gitswhy OS can save your team
-              </p>
-            </div>
-            
-            <Card className="bg-terminal-surface/50 backdrop-blur-sm border-terminal-blue/20">
-              <CardContent className="p-8">
-                <div className="grid md:grid-cols-2 gap-8">
-                  {/* Input Section */}
-                  <div className="space-y-6">
-                    <h3 className="text-xl font-semibold mb-4">Your Team</h3>
-                    
-                    <div className="space-y-4">
-                      <div>
-                        <Label htmlFor="team-size" className="text-base font-medium">
-                          Team Size: {teamSize[0]} developers
-                        </Label>
-                        <Slider
-                          id="team-size"
-                          min={1}
-                          max={100}
-                          step={1}
-                          value={teamSize}
-                          onValueChange={setTeamSize}
-                          className="mt-3"
-                        />
-                        <div className="flex justify-between text-sm text-muted-foreground mt-1">
-                          <span>1</span>
-                          <span>100</span>
-                        </div>
-                      </div>
-                      
-                      <div>
-                        <Label htmlFor="avg-salary" className="text-base font-medium">
-                          Average Developer Salary
-                        </Label>
-                        <Input
-                          id="avg-salary"
-                          type="number"
-                          value={avgSalary}
-                          onChange={(e) => setAvgSalary(Number(e.target.value))}
-                          className="mt-2"
-                          min={50000}
-                          max={300000}
-                        />
-                      </div>
-                    </div>
-                  </div>
-                  
-                  {/* Results Section */}
-                  <div className="space-y-6">
-                    <h3 className="text-xl font-semibold mb-4">Annual Savings</h3>
-                    
-                    <div className="space-y-4">
-                      <div className="flex items-center justify-between p-4 bg-terminal-surface/50 rounded-lg">
-                        <div className="flex items-center gap-2">
-                          <Clock className="w-5 h-5 text-terminal-green" />
-                          <span>Hours Saved</span>
-                        </div>
-                        <span className="text-xl font-bold font-mono text-terminal-green">
-                          {totalHoursSaved.toLocaleString()}
-                        </span>
-                      </div>
-                      
-                      <div className="flex items-center justify-between p-4 bg-terminal-surface/50 rounded-lg">
-                        <div className="flex items-center gap-2">
-                          <DollarSign className="w-5 h-5 text-terminal-blue" />
-                          <span>Cost Avoided</span>
-                        </div>
-                        <span className="text-xl font-bold font-mono text-terminal-blue">
-                          ${Math.round(totalCostSaved).toLocaleString()}
-                        </span>
-                      </div>
-                      
-                      <div className="flex items-center justify-between p-4 bg-terminal-green/10 rounded-lg border border-terminal-green/20">
-                        <div className="flex items-center gap-2">
-                          <TrendingUp className="w-5 h-5 text-terminal-green" />
-                          <span className="font-medium">Net Savings</span>
-                        </div>
-                        <span className="text-2xl font-bold font-mono text-terminal-green">
-                          ${Math.round(netSavings).toLocaleString()}
-                        </span>
-                      </div>
-                      
-                      <div className="text-center p-4 bg-terminal-blue/10 rounded-lg border border-terminal-blue/20">
-                        <div className="text-3xl font-bold font-mono text-terminal-blue">
-                          {roi > 0 ? '+' : ''}{Math.round(roi)}% ROI
-                        </div>
-                        <p className="text-sm text-muted-foreground mt-1">
-                          Return on Investment
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                
-                <div className="mt-8 pt-6 border-t border-border">
-                  <p className="text-sm text-muted-foreground text-center">
-                    *Calculations based on industry averages: 25 vulnerabilities prevented per developer per year, 
-                    4 hours average fix time per vulnerability
-                  </p>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
+      <ROICalculator />
 
       {/* FAQ Section */}
       <section className="py-24">
