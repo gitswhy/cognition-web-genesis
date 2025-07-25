@@ -73,17 +73,17 @@ const PremiumAddOnsCarousel = () => {
         </div>
         
         <div className="max-w-4xl mx-auto">
-          <Carousel className="w-full" setApi={setApi}>
+          <Carousel className="w-full" setApi={setApi} opts={{ loop: true }}>
             <CarouselContent>
               {addOns.map((addOn, index) => {
                 const Icon = addOn.icon;
                 return (
                   <CarouselItem key={addOn.id}>
-                     <Card className="relative group cursor-pointer transition-all duration-500 hover:shadow-2xl border-terminal-blue/30 backdrop-blur-sm overflow-hidden">
-                      {/* Lock Overlay - Always visible at front */}
-                      <div className="absolute inset-0 bg-terminal-blue/10 backdrop-blur-sm flex items-center justify-center transition-all duration-300 z-20">
+                     <Card className="relative group cursor-pointer transition-all duration-500 border-terminal-blue/30 backdrop-blur-sm overflow-hidden">
+                      {/* Lock Overlay - Only visible on hover */}
+                      <div className="absolute inset-0 bg-terminal-blue/10 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20">
                         <div className="text-center space-y-4">
-                          <Lock className="w-12 h-12 text-terminal-blue mx-auto group-hover:scale-110 transition-transform duration-300" />
+                          <Lock className="w-12 h-12 text-terminal-blue mx-auto" />
                           <Button className="bg-terminal-blue hover:bg-terminal-blue/90 text-white">
                             Upgrade to Unlock
                           </Button>
@@ -162,8 +162,8 @@ const PremiumAddOnsCarousel = () => {
                 );
               })}
             </CarouselContent>
-            <CarouselPrevious className="border-terminal-blue/30 text-terminal-blue hover:bg-terminal-blue/10 hover:scale-110 transition-transform duration-300" />
-            <CarouselNext className="border-terminal-blue/30 text-terminal-blue hover:bg-terminal-blue/10 hover:scale-110 transition-transform duration-300" />
+            <CarouselPrevious className="border-terminal-blue/30 text-terminal-blue hover:bg-terminal-blue/10" />
+            <CarouselNext className="border-terminal-blue/30 text-terminal-blue hover:bg-terminal-blue/10" />
           </Carousel>
           
           {/* Slide Indicators */}
