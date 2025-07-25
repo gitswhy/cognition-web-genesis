@@ -68,53 +68,37 @@ const EnhancedWireframeShape = ({ position, geometryType, color, speed = 1, anim
   );
 };
 
-// Enhanced 3D Scene with strategic positioning
+// Simplified 3D Scene - positioned around the visible center area
 const EnhancedScene3D = () => {
   return (
     <>
-      {/* Simplified test shapes first - closer to camera */}
+      {/* Left side - half visible */}
       <EnhancedWireframeShape 
-        position={[-3, 2, 4]} 
+        position={[-4, 1, 0]} 
         geometryType="cube"
         color="#00FF66" 
-        speed={1}
+        speed={0.5}
         animationType="rotate"
-        scale={0.8}
-      />
-      
-      <EnhancedWireframeShape 
-        position={[3, 1, 4]} 
-        geometryType="sphere"
-        color="#00D4FF" 
-        speed={0.8}
-        animationType="float"
         scale={0.6}
       />
-
+      
+      {/* Right side - half visible */}
       <EnhancedWireframeShape 
-        position={[0, -1, 5]} 
-        geometryType="torus"
-        color="#FF6B6B" 
-        speed={1.2}
-        animationType="spin"
+        position={[4, -1, 0]} 
+        geometryType="icosahedron"
+        color="#00D4FF" 
+        speed={0.7}
+        animationType="float"
         scale={0.5}
       />
-      
-      <EnhancedWireframeShape 
-        position={[-2, -3, 4]} 
-        geometryType="icosahedron"
-        color="#4ECDC4" 
-        speed={0.9}
-        animationType="wobble"
-        scale={0.7}
-      />
 
+      {/* Center background - very subtle */}
       <EnhancedWireframeShape 
-        position={[2, 0, 5]} 
-        geometryType="tetrahedron"
-        color="#9B59B6" 
-        speed={1.1}
-        animationType="orbit"
+        position={[0, 2, -2]} 
+        geometryType="sphere"
+        color="#4ECDC4" 
+        speed={0.3}
+        animationType="rotate"
         scale={0.4}
       />
     </>
@@ -124,16 +108,16 @@ const EnhancedScene3D = () => {
 // Enhanced Wireframe3D Component
 const Wireframe3D = () => {
   return (
-    <div className="absolute inset-0 opacity-80 pointer-events-none">
+    <div className="absolute inset-0 opacity-40 pointer-events-none">
       <Canvas
-        camera={{ position: [0, 0, 8], fov: 60 }}
+        camera={{ position: [0, 0, 8], fov: 50 }}
         style={{ background: 'transparent' }}
         gl={{ 
-          antialias: true,
+          antialias: false,
           alpha: true,
-          powerPreference: "high-performance"
+          powerPreference: "low-power"
         }}
-        dpr={[1, 2]}
+        dpr={1}
         performance={{ min: 0.5 }} // Auto-adjust quality based on performance
       >
         <EnhancedScene3D />
