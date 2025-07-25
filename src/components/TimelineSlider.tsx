@@ -71,11 +71,11 @@ const TimelineSlider = () => {
   };
 
   const nextSlide = () => {
-    setCurrentIndex((prev) => (prev + 1) % milestones.length);
+    setCurrentIndex((prev) => (prev + 1) % (milestones.length - 2));
   };
 
   const prevSlide = () => {
-    setCurrentIndex((prev) => (prev - 1 + milestones.length) % milestones.length);
+    setCurrentIndex((prev) => (prev - 1 + (milestones.length - 2)) % (milestones.length - 2));
   };
 
   useEffect(() => {
@@ -174,7 +174,7 @@ const TimelineSlider = () => {
 
           {/* Dots Indicator */}
           <div className="flex justify-center gap-2 mt-8">
-            {milestones.map((_, index) => (
+            {Array.from({ length: milestones.length - 2 }, (_, index) => (
               <button
                 key={index}
                 onClick={() => setCurrentIndex(index)}
