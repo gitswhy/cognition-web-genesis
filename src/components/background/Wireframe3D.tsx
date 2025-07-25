@@ -68,109 +68,84 @@ const EnhancedWireframeShape = ({ position, geometryType, color, speed = 1, anim
   );
 };
 
-// Enhanced 3D Scene with diverse shapes and behaviors
+// Enhanced 3D Scene with strategic positioning
 const EnhancedScene3D = () => {
   return (
     <>
-      {/* Left side shapes (half visible) */}
+      {/* Hero section - top area, positioned to not interfere with text */}
       <EnhancedWireframeShape 
-        position={[-5, 1, -1]} 
+        position={[-6, 3, -2]} 
         geometryType="cube"
         color="#00FF66" 
-        speed={1}
-        animationType="rotate"
-        scale={0.6}
+        speed={0.8}
+        animationType="float"
+        scale={0.4}
       />
       
       <EnhancedWireframeShape 
-        position={[-4, -1, 1]} 
+        position={[4, 4, -3]} 
         geometryType="torus"
         color="#00D4FF" 
-        speed={0.8}
+        speed={0.6}
         animationType="spin"
-        scale={0.5}
+        scale={0.3}
       />
-      
+
+      {/* Left side shapes (half visible) - spread vertically */}
       <EnhancedWireframeShape 
-        position={[-6, -2, 2]} 
+        position={[-5, 0, -1]} 
         geometryType="icosahedron"
         color="#00FF66" 
         speed={1.2}
         animationType="wobble"
-        scale={0.7}
+        scale={0.5}
       />
       
       <EnhancedWireframeShape 
-        position={[-3, 2, -2]} 
+        position={[-5.5, -3, 1]} 
         geometryType="tetrahedron"
         color="#00D4FF" 
-        speed={0.6}
-        animationType="float"
-        scale={0.8}
-      />
-
-      {/* Scattered random shapes across the scene */}
-      <EnhancedWireframeShape 
-        position={[1, 3, -3]} 
-        geometryType="sphere"
-        color="#FF6B6B" 
-        speed={0.4}
-        animationType="orbit"
-        scale={0.4}
-      />
-
-      <EnhancedWireframeShape 
-        position={[-1, -3, 0]} 
-        geometryType="dodecahedron"
-        color="#4ECDC4" 
-        speed={1.5}
-        animationType="rotate"
-        scale={0.5}
-      />
-
-      <EnhancedWireframeShape 
-        position={[2, 0, 3]} 
-        geometryType="cone"
-        color="#45B7D1" 
         speed={0.9}
-        animationType="spin"
+        animationType="rotate"
         scale={0.6}
       />
 
+      {/* Features section area - middle scattered */}
       <EnhancedWireframeShape 
-        position={[0, 1, -4]} 
-        geometryType="octahedron"
-        color="#F39C12" 
-        speed={1.1}
-        animationType="wobble"
-        scale={0.4}
-      />
-
-      <EnhancedWireframeShape 
-        position={[-2, 0, 4]} 
-        geometryType="torus"
-        color="#9B59B6" 
-        speed={0.7}
-        animationType="float"
-        scale={0.5}
-      />
-
-      <EnhancedWireframeShape 
-        position={[3, -2, 1]} 
-        geometryType="cube"
-        color="#E74C3C" 
-        speed={1.3}
+        position={[1, 1, -4]} 
+        geometryType="sphere"
+        color="#4ECDC4" 
+        speed={0.5}
         animationType="orbit"
         scale={0.3}
       />
 
       <EnhancedWireframeShape 
-        position={[1, -1, -2]} 
-        geometryType="sphere"
-        color="#2ECC71" 
-        speed={0.5}
-        animationType="rotate"
-        scale={0.6}
+        position={[-2, -1, 3]} 
+        geometryType="dodecahedron"
+        color="#9B59B6" 
+        speed={1.1}
+        animationType="float"
+        scale={0.4}
+      />
+
+      {/* Timeline/CTA section area - bottom scattered */}
+      <EnhancedWireframeShape 
+        position={[2, -4, 2]} 
+        geometryType="cone"
+        color="#E74C3C" 
+        speed={0.7}
+        animationType="spin"
+        scale={0.5}
+      />
+
+      <EnhancedWireframeShape 
+        position={[-1, -5, -1]} 
+        geometryType="octahedron"
+        color="#F39C12" 
+        speed={1.3}
+        animationType="wobble"
+        scale={0.4}
       />
     </>
   );

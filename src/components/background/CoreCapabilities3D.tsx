@@ -48,7 +48,7 @@ const CoreCapabilitiesShape = ({ position, geometryType, color, speed = 1, anima
 
 const CoreCapabilities3D = () => {
   return (
-    <div className="absolute top-0 right-0 w-full h-full opacity-30 overflow-hidden">
+    <div className="absolute top-0 right-0 w-full h-full opacity-25 overflow-hidden">
       <Canvas
         camera={{ position: [0, 0, 8], fov: 50 }}
         style={{ background: 'transparent' }}
@@ -59,41 +59,23 @@ const CoreCapabilities3D = () => {
         }}
         dpr={[1, 1.5]}
       >
-        {/* Right side shapes (half visible) */}
+        {/* Just 2 strategically placed shapes on the right */}
         <CoreCapabilitiesShape 
-          position={[5, 0, 0]} 
+          position={[5.5, 1, 0]} 
           geometryType="icosahedron"
           color="#00FF66"
-          speed={1}
+          speed={0.8}
           animationType="rotate"
-          scale={0.8}
-        />
-        
-        <CoreCapabilitiesShape 
-          position={[4, 2, -1]} 
-          geometryType="torus"
-          color="#00D4FF"
-          speed={0.7}
-          animationType="spin"
           scale={0.6}
         />
         
         <CoreCapabilitiesShape 
-          position={[6, -1, 1]} 
-          geometryType="dodecahedron"
-          color="#4ECDC4"
-          speed={1.2}
+          position={[6, -2, -1]} 
+          geometryType="torus"
+          color="#00D4FF"
+          speed={1.1}
           animationType="float"
-          scale={0.5}
-        />
-        
-        <CoreCapabilitiesShape 
-          position={[5, -2, 2]} 
-          geometryType="sphere"
-          color="#9B59B6"
-          speed={0.9}
-          animationType="rotate"
-          scale={0.7}
+          scale={0.4}
         />
       </Canvas>
     </div>
