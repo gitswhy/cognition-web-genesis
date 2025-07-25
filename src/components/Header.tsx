@@ -17,13 +17,13 @@ const Header = () => {
 
   return (
     <header className="fixed top-0 w-full z-[100] glass border-b border-terminal-green/20 backdrop-blur-xl">
-      <div className="container mx-auto px-3 sm:px-4 lg:px-8 xl:px-20">
-        <div className="flex items-center justify-between h-14 sm:h-16">
+      <div className="container mx-auto px-4 lg:px-20">
+        <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link to="/" className="group flex items-center space-x-1.5 sm:space-x-2 transition-all duration-500 relative overflow-visible">
+          <Link to="/" className="group flex items-center space-x-2 transition-all duration-500 relative overflow-visible">
             {/* Custom >_< SVG Icon with Individual Character Colors */}
             <div className="relative">
-              <svg width="24" height="24" viewBox="0 0 32 32" className="sm:w-8 sm:h-8 transition-all duration-500 group-hover:scale-105 group-hover:rotate-2">
+              <svg width="32" height="32" viewBox="0 0 32 32" className="transition-all duration-500 group-hover:scale-105 group-hover:rotate-2">
                 <defs>
                   <linearGradient id="underscoreGradient" x1="0%" y1="0%" x2="100%" y2="0%">
                     <stop offset="0%" stopColor="#0080FF" />
@@ -31,17 +31,17 @@ const Header = () => {
                   </linearGradient>
                 </defs>
                 {/* > character - green */}
-                <text x="8" y="20" textAnchor="middle" className="font-mono text-base sm:text-lg font-bold fill-terminal-green transition-all duration-500 group-hover:fill-terminal-blue">&gt;</text>
+                <text x="8" y="20" textAnchor="middle" className="font-mono text-lg font-bold fill-terminal-green transition-all duration-500 group-hover:fill-terminal-blue">&gt;</text>
                 {/* _ character - gradient */}
-                <text x="16" y="20" textAnchor="middle" fill="url(#underscoreGradient)" className="font-mono text-base sm:text-lg font-bold">_</text>
+                <text x="16" y="20" textAnchor="middle" fill="url(#underscoreGradient)" className="font-mono text-lg font-bold">_</text>
                 {/* < character - blue */}
-                <text x="24" y="20" textAnchor="middle" className="font-mono text-base sm:text-lg font-bold fill-terminal-blue transition-all duration-500 group-hover:fill-terminal-green">&lt;</text>
+                <text x="24" y="20" textAnchor="middle" className="font-mono text-lg font-bold fill-terminal-blue transition-all duration-500 group-hover:fill-terminal-green">&lt;</text>
               </svg>
             </div>
             
             {/* Text with Character Animation */}
             <div className="relative">
-              <span className="text-lg sm:text-xl font-bold font-mono transition-all duration-500 group-hover:tracking-wide flex">
+              <span className="text-xl font-bold font-mono transition-all duration-500 group-hover:tracking-wide flex">
                 {/* Individual character animations with smaller transforms */}
                 <span className="inline-block text-terminal-green transition-all duration-500 group-hover:text-terminal-blue group-hover:scale-105 group-hover:-translate-y-0.5" style={{ transitionDelay: '0ms' }}>G</span>
                 <span className="inline-block text-terminal-green transition-all duration-500 group-hover:text-terminal-blue group-hover:scale-105 group-hover:-translate-y-0.5" style={{ transitionDelay: '50ms' }}>i</span>
@@ -64,12 +64,12 @@ const Header = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center space-x-6 xl:space-x-8">
+          <nav className="hidden lg:flex items-center space-x-8">
             {navItems.map((item) => (
               <Link
                 key={item.label}
                 to={item.href}
-                className="nav-link text-xs xl:text-sm font-medium text-foreground/80 hover:text-terminal-green"
+                className="nav-link text-sm font-medium text-foreground/80 hover:text-terminal-green"
               >
                 {item.label}
               </Link>
@@ -77,43 +77,43 @@ const Header = () => {
           </nav>
 
           {/* CTAs */}
-          <div className="hidden lg:flex items-center space-x-2 xl:space-x-4">
-            <Button variant="terminal-outline" size="sm" asChild className="terminal-clean text-xs xl:text-sm">
+          <div className="hidden lg:flex items-center space-x-4">
+            <Button variant="terminal-outline" size="sm" asChild className="terminal-clean">
               <Link to="/open-core">Try Free Core</Link>
             </Button>
-            <Button variant="terminal-blue" size="sm" asChild className="terminal-clean text-xs xl:text-sm">
+            <Button variant="terminal-blue" size="sm" asChild className="terminal-clean">
               <Link to="/pro-edition">Start Pro Trial</Link>
             </Button>
           </div>
 
           {/* Mobile menu button */}
           <button
-            className="lg:hidden p-1.5 sm:p-2 text-foreground/80 hover:text-terminal-green transition-colors"
+            className="lg:hidden p-2 text-foreground/80 hover:text-terminal-green"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
-            {isMenuOpen ? <X className="h-5 w-5 sm:h-6 sm:w-6" /> : <Menu className="h-5 w-5 sm:h-6 sm:w-6" />}
+            {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
         </div>
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="lg:hidden border-t border-terminal-green/20 py-3 sm:py-4 animate-fade-in">
-            <nav className="flex flex-col space-y-3 sm:space-y-4">
+          <div className="lg:hidden border-t border-terminal-green/20 py-4 animate-fade-in">
+            <nav className="flex flex-col space-y-4">
               {navItems.map((item) => (
                 <Link
                   key={item.label}
                   to={item.href}
-                  className="text-sm font-medium text-foreground/80 hover:text-terminal-green transition-colors duration-200 px-2 py-1.5 rounded hover:bg-terminal-green/5"
+                  className="text-sm font-medium text-foreground/80 hover:text-terminal-green transition-colors duration-200 px-2 py-1"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {item.label}
                 </Link>
               ))}
-              <div className="flex flex-col space-y-2.5 sm:space-y-3 pt-3 sm:pt-4 border-t border-terminal-green/20">
-                <Button variant="terminal-outline" size="sm" asChild className="w-full">
+              <div className="flex flex-col space-y-2 pt-4 border-t border-terminal-green/20">
+                <Button variant="terminal-outline" size="sm" asChild>
                   <Link to="/open-core" onClick={() => setIsMenuOpen(false)}>Try Free Core</Link>
                 </Button>
-                <Button variant="terminal-blue" size="sm" asChild className="w-full">
+                <Button variant="terminal-blue" size="sm" asChild>
                   <Link to="/pro-edition" onClick={() => setIsMenuOpen(false)}>Start Pro Trial</Link>
                 </Button>
               </div>
