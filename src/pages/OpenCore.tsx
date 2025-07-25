@@ -1,454 +1,350 @@
-import React, { useState } from 'react';
-import { Helmet } from 'react-helmet-async';
+import { useState, useEffect } from 'react';
+import { Copy, Github, Star, Download, Terminal, Zap, Database, Shield, RotateCcw, Trash2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { 
-  Download, 
-  Code, 
-  Zap, 
-  RefreshCw, 
-  Eye, 
-  Database, 
-  Trash2,
-  ChevronRight,
-  Github,
-  FileText,
-  MessageSquare,
-  Copy,
-  Check,
-  ChevronDown,
-  ChevronUp
-} from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import WebsiteBackground from '@/components/background/WebsiteBackground';
-
+import ModuleExplorer from '@/components/ModuleExplorer';
+import { SoftwareApplicationSchema } from '@/components/SoftwareApplicationSchema';
+import OpenCoreBackground from '@/components/background/OpenCoreBackground';
 const OpenCore = () => {
   const [copiedCommand, setCopiedCommand] = useState<string | null>(null);
-  const [expandedCard, setExpandedCard] = useState<number | null>(null);
-
-  const modules = [
-    {
-      icon: Code,
-      name: "Bootstrapping",
-      description: "Initialize cognitive shell environment with pattern recognition",
-      command: "reflexcore bootstrap --pattern-learn",
-      details: [
-        "Automatic shell environment setup",
-        "Pattern recognition initialization", 
-        "Cognitive baseline establishment",
-        "Custom prompt configuration"
-      ],
-      color: "terminal-green"
-    },
-    {
-      icon: Zap,
-      name: "Overclock",
-      description: "Performance optimization and resource management",
-      command: "reflexcore overclock --optimize-memory",
-      details: [
-        "Memory usage optimization",
-        "Command execution acceleration",
-        "Resource allocation balancing",
-        "Performance monitoring"
-      ],
-      color: "terminal-blue"
-    },
-    {
-      icon: RefreshCw,
-      name: "QuantumFlush",
-      description: "Entropy reset and system state normalization",
-      command: "reflexcore flush --entropy-reset",
-      details: [
-        "System entropy management",
-        "State normalization protocols",
-        "Memory leak prevention",
-        "Cognitive pattern refresh"
-      ],
-      color: "yellow-400"
-    },
-    {
-      icon: Eye,
-      name: "CoreMirror",
-      description: "Intent reflection and cognitive pattern analysis",
-      command: "reflexcore mirror --intent-analyze",
-      details: [
-        "Developer intent detection",
-        "Behavioral pattern analysis",
-        "Cognitive state mirroring",
-        "Predictive suggestions"
-      ],
-      color: "purple-400"
-    },
-    {
-      icon: Database,
-      name: "VaultSync",
-      description: "Secure logging and data synchronization",
-      command: "reflexcore vault --sync-secure",
-      details: [
-        "Encrypted log management",
-        "Secure data synchronization",
-        "Audit trail generation",
-        "Compliance logging"
-      ],
-      color: "terminal-green"
-    },
-    {
-      icon: Trash2,
-      name: "AutoClean",
-      description: "Intelligent cleanup and maintenance automation",
-      command: "reflexcore clean --auto-purge",
-      details: [
-        "Temporary file cleanup",
-        "Cache optimization",
-        "Log rotation management",
-        "Storage reclamation"
-      ],
-      color: "red-400"
+  useEffect(() => {
+    // Update meta tags for SEO
+    document.title = 'ReflexCore: Open-Core DevSecOps OS | Gitswhy OS';
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute('content', 'ReflexCore is the open-source foundation of Gitswhy OS - a cognition-native DevSecOps platform with self-healing infrastructure, predictive debugging, and autonomous optimization.');
     }
-  ];
-
-  const installSteps = [
-    {
-      step: 1,
-      title: "Download ReflexCore",
-      command: "curl -fsSL https://get.reflexcore.dev/install.sh | sh"
-    },
-    {
-      step: 2,
-      title: "Initialize Shell Integration",
-      command: "reflexcore init --shell=$(echo $SHELL | rev | cut -d'/' -f1 | rev)"
-    },
-    {
-      step: 3,
-      title: "Verify Installation",
-      command: "reflexcore version && reflexcore status"
+    const ogTitle = document.querySelector('meta[property="og:title"]');
+    if (ogTitle) {
+      ogTitle.setAttribute('content', 'ReflexCore: Open-Core DevSecOps OS | Gitswhy OS');
     }
-  ];
-
-  const copyCommand = async (command: string) => {
-    try {
-      await navigator.clipboard.writeText(command);
-      setCopiedCommand(command);
-      setTimeout(() => setCopiedCommand(null), 2000);
-    } catch (err) {
-      console.error('Failed to copy command:', err);
+    const ogDescription = document.querySelector('meta[property="og:description"]');
+    if (ogDescription) {
+      ogDescription.setAttribute('content', 'The cognition-native core that powers intelligent DevSecOps. Self-healing infrastructure, predictive debugging, and autonomous optimization - all open source.');
     }
+
+    // Add structured data for Software Application
+    const structuredData = {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "ReflexCore",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Linux, macOS, Windows",
+      "description": "Open-source cognition-native DevSecOps OS foundation with self-healing infrastructure and predictive debugging",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "downloadUrl": "https://github.com/gitswhy/reflexcore",
+      "softwareVersion": "2.1.0",
+      "programmingLanguage": ["JavaScript", "TypeScript", "Python", "Go"],
+      "license": "https://opensource.org/licenses/MIT"
+    };
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.textContent = JSON.stringify(structuredData);
+    document.head.appendChild(script);
+    return () => {
+      // Cleanup structured data script
+      const existingScript = document.querySelector('script[type="application/ld+json"]');
+      if (existingScript) {
+        document.head.removeChild(existingScript);
+      }
+    };
+  }, []);
+  const copyToClipboard = (text: string, type: string) => {
+    navigator.clipboard.writeText(text);
+    setCopiedCommand(type);
+    setTimeout(() => setCopiedCommand(null), 2000);
   };
-
-  const toggleCard = (index: number) => {
-    setExpandedCard(expandedCard === index ? null : index);
+  const coreModules = [{
+    name: 'Bootstrapping',
+    icon: Terminal,
+    description: 'Self-configuring development environment setup',
+    code: `# Auto-detect and configure your stack
+gitswhy bootstrap --detect
+# Sets up optimal configs for your tech stack
+# Configures linting, testing, CI/CD pipelines`,
+    color: 'from-terminal-green/20 to-terminal-green/5'
+  }, {
+    name: 'Overclock',
+    icon: Zap,
+    description: 'Performance optimization and monitoring',
+    code: `# Monitor and optimize build performance
+gitswhy overclock --monitor
+# Identifies bottlenecks in real-time
+# Auto-optimizes compilation speeds`,
+    color: 'from-terminal-blue/20 to-terminal-blue/5'
+  }, {
+    name: 'QuantumFlush',
+    icon: Database,
+    description: 'Intelligent cache management and cleanup',
+    code: `# Smart cache invalidation
+gitswhy quantum-flush --smart
+# Predicts which caches to clear
+# Prevents stale dependency issues`,
+    color: 'from-terminal-green/15 to-primary/5'
+  }, {
+    name: 'CoreMirror',
+    icon: Shield,
+    description: 'Real-time code reflection and analysis',
+    code: `# Deep code analysis and mirroring
+gitswhy mirror --analyze
+# Maps code dependencies and impact
+# Prevents breaking changes`,
+    color: 'from-terminal-blue/15 to-accent/5'
+  }, {
+    name: 'VaultSync',
+    icon: RotateCcw,
+    description: 'Secure environment synchronization',
+    code: `# Sync environments securely
+gitswhy vault sync --env=staging
+# Encrypted env var management
+# Zero-downtime deployments`,
+    color: 'from-terminal-green/25 to-muted/5'
+  }, {
+    name: 'AutoClean',
+    icon: Trash2,
+    description: 'Autonomous system maintenance and debris detection',
+    code: `# Intelligent cleanup automation
+gitswhy autoclean --scan
+# Removes unused dependencies
+# Clears stale cache files
+# Optimizes storage usage`,
+    color: 'from-orange-500/20 to-orange-500/5'
+  }];
+  const installCommands = {
+    zsh: `echo 'export PATH="$PATH:/usr/local/bin/gitswhy"' >> ~/.zshrc && source ~/.zshrc`,
+    bash: `echo 'export PATH="$PATH:/usr/local/bin/gitswhy"' >> ~/.bashrc && source ~/.bashrc`
   };
+  return <div className="min-h-screen">
+      <OpenCoreBackground />
+      {/* Additional SEO Schema (complementing existing structured data) */}
+      <SoftwareApplicationSchema
+        name="ReflexCore Open Source Edition"
+        description="Free, open-source cognition-native DevSecOps platform with self-healing infrastructure and predictive debugging capabilities."
+        offers={[
+          { price: "0", priceCurrency: "USD", name: "Open Core Edition" }
+        ]}
+      />
+      
+      <Header />
+      
+      {/* Hero Section */}
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
 
-  return (
-    <div className="min-h-screen">
-      <Helmet>
-        <title>ReflexCore Open Source - Free Cognition-Native Shell | Gitswhy OS</title>
-        <meta name="description" content="ReflexCore is the open-source, Apache 2.0-licensed foundation of Gitswhy OS. Get self-healing shell capabilities, cognitive monitoring, and intelligent automation for free." />
-        <meta name="keywords" content="open-source self-healing shell, cognitive monitoring, reflexcore, free devops tools, apache license, terminal automation" />
-        <meta property="og:title" content="ReflexCore - Always Free Cognition-Native Shell" />
-        <meta property="og:description" content="Free, open-source shell with cognitive monitoring and self-healing capabilities. Apache 2.0 licensed." />
-        <meta property="og:type" content="website" />
-      </Helmet>
-
-      <WebsiteBackground>
-        <Header />
-        
-        {/* Banner Section */}
-        <section className="py-16 md:py-20">
-          <div className="container mx-auto px-4 lg:px-20">
-            <div className="text-center space-y-6">
-              <Badge className="bg-terminal-green/20 text-terminal-green border-terminal-green/30 px-4 py-2 text-sm font-medium">
-                Apache 2.0 Licensed
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="text-center max-w-4xl mx-auto">
+            <div className="inline-flex items-center gap-2 bg-terminal-surface/80 border border-terminal-green/30 rounded-full px-6 py-2 mb-8">
+              <Badge variant="secondary" className="bg-terminal-green/20 text-terminal-green border-terminal-green/50">
+                Open Source
               </Badge>
-              
-              <h1 className="text-4xl md:text-6xl font-bold text-foreground">
-                <span className="text-terminal-green">ReflexCore</span> – Always Free
-              </h1>
-              
-              <p className="text-xl md:text-2xl text-foreground/80 max-w-4xl mx-auto">
-                Apache 2.0-Licensed Foundation for Cognition-Native Shell Operations
-              </p>
+              <span className="text-muted-foreground">Apache Licensed</span>
             </div>
+
+            <h1 className="text-5xl md:text-7xl font-mono font-bold mb-6 bg-gradient-to-r from-terminal-green via-primary to-terminal-blue bg-clip-text text-transparent">
+              ReflexCore
+              <span className="inline-block w-1 h-16 bg-terminal-green ml-2 animate-pulse" />
+            </h1>
+            
+            <p className="text-xl md:text-2xl text-muted-foreground mb-4 font-mono">
+              Open-Source Foundation
+            </p>
+            
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-12 leading-relaxed">
+              The cognition-native core that powers intelligent DevSecOps. 
+              Self-healing infrastructure, predictive debugging, and autonomous optimization - all open source.
+            </p>
+
+            <div className="flex justify-center">
+              <Button size="lg" className="bg-terminal-green hover:bg-terminal-green/80 text-terminal-bg font-mono">
+                <Star className="mr-2 h-5 w-5" />
+                Add to Wishlist
+              </Button>
+            </div>
+
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Introduction */}
-        <section className="py-16">
-          <div className="container mx-auto px-4 lg:px-20">
-            <div className="max-w-4xl mx-auto text-center space-y-6">
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground">
-                Cognition-Native <span className="text-terminal-green">Foundation</span>
-              </h2>
-              
-              <p className="text-lg text-foreground/70 leading-relaxed">
-                ReflexCore brings cognition-native monitoring and self-healing capabilities to your shell environment. 
-                Monitor every keystroke, understand developer intent, and automatically resolve issues before they impact your workflow. 
-                Free forever, open source, and ready for enterprise scale.
-              </p>
-            </div>
+      {/* Core Modules Features */}
+      <section className="py-24 bg-terminal-surface/10">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-mono font-bold mb-4">
+              Core Modules
+              <span className="inline-block w-1 h-8 bg-terminal-green ml-2 animate-pulse" />
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Five foundational modules that make up the ReflexCore open-source foundation
+            </p>
           </div>
-        </section>
 
-        {/* Module Grid */}
-        <section className="py-16">
-          <div className="container mx-auto px-4 lg:px-20">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
-                Core <span className="text-terminal-green">Modules</span>
-              </h2>
-              <p className="text-xl text-foreground/70 max-w-3xl mx-auto">
-                Six essential modules for cognitive shell enhancement
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-              {modules.map((module, index) => {
-                const Icon = module.icon;
-                const isExpanded = expandedCard === index;
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {coreModules.map((module, index) => <Card key={module.name} className="group relative overflow-hidden bg-terminal-surface/60 border-terminal-green/30 hover:border-terminal-green/50 transition-all duration-200 hover:transform hover:scale-[1.02]" style={{
+            animationDelay: `${index * 50}ms`
+          }}>
+                <div className={`absolute inset-0 bg-gradient-to-br ${module.color} opacity-0 group-hover:opacity-100 transition-opacity duration-300`} />
                 
-                return (
-                  <Card 
-                    key={module.name}
-                    className="group hover:shadow-terminal-glow transition-all duration-300 bg-terminal-surface border-terminal-green/20 cursor-pointer"
-                    onClick={() => toggleCard(index)}
-                  >
-                    <CardHeader className="pb-4">
-                      <div className="flex items-center justify-between">
-                        <div className={`p-3 rounded-xl bg-${module.color}/10 group-hover:bg-${module.color}/20 transition-colors`}>
-                          <Icon className={`w-6 h-6 text-${module.color}`} />
-                        </div>
-                        
-                        <div className="flex items-center space-x-2">
-                          <Button
-                            variant="ghost"
-                            size="sm"
-                            onClick={(e) => {
-                              e.stopPropagation();
-                              copyCommand(module.command);
-                            }}
-                            className="opacity-0 group-hover:opacity-100 transition-opacity"
-                          >
-                            {copiedCommand === module.command ? (
-                              <Check className="w-4 h-4 text-terminal-green" />
-                            ) : (
-                              <Copy className="w-4 h-4" />
-                            )}
-                          </Button>
-                          
-                          {isExpanded ? (
-                            <ChevronUp className="w-5 h-5 text-foreground/60" />
-                          ) : (
-                            <ChevronDown className="w-5 h-5 text-foreground/60" />
-                          )}
-                        </div>
-                      </div>
-                      
-                      <CardTitle className={`text-lg group-hover:text-${module.color} transition-colors`}>
-                        {module.name}
-                      </CardTitle>
-                      
-                      <p className="text-foreground/70 text-sm">
-                        {module.description}
-                      </p>
-                    </CardHeader>
-                    
-                    <CardContent className="pt-0">
-                      <div className="bg-terminal-bg/50 rounded-lg p-3 font-mono text-sm text-terminal-green mb-4">
-                        {module.command}
-                      </div>
-                      
-                      {isExpanded && (
-                        <div className="space-y-2 animate-fade-in">
-                          <h4 className="font-semibold text-foreground text-sm">Features:</h4>
-                          <ul className="space-y-1">
-                            {module.details.map((detail, idx) => (
-                              <li key={idx} className="flex items-center space-x-2 text-sm">
-                                <div className="w-1.5 h-1.5 rounded-full bg-terminal-green flex-shrink-0" />
-                                <span className="text-foreground/70">{detail}</span>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                      )}
-                    </CardContent>
-                  </Card>
-                );
-              })}
-            </div>
+                <CardHeader className="relative z-10">
+                  <div className="flex items-center gap-3 mb-2">
+                    <div className="p-2 rounded-lg bg-terminal-green/20 group-hover:bg-terminal-green/30 transition-colors">
+                      <module.icon className="h-5 w-5 text-terminal-green" />
+                    </div>
+                    <CardTitle className="font-mono text-lg">{module.name}</CardTitle>
+                  </div>
+                  <CardDescription className="text-muted-foreground">
+                    {module.description}
+                  </CardDescription>
+                </CardHeader>
+
+                <CardContent className="relative z-10">
+                  <div className="bg-terminal-surface/60 rounded-lg p-4 border border-terminal-green/20 group-hover:border-terminal-green/40 transition-colors">
+                    <pre className="text-sm font-mono text-terminal-green whitespace-pre-wrap overflow-x-auto">
+                      {module.code}
+                    </pre>
+                  </div>
+                </CardContent>
+              </Card>)}
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Quick Install Guide */}
-        <section className="py-16">
-          <div className="container mx-auto px-4 lg:px-20">
-            <div className="max-w-4xl mx-auto">
-              <div className="text-center mb-12">
-                <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
-                  Quick <span className="text-terminal-green">Installation</span>
-                </h2>
-                <p className="text-xl text-foreground/70">
-                  Get ReflexCore running in under 60 seconds
-                </p>
+      {/* Module Explorer Accordion */}
+      <ModuleExplorer />
+
+      {/* Installation Guide */}
+      <section className="py-24 bg-terminal-surface/5">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl font-mono font-bold mb-4">
+                Quick Installation
+                <span className="inline-block w-1 h-8 bg-terminal-blue ml-2 animate-pulse" />
+              </h2>
+              <p className="text-lg text-muted-foreground">
+                Get ReflexCore running in seconds with one command
+              </p>
+            </div>
+
+            <div className="space-y-6">
+              <div className="bg-terminal-surface/70 rounded-lg border border-terminal-green/30 p-6">
+                <h3 className="font-mono font-bold text-terminal-green mb-4 flex items-center gap-2">
+                  <Terminal className="h-5 w-5" />
+                  For Zsh users
+                </h3>
+                <div className="flex items-center gap-3 bg-terminal-surface/80 rounded-lg p-4">
+                  <code className="flex-1 font-mono text-sm text-terminal-green">
+                    {installCommands.zsh}
+                  </code>
+                  <Button size="sm" variant="ghost" className="text-terminal-green hover:bg-terminal-green/20" onClick={() => copyToClipboard(installCommands.zsh, 'zsh')}>
+                    {copiedCommand === 'zsh' ? '✓' : <Copy className="h-4 w-4" />}
+                  </Button>
+                </div>
               </div>
 
-              <div className="space-y-6">
-                {installSteps.map((step, index) => (
-                  <Card key={step.step} className="bg-terminal-surface border-terminal-green/20">
-                    <CardContent className="p-6">
-                      <div className="flex items-start space-x-4">
-                        <div className="flex-shrink-0 w-8 h-8 rounded-full bg-terminal-green/20 flex items-center justify-center">
-                          <span className="text-terminal-green font-bold text-sm">{step.step}</span>
-                        </div>
-                        
-                        <div className="flex-1 space-y-3">
-                          <h3 className="font-semibold text-foreground">{step.title}</h3>
-                          
-                          <div className="relative">
-                            <div className="bg-terminal-bg rounded-lg p-4 font-mono text-sm text-terminal-green">
-                              {step.command}
-                            </div>
-                            
-                            <Button
-                              variant="ghost"
-                              size="sm"
-                              onClick={() => copyCommand(step.command)}
-                              className="absolute top-2 right-2 opacity-0 hover:opacity-100 transition-opacity"
-                            >
-                              {copiedCommand === step.command ? (
-                                <Check className="w-4 h-4 text-terminal-green" />
-                              ) : (
-                                <Copy className="w-4 h-4" />
-                              )}
-                            </Button>
-                          </div>
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
-                ))}
+              <div className="bg-terminal-surface/70 rounded-lg border border-terminal-blue/30 p-6">
+                <h3 className="font-mono font-bold text-terminal-blue mb-4 flex items-center gap-2">
+                  <Terminal className="h-5 w-5" />
+                  For Bash users
+                </h3>
+                <div className="flex items-center gap-3 bg-terminal-surface/80 rounded-lg p-4">
+                  <code className="flex-1 font-mono text-sm text-terminal-blue">
+                    {installCommands.bash}
+                  </code>
+                  <Button size="sm" variant="ghost" className="text-terminal-blue hover:bg-terminal-blue/20" onClick={() => copyToClipboard(installCommands.bash, 'bash')}>
+                    {copiedCommand === 'bash' ? '✓' : <Copy className="h-4 w-4" />}
+                  </Button>
+                </div>
               </div>
+            </div>
 
-              <div className="text-center mt-8">
-                <Button variant="terminal" size="lg">
-                  <Download className="w-5 h-5 mr-2" />
-                  Download ReflexCore
+            <div className="mt-12 text-center">
+              <p className="text-muted-foreground mb-6">
+                Need help? Check out our comprehensive documentation
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Button variant="outline" className="border-terminal-green text-terminal-green hover:bg-terminal-green/10">
+                  View Documentation
+                </Button>
+                <Button variant="outline" className="border-terminal-blue text-terminal-blue hover:bg-terminal-blue/10">
+                  API Reference
                 </Button>
               </div>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Upgrade Teaser */}
-        <section className="py-16">
-          <div className="container mx-auto px-4 lg:px-20">
-            <Card className="max-w-4xl mx-auto bg-gradient-to-r from-terminal-blue/10 to-purple-500/10 border-terminal-blue/30">
-              <CardContent className="p-8 md:p-12 text-center">
-                <div className="space-y-6">
-                  <h2 className="text-3xl md:text-4xl font-bold text-foreground">
-                    Ready for <span className="text-terminal-blue">More Power?</span>
-                  </h2>
-                  
-                  <p className="text-xl text-foreground/70 max-w-2xl mx-auto">
-                    Unlock AI-powered vulnerability scanning, auto-patching, and recursive vault protection with Gitswhy OS Pro
-                  </p>
-                  
-                  <div className="flex flex-wrap justify-center gap-4 text-sm">
-                    <Badge variant="outline" className="border-terminal-blue/30 text-terminal-blue">
-                      Real-time AI Scanning
-                    </Badge>
-                    <Badge variant="outline" className="border-terminal-blue/30 text-terminal-blue">
-                      Auto-Patching
-                    </Badge>
-                    <Badge variant="outline" className="border-terminal-blue/30 text-terminal-blue">
-                      Recursive Vault
-                    </Badge>
-                    <Badge variant="outline" className="border-terminal-blue/30 text-terminal-blue">
-                      Enterprise Support
-                    </Badge>
-                  </div>
-                  
-                  <div className="pt-4">
-                    <Button variant="terminal-blue" size="lg" asChild>
-                      <a href="/pro-edition">
-                        Upgrade to Pro
-                        <ChevronRight className="w-5 h-5 ml-2" />
-                      </a>
-                    </Button>
-                  </div>
-                </div>
+      {/* Community Section */}
+      <section className="py-24 bg-terminal-surface/10">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-mono font-bold mb-4">
+              Join the Community
+              <span className="inline-block w-1 h-8 bg-terminal-green ml-2 animate-pulse" />
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Be part of the movement building the future of cognition-native DevSecOps
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+            <Card className="text-center bg-terminal-surface/60 border-terminal-green/30 hover:border-terminal-green/50 transition-colors">
+              <CardHeader>
+                <Github className="h-12 w-12 text-terminal-green mx-auto mb-4" />
+                <CardTitle className="font-mono">Contribute</CardTitle>
+                <CardDescription>
+                  Help build the next generation of intelligent DevOps tools
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <Button className="w-full bg-terminal-green hover:bg-terminal-green/80 text-terminal-bg">
+                  View Issues
+                </Button>
+              </CardContent>
+            </Card>
+
+            <Card className="text-center bg-terminal-surface/60 border-terminal-blue/30 hover:border-terminal-blue/50 transition-colors">
+              <CardHeader>
+                <Star className="h-12 w-12 text-terminal-blue mx-auto mb-4" />
+                <CardTitle className="font-mono">Star us</CardTitle>
+                <CardDescription>
+                  Show your support and help others discover ReflexCore
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <Button variant="outline" className="w-full border-terminal-blue text-terminal-blue hover:bg-terminal-blue/10">
+                  Star on GitHub
+                </Button>
+              </CardContent>
+            </Card>
+
+            <Card className="text-center bg-terminal-surface/60 border-primary/30 hover:border-primary/50 transition-colors">
+              <CardHeader>
+                <RotateCcw className="h-12 w-12 text-primary mx-auto mb-4" />
+                <CardTitle className="font-mono">Discuss</CardTitle>
+                <CardDescription>
+                  Join discussions, ask questions, and share your experience
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <Button variant="outline" className="w-full border-primary text-primary hover:bg-primary/10" asChild>
+                  <a href="https://discord.com/invite/NuevNNzQwm" target="_blank" rel="noopener noreferrer">
+                    Join Discord
+                  </a>
+                </Button>
               </CardContent>
             </Card>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Links Section */}
-        <section className="py-16">
-          <div className="container mx-auto px-4 lg:px-20">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
-                Community & <span className="text-terminal-green">Resources</span>
-              </h2>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-              <Card className="group hover:shadow-terminal-glow transition-all duration-300 bg-terminal-surface border-terminal-green/20">
-                <CardContent className="p-6 text-center">
-                  <div className="p-4 rounded-xl bg-terminal-green/10 w-fit mx-auto mb-4">
-                    <FileText className="w-8 h-8 text-terminal-green" />
-                  </div>
-                  <h3 className="font-semibold text-foreground mb-2">Documentation</h3>
-                  <p className="text-foreground/70 text-sm mb-4">
-                    Complete guides and API reference
-                  </p>
-                  <Button variant="outline" asChild className="w-full">
-                    <a href="/docs">View Docs</a>
-                  </Button>
-                </CardContent>
-              </Card>
-
-              <Card className="group hover:shadow-terminal-glow transition-all duration-300 bg-terminal-surface border-terminal-green/20">
-                <CardContent className="p-6 text-center">
-                  <div className="p-4 rounded-xl bg-terminal-green/10 w-fit mx-auto mb-4">
-                    <Github className="w-8 h-8 text-terminal-green" />
-                  </div>
-                  <h3 className="font-semibold text-foreground mb-2">GitHub</h3>
-                  <p className="text-foreground/70 text-sm mb-4">
-                    Source code and issue tracking
-                  </p>
-                  <Button variant="outline" asChild className="w-full">
-                    <a href="https://github.com/gitswhy/reflexcore" target="_blank" rel="noopener noreferrer">
-                      Star on GitHub
-                    </a>
-                  </Button>
-                </CardContent>
-              </Card>
-
-              <Card className="group hover:shadow-terminal-glow transition-all duration-300 bg-terminal-surface border-terminal-green/20">
-                <CardContent className="p-6 text-center">
-                  <div className="p-4 rounded-xl bg-terminal-green/10 w-fit mx-auto mb-4">
-                    <MessageSquare className="w-8 h-8 text-terminal-green" />
-                  </div>
-                  <h3 className="font-semibold text-foreground mb-2">Discord</h3>
-                  <p className="text-foreground/70 text-sm mb-4">
-                    Join our developer community
-                  </p>
-                  <Button variant="outline" asChild className="w-full">
-                    <a href="https://discord.gg/gitswhy" target="_blank" rel="noopener noreferrer">
-                      Join Discord
-                    </a>
-                  </Button>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-        </section>
-
-        <Footer />
-      </WebsiteBackground>
-    </div>
-  );
+      <Footer />
+    </div>;
 };
-
 export default OpenCore;

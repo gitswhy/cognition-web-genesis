@@ -1,572 +1,387 @@
-import React, { useState, useEffect } from 'react';
-import { Helmet } from 'react-helmet-async';
+import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Switch } from '@/components/ui/switch';
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
-import { 
-  Shield, 
-  Brain, 
-  Zap, 
-  Users, 
-  Mic, 
-  BarChart3, 
-  GitBranch,
-  Check, 
-  X,
-  ArrowRight,
-  ChevronLeft,
-  ChevronRight,
-  Play,
-  Star,
-  TrendingUp,
-  Lock,
-  Eye,
-  Clock,
-  Target
-} from 'lucide-react';
+import { Lock, Shield, Zap, Users, AlertTriangle, FileCode, TrendingUp, BarChart3, PieChart, Activity, ArrowRight, Star, Check, Mic, Play } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import WebsiteBackground from '@/components/background/WebsiteBackground';
-
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+import EditionComparisonTable from '@/components/EditionComparisonTable';
+import { SoftwareApplicationSchema } from '@/components/SoftwareApplicationSchema';
+import { DynamicHeadline } from '@/components/DynamicHeadline';
+import ProEditionBackground from '@/components/background/ProEditionBackground';
 const ProEdition = () => {
-  const [isAnnual, setIsAnnual] = useState(false);
-  const [currentAddon, setCurrentAddon] = useState(0);
-  const [liveStats, setLiveStats] = useState({
-    threatDetection: 99,
-    avgFixTime: 2.3,
-    autoPatches: 247,
-    vulnBlocked: 1482
-  });
-
-  // Simulate live metrics updates
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setLiveStats(prev => ({
-        threatDetection: Math.min(99.9, prev.threatDetection + (Math.random() * 0.1)),
-        avgFixTime: Math.max(1.8, prev.avgFixTime + (Math.random() - 0.5) * 0.1),
-        autoPatches: prev.autoPatches + Math.floor(Math.random() * 3),
-        vulnBlocked: prev.vulnBlocked + Math.floor(Math.random() * 5)
-      }));
-    }, 3000);
-
-    return () => clearInterval(interval);
-  }, []);
-
-  const pricingPlans = {
-    monthly: { price: 49, period: "month" },
-    annual: { price: 39, period: "month", savings: "20% off" }
-  };
-
-  const comparisonFeatures = [
-    {
-      category: "Core Security",
-      features: [
-        { name: "Basic vulnerability scanning", free: true, pro: true },
-        { name: "Self-healing automation", free: true, pro: true },
-        { name: "Intent detection", free: true, pro: true },
-        { name: "AI scanning with 30,000+ rules", free: false, pro: true },
-        { name: "Auto-patching engine", free: false, pro: true },
-        { name: "Recursive security vault", free: false, pro: true }
-      ]
-    },
-    {
-      category: "Advanced Features",
-      features: [
-        { name: "Voice command interface", free: false, pro: true },
-        { name: "Team collaboration dashboards", free: false, pro: true },
-        { name: "Cross-repository dependency graphs", free: false, pro: true },
-        { name: "Policy marketplace", free: false, pro: true },
-        { name: "Custom compliance frameworks", free: false, pro: true },
-        { name: "Enterprise SSO integration", free: false, pro: true }
-      ]
-    },
-    {
-      category: "Support & Scale",
-      features: [
-        { name: "Community support", free: true, pro: false },
-        { name: "24/7 priority support", free: false, pro: true },
-        { name: "Dedicated success manager", free: false, pro: true },
-        { name: "SLA guarantees", free: false, pro: true },
-        { name: "Custom deployment options", free: false, pro: true }
-      ]
-    }
-  ];
-
-  const addOns = [
-    {
-      name: "Fractal Memory",
-      description: "Advanced pattern recognition using fractal algorithms for deeper code analysis",
-      price: "$19/month",
-      features: ["Fractal pattern analysis", "Deep memory optimization", "Predictive caching"],
-      icon: Brain,
-      color: "purple"
-    },
-    {
-      name: "Emotional Sync",
-      description: "Developer sentiment analysis and team emotional intelligence insights",
-      price: "$29/month",
-      features: ["Team sentiment tracking", "Burnout prediction", "Mood-based optimization"],
-      icon: Users,
-      color: "pink"
-    },
-    {
-      name: "Neural Acceleration",
-      description: "Hardware-accelerated AI processing for ultra-fast security analysis",
-      price: "$39/month",
-      features: ["GPU acceleration", "Real-time processing", "Edge deployment"],
-      icon: Zap,
-      color: "yellow"
-    }
-  ];
-
-  const faqItems = [
-    {
-      question: "How does the self-healing automation work in Pro?",
-      answer: "Pro's self-healing goes beyond ReflexCore's basic automation. It includes AI-powered root cause analysis, predictive failure prevention, and automated rollback strategies. The system learns from your team's patterns and can prevent issues before they occur."
-    },
-    {
-      question: "What makes the 30,000+ scanning rules different?",
-      answer: "Our AI-curated rule set includes industry-specific vulnerabilities, zero-day signatures, and custom threat intelligence. Rules are updated daily and automatically tuned based on your codebase patterns for maximum accuracy with minimal false positives."
-    },
-    {
-      question: "Can I use voice commands for sensitive operations?",
-      answer: "Yes, voice commands include multi-factor authentication and can be configured with custom security policies. Sensitive operations require voice biometric confirmation plus additional security factors."
-    },
-    {
-      question: "How does the recursive security vault protect my data?",
-      answer: "The vault uses a recursive encryption system where each layer of data is encrypted with different keys. Even if one layer is compromised, the recursive structure maintains data integrity and provides complete audit trails."
-    },
-    {
-      question: "What's included in the policy marketplace?",
-      answer: "Access to 500+ pre-built compliance policies, industry-specific templates (SOC 2, GDPR, HIPAA, PCI-DSS), and community-contributed policies. You can also publish and monetize your own policies."
-    },
-    {
-      question: "How do cross-repo dependency graphs work?",
-      answer: "Visual mapping of dependencies across all your repositories, including transitive dependencies, version conflicts, and security impact analysis. The system tracks how changes in one repo affect your entire ecosystem."
-    }
-  ];
-
-  const nextAddon = () => {
-    setCurrentAddon((prev) => (prev + 1) % addOns.length);
-  };
-
-  const prevAddon = () => {
-    setCurrentAddon((prev) => (prev - 1 + addOns.length) % addOns.length);
-  };
-
-  const currentPlan = isAnnual ? pricingPlans.annual : pricingPlans.monthly;
-
-  return (
-    <div className="min-h-screen">
-      <Helmet>
-        <title>Gitswhy OS Pro - AI-Driven Enterprise DevSecOps Platform</title>
-        <meta name="description" content="Unlock advanced AI-driven DevSecOps with Gitswhy OS Pro. Features 30,000+ scanning rules, auto-patching, voice commands, and enterprise-grade security." />
-        <meta name="keywords" content="enterprise devsecops, ai auto-patching, security scanning, voice commands, policy marketplace, team collaboration" />
-        <meta property="og:title" content="Gitswhy OS Pro - Unlock AI-Driven DevSecOps" />
-        <meta property="og:description" content="Enterprise features for professional teams: AI scanning, auto-patching, voice commands, and advanced security." />
-        <meta property="og:type" content="website" />
+  const [hoveredCard, setHoveredCard] = useState<string | null>(null);
+  const premiumFeatures = [{
+    id: 'ai-risk-engine',
+    title: 'AI Risk Engine',
+    subtitle: 'Advanced Rules Pack',
+    description: 'Machine learning-powered risk detection with 50,000+ security rules and real-time threat intelligence.',
+    icon: Shield,
+    gradient: 'from-red-500/20 to-orange-500/20',
+    stats: '99.8% accuracy'
+  }, {
+    id: 'auto-fix-patch',
+    title: 'Auto-Fix & Patch Suggestions',
+    subtitle: 'Intelligent Remediation',
+    description: 'AI-generated patches and fixes applied automatically or suggested with one-click approval workflows.',
+    icon: Zap,
+    gradient: 'from-yellow-500/20 to-amber-500/20',
+    stats: '10x faster fixes'
+  }, {
+    id: 'team-dashboards',
+    title: 'Team Dashboards & Drift Alerts',
+    subtitle: 'Enterprise Monitoring',
+    description: 'Real-time team performance metrics, configuration drift detection, and customizable alert systems.',
+    icon: Users,
+    gradient: 'from-green-500/20 to-emerald-500/20',
+    stats: 'Real-time alerts'
+  }, {
+    id: 'policy-editor',
+    title: 'Policy-as-Code Editor',
+    subtitle: 'Governance Automation',
+    description: 'Visual policy editor with GitOps integration, compliance templates, and automated enforcement.',
+    icon: FileCode,
+    gradient: 'from-purple-500/20 to-violet-500/20',
+    stats: '100+ templates'
+  }];
+  const faqItems = [{
+    question: 'What makes Gitswhy OS Pro different from Open Core?',
+    answer: 'Pro Edition includes AI-powered risk detection, automatic patching, team collaboration tools, and enterprise-grade governance features.'
+  }, {
+    question: 'How does the AI Risk Engine work?',
+    answer: 'Our ML models analyze code patterns, security vulnerabilities, and historical data to predict and prevent issues before deployment.'
+  }, {
+    question: 'Can I migrate from Open Core to Pro seamlessly?',
+    answer: 'Yes, Pro Edition is fully compatible with Open Core configurations and provides a smooth upgrade path with zero downtime.'
+  }, {
+    question: 'What kind of support is included?',
+    answer: 'Pro Edition includes 24/7 priority support, dedicated success manager, and access to our enterprise security team.'
+  }];
+  return <div className="relative">
+      {/* SEO Schema */}
+      <SoftwareApplicationSchema
+        name="Gitswhy OS Pro Edition"
+        description="Enterprise-grade cognition engine with AI-powered risk detection, automatic patching, and team collaboration tools for professional development teams."
+        offers={[
+          { price: "49", priceCurrency: "USD", name: "Pro Edition Monthly" },
+          { price: "39", priceCurrency: "USD", name: "Pro Edition Annual" }
+        ]}
+      />
+      
+      {/* Pro Edition Background */}
+      <ProEditionBackground />
+      
+      <Header />
+      
+      {/* Hero Section */}
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         
-        {/* FAQ Schema */}
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            "mainEntity": faqItems.map(item => ({
-              "@type": "Question",
-              "name": item.question,
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": item.answer
-              }
-            }))
-          })}
-        </script>
-      </Helmet>
-
-      <WebsiteBackground>
-        <Header />
-        
-        {/* Banner Section */}
-        <section className="py-16 md:py-20">
-          <div className="container mx-auto px-4 lg:px-20">
-            <div className="text-center space-y-6">
-              <Badge className="bg-terminal-blue/20 text-terminal-blue border-terminal-blue/30 px-4 py-2 text-sm font-medium">
+        <div className="container mx-auto px-4 grid lg:grid-cols-2 gap-12 items-center relative z-10">
+          {/* Left Content */}
+          <div className="space-y-8">
+            <div className="space-y-4">
+              <Badge variant="secondary" className="bg-terminal-blue/20 text-terminal-blue border-terminal-blue/30">
                 Enterprise DevSecOps
               </Badge>
-              
-              <h1 className="text-4xl md:text-6xl font-bold text-foreground">
-                <span className="text-terminal-blue">Gitswhy OS Pro</span>
+              <h1 className="text-5xl lg:text-7xl font-bold font-mono tracking-tight">
+                <span className="text-terminal-blue">Gitswhy</span>{' '}
+                <span className="text-foreground">Pro</span>
               </h1>
-              
-              <p className="text-xl md:text-2xl text-foreground/80 max-w-4xl mx-auto">
-                Unlock AI-Driven DevSecOps
+              <p className="text-xl text-muted-foreground max-w-lg">
+                Enterprise-grade cognition engine with AI-powered risk detection, 
+                automatic patching, and team collaboration tools.
               </p>
             </div>
-          </div>
-        </section>
-
-        {/* Introduction */}
-        <section className="py-16">
-          <div className="container mx-auto px-4 lg:px-20">
-            <div className="max-w-4xl mx-auto text-center space-y-6">
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground">
-                Build on <span className="text-terminal-green">ReflexCore</span> with Enterprise Features
-              </h2>
+            
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Button size="lg" className="bg-terminal-blue hover:bg-terminal-blue/90 text-white">
+                Start Pro Trial
+                <ArrowRight className="ml-2 w-4 h-4" />
+              </Button>
+              <Button variant="outline" size="lg" className="border-terminal-blue/30 text-terminal-blue hover:bg-terminal-blue/10">
+                Schedule Demo
+              </Button>
+            </div>
+            
+            <div className="flex items-center gap-6 text-sm text-muted-foreground">
               
-              <p className="text-lg text-foreground/70 leading-relaxed">
-                Everything in ReflexCore plus advanced AI scanning with 30,000+ rules, 
-                intelligent auto-patching, voice-activated controls, team collaboration dashboards, 
-                and enterprise-grade security features for professional development teams.
-              </p>
+              <div className="flex items-center gap-2">
+                <Check className="w-4 h-4 text-terminal-green" />
+                <span>SOC 2 Compliant</span>
+              </div>
             </div>
           </div>
-        </section>
-
-        {/* Live Metrics */}
-        <section className="py-16">
-          <div className="container mx-auto px-4 lg:px-20">
-            <div className="max-w-4xl mx-auto">
-              <Card className="bg-terminal-surface border-terminal-blue/30 hover:shadow-blue-glow transition-all duration-300">
-                <CardHeader className="text-center">
-                  <CardTitle className="text-2xl text-terminal-blue">Live Security Metrics</CardTitle>
-                  <p className="text-foreground/70">Real-time data from Pro users worldwide</p>
-                </CardHeader>
+          
+          {/* Right Content - Animated Analytics Dashboard */}
+          <div className="relative">
+            <Card className="bg-terminal-surface/50 backdrop-blur-sm border-terminal-blue/20">
+              <CardHeader>
+                <CardTitle className="text-terminal-blue font-mono">Live Analytics Dashboard</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-6">
+                {/* Metrics Row */}
+                <div className="grid grid-cols-3 gap-4">
+                  <div className="text-center">
+                    <div className="text-2xl font-mono text-terminal-green animate-pulse">99.8%</div>
+                    <div className="text-xs text-muted-foreground">Threat Detection</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-2xl font-mono text-terminal-blue animate-pulse">2.3s</div>
+                    <div className="text-xs text-muted-foreground">Avg Fix Time</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-2xl font-mono text-yellow-400 animate-pulse">247</div>
+                    <div className="text-xs text-muted-foreground">Auto Patches</div>
+                  </div>
+                </div>
                 
-                <CardContent>
-                  <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-                    <div className="text-center">
-                      <div className="text-3xl font-bold text-terminal-green animate-pulse">
-                        {liveStats.threatDetection.toFixed(1)}%
-                      </div>
-                      <div className="text-sm text-foreground/70">Threat Detection</div>
-                    </div>
-                    
-                    <div className="text-center">
-                      <div className="text-3xl font-bold text-terminal-blue animate-pulse">
-                        {liveStats.avgFixTime.toFixed(1)}s
-                      </div>
-                      <div className="text-sm text-foreground/70">Avg Fix Time</div>
-                    </div>
-                    
-                    <div className="text-center">
-                      <div className="text-3xl font-bold text-yellow-400 animate-pulse">
-                        {liveStats.autoPatches}
-                      </div>
-                      <div className="text-sm text-foreground/70">Auto Patches Today</div>
-                    </div>
-                    
-                    <div className="text-center">
-                      <div className="text-3xl font-bold text-purple-400 animate-pulse">
-                        {liveStats.vulnBlocked.toLocaleString()}
-                      </div>
-                      <div className="text-sm text-foreground/70">Vulnerabilities Blocked</div>
-                    </div>
+                {/* Chart Visualization */}
+                <div className="space-y-3">
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm text-muted-foreground">Security Score</span>
+                    <span className="text-sm text-terminal-green">+23%</span>
                   </div>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-        </section>
-
-        {/* Pricing Toggle */}
-        <section className="py-16">
-          <div className="container mx-auto px-4 lg:px-20">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold mb-6 text-foreground">
-                Choose Your <span className="text-terminal-blue">Edition</span>
-              </h2>
-              
-              <div className="flex items-center justify-center space-x-4 mb-8">
-                <span className={`text-lg ${!isAnnual ? 'text-foreground font-semibold' : 'text-foreground/60'}`}>
-                  Monthly
-                </span>
-                <Switch 
-                  checked={isAnnual} 
-                  onCheckedChange={setIsAnnual}
-                  className="data-[state=checked]:bg-terminal-blue"
-                />
-                <span className={`text-lg ${isAnnual ? 'text-foreground font-semibold' : 'text-foreground/60'}`}>
-                  Annual
-                </span>
-                {isAnnual && (
-                  <Badge className="bg-terminal-green/20 text-terminal-green border-terminal-green/30">
-                    {pricingPlans.annual.savings}
-                  </Badge>
-                )}
-              </div>
-
-              <Card className="max-w-md mx-auto bg-gradient-to-br from-terminal-blue/10 to-purple-500/10 border-terminal-blue/30">
-                <CardContent className="p-8 text-center">
-                  <div className="space-y-4">
-                    <div>
-                      <div className="text-4xl font-bold text-terminal-blue">
-                        ${currentPlan.price}
-                      </div>
-                      <div className="text-foreground/70">per {currentPlan.period}</div>
-                    </div>
-                    
-                    <div className="space-y-2">
-                      <Button variant="terminal-blue" size="lg" className="w-full">
-                        Start 30-Day Trial
-                        <ArrowRight className="w-5 h-5 ml-2" />
-                      </Button>
-                      <Button variant="outline" size="lg" className="w-full border-terminal-blue/30">
-                        Contact Sales
-                      </Button>
-                    </div>
+                  <div className="h-2 bg-muted rounded-full overflow-hidden">
+                    <div className="h-full bg-gradient-to-r from-terminal-green to-terminal-blue rounded-full animate-pulse" style={{
+                    width: '87%'
+                  }} />
                   </div>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-        </section>
-
-        {/* Feature Comparison Table */}
-        <section className="py-16">
-          <div className="container mx-auto px-4 lg:px-20">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
-                Feature <span className="text-terminal-blue">Comparison</span>
-              </h2>
-              <p className="text-xl text-foreground/70">
-                See what's included in each edition
-              </p>
-            </div>
-
-            <div className="max-w-6xl mx-auto overflow-x-auto">
-              <div className="min-w-[800px]">
-                {comparisonFeatures.map((category, categoryIndex) => (
-                  <div key={categoryIndex} className="mb-8">
-                    <h3 className="text-xl font-semibold text-foreground mb-4 px-4">
-                      {category.category}
-                    </h3>
-                    
-                    <Card className="bg-terminal-surface border-terminal-green/20">
-                      <CardContent className="p-0">
-                        {/* Header */}
-                        {categoryIndex === 0 && (
-                          <div className="grid grid-cols-3 gap-4 p-4 border-b border-terminal-green/20 bg-terminal-green/5">
-                            <div className="font-semibold text-foreground">Feature</div>
-                            <div className="font-semibold text-center text-foreground">ReflexCore Free</div>
-                            <div className="font-semibold text-center text-terminal-blue">Gitswhy OS Pro</div>
-                          </div>
-                        )}
-                        
-                        {/* Feature Rows */}
-                        {category.features.map((feature, featureIndex) => (
-                          <div 
-                            key={featureIndex} 
-                            className="grid grid-cols-3 gap-4 p-4 border-b border-terminal-green/10 hover:bg-terminal-green/5 transition-colors"
-                          >
-                            <div className="text-foreground">{feature.name}</div>
-                            <div className="flex justify-center">
-                              {feature.free ? (
-                                <Check className="w-5 h-5 text-terminal-green" />
-                              ) : (
-                                <X className="w-5 h-5 text-foreground/40" />
-                              )}
-                            </div>
-                            <div className="flex justify-center">
-                              {feature.pro ? (
-                                <Check className="w-5 h-5 text-terminal-blue" />
-                              ) : (
-                                <X className="w-5 h-5 text-foreground/40" />
-                              )}
-                            </div>
-                          </div>
-                        ))}
-                      </CardContent>
-                    </Card>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Add-Ons Carousel */}
-        <section className="py-16">
-          <div className="container mx-auto px-4 lg:px-20">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
-                Premium <span className="text-terminal-blue">Add-Ons</span>
-              </h2>
-              <p className="text-xl text-foreground/70">
-                Enhance your Pro experience with specialized modules
-              </p>
-            </div>
-
-            <div className="max-w-4xl mx-auto relative">
-              <div className="overflow-hidden">
-                <div 
-                  className="flex transition-transform duration-500 ease-in-out"
-                  style={{ transform: `translateX(-${currentAddon * 100}%)` }}
-                >
-                  {addOns.map((addon, index) => {
-                    const Icon = addon.icon;
-                    
-                    return (
-                      <div key={index} className="w-full flex-shrink-0 px-4">
-                        <Card className="bg-terminal-surface border-terminal-blue/20 hover:shadow-blue-glow transition-all duration-300">
-                          <CardContent className="p-8 text-center">
-                            <div className="space-y-6">
-                              <div className={`p-4 rounded-xl bg-${addon.color}-500/10 w-fit mx-auto`}>
-                                <Icon className={`w-12 h-12 text-${addon.color}-400`} />
-                              </div>
-                              
-                              <div>
-                                <h3 className="text-2xl font-bold text-foreground mb-2">
-                                  {addon.name}
-                                </h3>
-                                <p className="text-foreground/70 mb-4">
-                                  {addon.description}
-                                </p>
-                                <div className="text-xl font-semibold text-terminal-blue">
-                                  {addon.price}
-                                </div>
-                              </div>
-                              
-                              <div className="space-y-2">
-                                {addon.features.map((feature, idx) => (
-                                  <div key={idx} className="flex items-center justify-center space-x-2">
-                                    <Check className="w-4 h-4 text-terminal-green" />
-                                    <span className="text-foreground/80 text-sm">{feature}</span>
-                                  </div>
-                                ))}
-                              </div>
-                              
-                              <Button variant="outline" className="border-terminal-blue/30 text-terminal-blue">
-                                Add to Plan
-                              </Button>
-                            </div>
-                          </CardContent>
-                        </Card>
-                      </div>
-                    );
-                  })}
                 </div>
-              </div>
-
-              {/* Navigation */}
-              <div className="flex items-center justify-between mt-8">
-                <Button 
-                  variant="outline" 
-                  onClick={prevAddon}
-                  className="border-terminal-blue/20 hover:border-terminal-blue/40"
-                >
-                  <ChevronLeft className="w-4 h-4 mr-2" />
-                  Previous
-                </Button>
-
-                <div className="flex space-x-2">
-                  {addOns.map((_, index) => (
-                    <button
-                      key={index}
-                      onClick={() => setCurrentAddon(index)}
-                      className={`w-3 h-3 rounded-full transition-colors duration-200 ${
-                        index === currentAddon ? 'bg-terminal-blue' : 'bg-foreground/20'
-                      }`}
-                    />
-                  ))}
-                </div>
-
-                <Button 
-                  variant="outline" 
-                  onClick={nextAddon}
-                  className="border-terminal-blue/20 hover:border-terminal-blue/40"
-                >
-                  Next
-                  <ChevronRight className="w-4 h-4 ml-2" />
-                </Button>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* FAQ Section */}
-        <section className="py-16">
-          <div className="container mx-auto px-4 lg:px-20">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
-                Frequently Asked <span className="text-terminal-blue">Questions</span>
-              </h2>
-              <p className="text-xl text-foreground/70">
-                Everything you need to know about Gitswhy OS Pro
-              </p>
-            </div>
-
-            <div className="max-w-4xl mx-auto">
-              <Accordion type="multiple" className="space-y-4">
-                {faqItems.map((item, index) => (
-                  <AccordionItem 
-                    key={index} 
-                    value={`faq-${index}`}
-                    className="border border-terminal-blue/20 rounded-lg bg-terminal-surface/50 px-6"
-                  >
-                    <AccordionTrigger className="text-left hover:no-underline hover:text-terminal-blue transition-colors py-6">
-                      <span className="text-lg font-medium">{item.question}</span>
-                    </AccordionTrigger>
-                    <AccordionContent className="text-foreground/70 leading-relaxed pb-6">
-                      {item.answer}
-                    </AccordionContent>
-                  </AccordionItem>
-                ))}
-              </Accordion>
-            </div>
-          </div>
-        </section>
-
-        {/* Final CTA */}
-        <section className="py-16">
-          <div className="container mx-auto px-4 lg:px-20">
-            <Card className="max-w-4xl mx-auto bg-gradient-to-r from-terminal-blue/10 to-purple-500/10 border-terminal-blue/30">
-              <CardContent className="p-8 md:p-12 text-center">
-                <div className="space-y-6">
-                  <h2 className="text-3xl md:text-4xl font-bold text-foreground">
-                    Ready to <span className="text-terminal-blue">Upgrade?</span>
-                  </h2>
-                  
-                  <p className="text-xl text-foreground/70 max-w-2xl mx-auto">
-                    Join thousands of teams using Gitswhy OS Pro to ship secure code faster
-                  </p>
-                  
-                  <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
-                    <Button variant="terminal-blue" size="lg">
-                      Start 30-Day Free Trial
-                      <ArrowRight className="w-5 h-5 ml-2" />
-                    </Button>
-                    <Button variant="outline" size="lg" className="border-terminal-blue/30">
-                      Schedule Demo
-                      <Play className="w-5 h-5 ml-2" />
-                    </Button>
+                
+                <div className="space-y-3">
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm text-muted-foreground">Deploy Confidence</span>
+                    <span className="text-sm text-terminal-blue">94%</span>
                   </div>
-                  
-                  <div className="flex items-center justify-center space-x-6 text-sm text-foreground/60 pt-4">
-                    <div className="flex items-center space-x-2">
-                      <Check className="w-4 h-4 text-terminal-green" />
-                      <span>No credit card required</span>
+                  <div className="h-2 bg-muted rounded-full overflow-hidden">
+                    <div className="h-full bg-terminal-blue rounded-full animate-pulse" style={{
+                    width: '94%'
+                  }} />
+                  </div>
+                </div>
+                
+                {/* Activity Feed */}
+                <div className="space-y-2 pt-4 border-t border-border">
+                  <div className="text-xs text-muted-foreground">Recent Activity</div>
+                  <div className="space-y-1 font-mono text-xs">
+                    <div className="flex items-center gap-2">
+                      <div className="w-2 h-2 bg-terminal-green rounded-full animate-pulse" />
+                      <span>SQL injection blocked in user-auth.js</span>
                     </div>
-                    <div className="flex items-center space-x-2">
-                      <Check className="w-4 h-4 text-terminal-green" />
-                      <span>Cancel anytime</span>
+                    <div className="flex items-center gap-2">
+                      <div className="w-2 h-2 bg-terminal-blue rounded-full animate-pulse" />
+                      <span>Auto-patched dependency vulnerability</span>
                     </div>
-                    <div className="flex items-center space-x-2">
-                      <Check className="w-4 h-4 text-terminal-green" />
-                      <span>30-day money back</span>
+                    <div className="flex items-center gap-2">
+                      <div className="w-2 h-2 bg-yellow-400 rounded-full animate-pulse" />
+                      <span>Team drift alert: config changes detected</span>
                     </div>
                   </div>
                 </div>
               </CardContent>
             </Card>
           </div>
-        </section>
+        </div>
+      </section>
 
-        <Footer />
-      </WebsiteBackground>
-    </div>
-  );
+      {/* Edition Comparison Table */}
+      <EditionComparisonTable />
+
+      {/* Premium Features Grid */}
+      <section className="py-24">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold font-mono mb-4">
+              Enterprise Features
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Advanced capabilities designed for teams that ship mission-critical software
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+            {premiumFeatures.map(feature => {
+            const Icon = feature.icon;
+            const isHovered = hoveredCard === feature.id;
+            return <Card key={feature.id} className={`relative group cursor-pointer transition-all duration-300 hover:scale-105 border-terminal-blue/20 backdrop-blur-sm overflow-hidden`} onMouseEnter={() => setHoveredCard(feature.id)} onMouseLeave={() => setHoveredCard(null)}>
+                  {/* Lock Overlay */}
+                  <div className={`absolute inset-0 bg-terminal-blue/10 backdrop-blur-sm flex items-center justify-center transition-opacity duration-300 ${isHovered ? 'opacity-100' : 'opacity-0'} z-10`}>
+                    <div className="text-center space-y-4">
+                      <Lock className="w-12 h-12 text-terminal-blue mx-auto animate-bounce" />
+                      <Button className="bg-terminal-blue hover:bg-terminal-blue/90 text-white">
+                        Upgrade to Unlock
+                      </Button>
+                    </div>
+                  </div>
+                  
+                  <CardHeader>
+                    <div className="flex items-start justify-between">
+                      <div className="space-y-2">
+                        <div className="flex items-center gap-3">
+                          <Icon className={`w-8 h-8 text-terminal-blue transition-all duration-300 ${isHovered ? 'scale-110' : ''}`} />
+                          <div>
+                            <CardTitle className="text-xl">{feature.title}</CardTitle>
+                            <p className="text-sm text-terminal-blue">{feature.subtitle}</p>
+                          </div>
+                        </div>
+                      </div>
+                      <Badge variant="secondary" className="bg-terminal-blue/20 text-terminal-blue">
+                        {feature.stats}
+                      </Badge>
+                    </div>
+                  </CardHeader>
+                  
+                  <CardContent>
+                    <p className="text-muted-foreground leading-relaxed">
+                      {feature.description}
+                    </p>
+                  </CardContent>
+                </Card>;
+          })}
+          </div>
+        </div>
+      </section>
+
+      {/* Voice Integration Teaser */}
+      <section className="py-16">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <Card className="relative group cursor-pointer transition-all duration-500 hover:scale-105 border-terminal-blue/30 backdrop-blur-sm overflow-hidden">
+              {/* Animated Background Pattern */}
+              <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_35%,rgba(0,212,255,0.05)_50%,transparent_65%)] bg-[length:20px_20px] animate-pulse" />
+              
+              <CardContent className="p-8 lg:p-12 relative z-10">
+                <div className="grid lg:grid-cols-2 gap-8 items-center">
+                  {/* Left Content */}
+                  <div className="space-y-6">
+                    <div className="space-y-4">
+                      <Badge variant="secondary" className="bg-terminal-blue/20 text-terminal-blue border-terminal-blue/30">
+                        Coming Soon
+                      </Badge>
+                      <h3 className="text-3xl lg:text-4xl font-bold font-mono text-terminal-blue">
+                        Voice-Activated Healing
+                      </h3>
+                      <p className="text-lg text-muted-foreground leading-relaxed">
+                        Say "Gitswhy, scan this" for hands-free ops. Control your entire DevSecOps workflow with natural voice commands.
+                      </p>
+                    </div>
+                    
+                    <div className="flex justify-start">
+                      <Button variant="outline" className="border-terminal-blue/30 text-terminal-blue hover:bg-terminal-blue/10">
+                        Join Waitlist
+                      </Button>
+                    </div>
+                  </div>
+                  
+                  {/* Right Visual */}
+                  <div className="relative">
+                    <div className="bg-terminal-surface/50 rounded-xl p-8 border border-terminal-blue/20">
+                      {/* Microphone Icon */}
+                      <div className="text-center space-y-6">
+                        <div className="relative inline-block">
+                          <Mic className="w-16 h-16 text-terminal-blue mx-auto" />
+                          
+                          {/* Animated Waveform */}
+                          <div className="flex items-end justify-center gap-1 mt-4 group-hover:animate-pulse">
+                            {[...Array(7)].map((_, i) => (
+                              <div
+                                key={i}
+                                className="bg-terminal-blue rounded-full transition-all duration-300 group-hover:bg-terminal-blue/80"
+                                style={{
+                                  width: '3px',
+                                  height: `${12 + (i % 3) * 8}px`,
+                                  animationDelay: `${i * 0.1}s`,
+                                }}
+                              />
+                            ))}
+                          </div>
+                        </div>
+                        
+                        {/* Command Example */}
+                        <div className="bg-terminal-bg/80 rounded-lg p-4 border border-terminal-blue/20">
+                          <div className="font-mono text-sm text-terminal-blue">
+                            <div className="text-terminal-green mb-2">$ listening...</div>
+                            <div className="text-terminal-blue">"Gitswhy, scan this file"</div>
+                            <div className="text-muted-foreground text-xs mt-2">
+                              ✓ Voice command recognized
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    {/* Floating Elements */}
+                    <div className="absolute -top-4 -right-4 w-8 h-8 bg-terminal-blue/20 rounded-full animate-bounce" style={{ animationDelay: '0s' }} />
+                    <div className="absolute -bottom-2 -left-2 w-6 h-6 bg-terminal-blue/30 rounded-full animate-bounce" style={{ animationDelay: '0.5s' }} />
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-24">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold font-mono mb-4">
+              Frequently Asked Questions
+            </h2>
+            <p className="text-xl text-muted-foreground">
+              Everything you need to know about Gitswhy OS Pro Edition
+            </p>
+          </div>
+          
+          <div className="max-w-4xl mx-auto">
+            <Accordion type="multiple" className="w-full space-y-4">
+              {faqItems.map((item, index) => (
+                <AccordionItem 
+                  key={index} 
+                  value={`item-${index}`}
+                  className="border border-terminal-blue/20 rounded-lg bg-terminal-surface/30 backdrop-blur-sm px-6"
+                >
+                  <AccordionTrigger className="text-left hover:no-underline hover:text-terminal-blue transition-colors">
+                    <span className="text-lg font-medium">{item.question}</span>
+                  </AccordionTrigger>
+                  <AccordionContent className="text-muted-foreground leading-relaxed">
+                    {item.answer}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-24">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-4xl font-bold font-mono mb-6">
+            Ready to Ship Code That Heals Itself?
+          </h2>
+          <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
+            Join thousands of enterprises already using Gitswhy OS Pro to secure their development lifecycle.
+          </p>
+          
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button size="lg" className="bg-terminal-blue hover:bg-terminal-blue/90 text-white">
+              Start 30-Day Pro Trial
+              <ArrowRight className="ml-2 w-4 h-4" />
+            </Button>
+            <Button variant="outline" size="lg" className="border-terminal-blue/30 text-terminal-blue hover:bg-terminal-blue/10">
+              Talk to Sales
+            </Button>
+          </div>
+          
+          <p className="text-sm text-muted-foreground mt-6">
+            No credit card required • Full feature access • Cancel anytime
+          </p>
+        </div>
+      </section>
+
+      <Footer />
+    </div>;
 };
-
 export default ProEdition;

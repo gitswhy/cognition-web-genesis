@@ -3,11 +3,9 @@ import { useTranslation } from 'react-i18next';
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import TrustRibbon from "@/components/TrustRibbon";
-import ValuePropositions from "@/components/ValuePropositions";
-import FeatureTeasers from "@/components/FeatureTeasers";
+import EnhancedFeatures from "@/components/EnhancedFeatures";
+import CoreFeaturesGrid from "@/components/CoreFeaturesGrid";
 import DemoPlayground from "@/components/DemoPlayground";
-import TimelineSlider from "@/components/TimelineSlider";
-import TestimonialsCarousel from "@/components/TestimonialsCarousel";
 import CTASection from "@/components/CTASection";
 import BottomCTA from "@/components/BottomCTA";
 import Footer from "@/components/Footer";
@@ -36,11 +34,9 @@ const Index = () => {
         <Header />
         <Hero />
         <TrustRibbon />
-        <ValuePropositions />
-        <FeatureTeasers />
+        <EnhancedFeatures />
+        <CoreFeaturesGrid />
         <DemoPlayground />
-        <TimelineSlider />
-        <TestimonialsCarousel />
         <CTASection />
         <BottomCTA />
         <Footer />
