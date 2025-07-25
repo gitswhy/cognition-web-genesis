@@ -201,7 +201,7 @@ gitswhy autoclean --scan
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 <Card 
-                  className={`relative overflow-hidden bg-terminal-surface/60 border-terminal-green/30 hover:border-terminal-green/50 transition-all duration-500 cursor-pointer transform hover:scale-[1.02] hover:shadow-xl hover:shadow-terminal-green/20 h-full min-h-[280px] flex flex-col ${
+                  className={`relative overflow-hidden bg-terminal-surface/60 border-terminal-green/30 hover:border-terminal-green/50 transition-all duration-500 cursor-pointer transform hover:scale-[1.02] hover:shadow-xl hover:shadow-terminal-green/20 h-fit ${
                     openCards[module.name] ? 'scale-[1.02] border-terminal-green/50 shadow-lg shadow-terminal-green/10' : ''
                   }`}
                   onClick={() => toggleCard(module.name)}
