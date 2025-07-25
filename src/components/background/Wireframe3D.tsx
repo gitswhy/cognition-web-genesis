@@ -53,8 +53,9 @@ const EnhancedWireframeShape = ({ position, geometryType, color, speed = 1, anim
           meshRef.current.position.y = position[1] + Math.sin(time * speed * 0.6) * 0.2;
           break;
         case 'spin':
+          meshRef.current.rotation.x += 0.006 * speed;
+          meshRef.current.rotation.y += 0.008 * speed;
           meshRef.current.rotation.z += 0.01 * speed;
-          meshRef.current.rotation.y += 0.003 * speed;
           break;
         default:
           meshRef.current.rotation.x += 0.005 * speed;
@@ -102,32 +103,32 @@ const EnhancedScene3D = () => {
         scale={0.6}
       />
       
-      {/* Background elements */}
+      {/* Background elements - brought closer */}
       <EnhancedWireframeShape 
-        position={[0, 3, -1]} 
+        position={[0, 2.5, 0]} 
         geometryType="sphere"
         color="#4ECDC4" 
         speed={0.3}
         animationType="rotate"
-        scale={0.3}
-      />
-
-      <EnhancedWireframeShape 
-        position={[-2, -2, -1]} 
-        geometryType="tetrahedron"
-        color="#9B59B6" 
-        speed={0.6}
-        animationType="wobble"
         scale={0.4}
       />
 
       <EnhancedWireframeShape 
-        position={[2, 2, -1]} 
+        position={[-2.5, -1.5, 0]} 
+        geometryType="tetrahedron"
+        color="#9B59B6" 
+        speed={0.6}
+        animationType="wobble"
+        scale={0.5}
+      />
+
+      <EnhancedWireframeShape 
+        position={[2.5, 1.5, 0]} 
         geometryType="octahedron"
         color="#FFD700" 
         speed={0.4}
         animationType="orbit"
-        scale={0.3}
+        scale={0.4}
       />
     </>
   );
