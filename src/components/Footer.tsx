@@ -42,8 +42,8 @@ const Footer = () => {
 
   return (
     <footer className="border-t border-terminal-green/20">{/* Consistent background from PageBackground */}
-      <div className="container mx-auto px-4 lg:px-20 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8">
+      <div className="container mx-auto px-4 lg:px-20 py-8 lg:py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-6 lg:gap-8">
           {/* Brand section */}
           <div className="lg:col-span-2">
             <div className="flex items-center space-x-2 mb-4">
@@ -65,7 +65,7 @@ const Footer = () => {
                 <span className="text-terminal-green">Gitswhy</span><span className="text-terminal-blue">OS</span>
               </span>
             </div>
-            <p className="text-foreground/70 mb-6 max-w-sm">
+            <p className="text-foreground/70 mb-4 lg:mb-6 max-w-sm hidden sm:block">
               The first cognition-native DevSecOps operating system that transforms 
               how teams build, secure, and deploy software.
             </p>
@@ -116,7 +116,7 @@ const Footer = () => {
         </div>
 
         {/* Bottom section */}
-        <div className="border-t border-terminal-green/20 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+        <div className="border-t border-terminal-green/20 mt-8 lg:mt-12 pt-6 lg:pt-8 flex flex-col md:flex-row justify-between items-center">
           <div className="text-sm text-foreground/60">
             © 2025 GitswhyOS. All rights reserved.
           </div>
