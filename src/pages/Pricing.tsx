@@ -85,10 +85,9 @@ const Pricing = () => {
     },
     {
       id: 'team',
-      name: 'Team',
+      name: 'Pro',
       description: 'Advanced features for growing development teams',
       price: { monthly: 29, annual: 24 },
-      popular: true,
       type: 'pro',
       features: [
         {
