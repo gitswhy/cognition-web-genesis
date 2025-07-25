@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -24,6 +25,7 @@ import ModuleLottieAnimation from '@/components/ModuleLottieAnimation';
 import HowItWorksBackground from '@/components/background/HowItWorksBackground';
 
 const HowItWorks = () => {
+  const navigate = useNavigate();
   const [activeStep, setActiveStep] = useState(0);
   const [reducedMotion, setReducedMotion] = useState(false);
 
@@ -324,6 +326,7 @@ const HowItWorks = () => {
                       <Button 
                         className="bg-terminal-blue hover:bg-terminal-blue/90 text-white"
                         size="lg"
+                        onClick={() => navigate('/pro-edition')}
                       >
                         Upgrade to Pro
                         <ArrowRight className="ml-2 w-4 h-4" />
@@ -391,11 +394,19 @@ const HowItWorks = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-terminal-green hover:bg-terminal-green/90 text-background">
+            <Button 
+              size="lg" 
+              className="bg-terminal-green hover:bg-terminal-green/90 text-background"
+              onClick={() => navigate('/open-core')}
+            >
               <Code className="mr-2 w-4 h-4" />
               Try Open Core
             </Button>
-            <Button size="lg" className="bg-terminal-blue hover:bg-terminal-blue/90 text-white">
+            <Button 
+              size="lg" 
+              className="bg-terminal-blue hover:bg-terminal-blue/90 text-white"
+              onClick={() => navigate('/pro-edition')}
+            >
               <Shield className="mr-2 w-4 h-4" />
               Start Pro Trial
             </Button>
