@@ -494,9 +494,193 @@
     animation: particle-float 6s ease-in-out infinite;
   }
 
-  .animate-particle-glow {
-    animation: particle-glow 3s ease-in-out infinite;
+  
+  /* Enhanced focus ring for mobile accessibility */
+  .mobile-focus-ring:focus-visible {
+    outline: 2px solid hsl(var(--terminal-green));
+    outline-offset: 2px;
   }
+
+  /* Mobile-optimized button styles */
+  .mobile-button {
+    min-height: 44px;
+    min-width: 44px;
+    touch-action: manipulation;
+  }
+
+  /* Tablet and mobile text scaling */
+  .text-scale-mobile {
+    @apply text-sm sm:text-base;
+  }
+  
+  .text-scale-heading {
+    @apply text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl;
+  }
+  
+  .text-scale-hero {
+    @apply text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl;
+  }
+
+  /* Responsive spacing utilities */
+  .space-responsive {
+    @apply space-y-4 sm:space-y-6 md:space-y-8 lg:space-y-12;
+  }
+  
+  .padding-responsive {
+    @apply py-8 sm:py-12 md:py-16 lg:py-20 xl:py-24;
+  }
+  
+  .padding-responsive-sm {
+    @apply py-4 sm:py-6 md:py-8 lg:py-12;
+  }
+
+  /* Mobile-first card spacing */
+  .card-responsive {
+    @apply p-4 sm:p-6 md:p-8;
+  }
+
+  /* Grid responsive utilities */
+  .grid-responsive-2 {
+    @apply grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 md:gap-8;
+  }
+  
+  .grid-responsive-3 {
+    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8;
+  }
+  
+  .grid-responsive-4 {
+    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6;
+  }
+
+  /* Mobile navigation styles */
+  .mobile-nav {
+    transform: translateX(-100%);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .mobile-nav.open {
+    transform: translateX(0);
+  }
+
+  /* Touch-friendly hover states */
+  @media (hover: hover) and (pointer: fine) {
+    .hover-desktop:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px -8px rgba(0, 255, 102, 0.2);
+    }
+  }
+
+  /* Mobile-specific scroll behavior */
+  @media (max-width: 768px) {
+    .smooth-scroll {
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+    }
+  }
+
+  /* Tablet optimizations */
+  @media (min-width: 768px) and (max-width: 1024px) {
+    .tablet-grid {
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+  }
+
+  /* High-DPI display optimizations */
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .crisp-edges {
+      image-rendering: -webkit-optimize-contrast;
+      image-rendering: crisp-edges;
+    }
+  }
+
+  /* Dark mode optimizations for OLED displays */
+  @media (prefers-color-scheme: dark) {
+    .oled-black {
+      background-color: #000000;
+    }
+  }
+
+  /* Landscape mobile optimizations */
+  @media (max-height: 500px) and (orientation: landscape) {
+    .landscape-mobile {
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+    }
+    
+    .hero-landscape {
+      min-height: 400px;
+    }
+  }
+
+  /* Print styles */
+  @media print {
+    .no-print {
+      display: none !important;
+    }
+    
+    .print-friendly {
+      background: white !important;
+      color: black !important;
+      box-shadow: none !important;
+    }
+  }
+
+  /* Reduced data mode */
+  @media (prefers-reduced-data: reduce) {
+    .data-saver {
+      background-image: none !important;
+    }
+    
+    .data-saver video,
+    .data-saver .heavy-animation {
+      display: none !important;
+    }
+  }
+
+  /* Enhanced accessibility */
+  @media (prefers-contrast: high) {
+    .high-contrast {
+      border: 2px solid currentColor !important;
+      background-color: Canvas !important;
+      color: CanvasText !important;
+    }
+  }
+
+  /* iOS safe area support */
+  @supports (padding: max(0px)) {
+    .safe-area-padding {
+      padding-left: max(1rem, env(safe-area-inset-left));
+      padding-right: max(1rem, env(safe-area-inset-right));
+    }
+    
+    .safe-area-top {
+      padding-top: max(1rem, env(safe-area-inset-top));
+    }
+    
+    .safe-area-bottom {
+      padding-bottom: max(1rem, env(safe-area-inset-bottom));
+    }
+  }
+}
+
+/* Performance optimizations */
+@layer utilities {
+  .gpu-accelerated {
+    transform: translateZ(0);
+    will-change: transform, opacity;
+    backface-visibility: hidden;
+  }
+  
+  .content-visibility-auto {
+    content-visibility: auto;
+    contain-intrinsic-size: 300px;
+  }
+  
+  .optimize-legibility {
+    text-rendering: optimizeLegibility;
+    font-feature-settings: "liga" 1, "kern" 1;
+  }
+}
 
   /* Scroll-responsive effects */
   .scroll-glow {

@@ -27,9 +27,9 @@ const Header = () => {
   ];
 
   return (
-    <header className="fixed top-0 w-full z-[100] glass border-b border-terminal-green/20 backdrop-blur-xl">
-      <div className="container mx-auto px-3 sm:px-4 lg:px-8 xl:px-20">
-        <div className="flex items-center justify-between h-14 sm:h-16">
+    <header className="fixed top-0 w-full z-[100] glass border-b border-terminal-green/20 backdrop-blur-xl safe-area-top">
+      <div className="container mx-auto safe-area-padding">
+        <div className="flex items-center justify-between h-14 sm:h-16 md:h-18">
           {/* Logo */}
           <Link to="/" className="group flex items-center space-x-1.5 sm:space-x-2 transition-all duration-500 relative overflow-visible">
             {/* Custom >_< SVG Icon with Individual Character Colors */}

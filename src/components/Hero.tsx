@@ -58,30 +58,30 @@ const Hero = () => {
   }, [currentLine]);
 
   return (
-    <section className="relative py-8 sm:py-12 md:py-16 lg:py-20 overflow-hidden">
-      <div className="container mx-auto px-3 sm:px-4 lg:px-8 xl:px-12 2xl:px-20 relative z-10 max-w-7xl">
-        <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 xl:gap-16 items-center">
+    <section className="relative padding-responsive overflow-hidden hero-landscape safe-area-padding">
+      <div className="container mx-auto relative z-10 max-w-7xl">
+        <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 xl:gap-20 items-center">
           {/* Left Side - Headlines */}
-          <div className="space-y-4 sm:space-y-6 lg:space-y-8">
+          <div className="space-responsive order-2 lg:order-1">
             {/* Badge */}
-            <div className="inline-flex items-center space-x-2 bg-terminal-green/10 border border-terminal-green/20 rounded-md px-2.5 sm:px-3 py-1.5">
-              <FileText className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-terminal-green" />
+            <div className="inline-flex items-center space-x-2 bg-terminal-green/10 border border-terminal-green/20 rounded-lg px-3 sm:px-4 py-2 sm:py-2.5">
+              <FileText className="h-4 w-4 text-terminal-green flex-shrink-0" />
               <span className="text-xs sm:text-sm font-medium text-terminal-green font-mono">Apache licensed</span>
             </div>
 
-            <div className="space-y-3 sm:space-y-4 lg:space-y-6">
-              <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold leading-tight">
+            <div className="space-y-4 sm:space-y-6">
+              <h1 className="text-scale-hero font-bold leading-[1.1] sm:leading-tight optimize-legibility">
                 <span className="text-foreground block">
                   {currentLine === 0 ? typedText : lines[0]}
                   {currentLine === 0 && typedText.length < lines[0].length && <span className="animate-pulse text-terminal-green">|</span>}
                 </span>
-                <span className="text-terminal-green block mt-1 lg:mt-2">
+                <span className="text-terminal-green block mt-2">
                   {currentLine === 1 ? typedText : (currentLine > 1 ? lines[1] : "")}
                   {currentLine === 1 && typedText.length < lines[1].length && <span className="animate-pulse text-terminal-green">|</span>}
                 </span>
               </h1>
               
-              <p className="text-sm sm:text-base lg:text-lg text-foreground/80 max-w-xl leading-relaxed">
+              <p className="text-scale-mobile lg:text-lg text-foreground/80 max-w-xl leading-relaxed">
                 {typedSubhead}
                 {typedSubhead.length < subhead.length && typedSubhead.length > 0 && (
                   <span className="animate-pulse text-terminal-green">|</span>
@@ -89,14 +89,22 @@ const Hero = () => {
               </p>
             </div>
 
-            {/* CTAs - Enhanced with better hover effects */}
-            <div className="flex flex-col sm:flex-row gap-2.5 sm:gap-3 pt-3 sm:pt-4 lg:pt-6">
-              <Button variant="terminal" size="default" className="w-full sm:w-auto sm:min-w-[140px] lg:min-w-[160px] hover-lift terminal-glow neon-button text-sm sm:text-base">
+            {/* CTAs - Enhanced with better mobile support */}
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-6">
+              <Button 
+                variant="terminal" 
+                size="default" 
+                className="w-full sm:w-auto sm:min-w-[160px] mobile-button hover-desktop terminal-glow neon-button text-sm sm:text-base gpu-accelerated"
+              >
                 Start Free Trial
-                <ChevronRight className="h-3.5 w-3.5 sm:h-4 sm:w-4 transition-transform group-hover:translate-x-1" />
+                <ChevronRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
               </Button>
-              <Button variant="terminal-outline-blue" size="default" className="w-full sm:w-auto sm:min-w-[140px] lg:min-w-[160px] hover-lift blue-glow neon-button text-sm sm:text-base">
-                <Play className="h-3.5 w-3.5 sm:h-4 sm:w-4 transition-transform group-hover:scale-110" />
+              <Button 
+                variant="terminal-outline-blue" 
+                size="default" 
+                className="w-full sm:w-auto sm:min-w-[160px] mobile-button hover-desktop blue-glow neon-button text-sm sm:text-base gpu-accelerated"
+              >
+                <Play className="h-4 w-4 transition-transform group-hover:scale-110" />
                 Watch Demo
               </Button>
             </div>

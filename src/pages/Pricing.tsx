@@ -163,17 +163,17 @@ const Pricing = () => {
       <Header />
       
       {/* Hero Section */}
-      <section className="relative py-24 overflow-hidden">
+      <section className="relative padding-responsive overflow-hidden safe-area-padding">
         <div className="absolute inset-0 bg-[linear-gradient(rgba(0,255,102,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(0,255,102,0.05)_1px,transparent_1px)] bg-[size:50px_50px]" />
         
-        <div className="container mx-auto px-4 text-center relative z-10">
+        <div className="container mx-auto text-center relative z-10">
           <Badge variant="secondary" className="bg-terminal-blue/20 text-terminal-blue border-terminal-blue/30 mb-6">
             Transparent Pricing
           </Badge>
-          <h1 className="text-5xl lg:text-7xl font-bold font-mono mb-6">
+          <h1 className="text-scale-hero font-bold font-mono mb-6 optimize-legibility">
             Choose Your <span className="text-terminal-green">Plan</span>
           </h1>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
+          <p className="text-scale-mobile lg:text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
             Start free with our Open Core edition or unlock advanced features 
             with Team and Enterprise plans. No hidden fees, cancel anytime.
           </p>
@@ -199,17 +199,17 @@ const Pricing = () => {
       </section>
 
       {/* Pricing Cards */}
-      <section className="py-24">
-        <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
+      <section className="padding-responsive-sm">
+        <div className="container mx-auto safe-area-padding">
+          <div className="grid-responsive-2 max-w-6xl mx-auto">
             {pricingTiers.map((tier, index) => (
               <Card 
                 key={tier.id} 
-                className={`relative overflow-hidden transition-all duration-300 hover:scale-105 ${
+                className={`relative overflow-hidden transition-all duration-300 card-hover mobile-focus-ring ${
                   tier.popular 
-                    ? 'border-terminal-blue shadow-lg shadow-terminal-blue/20 scale-105' 
+                    ? 'border-terminal-blue shadow-lg shadow-terminal-blue/20 lg:scale-105' 
                     : 'border-terminal-surface'
-                } ${tier.type === 'core' ? '' : ''}`}
+                } ${tier.type === 'core' ? '' : ''} gpu-accelerated`}
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 {tier.popular && (
@@ -219,20 +219,20 @@ const Pricing = () => {
                   </div>
                 )}
                 
-                <CardHeader className={tier.popular ? 'pt-12' : 'pt-6'}>
-                  <div className="space-y-4">
+                <CardHeader className={`${tier.popular ? 'pt-12' : 'pt-6'} card-responsive`}>
+                  <div className="space-responsive">
                     <div>
-                      <CardTitle className="text-2xl font-bold">{tier.name}</CardTitle>
-                      <p className="text-muted-foreground mt-2">{tier.description}</p>
+                      <CardTitle className="text-scale-heading font-bold">{tier.name}</CardTitle>
+                      <p className="text-muted-foreground mt-2 text-scale-mobile">{tier.description}</p>
                     </div>
                     
                     <div className="space-y-2">
-                      <div className="flex items-baseline gap-2">
-                        <span className="text-4xl font-bold font-mono">
+                      <div className="flex items-baseline gap-2 flex-wrap">
+                        <span className="text-2xl sm:text-3xl lg:text-4xl font-bold font-mono">
                           ${isAnnual ? tier.price.annual : tier.price.monthly}
                         </span>
                         {tier.price.monthly > 0 && (
-                          <span className="text-muted-foreground">
+                          <span className="text-muted-foreground text-sm sm:text-base">
                             /user/month
                           </span>
                         )}

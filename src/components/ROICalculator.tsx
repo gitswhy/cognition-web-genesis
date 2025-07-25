@@ -40,28 +40,28 @@ const ROICalculator = () => {
 
   return (
     <TooltipProvider>
-      <section className="py-24 bg-terminal-surface/10">
-        <div className="container mx-auto px-4">
+      <section className="padding-responsive bg-terminal-surface/10 safe-area-padding">
+        <div className="container mx-auto">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold font-mono mb-4 flex items-center justify-center gap-3">
+              <h2 className="text-scale-hero font-bold font-mono mb-4 optimize-legibility flex items-center justify-center gap-3">
                 <Calculator className="w-8 h-8 text-terminal-blue" />
                 ROI Calculator
               </h2>
-              <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              <p className="text-scale-mobile lg:text-xl text-muted-foreground max-w-2xl mx-auto">
                 Calculate your team's potential savings with Gitswhy OS automation features
               </p>
             </div>
             
-            <div className="grid lg:grid-cols-2 gap-8">
+            <div className="grid-responsive-2">
               {/* Input Section */}
-              <Card className="bg-terminal-surface/50 backdrop-blur-sm border-terminal-blue/20">
-                <CardHeader>
-                  <CardTitle className="text-xl font-semibold text-terminal-blue">
+              <Card className="bg-terminal-surface/50 backdrop-blur-sm border-terminal-blue/20 mobile-focus-ring">
+                <CardHeader className="card-responsive">
+                  <CardTitle className="text-scale-heading text-terminal-blue">
                     Team Configuration
                   </CardTitle>
                 </CardHeader>
-                <CardContent className="space-y-8">
+                <CardContent className="space-responsive card-responsive">
                   {/* Team Size */}
                   <div className="space-y-4">
                     <div className="flex items-center gap-2">
@@ -159,29 +159,29 @@ const ROICalculator = () => {
               </Card>
 
               {/* Results Section */}
-              <Card className="bg-gradient-to-br from-terminal-blue/10 to-terminal-green/10 backdrop-blur-sm border-terminal-blue/30">
-                <CardHeader>
-                  <CardTitle className="text-xl font-semibold text-terminal-blue flex items-center gap-2">
+              <Card className="bg-gradient-to-br from-terminal-blue/10 to-terminal-green/10 backdrop-blur-sm border-terminal-blue/30 mobile-focus-ring">
+                <CardHeader className="card-responsive">
+                  <CardTitle className="text-scale-heading text-terminal-blue flex items-center gap-2">
                     <TrendingUp className="w-5 h-5" />
                     ROI Analysis
                   </CardTitle>
                 </CardHeader>
-                <CardContent className="space-y-6">
+                <CardContent className="space-responsive card-responsive">
                   {/* Key Metrics */}
-                  <div className="grid grid-cols-2 gap-4">
-                    <div className="text-center p-4 bg-terminal-surface/30 rounded-lg">
+                  <div className="grid-responsive-2">
+                    <div className="text-center card-responsive bg-terminal-surface/30 rounded-lg">
                       <DollarSign className="w-6 h-6 text-terminal-green mx-auto mb-2" />
                       <div className="text-2xl font-bold text-terminal-green">
                         {formatCurrency(netSavings)}
                       </div>
-                      <div className="text-sm text-muted-foreground">Net Savings</div>
+                      <div className="text-scale-mobile lg:text-sm text-muted-foreground">Net Savings</div>
                     </div>
-                    <div className="text-center p-4 bg-terminal-surface/30 rounded-lg">
+                    <div className="text-center card-responsive bg-terminal-surface/30 rounded-lg">
                       <TrendingUp className="w-6 h-6 text-terminal-blue mx-auto mb-2" />
                       <div className="text-2xl font-bold text-terminal-blue">
                         {formatNumber(roiPercentage)}%
                       </div>
-                      <div className="text-sm text-muted-foreground">ROI</div>
+                      <div className="text-scale-mobile lg:text-sm text-muted-foreground">ROI</div>
                     </div>
                   </div>
 
@@ -237,14 +237,14 @@ const ROICalculator = () => {
 
                   {/* CTA Button */}
                   <Button 
-                    className="w-full bg-terminal-blue hover:bg-terminal-blue/90 text-white"
+                    className="w-full bg-terminal-blue hover:bg-terminal-blue/90 text-white mobile-button mobile-touch"
                     size="lg"
                   >
                     Start Free Trial
                     <ArrowRight className="ml-2 w-4 h-4" />
                   </Button>
                   
-                  <p className="text-xs text-center text-muted-foreground">
+                  <p className="text-scale-mobile text-center text-muted-foreground">
                     No credit card required • 14-day free trial • Cancel anytime
                   </p>
                 </CardContent>
