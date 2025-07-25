@@ -10,7 +10,6 @@ import EditionComparisonTable from '@/components/EditionComparisonTable';
 import { SoftwareApplicationSchema } from '@/components/SoftwareApplicationSchema';
 import { DynamicHeadline } from '@/components/DynamicHeadline';
 import ProEditionBackground from '@/components/background/ProEditionBackground';
-import LiveMetricsWidget from '@/components/LiveMetricsWidget';
 const ProEdition = () => {
   const [hoveredCard, setHoveredCard] = useState<string | null>(null);
   const premiumFeatures = [{
@@ -185,9 +184,6 @@ const ProEdition = () => {
           </div>
         </div>
       </section>
-
-      {/* Live Metrics Widget */}
-      <LiveMetricsWidget />
 
       {/* Edition Comparison Table */}
       <EditionComparisonTable />
