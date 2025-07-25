@@ -221,14 +221,6 @@ const ProEdition = () => {
                         </Badge>
                       </div>
                     </th>
-                    <th className="p-6 text-center font-mono text-lg">
-                      <div className="space-y-2">
-                        <div className="text-yellow-400">Enterprise</div>
-                        <Badge variant="secondary" className="bg-yellow-400/20 text-yellow-400">
-                          Custom Pricing
-                        </Badge>
-                      </div>
-                    </th>
                   </tr>
                 </thead>
                 <tbody>
@@ -238,80 +230,64 @@ const ProEdition = () => {
                       description: 'Continuous monitoring for vulnerabilities and threats',
                       free: 'Basic rules',
                       pro: '30,000+ rules',
-                      enterprise: '50,000+ rules + Custom',
                       freeIcon: 'check',
-                      proIcon: 'check',
-                      enterpriseIcon: 'check'
+                      proIcon: 'check'
                     },
                     {
                       feature: 'AI Auto-Patching',
                       description: 'AI-powered automatic fixes and suggestions',
                       free: 'Manual only',
                       pro: 'Full LLM fixes',
-                      enterprise: 'Advanced ML + Custom',
                       freeIcon: 'lock',
-                      proIcon: 'check',
-                      enterpriseIcon: 'check'
+                      proIcon: 'check'
                     },
                     {
                       feature: 'Self-Healing Remediation',
                       description: 'Automatic code healing and recovery',
                       free: 'Not available',
-                      pro: 'Basic healing',
-                      enterprise: 'Advanced + Predictive',
+                      pro: 'Self Healing',
                       freeIcon: 'lock',
-                      proIcon: 'check',
-                      enterpriseIcon: 'check'
+                      proIcon: 'check'
                     },
                     {
                       feature: 'Encrypted Vault Logging',
                       description: 'Secure encrypted audit logs and compliance',
                       free: 'Basic logs',
                       pro: 'Encrypted vault',
-                      enterprise: 'Advanced encryption',
                       freeIcon: 'check',
-                      proIcon: 'check',
-                      enterpriseIcon: 'check'
+                      proIcon: 'check'
                     },
                     {
                       feature: 'Voice Commands',
                       description: 'Hands-free DevSecOps workflow control',
                       free: 'Not available',
                       pro: 'Coming soon',
-                      enterprise: 'Beta access',
                       freeIcon: 'lock',
-                      proIcon: 'info',
-                      enterpriseIcon: 'check'
+                      proIcon: 'info'
                     },
                     {
                       feature: 'Policy Compliance',
                       description: 'Automated compliance and governance',
                       free: 'Basic policies',
-                      pro: '100+ templates',
-                      enterprise: 'Custom policies',
+                      pro: 'Custom templates',
                       freeIcon: 'check',
-                      proIcon: 'check',
-                      enterpriseIcon: 'check'
+                      proIcon: 'check'
                     },
                     {
                       feature: 'Cross-Repo Risk Graphs',
                       description: 'Visual risk analysis across repositories',
                       free: 'Single repo',
                       pro: 'Multi-repo',
-                      enterprise: 'Organization-wide',
                       freeIcon: 'check',
-                      proIcon: 'check',
-                      enterpriseIcon: 'check'
+                      proIcon: 'check'
                     },
                     {
                       feature: 'Team Dashboards',
                       description: 'Real-time team performance metrics',
                       free: 'Individual only',
                       pro: 'Team insights',
-                      enterprise: 'Enterprise analytics',
                       freeIcon: 'check',
-                      proIcon: 'check',
-                      enterpriseIcon: 'check'
+                      proIcon: 'check'
                     }
                   ].map((row, index) => (
                     <tr key={index} className="border-b border-terminal-blue/10 hover:bg-terminal-blue/5 transition-colors">
@@ -335,14 +311,6 @@ const ProEdition = () => {
                           {row.proIcon === 'lock' && <Lock className="w-5 h-5 text-muted-foreground" />}
                           {row.proIcon === 'info' && <Info className="w-5 h-5 text-terminal-blue" />}
                           <span className="text-sm">{row.pro}</span>
-                        </div>
-                      </td>
-                      <td className="p-6 text-center">
-                        <div className="flex items-center justify-center gap-2">
-                          {row.enterpriseIcon === 'check' && <Check className="w-5 h-5 text-yellow-400" />}
-                          {row.enterpriseIcon === 'lock' && <Lock className="w-5 h-5 text-muted-foreground" />}
-                          {row.enterpriseIcon === 'info' && <Info className="w-5 h-5 text-yellow-400" />}
-                          <span className="text-sm">{row.enterprise}</span>
                         </div>
                       </td>
                     </tr>
@@ -376,27 +344,12 @@ const ProEdition = () => {
                   features: [
                     { name: 'Real-Time Security Scanning', value: '30,000+ rules', available: true },
                     { name: 'AI Auto-Patching', value: 'Full LLM fixes', available: true },
-                    { name: 'Self-Healing Remediation', value: 'Basic healing', available: true },
+                    { name: 'Self-Healing Remediation', value: 'Self Healing', available: true },
                     { name: 'Encrypted Vault Logging', value: 'Encrypted vault', available: true },
                     { name: 'Voice Commands', value: 'Coming soon', available: 'coming' },
-                    { name: 'Policy Compliance', value: '100+ templates', available: true },
+                    { name: 'Policy Compliance', value: 'Custom templates', available: true },
                     { name: 'Cross-Repo Risk Graphs', value: 'Multi-repo', available: true },
                     { name: 'Team Dashboards', value: 'Team insights', available: true }
-                  ]
-                },
-                {
-                  title: 'Enterprise',
-                  price: 'Custom Pricing',
-                  accent: 'yellow-400',
-                  features: [
-                    { name: 'Real-Time Security Scanning', value: '50,000+ rules + Custom', available: true },
-                    { name: 'AI Auto-Patching', value: 'Advanced ML + Custom', available: true },
-                    { name: 'Self-Healing Remediation', value: 'Advanced + Predictive', available: true },
-                    { name: 'Encrypted Vault Logging', value: 'Advanced encryption', available: true },
-                    { name: 'Voice Commands', value: 'Beta access', available: true },
-                    { name: 'Policy Compliance', value: 'Custom policies', available: true },
-                    { name: 'Cross-Repo Risk Graphs', value: 'Organization-wide', available: true },
-                    { name: 'Team Dashboards', value: 'Enterprise analytics', available: true }
                   ]
                 }
               ].map((edition, index) => (
