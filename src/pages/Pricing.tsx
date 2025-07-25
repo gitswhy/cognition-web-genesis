@@ -67,30 +67,16 @@ const Pricing = () => {
       type: 'core',
       features: [
         {
-          category: 'Security & Scanning',
+          category: 'Core Features',
           items: [
-            { name: 'Real-Time Security Scanning', included: true, description: 'Basic rules' },
+            { name: 'Real-Time Security Scanning', included: 'limited', description: 'Basic rules' },
             { name: 'AI Auto-Patching', included: false, description: 'Manual only' },
-            { name: 'Self-Healing Remediation', included: false },
-            { name: 'Encrypted Vault Logging', included: 'limited', description: 'Basic logs' }
-          ]
-        },
-        {
-          category: 'Development Tools',
-          items: [
-            { name: 'Voice Commands', included: false },
+            { name: 'Self-Healing Remediation', included: false, description: 'Not available' },
+            { name: 'Encrypted Vault Logging', included: 'limited', description: 'Basic logs' },
+            { name: 'Voice Commands', included: false, description: 'Not available' },
             { name: 'Policy Compliance', included: 'limited', description: 'Basic policies' },
             { name: 'Cross-Repo Risk Graphs', included: 'limited', description: 'Single repo' },
             { name: 'Team Dashboards', included: 'limited', description: 'Individual only' }
-          ]
-        },
-        {
-          category: 'Support & Community',
-          items: [
-            { name: 'Community support', included: true },
-            { name: 'Documentation access', included: true },
-            { name: 'Open source updates', included: true },
-            { name: 'Priority support', included: false }
           ]
         }
       ],
@@ -106,39 +92,16 @@ const Pricing = () => {
       type: 'pro',
       features: [
         {
-          category: 'Security & Scanning',
+          category: 'Core Features',
           items: [
             { name: 'Real-Time Security Scanning', included: true, description: '30,000+ rules' },
             { name: 'AI Auto-Patching', included: true, description: 'Full LLM fixes' },
             { name: 'Self-Healing Remediation', included: true, description: 'Self Healing' },
-            { name: 'Encrypted Vault Logging', included: true, description: 'Encrypted vault' }
-          ]
-        },
-        {
-          category: 'Development Tools',
-          items: [
+            { name: 'Encrypted Vault Logging', included: true, description: 'Encrypted vault' },
             { name: 'Voice Commands', included: 'limited', description: 'Coming soon' },
             { name: 'Policy Compliance', included: true, description: 'Custom templates' },
             { name: 'Cross-Repo Risk Graphs', included: true, description: 'Multi-repo' },
             { name: 'Team Dashboards', included: true, description: 'Team insights' }
-          ]
-        },
-        {
-          category: 'Team Collaboration',
-          items: [
-            { name: 'Slack/Discord integration', included: true },
-            { name: 'Pull request checks', included: true },
-            { name: 'Unlimited team members', included: true },
-            { name: 'Team performance metrics', included: true }
-          ]
-        },
-        {
-          category: 'Support & SLA',
-          items: [
-            { name: 'Priority email support', included: true },
-            { name: '99.9% uptime SLA', included: true },
-            { name: 'Onboarding assistance', included: true },
-            { name: 'Dedicated success manager', included: false }
           ]
         }
       ],
@@ -149,43 +112,20 @@ const Pricing = () => {
       id: 'enterprise',
       name: 'Enterprise',
       description: 'Complete DevSecOps platform for large organizations',
-      price: { monthly: 99, annual: 79 },
+      price: { monthly: 0, annual: 0 },
       type: 'pro',
       features: [
         {
-          category: 'Security & Scanning',
+          category: 'Core Features',
           items: [
-            { name: 'Real-Time Security Scanning', included: true, description: '50,000+ rules + Custom' },
-            { name: 'AI Auto-Patching', included: true, description: 'Advanced ML + Custom' },
-            { name: 'Self-Healing Remediation', included: true, description: 'Advanced + Predictive' },
-            { name: 'Encrypted Vault Logging', included: true, description: 'Advanced encryption' }
-          ]
-        },
-        {
-          category: 'Development Tools',
-          items: [
-            { name: 'Voice Commands', included: true, description: 'Beta access' },
-            { name: 'Policy Compliance', included: true, description: 'Custom policies' },
-            { name: 'Cross-Repo Risk Graphs', included: true, description: 'Organization-wide' },
-            { name: 'Team Dashboards', included: true, description: 'Enterprise analytics' }
-          ]
-        },
-        {
-          category: 'Enterprise Management',
-          items: [
-            { name: 'Multi-org management', included: true },
-            { name: 'Advanced analytics', included: true },
-            { name: 'API access & webhooks', included: true },
-            { name: 'Custom integrations', included: true }
-          ]
-        },
-        {
-          category: 'Premium Support',
-          items: [
-            { name: 'Dedicated success manager', included: true },
-            { name: '24/7 phone support', included: true },
-            { name: '99.99% uptime SLA', included: true },
-            { name: 'Custom training & onboarding', included: true }
+            { name: 'Real-Time Security Scanning', included: true, description: '30,000+ rules' },
+            { name: 'AI Auto-Patching', included: true, description: 'Full LLM fixes' },
+            { name: 'Self-Healing Remediation', included: true, description: 'Self Healing' },
+            { name: 'Encrypted Vault Logging', included: true, description: 'Encrypted vault' },
+            { name: 'Voice Commands', included: 'limited', description: 'Coming soon' },
+            { name: 'Policy Compliance', included: true, description: 'Custom templates' },
+            { name: 'Cross-Repo Risk Graphs', included: true, description: 'Multi-repo' },
+            { name: 'Team Dashboards', included: true, description: 'Team insights' }
           ]
         }
       ],
@@ -314,17 +254,22 @@ const Pricing = () => {
                     <div className="space-y-2">
                       <div className="flex items-baseline gap-2">
                         <span className="text-4xl font-bold font-mono">
-                          ${isAnnual ? tier.price.annual : tier.price.monthly}
+                          {tier.id === 'enterprise' ? 'Custom' : isAnnual ? `$${tier.price.annual}` : `$${tier.price.monthly}`}
                         </span>
-                        {tier.price.monthly > 0 && (
+                        {tier.price.monthly > 0 && tier.id !== 'enterprise' && (
                           <span className="text-muted-foreground">
                             /user/month
                           </span>
                         )}
                       </div>
-                      {tier.price.monthly > 0 && isAnnual && (
+                      {tier.price.monthly > 0 && isAnnual && tier.id !== 'enterprise' && (
                         <p className="text-sm text-muted-foreground">
                           Billed annually (${tier.price.annual * 12}/user/year)
+                        </p>
+                      )}
+                      {tier.id === 'enterprise' && (
+                        <p className="text-sm text-muted-foreground">
+                          Contact sales for pricing
                         </p>
                       )}
                     </div>
