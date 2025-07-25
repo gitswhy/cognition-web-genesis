@@ -72,79 +72,49 @@ const EnhancedWireframeShape = ({ position, geometryType, color, speed = 1, anim
 const EnhancedScene3D = () => {
   return (
     <>
-      {/* Hero section - top area, positioned to not interfere with text */}
+      {/* Simplified test shapes first - closer to camera */}
       <EnhancedWireframeShape 
-        position={[-6, 3, 2]} 
+        position={[-3, 2, 4]} 
         geometryType="cube"
         color="#00FF66" 
+        speed={1}
+        animationType="rotate"
+        scale={0.8}
+      />
+      
+      <EnhancedWireframeShape 
+        position={[3, 1, 4]} 
+        geometryType="sphere"
+        color="#00D4FF" 
         speed={0.8}
         animationType="float"
-        scale={0.4}
-      />
-      
-      <EnhancedWireframeShape 
-        position={[4, 4, 1]} 
-        geometryType="torus"
-        color="#00D4FF" 
-        speed={0.6}
-        animationType="spin"
-        scale={0.3}
-      />
-
-      {/* Left side shapes (half visible) - spread vertically */}
-      <EnhancedWireframeShape 
-        position={[-5, 0, 3]} 
-        geometryType="icosahedron"
-        color="#00FF66" 
-        speed={1.2}
-        animationType="wobble"
-        scale={0.5}
-      />
-      
-      <EnhancedWireframeShape 
-        position={[-5.5, -3, 2]} 
-        geometryType="tetrahedron"
-        color="#00D4FF" 
-        speed={0.9}
-        animationType="rotate"
         scale={0.6}
       />
 
-      {/* Features section area - middle scattered */}
       <EnhancedWireframeShape 
-        position={[1, 1, 1]} 
-        geometryType="sphere"
-        color="#4ECDC4" 
-        speed={0.5}
-        animationType="orbit"
-        scale={0.3}
-      />
-
-      <EnhancedWireframeShape 
-        position={[-2, -1, 3]} 
-        geometryType="dodecahedron"
-        color="#9B59B6" 
-        speed={1.1}
-        animationType="float"
-        scale={0.4}
-      />
-
-      {/* Timeline/CTA section area - bottom scattered */}
-      <EnhancedWireframeShape 
-        position={[2, -4, 2]} 
-        geometryType="cone"
-        color="#E74C3C" 
-        speed={0.7}
+        position={[0, -1, 5]} 
+        geometryType="torus"
+        color="#FF6B6B" 
+        speed={1.2}
         animationType="spin"
         scale={0.5}
       />
+      
+      <EnhancedWireframeShape 
+        position={[-2, -3, 4]} 
+        geometryType="icosahedron"
+        color="#4ECDC4" 
+        speed={0.9}
+        animationType="wobble"
+        scale={0.7}
+      />
 
       <EnhancedWireframeShape 
-        position={[-1, -5, 1]} 
-        geometryType="octahedron"
-        color="#F39C12" 
-        speed={1.3}
-        animationType="wobble"
+        position={[2, 0, 5]} 
+        geometryType="tetrahedron"
+        color="#9B59B6" 
+        speed={1.1}
+        animationType="orbit"
         scale={0.4}
       />
     </>
@@ -154,16 +124,16 @@ const EnhancedScene3D = () => {
 // Enhanced Wireframe3D Component
 const Wireframe3D = () => {
   return (
-    <div className="absolute inset-0 opacity-60">
+    <div className="absolute inset-0 opacity-80 pointer-events-none">
       <Canvas
-        camera={{ position: [0, 0, 8], fov: 50 }}
+        camera={{ position: [0, 0, 8], fov: 60 }}
         style={{ background: 'transparent' }}
         gl={{ 
-          antialias: false, // Disable antialiasing for better performance
+          antialias: true,
           alpha: true,
           powerPreference: "high-performance"
         }}
-        dpr={[1, 1.5]} // Limit device pixel ratio for performance
+        dpr={[1, 2]}
         performance={{ min: 0.5 }} // Auto-adjust quality based on performance
       >
         <EnhancedScene3D />
