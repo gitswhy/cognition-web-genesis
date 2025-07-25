@@ -69,27 +69,27 @@ const Features = () => {
   ];
 
   const FeatureCard = ({ feature, isPro = false }: { feature: any, isPro?: boolean }) => (
-    <div className={`group relative p-6 rounded-lg border transition-all duration-300 hover:scale-105 ${
+    <div className={`group relative p-4 sm:p-5 lg:p-6 rounded-lg border transition-all duration-300 hover:scale-105 ${
       isPro 
         ? 'border-terminal-blue/20 bg-terminal-surface/50 hover:border-terminal-blue/40 blue-glow' 
         : 'border-terminal-green/20 bg-terminal-surface/50 hover:border-terminal-green/40 terminal-glow'
     }`}>
-      <div className={`inline-flex p-3 rounded-lg mb-4 ${
+      <div className={`inline-flex p-2 sm:p-2.5 lg:p-3 rounded-lg mb-3 sm:mb-4 ${
         feature.color === 'terminal-blue' 
           ? 'bg-terminal-blue/10 text-terminal-blue' 
           : 'bg-terminal-green/10 text-terminal-green'
       }`}>
-        <feature.icon className="h-6 w-6" />
+        <feature.icon className="h-5 w-5 sm:h-6 sm:w-6" />
       </div>
-      <h3 className="text-xl font-semibold mb-3 text-foreground group-hover:text-terminal-green transition-colors">
+      <h3 className="text-lg sm:text-xl font-semibold mb-2 sm:mb-3 text-foreground group-hover:text-terminal-green transition-colors">
         {feature.title}
       </h3>
-      <p className="text-foreground/70 leading-relaxed">
+      <p className="text-sm sm:text-base text-foreground/70 leading-relaxed">
         {feature.description}
       </p>
       {isPro && (
-        <div className="absolute top-4 right-4">
-          <span className="px-2 py-1 text-xs font-medium bg-terminal-blue/20 text-terminal-blue rounded-full">
+        <div className="absolute top-3 sm:top-4 right-3 sm:right-4">
+          <span className="px-1.5 sm:px-2 py-0.5 sm:py-1 text-xs font-medium bg-terminal-blue/20 text-terminal-blue rounded-full">
             PRO
           </span>
         </div>
@@ -98,7 +98,7 @@ const Features = () => {
   );
 
   return (
-    <section className="py-20 relative overflow-hidden">
+    <section className="py-12 sm:py-16 lg:py-20 relative overflow-hidden">
       {/* Simplified background for better performance */}
       <div className="absolute inset-0 opacity-20">
         <ParallaxGrid 
@@ -109,18 +109,18 @@ const Features = () => {
         />
       </div>
       
-      <div className="container mx-auto px-4 lg:px-20 relative z-20">
+      <div className="container mx-auto px-3 sm:px-4 lg:px-8 xl:px-20 relative z-20">
         {/* Core Features */}
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
+        <div className="text-center mb-10 sm:mb-12 lg:mb-16">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4 text-foreground px-4">
             Open Core <span className="text-terminal-green">Features</span>
           </h2>
-          <p className="text-xl text-foreground/70 max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg lg:text-xl text-foreground/70 max-w-3xl mx-auto px-4">
             Start with powerful core features that revolutionize your development workflow
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-12 sm:mb-16 lg:mb-20">
           {coreFeatures.map((feature, index) => (
             <FeatureCard key={index} feature={feature} />
           ))}
@@ -134,16 +134,16 @@ const Features = () => {
         </div>
 
         {/* Pro Features */}
-        <div className="text-center mb-16 mt-32">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
+        <div className="text-center mb-10 sm:mb-12 lg:mb-16 mt-16 sm:mt-24 lg:mt-32">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4 text-foreground px-4">
             Pro Edition <span className="text-terminal-blue">Features</span>
           </h2>
-          <p className="text-xl text-foreground/70 max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg lg:text-xl text-foreground/70 max-w-3xl mx-auto px-4">
             Unlock advanced capabilities for enterprise teams and complex workflows
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-12 sm:mb-16 lg:mb-20">
           {proFeatures.map((feature, index) => (
             <FeatureCard key={index} feature={feature} isPro />
           ))}

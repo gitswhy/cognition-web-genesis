@@ -503,7 +503,7 @@
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
-  /* Performance optimizations for mobile */
+  /* Mobile-specific optimizations */
   @media (max-width: 768px) {
     .parallax-container {
       transform: none !important;
@@ -511,6 +511,46 @@
     
     .particle-system {
       display: none;
+    }
+    
+    /* Optimize touch targets */
+    .touch-target {
+      min-height: 44px;
+      min-width: 44px;
+    }
+    
+    /* Reduce complex animations on mobile */
+    .animate-glow-pulse,
+    .animate-particle-float,
+    .animate-particle-glow {
+      animation: none;
+    }
+    
+    /* Optimize font sizes for mobile readability */
+    .mobile-text-sm {
+      font-size: 0.875rem;
+      line-height: 1.25rem;
+    }
+    
+    .mobile-text-base {
+      font-size: 1rem;
+      line-height: 1.5rem;
+    }
+    
+    /* Improved mobile spacing */
+    .mobile-space-y-3 > * + * {
+      margin-top: 0.75rem;
+    }
+    
+    .mobile-space-y-4 > * + * {
+      margin-top: 1rem;
+    }
+  }
+  
+  /* Tablet specific optimizations */
+  @media (min-width: 769px) and (max-width: 1024px) {
+    .tablet-grid-cols-2 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
     }
   }
 

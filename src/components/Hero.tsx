@@ -58,19 +58,19 @@ const Hero = () => {
   }, [currentLine]);
 
   return (
-    <section className="relative py-12 md:py-16 lg:py-20 overflow-hidden">
-      <div className="container mx-auto px-4 lg:px-8 xl:px-12 2xl:px-20 relative z-10 max-w-7xl">
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 xl:gap-16 items-center">
+    <section className="relative py-8 sm:py-12 md:py-16 lg:py-20 overflow-hidden">
+      <div className="container mx-auto px-3 sm:px-4 lg:px-8 xl:px-12 2xl:px-20 relative z-10 max-w-7xl">
+        <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 xl:gap-16 items-center">
           {/* Left Side - Headlines */}
-          <div className="space-y-6 lg:space-y-8">
+          <div className="space-y-4 sm:space-y-6 lg:space-y-8">
             {/* Badge */}
-            <div className="inline-flex items-center space-x-2 bg-terminal-green/10 border border-terminal-green/20 rounded-md px-3 py-1.5">
-              <FileText className="h-4 w-4 text-terminal-green" />
-              <span className="text-sm font-medium text-terminal-green font-mono">Apache licensed</span>
+            <div className="inline-flex items-center space-x-2 bg-terminal-green/10 border border-terminal-green/20 rounded-md px-2.5 sm:px-3 py-1.5">
+              <FileText className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-terminal-green" />
+              <span className="text-xs sm:text-sm font-medium text-terminal-green font-mono">Apache licensed</span>
             </div>
 
-            <div className="space-y-4 lg:space-y-6">
-              <h1 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold leading-tight">
+            <div className="space-y-3 sm:space-y-4 lg:space-y-6">
+              <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold leading-tight">
                 <span className="text-foreground block">
                   {currentLine === 0 ? typedText : lines[0]}
                   {currentLine === 0 && typedText.length < lines[0].length && <span className="animate-pulse text-terminal-green">|</span>}
@@ -81,7 +81,7 @@ const Hero = () => {
                 </span>
               </h1>
               
-              <p className="text-sm md:text-base lg:text-lg text-foreground/80 max-w-xl leading-relaxed">
+              <p className="text-sm sm:text-base lg:text-lg text-foreground/80 max-w-xl leading-relaxed">
                 {typedSubhead}
                 {typedSubhead.length < subhead.length && typedSubhead.length > 0 && (
                   <span className="animate-pulse text-terminal-green">|</span>
@@ -90,34 +90,34 @@ const Hero = () => {
             </div>
 
             {/* CTAs - Enhanced with better hover effects */}
-            <div className="flex flex-col sm:flex-row gap-3 pt-4 lg:pt-6">
-              <Button variant="terminal" size="lg" className="min-w-[160px] lg:min-w-[180px] hover-lift terminal-glow neon-button">
+            <div className="flex flex-col sm:flex-row gap-2.5 sm:gap-3 pt-3 sm:pt-4 lg:pt-6">
+              <Button variant="terminal" size="default" className="w-full sm:w-auto sm:min-w-[140px] lg:min-w-[160px] hover-lift terminal-glow neon-button text-sm sm:text-base">
                 Start Free Trial
-                <ChevronRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                <ChevronRight className="h-3.5 w-3.5 sm:h-4 sm:w-4 transition-transform group-hover:translate-x-1" />
               </Button>
-              <Button variant="terminal-outline-blue" size="lg" className="min-w-[160px] lg:min-w-[180px] hover-lift blue-glow neon-button">
-                <Play className="h-4 w-4 transition-transform group-hover:scale-110" />
+              <Button variant="terminal-outline-blue" size="default" className="w-full sm:w-auto sm:min-w-[140px] lg:min-w-[160px] hover-lift blue-glow neon-button text-sm sm:text-base">
+                <Play className="h-3.5 w-3.5 sm:h-4 sm:w-4 transition-transform group-hover:scale-110" />
                 Watch Demo
               </Button>
             </div>
 
             {/* Social Proof */}
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-6 pt-4 lg:pt-6 text-xs md:text-sm text-foreground/70">
-              <div className="flex items-center space-x-2">
-                <div className="w-3 h-3 rounded-full bg-terminal-green flex items-center justify-center">
-                  <Check className="w-2 h-2 text-terminal-bg" />
+            <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 lg:gap-6 pt-3 sm:pt-4 lg:pt-6 text-xs sm:text-sm text-foreground/70">
+              <div className="flex items-center space-x-1.5 sm:space-x-2">
+                <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-terminal-green flex items-center justify-center flex-shrink-0">
+                  <Check className="w-1.5 h-1.5 sm:w-2 sm:h-2 text-terminal-bg" />
                 </div>
                 <span>No credit card required</span>
               </div>
-              <div className="flex items-center space-x-2">
-                <div className="w-3 h-3 rounded-full bg-terminal-green flex items-center justify-center">
-                  <Check className="w-2 h-2 text-terminal-bg" />
+              <div className="flex items-center space-x-1.5 sm:space-x-2">
+                <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-terminal-green flex items-center justify-center flex-shrink-0">
+                  <Check className="w-1.5 h-1.5 sm:w-2 sm:h-2 text-terminal-bg" />
                 </div>
                 <span>Open source core</span>
               </div>
-              <div className="flex items-center space-x-2">
-                <div className="w-3 h-3 rounded-full bg-terminal-green flex items-center justify-center">
-                  <Check className="w-2 h-2 text-terminal-bg" />
+              <div className="flex items-center space-x-1.5 sm:space-x-2">
+                <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-terminal-green flex items-center justify-center flex-shrink-0">
+                  <Check className="w-1.5 h-1.5 sm:w-2 sm:h-2 text-terminal-bg" />
                 </div>
                 <span>Enterprise ready</span>
               </div>
@@ -126,26 +126,26 @@ const Hero = () => {
 
           {/* Right Side - Live Terminal - Enhanced with better animations */}
           <StaggeredFadeIn delay={0.3} staggerDelay={0.4}>
-            <div className="relative hover-lift max-w-full">
+            <div className="relative hover-lift max-w-full mt-6 lg:mt-0">
               <div className="bg-terminal-surface border border-terminal-green/20 rounded-lg code-matrix shadow-2xl overflow-hidden hover:shadow-3xl transition-all duration-500 max-w-full">
                 {/* Terminal Header */}
-                <div className="flex items-center justify-between bg-terminal-bg/50 px-4 py-2 border-b border-terminal-green/20">
+                <div className="flex items-center justify-between bg-terminal-bg/50 px-3 sm:px-4 py-2 border-b border-terminal-green/20">
                   <div className="flex items-center space-x-2">
-                    <div className="flex space-x-1.5">
-                      <div className="w-2.5 h-2.5 rounded-full bg-red-500"></div>
-                      <div className="w-2.5 h-2.5 rounded-full bg-yellow-500"></div>
-                      <div className="w-2.5 h-2.5 rounded-full bg-green-500"></div>
+                    <div className="flex space-x-1">
+                      <div className="w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-red-500"></div>
+                      <div className="w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-yellow-500"></div>
+                      <div className="w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-green-500"></div>
                     </div>
-                    <span className="text-xs text-foreground/60 font-mono ml-3">gitswhy@production:~</span>
+                    <span className="text-xs text-foreground/60 font-mono ml-2 sm:ml-3 hidden sm:inline">gitswhy@production:~</span>
                   </div>
-                  <div className="flex items-center space-x-2">
-                    <Activity className="h-3 w-3 text-terminal-green" />
+                  <div className="flex items-center space-x-1.5 sm:space-x-2">
+                    <Activity className="h-2.5 w-2.5 sm:h-3 sm:w-3 text-terminal-green" />
                     <span className="text-xs text-terminal-green font-mono">Live</span>
                   </div>
                 </div>
 
                 {/* Terminal Content */}
-                <div className="p-4 font-mono text-xs md:text-sm space-y-2 min-h-[240px] md:min-h-[280px]">
+                <div className="p-3 sm:p-4 font-mono text-xs sm:text-sm space-y-1.5 sm:space-y-2 min-h-[200px] sm:min-h-[240px] md:min-h-[280px]">
                   <div className="text-terminal-green">
                     $ gitswhy init --production
                   </div>
@@ -193,8 +193,8 @@ const Hero = () => {
         </div>
         
         {/* Tagline positioned at bottom of hero section */}
-        <div className="text-center mt-12 lg:mt-16">
-          <p className="text-lg md:text-xl lg:text-2xl font-medium text-foreground">
+        <div className="text-center mt-8 sm:mt-12 lg:mt-16">
+          <p className="text-base sm:text-lg md:text-xl lg:text-2xl font-medium text-foreground px-4">
             Your second brain for secure, <span className="text-terminal-green">self‑healing</span> code.
           </p>
         </div>
