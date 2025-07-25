@@ -305,6 +305,35 @@ const Pricing = () => {
       {/* ROI Calculator */}
       <ROICalculator />
 
+      {/* Enterprise Section */}
+      <section className="py-16 bg-terminal-surface/10">
+        <div className="container mx-auto px-4">
+          <div className="max-w-2xl mx-auto text-center">
+            <Card className="bg-gradient-to-br from-terminal-blue/10 to-terminal-green/10 backdrop-blur-sm border-terminal-blue/30">
+              <CardContent className="p-8 text-center">
+                <div className="space-y-6">
+                  <div>
+                    <h3 className="text-2xl font-bold mb-2">Enterprise</h3>
+                  </div>
+                  
+                  <div className="space-y-2">
+                    <div className="text-4xl font-bold font-mono">Custom</div>
+                  </div>
+                  
+                  <Button 
+                    size="lg" 
+                    className="bg-terminal-blue hover:bg-terminal-blue/90 text-white w-full"
+                  >
+                    Contact Us
+                    <ArrowRight className="ml-2 w-4 h-4" />
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
       {/* FAQ Section */}
       <section className="py-24">
         <div className="container mx-auto px-4">
@@ -348,75 +377,6 @@ const Pricing = () => {
         </div>
       </section>
 
-      {/* Enterprise Section */}
-      <section className="py-16 bg-terminal-surface/10">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl font-bold font-mono mb-4">
-              Need Something More?
-            </h2>
-            <p className="text-xl text-muted-foreground mb-12">
-              Enterprise solutions with custom features and dedicated support
-            </p>
-            
-            <Card className="bg-gradient-to-br from-terminal-blue/10 to-terminal-green/10 backdrop-blur-sm border-terminal-blue/30 max-w-2xl mx-auto">
-              <CardContent className="p-8 text-center">
-                <div className="space-y-6">
-                  <div>
-                    <h3 className="text-2xl font-bold mb-2">Enterprise</h3>
-                    <p className="text-muted-foreground">Complete DevSecOps platform for large organizations</p>
-                  </div>
-                  
-                  <div className="space-y-2">
-                    <div className="text-4xl font-bold font-mono">Custom</div>
-                    <p className="text-sm text-muted-foreground">Contact sales for pricing</p>
-                  </div>
-                  
-                  <div className="py-6">
-                    <div className="text-lg font-semibold text-terminal-blue mb-4">
-                      Everything in Pro, plus:
-                    </div>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm">
-                      <div className="flex items-center gap-2">
-                        <Check className="w-4 h-4 text-terminal-green" />
-                        <span>Custom integrations</span>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <Check className="w-4 h-4 text-terminal-green" />
-                        <span>Dedicated support</span>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <Check className="w-4 h-4 text-terminal-green" />
-                        <span>Advanced analytics</span>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <Check className="w-4 h-4 text-terminal-green" />
-                        <span>Custom SLA</span>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <Check className="w-4 h-4 text-terminal-green" />
-                        <span>Priority feature requests</span>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <Check className="w-4 h-4 text-terminal-green" />
-                        <span>Training & onboarding</span>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  <Button 
-                    size="lg" 
-                    className="bg-terminal-blue hover:bg-terminal-blue/90 text-white w-full"
-                  >
-                    Contact Us
-                    <ArrowRight className="ml-2 w-4 h-4" />
-                  </Button>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
 
       {/* CTA Section */}
       <section className="py-24">
