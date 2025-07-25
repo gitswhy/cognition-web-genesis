@@ -61,7 +61,7 @@ const CoreCapabilities3D = () => {
       >
         {/* Just 2 strategically placed shapes on the right */}
         <CoreCapabilitiesShape 
-          position={[5.5, 1, 0]} 
+          position={[5.5, 1, 2]} 
           geometryType="icosahedron"
           color="#00FF66"
           speed={0.8}
@@ -70,7 +70,7 @@ const CoreCapabilities3D = () => {
         />
         
         <CoreCapabilitiesShape 
-          position={[6, -2, -1]} 
+          position={[6, -2, 1]} 
           geometryType="torus"
           color="#00D4FF"
           speed={1.1}

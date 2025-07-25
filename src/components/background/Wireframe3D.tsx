@@ -74,7 +74,7 @@ const EnhancedScene3D = () => {
     <>
       {/* Hero section - top area, positioned to not interfere with text */}
       <EnhancedWireframeShape 
-        position={[-6, 3, -2]} 
+        position={[-6, 3, 2]} 
         geometryType="cube"
         color="#00FF66" 
         speed={0.8}
@@ -83,7 +83,7 @@ const EnhancedScene3D = () => {
       />
       
       <EnhancedWireframeShape 
-        position={[4, 4, -3]} 
+        position={[4, 4, 1]} 
         geometryType="torus"
         color="#00D4FF" 
         speed={0.6}
@@ -93,7 +93,7 @@ const EnhancedScene3D = () => {
 
       {/* Left side shapes (half visible) - spread vertically */}
       <EnhancedWireframeShape 
-        position={[-5, 0, -1]} 
+        position={[-5, 0, 3]} 
         geometryType="icosahedron"
         color="#00FF66" 
         speed={1.2}
@@ -102,7 +102,7 @@ const EnhancedScene3D = () => {
       />
       
       <EnhancedWireframeShape 
-        position={[-5.5, -3, 1]} 
+        position={[-5.5, -3, 2]} 
         geometryType="tetrahedron"
         color="#00D4FF" 
         speed={0.9}
@@ -112,7 +112,7 @@ const EnhancedScene3D = () => {
 
       {/* Features section area - middle scattered */}
       <EnhancedWireframeShape 
-        position={[1, 1, -4]} 
+        position={[1, 1, 1]} 
         geometryType="sphere"
         color="#4ECDC4" 
         speed={0.5}
@@ -140,7 +140,7 @@ const EnhancedScene3D = () => {
       />
 
       <EnhancedWireframeShape 
-        position={[-1, -5, -1]} 
+        position={[-1, -5, 1]} 
         geometryType="octahedron"
         color="#F39C12" 
         speed={1.3}
@@ -154,7 +154,7 @@ const EnhancedScene3D = () => {
 // Enhanced Wireframe3D Component
 const Wireframe3D = () => {
   return (
-    <div className="absolute inset-0 opacity-40">
+    <div className="absolute inset-0 opacity-60">
       <Canvas
         camera={{ position: [0, 0, 8], fov: 50 }}
         style={{ background: 'transparent' }}
