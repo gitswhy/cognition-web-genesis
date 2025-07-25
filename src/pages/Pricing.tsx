@@ -107,30 +107,6 @@ const Pricing = () => {
       ],
       cta: 'Start Team Trial',
       ctaVariant: 'default'
-    },
-    {
-      id: 'enterprise',
-      name: 'Enterprise',
-      description: 'Complete DevSecOps platform for large organizations',
-      price: { monthly: 0, annual: 0 },
-      type: 'pro',
-      features: [
-        {
-          category: 'Core Features',
-          items: [
-            { name: 'Real-Time Security Scanning', included: true, description: '30,000+ rules' },
-            { name: 'AI Auto-Patching', included: true, description: 'Full LLM fixes' },
-            { name: 'Self-Healing Remediation', included: true, description: 'Self Healing' },
-            { name: 'Encrypted Vault Logging', included: true, description: 'Encrypted vault' },
-            { name: 'Voice Commands', included: 'limited', description: 'Coming soon' },
-            { name: 'Policy Compliance', included: true, description: 'Custom templates' },
-            { name: 'Cross-Repo Risk Graphs', included: true, description: 'Multi-repo' },
-            { name: 'Team Dashboards', included: true, description: 'Team insights' }
-          ]
-        }
-      ],
-      cta: 'Contact Sales',
-      ctaVariant: 'default'
     }
   ];
 
@@ -226,7 +202,7 @@ const Pricing = () => {
       {/* Pricing Cards */}
       <section className="py-24">
         <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
             {pricingTiers.map((tier, index) => (
               <Card 
                 key={tier.id} 
@@ -254,22 +230,17 @@ const Pricing = () => {
                     <div className="space-y-2">
                       <div className="flex items-baseline gap-2">
                         <span className="text-4xl font-bold font-mono">
-                          {tier.id === 'enterprise' ? 'Custom' : isAnnual ? `$${tier.price.annual}` : `$${tier.price.monthly}`}
+                          ${isAnnual ? tier.price.annual : tier.price.monthly}
                         </span>
-                        {tier.price.monthly > 0 && tier.id !== 'enterprise' && (
+                        {tier.price.monthly > 0 && (
                           <span className="text-muted-foreground">
                             /user/month
                           </span>
                         )}
                       </div>
-                      {tier.price.monthly > 0 && isAnnual && tier.id !== 'enterprise' && (
+                      {tier.price.monthly > 0 && isAnnual && (
                         <p className="text-sm text-muted-foreground">
                           Billed annually (${tier.price.annual * 12}/user/year)
-                        </p>
-                      )}
-                      {tier.id === 'enterprise' && (
-                        <p className="text-sm text-muted-foreground">
-                          Contact sales for pricing
                         </p>
                       )}
                     </div>
@@ -373,6 +344,76 @@ const Pricing = () => {
                 </Card>
               ))}
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Enterprise Section */}
+      <section className="py-16 bg-terminal-surface/10">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-3xl font-bold font-mono mb-4">
+              Need Something More?
+            </h2>
+            <p className="text-xl text-muted-foreground mb-12">
+              Enterprise solutions with custom features and dedicated support
+            </p>
+            
+            <Card className="bg-gradient-to-br from-terminal-blue/10 to-terminal-green/10 backdrop-blur-sm border-terminal-blue/30 max-w-2xl mx-auto">
+              <CardContent className="p-8 text-center">
+                <div className="space-y-6">
+                  <div>
+                    <h3 className="text-2xl font-bold mb-2">Enterprise</h3>
+                    <p className="text-muted-foreground">Complete DevSecOps platform for large organizations</p>
+                  </div>
+                  
+                  <div className="space-y-2">
+                    <div className="text-4xl font-bold font-mono">Custom</div>
+                    <p className="text-sm text-muted-foreground">Contact sales for pricing</p>
+                  </div>
+                  
+                  <div className="py-6">
+                    <div className="text-lg font-semibold text-terminal-blue mb-4">
+                      Everything in Pro, plus:
+                    </div>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm">
+                      <div className="flex items-center gap-2">
+                        <Check className="w-4 h-4 text-terminal-green" />
+                        <span>Custom integrations</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <Check className="w-4 h-4 text-terminal-green" />
+                        <span>Dedicated support</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <Check className="w-4 h-4 text-terminal-green" />
+                        <span>Advanced analytics</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <Check className="w-4 h-4 text-terminal-green" />
+                        <span>Custom SLA</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <Check className="w-4 h-4 text-terminal-green" />
+                        <span>Priority feature requests</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <Check className="w-4 h-4 text-terminal-green" />
+                        <span>Training & onboarding</span>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <Button 
+                    size="lg" 
+                    className="bg-terminal-blue hover:bg-terminal-blue/90 text-white w-full"
+                  >
+                    Contact Us
+                    <ArrowRight className="ml-2 w-4 h-4" />
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
