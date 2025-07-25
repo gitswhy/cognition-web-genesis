@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Lock, Shield, Zap, Users, AlertTriangle, FileCode, TrendingUp, BarChart3, PieChart, Activity, ArrowRight, Star, Check, Mic, Play } from 'lucide-react';
+import { Lock, Shield, Zap, Users, AlertTriangle, FileCode, TrendingUp, BarChart3, PieChart, Activity, ArrowRight, Star, Check, Mic, Play, X, Info } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
@@ -187,7 +187,249 @@ const ProEdition = () => {
       </section>
 
       {/* Edition Comparison Table */}
-      <EditionComparisonTable />
+      <section className="py-24">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold font-mono mb-4">
+              Choose Your Edition
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Compare features across Free Core, Pro, and Enterprise editions
+            </p>
+          </div>
+          
+          <div className="max-w-6xl mx-auto">
+            {/* Desktop Table */}
+            <div className="hidden lg:block overflow-hidden rounded-xl border border-terminal-blue/20 bg-terminal-surface/30 backdrop-blur-sm">
+              <table className="w-full" role="table" aria-label="Edition comparison table">
+                <thead>
+                  <tr className="border-b border-terminal-blue/20">
+                    <th className="p-6 text-left font-mono text-lg">Features</th>
+                    <th className="p-6 text-center font-mono text-lg">
+                      <div className="space-y-2">
+                        <div className="text-terminal-green">Free Core</div>
+                        <Badge variant="secondary" className="bg-terminal-green/20 text-terminal-green">
+                          Open Source
+                        </Badge>
+                      </div>
+                    </th>
+                    <th className="p-6 text-center font-mono text-lg">
+                      <div className="space-y-2">
+                        <div className="text-terminal-blue">Pro Edition</div>
+                        <Badge variant="secondary" className="bg-terminal-blue/20 text-terminal-blue">
+                          $49/month
+                        </Badge>
+                      </div>
+                    </th>
+                    <th className="p-6 text-center font-mono text-lg">
+                      <div className="space-y-2">
+                        <div className="text-yellow-400">Enterprise</div>
+                        <Badge variant="secondary" className="bg-yellow-400/20 text-yellow-400">
+                          Custom Pricing
+                        </Badge>
+                      </div>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {[
+                    {
+                      feature: 'Real-Time Security Scanning',
+                      description: 'Continuous monitoring for vulnerabilities and threats',
+                      free: 'Basic rules',
+                      pro: '30,000+ rules',
+                      enterprise: '50,000+ rules + Custom',
+                      freeIcon: 'check',
+                      proIcon: 'check',
+                      enterpriseIcon: 'check'
+                    },
+                    {
+                      feature: 'AI Auto-Patching',
+                      description: 'AI-powered automatic fixes and suggestions',
+                      free: 'Manual only',
+                      pro: 'Full LLM fixes',
+                      enterprise: 'Advanced ML + Custom',
+                      freeIcon: 'lock',
+                      proIcon: 'check',
+                      enterpriseIcon: 'check'
+                    },
+                    {
+                      feature: 'Self-Healing Remediation',
+                      description: 'Automatic code healing and recovery',
+                      free: 'Not available',
+                      pro: 'Basic healing',
+                      enterprise: 'Advanced + Predictive',
+                      freeIcon: 'lock',
+                      proIcon: 'check',
+                      enterpriseIcon: 'check'
+                    },
+                    {
+                      feature: 'Encrypted Vault Logging',
+                      description: 'Secure encrypted audit logs and compliance',
+                      free: 'Basic logs',
+                      pro: 'Encrypted vault',
+                      enterprise: 'Advanced encryption',
+                      freeIcon: 'check',
+                      proIcon: 'check',
+                      enterpriseIcon: 'check'
+                    },
+                    {
+                      feature: 'Voice Commands',
+                      description: 'Hands-free DevSecOps workflow control',
+                      free: 'Not available',
+                      pro: 'Coming soon',
+                      enterprise: 'Beta access',
+                      freeIcon: 'lock',
+                      proIcon: 'info',
+                      enterpriseIcon: 'check'
+                    },
+                    {
+                      feature: 'Policy Compliance',
+                      description: 'Automated compliance and governance',
+                      free: 'Basic policies',
+                      pro: '100+ templates',
+                      enterprise: 'Custom policies',
+                      freeIcon: 'check',
+                      proIcon: 'check',
+                      enterpriseIcon: 'check'
+                    },
+                    {
+                      feature: 'Cross-Repo Risk Graphs',
+                      description: 'Visual risk analysis across repositories',
+                      free: 'Single repo',
+                      pro: 'Multi-repo',
+                      enterprise: 'Organization-wide',
+                      freeIcon: 'check',
+                      proIcon: 'check',
+                      enterpriseIcon: 'check'
+                    },
+                    {
+                      feature: 'Team Dashboards',
+                      description: 'Real-time team performance metrics',
+                      free: 'Individual only',
+                      pro: 'Team insights',
+                      enterprise: 'Enterprise analytics',
+                      freeIcon: 'check',
+                      proIcon: 'check',
+                      enterpriseIcon: 'check'
+                    }
+                  ].map((row, index) => (
+                    <tr key={index} className="border-b border-terminal-blue/10 hover:bg-terminal-blue/5 transition-colors">
+                      <td className="p-6">
+                        <div className="space-y-1">
+                          <div className="font-medium">{row.feature}</div>
+                          <div className="text-sm text-muted-foreground">{row.description}</div>
+                        </div>
+                      </td>
+                      <td className="p-6 text-center">
+                        <div className="flex items-center justify-center gap-2">
+                          {row.freeIcon === 'check' && <Check className="w-5 h-5 text-terminal-green" />}
+                          {row.freeIcon === 'lock' && <Lock className="w-5 h-5 text-muted-foreground" />}
+                          {row.freeIcon === 'info' && <Info className="w-5 h-5 text-muted-foreground" />}
+                          <span className="text-sm">{row.free}</span>
+                        </div>
+                      </td>
+                      <td className="p-6 text-center">
+                        <div className="flex items-center justify-center gap-2">
+                          {row.proIcon === 'check' && <Check className="w-5 h-5 text-terminal-blue" />}
+                          {row.proIcon === 'lock' && <Lock className="w-5 h-5 text-muted-foreground" />}
+                          {row.proIcon === 'info' && <Info className="w-5 h-5 text-terminal-blue" />}
+                          <span className="text-sm">{row.pro}</span>
+                        </div>
+                      </td>
+                      <td className="p-6 text-center">
+                        <div className="flex items-center justify-center gap-2">
+                          {row.enterpriseIcon === 'check' && <Check className="w-5 h-5 text-yellow-400" />}
+                          {row.enterpriseIcon === 'lock' && <Lock className="w-5 h-5 text-muted-foreground" />}
+                          {row.enterpriseIcon === 'info' && <Info className="w-5 h-5 text-yellow-400" />}
+                          <span className="text-sm">{row.enterprise}</span>
+                        </div>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            
+            {/* Mobile Cards */}
+            <div className="lg:hidden space-y-6">
+              {[
+                {
+                  title: 'Free Core',
+                  price: 'Open Source',
+                  accent: 'terminal-green',
+                  features: [
+                    { name: 'Real-Time Security Scanning', value: 'Basic rules', available: true },
+                    { name: 'AI Auto-Patching', value: 'Manual only', available: false },
+                    { name: 'Self-Healing Remediation', value: 'Not available', available: false },
+                    { name: 'Encrypted Vault Logging', value: 'Basic logs', available: true },
+                    { name: 'Voice Commands', value: 'Not available', available: false },
+                    { name: 'Policy Compliance', value: 'Basic policies', available: true },
+                    { name: 'Cross-Repo Risk Graphs', value: 'Single repo', available: true },
+                    { name: 'Team Dashboards', value: 'Individual only', available: true }
+                  ]
+                },
+                {
+                  title: 'Pro Edition',
+                  price: '$49/month',
+                  accent: 'terminal-blue',
+                  features: [
+                    { name: 'Real-Time Security Scanning', value: '30,000+ rules', available: true },
+                    { name: 'AI Auto-Patching', value: 'Full LLM fixes', available: true },
+                    { name: 'Self-Healing Remediation', value: 'Basic healing', available: true },
+                    { name: 'Encrypted Vault Logging', value: 'Encrypted vault', available: true },
+                    { name: 'Voice Commands', value: 'Coming soon', available: 'coming' },
+                    { name: 'Policy Compliance', value: '100+ templates', available: true },
+                    { name: 'Cross-Repo Risk Graphs', value: 'Multi-repo', available: true },
+                    { name: 'Team Dashboards', value: 'Team insights', available: true }
+                  ]
+                },
+                {
+                  title: 'Enterprise',
+                  price: 'Custom Pricing',
+                  accent: 'yellow-400',
+                  features: [
+                    { name: 'Real-Time Security Scanning', value: '50,000+ rules + Custom', available: true },
+                    { name: 'AI Auto-Patching', value: 'Advanced ML + Custom', available: true },
+                    { name: 'Self-Healing Remediation', value: 'Advanced + Predictive', available: true },
+                    { name: 'Encrypted Vault Logging', value: 'Advanced encryption', available: true },
+                    { name: 'Voice Commands', value: 'Beta access', available: true },
+                    { name: 'Policy Compliance', value: 'Custom policies', available: true },
+                    { name: 'Cross-Repo Risk Graphs', value: 'Organization-wide', available: true },
+                    { name: 'Team Dashboards', value: 'Enterprise analytics', available: true }
+                  ]
+                }
+              ].map((edition, index) => (
+                <Card key={index} className="border-terminal-blue/20 backdrop-blur-sm">
+                  <CardHeader>
+                    <div className="text-center space-y-2">
+                      <CardTitle className={`text-xl font-mono text-${edition.accent}`}>
+                        {edition.title}
+                      </CardTitle>
+                      <Badge variant="secondary" className={`bg-${edition.accent}/20 text-${edition.accent}`}>
+                        {edition.price}
+                      </Badge>
+                    </div>
+                  </CardHeader>
+                  <CardContent className="space-y-4">
+                    {edition.features.map((feature, featureIndex) => (
+                      <div key={featureIndex} className="flex items-center justify-between">
+                        <div className="flex items-center gap-2">
+                          {feature.available === true && <Check className={`w-4 h-4 text-${edition.accent}`} />}
+                          {feature.available === false && <X className="w-4 h-4 text-muted-foreground" />}
+                          {feature.available === 'coming' && <Info className={`w-4 h-4 text-${edition.accent}`} />}
+                          <span className="text-sm font-medium">{feature.name}</span>
+                        </div>
+                        <span className="text-xs text-muted-foreground">{feature.value}</span>
+                      </div>
+                    ))}
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Premium Add-Ons Carousel */}
       <PremiumAddOnsCarousel />
