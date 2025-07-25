@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 
 const TrustRibbon = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -22,13 +23,25 @@ const TrustRibbon = () => {
   }, []);
 
   return (
-    <section className="py-12 border-y border-terminal-green/10">{/* Consistent background from PageBackground */}
+    <motion.section 
+      className="py-12 border-y border-terminal-green/10"
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
+      viewport={{ once: true }}
+    >
       <div className="container mx-auto px-4 lg:px-20">
-        <div className="text-center mb-8">
+        <motion.div 
+          className="text-center mb-8"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          viewport={{ once: true }}
+        >
           <p className="text-sm text-foreground/60 font-medium tracking-wide uppercase">
             Trusted by teams using
           </p>
-        </div>
+        </motion.div>
         
         <div className="overflow-hidden">
           <div 
@@ -67,7 +80,7 @@ const TrustRibbon = () => {
           ))}
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

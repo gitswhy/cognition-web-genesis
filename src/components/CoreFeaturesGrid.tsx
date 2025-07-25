@@ -1,5 +1,6 @@
 import { Brain, Shield, Vault } from "lucide-react";
 import { useState } from "react";
+import { motion } from "framer-motion";
 
 const CoreFeaturesGrid = () => {
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
@@ -32,21 +33,39 @@ const CoreFeaturesGrid = () => {
   ];
 
   return (
-    <section className="py-20 relative">
+    <motion.section 
+      className="py-20 relative"
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 0.8 }}
+      viewport={{ once: true }}
+    >
       <div className="container mx-auto px-4 lg:px-20">
-        <div className="text-center mb-16">
+        <motion.div 
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          viewport={{ once: true }}
+        >
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
             Core <span className="text-terminal-green">Capabilities</span>
           </h2>
           <p className="text-xl text-foreground/70 max-w-3xl mx-auto">
             Three revolutionary engines working together to transform your development experience
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid md:grid-cols-3 gap-8">
           {features.map((feature, index) => (
-            <div
+            <motion.div
               key={index}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 + index * 0.1 }}
+              viewport={{ once: true }}
+              whileHover={{ y: -5 }}
+              whileTap={{ scale: 0.98 }}
               className={`group relative p-8 rounded-xl border transition-all duration-500 cursor-pointer ${
                 feature.color === 'terminal-blue'
                   ? 'border-terminal-blue/20 bg-terminal-surface/50 hover:border-terminal-blue/40'
@@ -115,11 +134,11 @@ const CoreFeaturesGrid = () => {
               } ${
                 feature.color === 'terminal-blue' ? 'blue-glow' : 'terminal-glow'
               }`}></div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

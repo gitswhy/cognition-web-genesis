@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { ChevronRight, Play, Activity, FileText, Loader, Check } from "lucide-react";
 import { StaggeredFadeIn } from "@/components/animations/AnimationComponents";
 import { useGeolocation } from '@/hooks/useGeolocation';
+import { motion } from "framer-motion";
 
 const Hero = () => {
   const { isEU, loading } = useGeolocation();
@@ -62,12 +63,22 @@ const Hero = () => {
       <div className="container mx-auto relative z-10 max-w-7xl">
         <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 xl:gap-20 items-center">
           {/* Left Side - Text Content */}
-          <div className="space-responsive order-1 lg:order-1">
+          <motion.div 
+            className="space-responsive order-1 lg:order-1"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+          >
             {/* Badge */}
-            <div className="inline-flex items-center space-x-2 bg-terminal-green/10 border border-terminal-green/20 rounded-lg px-3 sm:px-4 py-2 sm:py-2.5">
+            <motion.div 
+              className="inline-flex items-center space-x-2 bg-terminal-green/10 border border-terminal-green/20 rounded-lg px-3 sm:px-4 py-2 sm:py-2.5 hover-scale"
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+            >
               <FileText className="h-4 w-4 text-terminal-green flex-shrink-0" />
               <span className="text-xs sm:text-sm font-medium text-terminal-green font-mono">Apache licensed</span>
-            </div>
+            </motion.div>
 
             <div className="space-y-4 sm:space-y-6">
               <h1 className="text-scale-hero font-bold leading-[1.1] sm:leading-tight optimize-legibility">
@@ -90,47 +101,74 @@ const Hero = () => {
             </div>
 
             {/* CTAs - Enhanced with better mobile support */}
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-6">
-              <Button 
-                variant="terminal" 
-                size="default" 
-                className="w-full sm:w-auto sm:min-w-[160px] mobile-button hover-desktop terminal-glow neon-button text-sm sm:text-base gpu-accelerated"
+            <motion.div 
+              className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-6"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+            >
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ type: "spring", stiffness: 400, damping: 17 }}
               >
-                Start Free Trial
-                <ChevronRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </Button>
-              <Button 
-                variant="terminal-outline-blue" 
-                size="default" 
-                className="w-full sm:w-auto sm:min-w-[160px] mobile-button hover-desktop blue-glow neon-button text-sm sm:text-base gpu-accelerated"
+                <Button 
+                  variant="terminal" 
+                  size="default" 
+                  className="w-full sm:w-auto sm:min-w-[160px] mobile-button hover-desktop terminal-glow neon-button text-sm sm:text-base gpu-accelerated"
+                >
+                  Start Free Trial
+                  <ChevronRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </Button>
+              </motion.div>
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ type: "spring", stiffness: 400, damping: 17 }}
               >
-                <Play className="h-4 w-4 transition-transform group-hover:scale-110" />
-                Watch Demo
-              </Button>
-            </div>
+                <Button 
+                  variant="terminal-outline-blue" 
+                  size="default" 
+                  className="w-full sm:w-auto sm:min-w-[160px] mobile-button hover-desktop blue-glow neon-button text-sm sm:text-base gpu-accelerated"
+                >
+                  <Play className="h-4 w-4 transition-transform group-hover:scale-110" />
+                  Watch Demo
+                </Button>
+              </motion.div>
+            </motion.div>
 
             {/* Social Proof */}
-            <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 lg:gap-6 pt-3 sm:pt-4 lg:pt-6 text-xs sm:text-sm text-foreground/70">
-              <div className="flex items-center space-x-1.5 sm:space-x-2">
-                <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-terminal-green flex items-center justify-center flex-shrink-0">
-                  <Check className="w-1.5 h-1.5 sm:w-2 sm:h-2 text-terminal-bg" />
-                </div>
-                <span>No credit card required</span>
-              </div>
-              <div className="flex items-center space-x-1.5 sm:space-x-2">
-                <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-terminal-green flex items-center justify-center flex-shrink-0">
-                  <Check className="w-1.5 h-1.5 sm:w-2 sm:h-2 text-terminal-bg" />
-                </div>
-                <span>Open source core</span>
-              </div>
-              <div className="flex items-center space-x-1.5 sm:space-x-2">
-                <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-terminal-green flex items-center justify-center flex-shrink-0">
-                  <Check className="w-1.5 h-1.5 sm:w-2 sm:h-2 text-terminal-bg" />
-                </div>
-                <span>Enterprise ready</span>
-              </div>
-            </div>
-          </div>
+            <motion.div 
+              className="flex flex-col sm:flex-row gap-2 sm:gap-4 lg:gap-6 pt-3 sm:pt-4 lg:pt-6 text-xs sm:text-sm text-foreground/70"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.6 }}
+            >
+              {[
+                "No credit card required",
+                "Open source core", 
+                "Enterprise ready"
+              ].map((text, index) => (
+                <motion.div 
+                  key={text}
+                  className="flex items-center space-x-1.5 sm:space-x-2"
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.4, delay: 0.7 + index * 0.1 }}
+                >
+                  <motion.div 
+                    className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-terminal-green flex items-center justify-center flex-shrink-0"
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    transition={{ type: "spring", stiffness: 400, damping: 10, delay: 0.8 + index * 0.1 }}
+                  >
+                    <Check className="w-1.5 h-1.5 sm:w-2 sm:h-2 text-terminal-bg" />
+                  </motion.div>
+                  <span>{text}</span>
+                </motion.div>
+              ))}
+            </motion.div>
+          </motion.div>
 
           {/* Right Side - Live Terminal - Enhanced with better animations */}
           <div className="order-2 lg:order-2">
@@ -203,11 +241,26 @@ const Hero = () => {
         </div>
         
         {/* Tagline positioned at bottom of hero section */}
-        <div className="text-center mt-8 sm:mt-12 lg:mt-16">
-          <p className="text-base sm:text-lg md:text-xl lg:text-2xl font-medium text-foreground px-4">
-            Your second brain for secure, <span className="text-terminal-green">self‑healing</span> code.
-          </p>
-        </div>
+        <motion.div 
+          className="text-center mt-8 sm:mt-12 lg:mt-16"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 1.2 }}
+        >
+          <motion.p 
+            className="text-base sm:text-lg md:text-xl lg:text-2xl font-medium text-foreground px-4"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 1.4 }}
+          >
+            Your second brain for secure, <motion.span 
+              className="text-terminal-green"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.4, delay: 1.6 }}
+            >self‑healing</motion.span> code.
+          </motion.p>
+        </motion.div>
       </div>
     </section>
   );
