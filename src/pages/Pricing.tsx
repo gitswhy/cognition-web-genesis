@@ -343,26 +343,6 @@ const Pricing = () => {
                   </div>
                   
                   <div className="space-y-6">
-                    <div className="bg-terminal-surface/20 rounded-lg p-6 space-y-4">
-                      <blockquote className="text-sm italic">
-                        "Gitswhy Enterprise reduced our security incidents by 89% and saved us $2.3M in 
-                        potential breach costs within the first year."
-                      </blockquote>
-                      <div className="text-sm text-muted-foreground">
-                        — Sarah Chen, CISO at TechCorp (5,000+ developers)
-                      </div>
-                    </div>
-                    
-                    <div className="bg-terminal-surface/20 rounded-lg p-6 space-y-4">
-                      <blockquote className="text-sm italic">
-                        "The custom integration with our existing DevOps pipeline was seamless. 
-                        ROI achieved in under 3 months."
-                      </blockquote>
-                      <div className="text-sm text-muted-foreground">
-                        — Mike Rodriguez, VP Engineering at DataFlow Inc
-                      </div>
-                    </div>
-                    
                     <div className="space-y-3">
                       <Button 
                         size="lg" 
