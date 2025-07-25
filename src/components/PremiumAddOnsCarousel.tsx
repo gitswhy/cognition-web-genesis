@@ -162,8 +162,8 @@ const PremiumAddOnsCarousel = () => {
                 );
               })}
             </CarouselContent>
-            <CarouselPrevious className="border-terminal-blue/30 text-terminal-blue hover:bg-terminal-blue/10" />
-            <CarouselNext className="border-terminal-blue/30 text-terminal-blue hover:bg-terminal-blue/10" />
+            <CarouselPrevious className="border-terminal-blue/30 text-terminal-blue hover:bg-terminal-blue/10 hover:translate-y-0" />
+            <CarouselNext className="border-terminal-blue/30 text-terminal-blue hover:bg-terminal-blue/10 hover:translate-y-0" />
           </Carousel>
           
           {/* Slide Indicators */}
