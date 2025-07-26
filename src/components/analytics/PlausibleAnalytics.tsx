@@ -55,8 +55,7 @@ export const PlausibleAnalytics: React.FC<PlausibleAnalyticsProps> = ({
       onLCP(trackWebVital);
       onTTFB(trackWebVital);
     }).catch(() => {
-      // Fallback if web-vitals is not available
-      console.log('Web Vitals tracking not available');
+      // Fallback if web-vitals is not available - silent fail
     });
 
     return () => {

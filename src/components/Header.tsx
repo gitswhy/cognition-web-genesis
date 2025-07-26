@@ -86,23 +86,37 @@ const Header = () => {
               </Link>
             ))}
             
-            {/* Resources Dropdown */}
+            {/* Resources Dropdown with Enhanced Animations */}
             <DropdownMenu>
-              <DropdownMenuTrigger className="flex items-center space-x-1 text-xs xl:text-sm font-medium text-foreground/80 hover:text-terminal-green transition-colors cursor-pointer">
-                <span>Resources</span>
-                <ChevronDown className="h-3 w-3" />
+              <DropdownMenuTrigger className="group flex items-center space-x-1 text-xs xl:text-sm font-medium text-foreground/80 hover:text-terminal-green transition-all duration-300 cursor-pointer relative overflow-hidden">
+                <span className="relative z-10 transition-all duration-300 group-hover:scale-105">Resources</span>
+                <ChevronDown className="h-3 w-3 transition-all duration-300 group-hover:rotate-180 group-hover:text-terminal-blue relative z-10" />
+                
+                {/* Animated background on hover */}
+                <div className="absolute inset-0 bg-terminal-green/10 rounded-lg scale-0 group-hover:scale-100 transition-transform duration-300 origin-center" />
+                
+                {/* Pulse animation dot */}
+                <div className="absolute -top-1 -right-1 w-2 h-2 bg-terminal-blue rounded-full opacity-0 group-hover:opacity-100 group-hover:animate-ping transition-opacity duration-300" />
               </DropdownMenuTrigger>
               <DropdownMenuContent 
-                className="z-[200] bg-background border border-border shadow-lg min-w-[140px]"
+                className="z-[200] bg-background/95 backdrop-blur-sm border border-terminal-green/20 shadow-xl min-w-[160px] animate-slide-in-right"
                 align="start"
+                sideOffset={5}
               >
-                {dropdownItems.map((item) => (
-                  <DropdownMenuItem key={item.label} className="focus:bg-muted">
+                {dropdownItems.map((item, index) => (
+                  <DropdownMenuItem 
+                    key={item.label} 
+                    className="focus:bg-terminal-green/10 transition-all duration-200 hover:pl-3 animate-fade-in"
+                    style={{ animationDelay: `${index * 50}ms` }}
+                  >
                     <Link
                       to={item.href}
-                      className="w-full text-sm text-foreground hover:text-terminal-green"
+                      className="w-full text-sm text-foreground hover:text-terminal-green transition-colors duration-200 flex items-center group"
                     >
-                      {item.label}
+                      <span className="transition-transform duration-200 group-hover:translate-x-1">{item.label}</span>
+                      <div className="ml-auto opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                        <ChevronDown className="h-3 w-3 rotate-[-90deg] text-terminal-green" />
+                      </div>
                     </Link>
                   </DropdownMenuItem>
                 ))}

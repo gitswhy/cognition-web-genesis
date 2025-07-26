@@ -19,6 +19,8 @@ import {
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import OptimizedCard from '@/components/common/OptimizedCard';
+import LazyImage from '@/components/common/LazyImage';
 import { Separator } from '@/components/ui/separator';
 import AboutBackground from '@/components/background/AboutBackground';
 
@@ -263,13 +265,14 @@ const jobRoles: JobRole[] = [
 
 const TeamMemberCard = ({ member, index }: { member: TeamMember; index: number }) => {
   return (
-    <Card 
-      className="group transition-all duration-300 hover:shadow-lg hover:-translate-y-2 animate-fade-in"
-      style={{ animationDelay: `${index * 150}ms` }}
+    <OptimizedCard 
+      variant="animated"
+      delay={index * 150}
+      className="group"
     >
-      <CardContent className="p-6 text-center space-y-4">
+      <div className="p-6 text-center space-y-4">
         <div className="relative">
-          <img
+          <LazyImage
             src={member.image}
             alt={member.name}
             className="w-24 h-24 rounded-full mx-auto object-cover transition-transform duration-300 group-hover:scale-105"
@@ -317,8 +320,8 @@ const TeamMemberCard = ({ member, index }: { member: TeamMember; index: number }
             </Button>
           )}
         </div>
-      </CardContent>
-    </Card>
+      </div>
+    </OptimizedCard>
   );
 };
 

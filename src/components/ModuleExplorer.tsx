@@ -257,7 +257,7 @@ await bootstrap.initialize({
   }
 });
 
-console.log('Environment bootstrapped with cognitive awareness');`,
+// Environment bootstrapped with cognitive awareness`,
       animation: 'bootstrap',
       color: 'from-terminal-green/20 to-terminal-green/5'
     },
@@ -291,7 +291,7 @@ await overclock.optimize({
   resourceAllocation: 'dynamic'
 });
 
-console.log('System performance overclocked');`,
+// System performance overclocked`,
       animation: 'performance',
       color: 'from-terminal-blue/20 to-terminal-blue/5'
     },
@@ -328,7 +328,7 @@ await qFlush.flush({
   quantumSync: true
 });
 
-console.log('Quantum cache flush completed');`,
+// Quantum cache flush completed`,
       animation: 'quantum',
       color: 'from-purple-400/20 to-purple-400/5'
     },
@@ -363,7 +363,7 @@ await cleaner.clean({
   verification: 'integrity-check'
 });
 
-console.log('Autonomous cleaning cycle completed');`,
+// Autonomous cleaning cycle completed`,
       animation: 'cleaning',
       color: 'from-green-400/20 to-green-400/5'
     },
@@ -438,7 +438,7 @@ const verification = await vault.verify({
   timestamp: 'blockchain-verified'
 });
 
-console.log('Vault synchronization completed securely');`,
+// Vault synchronization completed securely`,
       animation: 'vault',
       color: 'from-orange-400/20 to-orange-400/5'
     }

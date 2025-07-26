@@ -24,6 +24,22 @@
   50% { opacity: 1; }
 }
 
+/* Enhanced slide animations for dropdown */
+@keyframes slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(10px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+.animate-slide-in-right {
+  animation: slide-in-right 0.2s ease-out;
+}
+
 /* Gitswhy OS Design System - Terminal-inspired dark theme */
 
 @layer base {

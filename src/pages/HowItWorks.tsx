@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
+import OptimizedCard from '@/components/common/OptimizedCard';
 import { Badge } from '@/components/ui/badge';
 import { 
   Download, 
@@ -337,8 +338,11 @@ const HowItWorks = () => {
 
                   {/* Animation Side */}
                   <div className={`${isEven ? 'lg:order-2' : 'lg:order-1'}`}>
-                    <Card className="bg-terminal-surface/50 backdrop-blur-sm border-terminal-surface">
-                      <CardContent className="p-8">
+                    <OptimizedCard 
+                      variant="hover"
+                      className="bg-terminal-surface/50 backdrop-blur-sm border-terminal-surface"
+                    >
+                      <div className="p-8">
                         {/* Lottie Animation Container */}
                         <div className="aspect-square rounded-lg flex items-center justify-center relative overflow-hidden">
                           {/* Animated Background Grid */}
@@ -374,8 +378,8 @@ const HowItWorks = () => {
                             View Interactive Demo
                           </Button>
                         </div>
-                      </CardContent>
-                    </Card>
+                      </div>
+                    </OptimizedCard>
                   </div>
                 </div>
               </section>

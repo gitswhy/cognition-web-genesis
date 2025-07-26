@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import OptimizedCard from '@/components/common/OptimizedCard';
 import { Badge } from '@/components/ui/badge';
 import { Switch } from '@/components/ui/switch';
 import { Input } from '@/components/ui/input';
@@ -205,14 +206,15 @@ const Pricing = () => {
         <div className="container mx-auto safe-area-padding">
           <div className="grid-responsive-2 max-w-6xl mx-auto">
             {pricingTiers.map((tier, index) => (
-              <Card 
-                key={tier.id} 
-                className={`relative overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-xl mobile-focus-ring flex flex-col h-full ${
+              <OptimizedCard 
+                key={tier.id}
+                variant="hover" 
+                delay={index * 100}
+                className={`relative overflow-hidden mobile-focus-ring flex flex-col h-full ${
                   tier.popular 
                     ? 'border-terminal-blue shadow-lg shadow-terminal-blue/20 lg:scale-105 hover:shadow-terminal-blue/30' 
                     : 'border-terminal-surface hover:border-terminal-blue/30 hover:shadow-terminal-blue/10'
                 } ${tier.type === 'core' ? 'hover:border-terminal-green/30 hover:shadow-terminal-green/10' : ''} gpu-accelerated`}
-                style={{ animationDelay: `${index * 100}ms` }}
               >
                 {tier.popular && (
                   <div className="absolute top-0 left-0 right-0 bg-terminal-blue text-white text-center py-2 text-sm font-medium">
@@ -311,7 +313,7 @@ const Pricing = () => {
                     </Button>
                   </div>
                 </CardContent>
-              </Card>
+              </OptimizedCard>
             ))}
           </div>
         </div>
