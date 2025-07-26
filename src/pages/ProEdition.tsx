@@ -77,37 +77,36 @@ const ProEdition = () => {
       <Header />
       
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden padding-responsive">
         
-        <div className="container mx-auto px-4 grid lg:grid-cols-2 gap-12 items-center relative z-10">
+        <div className="container-responsive grid-responsive-2 items-center relative z-10">
           {/* Left Content */}
-          <div className="space-y-8">
+          <div className="space-responsive animate-slide-right">
             <div className="space-y-4">
-              <Badge variant="secondary" className="bg-terminal-blue/20 text-terminal-blue border-terminal-blue/30">
+              <Badge variant="secondary" className="bg-terminal-blue/20 text-terminal-blue border-terminal-blue/30 animate-stagger-1">
                 Enterprise DevSecOps
               </Badge>
-              <h1 className="text-5xl lg:text-7xl font-bold font-mono tracking-tight">
+              <h1 className="text-scale-hero font-bold font-mono tracking-tight animate-stagger-2">
                 <span className="text-terminal-blue">Gitswhy</span>{' '}
                 <span className="text-foreground">Pro</span>
               </h1>
-              <p className="text-xl text-muted-foreground max-w-lg">
+              <p className="text-scale-subtitle text-muted-foreground max-w-lg animate-stagger-3">
                 Enterprise-grade cognition engine with AI-powered risk detection, 
                 automatic patching, and team collaboration tools.
               </p>
             </div>
             
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="bg-terminal-blue hover:bg-terminal-blue/90 text-white">
+            <div className="flex-responsive animate-stagger-4">
+              <Button size="lg" className="bg-terminal-blue hover:bg-terminal-blue/90 text-white mobile-button hover-lift">
                 Start Pro Trial
                 <ArrowRight className="ml-2 w-4 h-4" />
               </Button>
-              <Button variant="outline" size="lg" className="border-terminal-blue/30 text-terminal-blue hover:bg-terminal-blue/10">
+              <Button variant="outline" size="lg" className="border-terminal-blue/30 text-terminal-blue hover:bg-terminal-blue/10 mobile-button hover-lift">
                 Schedule Demo
               </Button>
             </div>
             
-            <div className="flex items-center gap-6 text-sm text-muted-foreground">
-              
+            <div className="flex items-center gap-4 sm:gap-6 text-sm text-muted-foreground animate-stagger-5">
               <div className="flex items-center gap-2">
                 <Check className="w-4 h-4 text-terminal-green" />
                 <span>SOC 2 Compliant</span>
@@ -116,25 +115,25 @@ const ProEdition = () => {
           </div>
           
           {/* Right Content - Animated Analytics Dashboard */}
-          <div className="relative">
-            <Card className="bg-terminal-surface/50 backdrop-blur-sm border-terminal-blue/20">
-              <CardHeader>
-                <CardTitle className="text-terminal-blue font-mono">Live Analytics Dashboard</CardTitle>
+          <div className="relative animate-slide-left">
+            <Card className="bg-terminal-surface/50 backdrop-blur-sm border-terminal-blue/20 hover-lift animate-zoom-in">
+              <CardHeader className="card-responsive">
+                <CardTitle className="text-terminal-blue font-mono text-scale-heading">Live Analytics Dashboard</CardTitle>
               </CardHeader>
-              <CardContent className="space-y-6">
+              <CardContent className="space-responsive card-responsive">
                 {/* Metrics Row */}
-                <div className="grid grid-cols-3 gap-4">
-                  <div className="text-center">
-                    <div className="text-2xl font-mono text-terminal-green animate-pulse">99.8%</div>
-                    <div className="text-xs text-muted-foreground">Threat Detection</div>
+                <div className="grid-responsive-3">
+                  <div className="text-center animate-stagger-1">
+                    <div className="text-lg sm:text-xl lg:text-2xl font-mono text-terminal-green animate-pulse-glow">99.8%</div>
+                    <div className="text-xs sm:text-sm text-muted-foreground">Threat Detection</div>
                   </div>
-                  <div className="text-center">
-                    <div className="text-2xl font-mono text-terminal-blue animate-pulse">2.3s</div>
-                    <div className="text-xs text-muted-foreground">Avg Fix Time</div>
+                  <div className="text-center animate-stagger-2">
+                    <div className="text-lg sm:text-xl lg:text-2xl font-mono text-terminal-blue animate-pulse-glow">2.3s</div>
+                    <div className="text-xs sm:text-sm text-muted-foreground">Avg Fix Time</div>
                   </div>
-                  <div className="text-center">
-                    <div className="text-2xl font-mono text-yellow-400 animate-pulse">247</div>
-                    <div className="text-xs text-muted-foreground">Auto Patches</div>
+                  <div className="text-center animate-stagger-3">
+                    <div className="text-lg sm:text-xl lg:text-2xl font-mono text-yellow-400 animate-pulse-glow">247</div>
+                    <div className="text-xs sm:text-sm text-muted-foreground">Auto Patches</div>
                   </div>
                 </div>
                 
@@ -188,13 +187,13 @@ const ProEdition = () => {
       </section>
 
       {/* Edition Comparison Table */}
-      <section className="py-24">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold font-mono mb-4">
+      <section className="padding-section">
+        <div className="container-responsive">
+          <div className="text-center mb-12 lg:mb-16 animate-slide-up">
+            <h2 className="text-scale-hero font-bold font-mono mb-4">
               Choose Your Edition
             </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">Compare features across Free Core and Pro.</p>
+            <p className="text-scale-subtitle text-muted-foreground max-w-2xl mx-auto">Compare features across Free Core and Pro.</p>
           </div>
           
           <div className="max-w-6xl mx-auto">
@@ -415,18 +414,18 @@ const ProEdition = () => {
       <PremiumAddOnsCarousel />
 
       {/* Premium Features Grid */}
-      <section className="py-24">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold font-mono mb-4">
+      <section className="padding-section">
+        <div className="container-responsive">
+          <div className="text-center mb-12 lg:mb-16 animate-slide-up">
+            <h2 className="text-scale-hero font-bold font-mono mb-4">
               Enterprise Features
             </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-scale-subtitle text-muted-foreground max-w-2xl mx-auto">
               Advanced capabilities designed for teams that ship mission-critical software
             </p>
           </div>
           
-          <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+          <div className="grid-responsive-2 max-width-content">
             {premiumFeatures.map(feature => {
             const Icon = feature.icon;
             const isHovered = hoveredCard === feature.id;
@@ -470,39 +469,39 @@ const ProEdition = () => {
       </section>
 
       {/* Voice Integration Teaser */}
-      <section className="py-16">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <Card className="relative group cursor-pointer transition-all duration-500 hover:scale-105 border-terminal-blue/30 backdrop-blur-sm overflow-hidden">
+      <section className="padding-responsive">
+        <div className="container-responsive">
+          <div className="max-w-4xl mx-auto animate-zoom-in">
+            <Card className="relative group cursor-pointer transition-all duration-500 hover:scale-105 border-terminal-blue/30 backdrop-blur-sm overflow-hidden hover-lift gpu-accelerated">
               {/* Animated Background Pattern */}
               <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_35%,rgba(0,212,255,0.05)_50%,transparent_65%)] bg-[length:20px_20px] animate-pulse" />
               
-              <CardContent className="p-8 lg:p-12 relative z-10">
-                <div className="grid lg:grid-cols-2 gap-8 items-center">
+              <CardContent className="card-responsive relative z-10">
+                <div className="grid-responsive-2 items-center">
                   {/* Left Content */}
-                  <div className="space-y-6">
+                  <div className="space-responsive animate-slide-right">
                     <div className="space-y-4">
-                      <Badge variant="secondary" className="bg-terminal-blue/20 text-terminal-blue border-terminal-blue/30">
+                      <Badge variant="secondary" className="bg-terminal-blue/20 text-terminal-blue border-terminal-blue/30 animate-stagger-1">
                         Coming Soon
                       </Badge>
-                      <h3 className="text-3xl lg:text-4xl font-bold font-mono text-terminal-blue">
+                      <h3 className="text-scale-heading font-bold font-mono text-terminal-blue animate-stagger-2">
                         Voice-Activated Healing
                       </h3>
-                      <p className="text-lg text-muted-foreground leading-relaxed">
+                      <p className="text-scale-subtitle text-muted-foreground leading-relaxed animate-stagger-3">
                         Say "Gitswhy, scan this" for hands-free ops. Control your entire DevSecOps workflow with natural voice commands.
                       </p>
                     </div>
                     
-                    <div className="flex justify-start">
-                      <Button variant="outline" className="border-terminal-blue/30 text-terminal-blue hover:bg-terminal-blue/10">
+                    <div className="flex justify-start animate-stagger-4">
+                      <Button variant="outline" className="border-terminal-blue/30 text-terminal-blue hover:bg-terminal-blue/10 mobile-button hover-lift">
                         Join Waitlist
                       </Button>
                     </div>
                   </div>
                   
                   {/* Right Visual */}
-                  <div className="relative">
-                    <div className="bg-terminal-surface/50 rounded-xl p-8 border border-terminal-blue/20">
+                  <div className="relative animate-slide-left">
+                    <div className="bg-terminal-surface/50 rounded-xl card-responsive border border-terminal-blue/20">
                       {/* Microphone Icon */}
                       <div className="text-center space-y-6">
                         <div className="relative inline-block">
@@ -547,18 +546,18 @@ const ProEdition = () => {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-24">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold font-mono mb-4">
+      <section className="padding-section">
+        <div className="container-responsive">
+          <div className="text-center mb-12 lg:mb-16 animate-slide-up">
+            <h2 className="text-scale-hero font-bold font-mono mb-4">
               Frequently Asked Questions
             </h2>
-            <p className="text-xl text-muted-foreground">
+            <p className="text-scale-subtitle text-muted-foreground">
               Everything you need to know about Gitswhy OS Pro Edition
             </p>
           </div>
           
-          <div className="max-w-4xl mx-auto">
+          <div className="max-w-4xl mx-auto animate-stagger-1">
             <Accordion type="multiple" className="w-full space-y-4">
               {faqItems.map((item, index) => <AccordionItem key={index} value={`item-${index}`} className="border border-terminal-blue/20 rounded-lg bg-terminal-surface/30 backdrop-blur-sm px-6">
                   <AccordionTrigger className="text-left hover:no-underline hover:text-terminal-blue transition-colors">
@@ -574,24 +573,23 @@ const ProEdition = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl font-bold font-mono mb-6">
+      <section className="padding-section">
+        <div className="container-responsive text-center animate-slide-up">
+          <h2 className="text-scale-hero font-bold font-mono mb-6 animate-stagger-1">
             Ready to Ship Code That Heals Itself?
           </h2>
           
-          
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-terminal-blue hover:bg-terminal-blue/90 text-white">
+          <div className="flex-responsive justify-center animate-stagger-2">
+            <Button size="lg" className="bg-terminal-blue hover:bg-terminal-blue/90 text-white mobile-button hover-lift">
               Start 30-Day Pro Trial
               <ArrowRight className="ml-2 w-4 h-4" />
             </Button>
-            <Button variant="outline" size="lg" className="border-terminal-blue/30 text-terminal-blue hover:bg-terminal-blue/10">
+            <Button variant="outline" size="lg" className="border-terminal-blue/30 text-terminal-blue hover:bg-terminal-blue/10 mobile-button hover-lift">
               Talk to Sales
             </Button>
           </div>
           
-          <p className="text-sm text-muted-foreground mt-6">
+          <p className="text-sm text-muted-foreground mt-6 animate-stagger-3">
             No credit card required • Full feature access • Cancel anytime
           </p>
         </div>

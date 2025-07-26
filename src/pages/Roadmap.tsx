@@ -170,29 +170,30 @@ export default function Roadmap() {
       <Header />
       
       {/* Hero Section */}
-      <section className="relative pt-24 pb-16 border-b">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center space-y-8">
-            <div className="space-y-4 animate-fade-in">
-              <Badge variant="outline" className="mb-4">
+      <section className="relative padding-responsive border-b">
+        <div className="container-responsive">
+          <div className="max-w-4xl mx-auto text-center space-responsive">
+            <div className="space-y-4 animate-slide-up">
+              <Badge variant="outline" className="mb-4 animate-stagger-1">
                 <Calendar className="w-4 h-4 mr-2" />
                 Product Roadmap
               </Badge>
-              <h1 className="text-4xl md:text-6xl font-bold">
+              <h1 className="text-scale-hero font-bold animate-stagger-2">
                 The Future of <span className="text-primary">Security</span>
               </h1>
-              <p className="text-xl md:text-2xl text-muted-foreground">
+              <p className="text-scale-subtitle text-muted-foreground animate-stagger-3">
                 Discover what's coming next in autonomous security and how we're 
                 revolutionizing DevSecOps for developers worldwide.
               </p>
             </div>
             
             {/* View Mode Toggle */}
-            <div className="flex justify-center gap-2">
+            <div className="flex justify-center gap-2 animate-stagger-4">
               <Button
                 variant={viewMode === 'timeline' ? 'default' : 'outline'}
                 size="sm"
                 onClick={() => setViewMode('timeline')}
+                className="mobile-button hover-lift"
               >
                 Timeline View
               </Button>
@@ -200,6 +201,7 @@ export default function Roadmap() {
                 variant={viewMode === 'cards' ? 'default' : 'outline'}
                 size="sm"
                 onClick={() => setViewMode('cards')}
+                className="mobile-button hover-lift"
               >
                 Cards View
               </Button>
@@ -210,27 +212,27 @@ export default function Roadmap() {
 
       {viewMode === 'timeline' ? (
         /* Timeline View */
-        <section className="py-16">
-          <div className="container mx-auto px-4">
-            <div className="max-w-6xl mx-auto">
+        <section className="padding-section">
+          <div className="container-responsive">
+            <div className="max-width-content">
               {/* Timeline Navigation */}
-              <div className="flex items-center justify-between mb-8">
+              <div className="flex items-center justify-between mb-8 animate-slide-down">
                 <Button
                   variant="outline"
                   size="sm"
                   onClick={goToPrev}
                   disabled={currentIndex === 0}
-                  className="flex items-center gap-2"
+                  className="flex items-center gap-2 mobile-button hover-lift"
                 >
                   <ChevronLeft className="w-4 h-4" />
-                  Previous
+                  <span className="hidden sm:inline">Previous</span>
                 </Button>
                 
-                <div className="text-center">
-                  <p className="text-sm text-muted-foreground">
+                <div className="text-center animate-zoom-in">
+                  <p className="text-xs sm:text-sm text-muted-foreground">
                     {currentIndex + 1} of {roadmapData.length}
                   </p>
-                  <p className="font-semibold">{currentItem.quarter}</p>
+                  <p className="font-semibold text-sm sm:text-base">{currentItem.quarter}</p>
                 </div>
                 
                 <Button
@@ -238,9 +240,9 @@ export default function Roadmap() {
                   size="sm"
                   onClick={goToNext}
                   disabled={currentIndex === roadmapData.length - 1}
-                  className="flex items-center gap-2"
+                  className="flex items-center gap-2 mobile-button hover-lift"
                 >
-                  Next
+                  <span className="hidden sm:inline">Next</span>
                   <ChevronRight className="w-4 h-4" />
                 </Button>
               </div>
@@ -315,16 +317,16 @@ export default function Roadmap() {
         </section>
       ) : (
         /* Cards View */
-        <section className="py-16">
-          <div className="container mx-auto px-4">
-            <div className="max-w-6xl mx-auto">
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <section className="padding-section">
+          <div className="container-responsive">
+            <div className="max-width-content">
+              <div className="grid-responsive-3">
                 {roadmapData.map((item, index) => {
                   const Icon = item.icon;
                   return (
                     <Card 
                       key={item.id} 
-                      className="transition-all duration-300 hover:shadow-lg hover:-translate-y-1 animate-fade-in"
+                      className="transition-all duration-300 hover:shadow-lg hover:-translate-y-1 animate-fade-in hover-lift gpu-accelerated"
                       style={{ animationDelay: `${index * 100}ms` }}
                     >
                       <CardHeader>
@@ -375,24 +377,24 @@ export default function Roadmap() {
       )}
 
       {/* CTA Section */}
-      <section className="py-16 bg-primary/5">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto text-center space-y-8">
-            <h2 className="text-3xl font-bold">
+      <section className="padding-section bg-primary/5">
+        <div className="container-responsive">
+          <div className="max-w-3xl mx-auto text-center space-responsive animate-slide-up">
+            <h2 className="text-scale-heading font-bold animate-stagger-1">
               Shape the Future with Us
             </h2>
-            <p className="text-lg text-muted-foreground">
+            <p className="text-scale-subtitle text-muted-foreground animate-stagger-2">
               Join our community and help us build the next generation of security tools. 
               Your feedback drives our roadmap.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" asChild>
+            <div className="flex-responsive justify-center animate-stagger-3">
+              <Button size="lg" asChild className="mobile-button hover-lift">
                 <a href="/community">
                   Join Community
                   <ArrowRight className="w-4 h-4 ml-2" />
                 </a>
               </Button>
-              <Button variant="outline" size="lg" asChild>
+              <Button variant="outline" size="lg" asChild className="mobile-button hover-lift">
                 <a href="/pro-edition">
                   Start Pro Trial
                 </a>
