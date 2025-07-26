@@ -80,9 +80,11 @@ const Header = () => {
               <Link
                 key={item.label}
                 to={item.href}
-                className="nav-link text-xs xl:text-sm font-medium text-foreground/80 hover:text-terminal-green"
+                className="group relative flex items-center text-xs xl:text-sm font-medium text-foreground/80 hover:text-terminal-green transition-all duration-300 cursor-pointer overflow-hidden px-3 py-1.5 rounded-lg"
               >
-                {item.label}
+                <span className="relative z-10 transition-all duration-300 group-hover:scale-105">{item.label}</span>
+                <div className="absolute inset-0 bg-terminal-green/10 rounded-lg scale-0 group-hover:scale-100 transition-transform duration-300 origin-center" />
+                <div className="absolute -top-1 -right-1 w-1.5 h-1.5 bg-terminal-blue rounded-full opacity-0 group-hover:opacity-100 group-hover:animate-ping transition-opacity duration-300" />
               </Link>
             ))}
             
@@ -99,9 +101,10 @@ const Header = () => {
                 <div className="absolute -top-1 -right-1 w-2 h-2 bg-terminal-blue rounded-full opacity-0 group-hover:opacity-100 group-hover:animate-ping transition-opacity duration-300" />
               </DropdownMenuTrigger>
               <DropdownMenuContent 
-                className="z-[200] bg-background/95 backdrop-blur-sm border border-terminal-green/20 shadow-xl min-w-[160px] animate-slide-in-right"
+                className="z-[200] bg-background/98 backdrop-blur-md border border-terminal-green/20 shadow-xl min-w-[160px] animate-in slide-in-from-top-2 duration-200"
                 align="start"
-                sideOffset={5}
+                sideOffset={8}
+                onCloseAutoFocus={(e) => e.preventDefault()}
               >
                 {dropdownItems.map((item, index) => (
                   <DropdownMenuItem 
@@ -126,11 +129,17 @@ const Header = () => {
 
           {/* CTAs */}
           <div className="hidden lg:flex items-center space-x-2 xl:space-x-4">
-            <Button variant="terminal-outline" size="sm" asChild className="terminal-clean text-xs xl:text-sm">
-              <Link to="/open-core">Try Free Core</Link>
+            <Button variant="terminal-outline" size="sm" asChild className="group terminal-clean text-xs xl:text-sm relative overflow-hidden">
+              <Link to="/open-core" className="flex items-center">
+                <span className="relative z-10 transition-transform duration-300 group-hover:scale-105">Try Free Core</span>
+                <div className="absolute inset-0 bg-terminal-green/10 scale-0 group-hover:scale-100 transition-transform duration-300" />
+              </Link>
             </Button>
-            <Button variant="terminal-blue" size="sm" asChild className="terminal-clean text-xs xl:text-sm">
-              <Link to="/pro-edition">Start Pro Trial</Link>
+            <Button variant="terminal-blue" size="sm" asChild className="group terminal-clean text-xs xl:text-sm relative overflow-hidden">
+              <Link to="/pro-edition" className="flex items-center">
+                <span className="relative z-10 transition-transform duration-300 group-hover:scale-105">Start Pro Trial</span>
+                <div className="absolute inset-0 bg-terminal-blue/20 scale-0 group-hover:scale-100 transition-transform duration-300" />
+              </Link>
             </Button>
           </div>
 
