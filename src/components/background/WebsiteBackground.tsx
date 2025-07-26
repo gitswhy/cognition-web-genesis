@@ -1,6 +1,6 @@
 import React from 'react';
-import { motion } from 'framer-motion';
-import Wireframe3D from './Wireframe3D';
+// Removed framer-motion import for performance
+// import Wireframe3D from './Wireframe3D'; // Disabled for performance
 
 interface WebsiteBackgroundProps {
   children: React.ReactNode;
@@ -21,78 +21,20 @@ const WebsiteBackground: React.FC<WebsiteBackgroundProps> = ({ children }) => {
            }} 
       />
       
-      {/* True 3D Wireframe Geometric Shapes */}
-      <Wireframe3D />
+      {/* Disabled 3D Wireframe for performance */}
+      {/* <Wireframe3D /> */}
 
-      {/* Simplified gradient orbs - reduced complexity */}
+      {/* Simplified static gradient orbs - no animation for performance */}
       <div className="absolute inset-0 overflow-hidden">
-        <motion.div
-          className="absolute top-1/4 left-1/4 w-60 h-60 bg-terminal-green/6 rounded-full blur-3xl"
-          animate={{
-            scale: [1, 1.2, 1],
-            opacity: [0.3, 0.5, 0.3],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        />
-        <motion.div
-          className="absolute top-3/4 right-1/4 w-48 h-48 bg-terminal-blue/6 rounded-full blur-3xl"
-          animate={{
-            scale: [1.1, 0.9, 1.1],
-            opacity: [0.2, 0.4, 0.2],
-          }}
-          transition={{
-            duration: 10,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 3,
-          }}
-        />
+        <div className="absolute top-1/4 left-1/4 w-60 h-60 bg-terminal-green/4 rounded-full blur-3xl" />
+        <div className="absolute top-3/4 right-1/4 w-48 h-48 bg-terminal-blue/4 rounded-full blur-3xl" />
       </div>
 
-      {/* Simplified connection nodes */}
+      {/* Static connection nodes - no animation for performance */}
       <div className="absolute inset-0 overflow-hidden">
-        <motion.div
-          className="absolute top-[25%] left-8 w-1.5 h-1.5 bg-terminal-green/60 rounded-full"
-          animate={{
-            scale: [1, 1.5, 1],
-            opacity: [0.6, 0.9, 0.6],
-          }}
-          transition={{
-            duration: 4,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        />
-        <motion.div
-          className="absolute top-[65%] left-6 w-1.5 h-1.5 bg-terminal-blue/60 rounded-full"
-          animate={{
-            scale: [1, 1.6, 1],
-            opacity: [0.5, 0.8, 0.5],
-          }}
-          transition={{
-            duration: 5,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 2,
-          }}
-        />
-        <motion.div
-          className="absolute top-[45%] right-10 w-1.5 h-1.5 bg-terminal-green/60 rounded-full"
-          animate={{
-            scale: [1, 1.4, 1],
-            opacity: [0.6, 0.9, 0.6],
-          }}
-          transition={{
-            duration: 4.5,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 1,
-          }}
-        />
+        <div className="absolute top-[25%] left-8 w-1.5 h-1.5 bg-terminal-green/40 rounded-full" />
+        <div className="absolute top-[65%] left-6 w-1.5 h-1.5 bg-terminal-blue/40 rounded-full" />
+        <div className="absolute top-[45%] right-10 w-1.5 h-1.5 bg-terminal-green/40 rounded-full" />
       </div>
 
 
