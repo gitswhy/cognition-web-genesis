@@ -575,11 +575,11 @@ const ProEdition = () => {
       {/* CTA Section */}
       <section className="padding-section">
         <div className="container-responsive text-center animate-slide-up">
-          <h2 className="text-scale-hero font-bold font-mono mb-6 animate-stagger-1">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold font-mono mb-8 animate-stagger-1">
             Ready to Ship Code That Heals Itself?
           </h2>
           
-          <div className="flex-responsive justify-center animate-stagger-2">
+          <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center animate-stagger-2">
             <Button size="lg" className="bg-terminal-blue hover:bg-terminal-blue/90 text-white mobile-button hover-lift">
               Start 30-Day Pro Trial
               <ArrowRight className="ml-2 w-4 h-4" />
