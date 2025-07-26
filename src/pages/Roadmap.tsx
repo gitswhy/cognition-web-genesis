@@ -170,7 +170,7 @@ export default function Roadmap() {
       <Header />
       
       {/* Hero Section */}
-      <section className="relative padding-responsive border-b">
+      <section className="relative pt-20 sm:pt-24 pb-8 sm:pb-16 border-b">
         <div className="container-responsive">
           <div className="max-w-4xl mx-auto text-center space-responsive">
             <div className="space-y-4 animate-slide-up">
