@@ -246,9 +246,9 @@ const Pricing = () => {
                   </div>
                 </CardHeader>
                 
-                <CardContent className="space-y-6">
+                <CardContent className="space-y-6 flex-1 flex flex-col">
                   {/* Features */}
-                  <div className="space-y-6">
+                  <div className="space-y-6 flex-1">
                     {tier.features.map((category, categoryIndex) => (
                       <div key={categoryIndex} className="space-y-3">
                         <h4 className="text-sm font-semibold text-muted-foreground uppercase tracking-wide">
@@ -278,7 +278,7 @@ const Pricing = () => {
                   </div>
                   
                   {/* CTA Button */}
-                  <div className="mt-auto pt-4">
+                  <div className="mt-auto pt-6">
                     <Button 
                       className={`w-full transition-all duration-300 hover:scale-105 hover:shadow-lg group ${
                         tier.ctaVariant === 'default'
