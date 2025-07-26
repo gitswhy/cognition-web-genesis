@@ -1,7 +1,7 @@
 import { Brain, Shield, Vault } from "lucide-react";
 import { useState } from "react";
 import { motion } from "framer-motion";
-import CoreCapabilities3D from "@/components/background/CoreCapabilities3D";
+// import CoreCapabilities3D from "@/components/background/CoreCapabilities3D"; // Disabled for performance
 
 const CoreFeaturesGrid = () => {
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
@@ -41,7 +41,7 @@ const CoreFeaturesGrid = () => {
       transition={{ duration: 0.8 }}
       viewport={{ once: true }}
     >
-      <CoreCapabilities3D />
+      {/* <CoreCapabilities3D /> Disabled for performance */}
       <div className="container mx-auto px-4 lg:px-20">
         <motion.div 
           className="text-center mb-16"
