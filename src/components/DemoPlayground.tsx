@@ -1,8 +1,10 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Play, Terminal, Copy } from "lucide-react";
 
 const DemoPlayground = () => {
+  const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState<"free" | "pro">("free");
   const [selectedCommand, setSelectedCommand] = useState(0);
   const [isRunning, setIsRunning] = useState(false);
@@ -222,10 +224,20 @@ const DemoPlayground = () => {
           {/* CTA */}
           <div className="text-center mt-12">
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button variant="terminal" size="lg">
+              <Button 
+                variant="terminal" 
+                size="lg"
+                onClick={() => navigate('/open-core')}
+                className="transition-all duration-300 hover:scale-105"
+              >
                 Try Free Commands
               </Button>
-              <Button variant="terminal-blue" size="lg">
+              <Button 
+                variant="terminal-blue" 
+                size="lg"
+                onClick={() => navigate('/pro-edition')}
+                className="transition-all duration-300 hover:scale-105"
+              >
                 Unlock Pro Features
               </Button>
             </div>
