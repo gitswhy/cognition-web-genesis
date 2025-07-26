@@ -65,7 +65,7 @@ const AnimatedRoutes = () => {
 };
 
 const App = () => {
-  usePerformanceOptimizer();
+  // usePerformanceOptimizer(); // Temporarily disabled due to React import issue
   useWebVitals();
   
   return (
