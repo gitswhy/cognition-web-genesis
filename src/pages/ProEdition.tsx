@@ -116,7 +116,7 @@ const ProEdition = () => {
           
           {/* Right Content - Animated Analytics Dashboard */}
           <div className="relative animate-slide-left">
-            <Card className="bg-terminal-surface/50 backdrop-blur-sm border-terminal-blue/20 hover-lift animate-zoom-in">
+            <Card className="backdrop-blur-sm border-terminal-blue/20 hover-lift animate-zoom-in">
               <CardHeader className="card-responsive">
                 <CardTitle className="text-terminal-blue font-mono text-scale-heading">Live Analytics Dashboard</CardTitle>
               </CardHeader>
