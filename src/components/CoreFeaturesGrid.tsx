@@ -68,7 +68,7 @@ const CoreFeaturesGrid = () => {
               viewport={{ once: true }}
               whileHover={{ y: -5 }}
               whileTap={{ scale: 0.98 }}
-              className={`group relative p-8 rounded-xl border transition-all duration-500 cursor-pointer ${
+              className={`group relative p-4 sm:p-6 lg:p-8 rounded-xl border transition-all duration-500 cursor-pointer overflow-hidden ${
                 feature.color === 'terminal-blue'
                   ? 'border-terminal-blue/20 bg-terminal-surface/50 hover:border-terminal-blue/40'
                   : 'border-terminal-green/20 bg-terminal-surface/50 hover:border-terminal-green/40'
@@ -77,13 +77,13 @@ const CoreFeaturesGrid = () => {
               onMouseLeave={() => setHoveredCard(null)}
             >
               {/* Icon with animation */}
-              <div className={`relative inline-flex p-4 rounded-lg mb-6 ${
+              <div className={`relative inline-flex p-3 sm:p-4 rounded-lg mb-4 sm:mb-6 ${
                 feature.color === 'terminal-blue'
                   ? 'bg-terminal-blue/10 text-terminal-blue'
                   : 'bg-terminal-green/10 text-terminal-green'
               }`}>
                 <feature.icon 
-                  className={`h-8 w-8 ${
+                  className={`h-6 w-6 sm:h-8 sm:w-8 ${
                     hoveredCard === index ? feature.animation : ''
                   }`} 
                 />
@@ -117,15 +117,15 @@ const CoreFeaturesGrid = () => {
               </p>
 
               {/* Detailed features */}
-              <div className={`space-y-2 transition-all duration-300 ${
+              <div className={`space-y-1.5 sm:space-y-2 transition-all duration-300 ${
                 hoveredCard === index ? 'opacity-100 translate-y-0' : 'opacity-60 translate-y-2'
               }`}>
                 {feature.details.split(' • ').map((detail, detailIndex) => (
                   <div key={detailIndex} className="flex items-center space-x-2">
-                    <div className={`w-1.5 h-1.5 rounded-full ${
+                    <div className={`w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full flex-shrink-0 ${
                       feature.color === 'terminal-blue' ? 'bg-terminal-blue' : 'bg-terminal-green'
                     }`}></div>
-                    <span className="text-sm text-foreground/80">{detail}</span>
+                    <span className="text-xs sm:text-sm text-foreground/80 break-words">{detail}</span>
                   </div>
                 ))}
               </div>

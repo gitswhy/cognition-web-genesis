@@ -173,17 +173,17 @@ const Pricing = () => {
           <Badge variant="secondary" className="bg-terminal-blue/20 text-terminal-blue border-terminal-blue/30 mb-6">
             Transparent Pricing
           </Badge>
-          <h1 className="text-scale-hero font-bold font-mono mb-6 optimize-legibility">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold font-mono mb-4 sm:mb-6 optimize-legibility break-words">
             Choose Your <span className="text-terminal-green">Plan</span>
           </h1>
-          <p className="text-scale-mobile lg:text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
+          <p className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto mb-6 sm:mb-8 px-4 break-words">
             Start free with our Open Core edition or unlock advanced features 
             with Team and Enterprise plans. No hidden fees, cancel anytime.
           </p>
           
           {/* Pricing Toggle */}
-          <div className="flex items-center justify-center gap-4 bg-terminal-surface/50 backdrop-blur-sm rounded-lg p-2 max-w-xs mx-auto transition-all duration-300 hover:bg-terminal-surface/70">
-            <span className={`text-sm transition-all duration-300 ${!isAnnual ? 'text-foreground font-medium scale-105' : 'text-muted-foreground scale-100'}`}>
+          <div className="flex items-center justify-center gap-3 sm:gap-4 bg-terminal-surface/50 backdrop-blur-sm rounded-lg p-2 max-w-sm mx-auto transition-all duration-300 hover:bg-terminal-surface/70">
+            <span className={`text-xs sm:text-sm transition-all duration-300 break-words ${!isAnnual ? 'text-foreground font-medium scale-105' : 'text-muted-foreground scale-100'}`}>
               Monthly
             </span>
             <Switch
@@ -191,9 +191,9 @@ const Pricing = () => {
               onCheckedChange={setIsAnnual}
               className="data-[state=checked]:bg-terminal-blue transition-all duration-300 hover:scale-110"
             />
-            <span className={`text-sm transition-all duration-300 ${isAnnual ? 'text-foreground font-medium scale-105' : 'text-muted-foreground scale-100'}`}>
+            <span className={`text-xs sm:text-sm transition-all duration-300 break-words ${isAnnual ? 'text-foreground font-medium scale-105' : 'text-muted-foreground scale-100'}`}>
               Annual
-              <Badge variant="secondary" className="ml-2 bg-terminal-green/20 text-terminal-green border-terminal-green/30 text-xs transition-all duration-300">
+              <Badge variant="secondary" className="ml-1 sm:ml-2 bg-terminal-green/20 text-terminal-green border-terminal-green/30 text-xs transition-all duration-300">
                 20% off
               </Badge>
             </span>
@@ -223,31 +223,31 @@ const Pricing = () => {
                   </div>
                 )}
                 
-                <CardHeader className={`${tier.popular ? 'pt-12' : 'pt-6'} card-responsive`}>
-                  <div className="space-responsive">
+                <CardHeader className={`${tier.popular ? 'pt-12' : 'pt-4 sm:pt-6'} p-4 sm:p-6`}>
+                  <div className="space-y-3 sm:space-y-4">
                     <div>
-                      <CardTitle className="text-scale-heading font-bold">{tier.name}</CardTitle>
-                      <p className="text-muted-foreground mt-2 text-scale-mobile">{tier.description}</p>
+                      <CardTitle className="text-lg sm:text-xl lg:text-2xl font-bold break-words">{tier.name}</CardTitle>
+                      <p className="text-muted-foreground mt-2 text-sm sm:text-base break-words">{tier.description}</p>
                     </div>
                     
                     <div className="space-y-2 min-h-[80px] flex flex-col justify-center">
                       <div className="flex items-baseline gap-2 flex-wrap">
-                        <span className="text-2xl sm:text-3xl lg:text-4xl font-bold font-mono">
+                        <span className="text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-bold font-mono break-all">
                           ${isAnnual ? tier.price.annual : tier.price.monthly}
                         </span>
                         {tier.price.monthly > 0 && (
-                          <span className="text-muted-foreground text-sm sm:text-base">
+                          <span className="text-muted-foreground text-xs sm:text-sm lg:text-base break-words">
                             /user/month
                           </span>
                         )}
                       </div>
                       {tier.price.monthly > 0 && isAnnual && (
-                        <p className="text-sm text-muted-foreground">
+                        <p className="text-xs sm:text-sm text-muted-foreground break-words">
                           Billed annually (${tier.price.annual * 12}/user/year)
                         </p>
                       )}
                       {tier.price.monthly === 0 && (
-                        <p className="text-sm text-muted-foreground opacity-0">
+                        <p className="text-xs sm:text-sm text-muted-foreground opacity-0">
                           &nbsp;
                         </p>
                       )}
@@ -265,16 +265,16 @@ const Pricing = () => {
                         </h4>
                         <div className="space-y-2">
                           {category.items.map((feature, featureIndex) => (
-                            <div key={featureIndex} className="flex items-start gap-3">
+                            <div key={featureIndex} className="flex items-start gap-2 sm:gap-3">
                               {getFeatureIcon(feature.included)}
                               <div className="min-w-0 flex-1">
-                                <span className={`text-sm ${
+                                <span className={`text-xs sm:text-sm break-words ${
                                   feature.included ? 'text-foreground' : 'text-muted-foreground'
                                 }`}>
                                   {feature.name}
                                 </span>
                                 {feature.description && (
-                                  <p className="text-xs text-muted-foreground mt-1">
+                                  <p className="text-xs text-muted-foreground mt-1 break-words">
                                     {feature.description}
                                   </p>
                                 )}

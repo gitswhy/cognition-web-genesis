@@ -129,10 +129,10 @@ const Hero = () => {
                 <Button 
                   variant="terminal-outline-blue" 
                   size="default" 
-                  className="w-full sm:w-auto sm:min-w-[160px] mobile-button hover-desktop blue-glow neon-button text-sm sm:text-base gpu-accelerated"
+                  className="w-full sm:w-auto sm:min-w-[140px] md:min-w-[160px] text-xs sm:text-sm lg:text-base px-4 sm:px-6 py-2 sm:py-3 gpu-accelerated break-words"
                 >
-                  <Play className="h-4 w-4 transition-transform group-hover:scale-110" />
-                  Watch Demo
+                  <Play className="h-3 w-3 sm:h-4 sm:w-4 mr-1 sm:mr-2 transition-transform group-hover:scale-110 flex-shrink-0" />
+                  <span className="truncate">Watch Demo</span>
                 </Button>
               </motion.div>
             </motion.div>
@@ -151,20 +151,20 @@ const Hero = () => {
               ].map((text, index) => (
                 <motion.div 
                   key={text}
-                  className="flex items-center space-x-1.5 sm:space-x-2"
+                  className="flex items-center space-x-1.5 sm:space-x-2 break-words"
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.4, delay: 0.7 + index * 0.1 }}
                 >
                   <motion.div 
-                    className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-terminal-green flex items-center justify-center flex-shrink-0"
+                    className="w-2 h-2 sm:w-2.5 sm:h-2.5 lg:w-3 lg:h-3 rounded-full bg-terminal-green flex items-center justify-center flex-shrink-0"
                     initial={{ scale: 0 }}
                     animate={{ scale: 1 }}
                     transition={{ type: "spring", stiffness: 400, damping: 10, delay: 0.8 + index * 0.1 }}
                   >
-                    <Check className="w-1.5 h-1.5 sm:w-2 sm:h-2 text-terminal-bg" />
+                    <Check className="w-1 h-1 sm:w-1.5 sm:h-1.5 lg:w-2 lg:h-2 text-terminal-bg" />
                   </motion.div>
-                  <span>{text}</span>
+                  <span className="break-words">{text}</span>
                 </motion.div>
               ))}
             </motion.div>
@@ -193,12 +193,12 @@ const Hero = () => {
 
                 {/* Terminal Content */}
                 <div className="p-3 sm:p-4 font-mono text-xs sm:text-sm space-y-1.5 sm:space-y-2 min-h-[200px] sm:min-h-[240px] md:min-h-[280px]">
-                  <div className="text-terminal-green">
+                  <div className="text-terminal-green break-all">
                     $ gitswhy init --production
                   </div>
                   
                   {terminalStep >= 1 && (
-                    <>
+                    <div className="space-y-1 sm:space-y-1.5 break-words">
                       <div className="text-terminal-blue">
                         🧠 Cognition engine initializing...
                       </div>
@@ -220,12 +220,12 @@ const Hero = () => {
                       <div className="text-terminal-green">
                         ✅ Deploy-ready! Confidence: 99.7%
                       </div>
-                    </>
+                    </div>
                   )}
 
                   {!terminalStep && (
-                    <div className="flex items-center space-x-2 text-foreground/60">
-                      <Loader className="h-3 w-3 animate-spin" />
+                    <div className="flex items-center space-x-2 text-foreground/60 break-words">
+                      <Loader className="h-2.5 w-2.5 sm:h-3 sm:w-3 animate-spin flex-shrink-0" />
                       <span>Waiting for initialization...</span>
                     </div>
                   )}

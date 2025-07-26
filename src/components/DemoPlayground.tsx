@@ -67,13 +67,13 @@ const DemoPlayground = () => {
   };
 
   return (
-    <section className="py-20">
-      <div className="container mx-auto px-4 lg:px-20">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
+    <section className="py-12 sm:py-16 lg:py-20">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+        <div className="text-center mb-8 sm:mb-12">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4 text-foreground break-words">
             Try <span className="text-terminal-green">Gitswhy OS</span> Interactive Demo
           </h2>
-          <p className="text-xl text-foreground/70 max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg lg:text-xl text-foreground/70 max-w-3xl mx-auto break-words px-4">
             Experience the power of cognition-native DevSecOps
           </p>
         </div>
@@ -110,10 +110,10 @@ const DemoPlayground = () => {
 
           <div className="grid lg:grid-cols-2 gap-8">
             {/* Command List */}
-            <div className="space-y-4">
-              <h3 className="text-lg font-semibold text-foreground mb-6 flex items-center">
-                <Terminal className="h-5 w-5 mr-3 text-terminal-green" />
-                Available Commands
+            <div className="space-y-3 sm:space-y-4">
+              <h3 className="text-base sm:text-lg font-semibold text-foreground mb-4 sm:mb-6 flex items-center break-words">
+                <Terminal className="h-4 w-4 sm:h-5 sm:w-5 mr-2 sm:mr-3 text-terminal-green flex-shrink-0" />
+                <span>Available Commands</span>
               </h3>
               
               {allCommands.map((cmd, index) => (
@@ -147,10 +147,10 @@ const DemoPlayground = () => {
                     <div className="flex items-center space-x-2 ml-4">
                       <button
                         onClick={() => copyCommand(cmd.command)}
-                        className="p-2 rounded-md hover:bg-terminal-green/10 transition-colors opacity-0 group-hover:opacity-100"
+                        className="p-1.5 sm:p-2 rounded-md hover:bg-terminal-green/10 transition-colors opacity-0 group-hover:opacity-100"
                         disabled={isCommandLocked(cmd)}
                       >
-                        <Copy className="h-4 w-4 text-foreground/60" />
+                        <Copy className="h-3 w-3 sm:h-4 sm:w-4 text-foreground/60" />
                       </button>
                       
                       <Button
@@ -158,10 +158,10 @@ const DemoPlayground = () => {
                         disabled={isCommandLocked(cmd) || isRunning}
                         size="sm"
                         variant={isCommandLocked(cmd) ? "outline" : (activeTab === "pro" ? "terminal-blue" : "terminal")}
-                        className={isCommandLocked(cmd) ? "opacity-50 cursor-not-allowed" : ""}
+                        className={`text-xs sm:text-sm px-2 sm:px-3 py-1 sm:py-2 ${isCommandLocked(cmd) ? "opacity-50 cursor-not-allowed" : ""}`}
                       >
-                        <Play className="h-3 w-3 mr-1" />
-                        Run
+                        <Play className="h-2.5 w-2.5 sm:h-3 sm:w-3 mr-1 flex-shrink-0" />
+                        <span>Run</span>
                       </Button>
                     </div>
                   </div>
