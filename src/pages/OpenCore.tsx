@@ -331,7 +331,7 @@ Remove-Item -Recurse -Force reflexcore`
                   <h3 className="text-lg sm:text-xl lg:text-2xl font-mono font-bold text-foreground mb-2 sm:mb-3">Prerequisites</h3>
                   <p className="text-sm sm:text-base text-muted-foreground mb-3 sm:mb-4">Ensure you have the required dependencies installed:</p>
                   <ul className="text-sm sm:text-base text-muted-foreground space-y-2 mb-4 sm:mb-6">
-                    <li>• <strong>Python 3.7+</strong> and <code className="bg-terminal-surface/80 px-2 py-1 rounded font-mono text-terminal-green text-xs sm:text-sm">pip</code> (check with <code className="bg-terminal-surface/80 px-2 py-1 rounded font-mono text-terminal-green text-xs sm:text-sm">python3 --version</code> and <code className="bg-terminal-surface/80 px-2 py-1 rounded font-mono text-terminal-green text-xs sm:text-sm">pip --version</code>)</li>
+                    <li className="break-words">• <strong>Python 3.7+</strong> and <code className="bg-terminal-surface/80 px-2 py-1 rounded font-mono text-terminal-green text-xs sm:text-sm break-all">pip</code> (check with <code className="bg-terminal-surface/80 px-2 py-1 rounded font-mono text-terminal-green text-xs sm:text-sm break-all">python3 --version</code> and <code className="bg-terminal-surface/80 px-2 py-1 rounded font-mono text-terminal-green text-xs sm:text-sm break-all">pip --version</code>)</li>
                     <li>• <strong>Bash</strong> (default on Linux/macOS/WSL)</li>
                     <li>• <strong>git</strong></li>
                     <li>• (Optional) <code className="bg-terminal-surface/80 px-2 py-1 rounded font-mono text-terminal-green text-xs sm:text-sm">sudo</code> privileges for system-level optimizations</li>
@@ -350,8 +350,8 @@ Remove-Item -Recurse -Force reflexcore`
                   <h3 className="text-lg sm:text-xl lg:text-2xl font-mono font-bold text-foreground mb-2 sm:mb-3">Clone the Repository</h3>
                   <p className="text-sm sm:text-base text-muted-foreground mb-3 sm:mb-4">Clone the ReflexCore repository from GitHub.</p>
                   <div className="relative group">
-                    <pre className="bg-terminal-surface/95 border border-terminal-green/30 rounded-lg p-3 sm:p-4 overflow-x-auto">
-                      <code className="text-terminal-green font-mono text-xs sm:text-sm" aria-label="Clone Repository Command">
+                    <pre className="bg-terminal-surface/95 border border-terminal-green/30 rounded-lg p-2 sm:p-3 lg:p-4 overflow-x-auto text-xs sm:text-sm">
+                      <code className="text-terminal-green font-mono block whitespace-pre-wrap break-all" aria-label="Clone Repository Command">
 {`git clone https://github.com/gitswhy/reflexcore.git
 cd reflexcore`}
                       </code>
@@ -378,8 +378,8 @@ cd reflexcore`}
                   <h3 className="text-lg sm:text-xl lg:text-2xl font-mono font-bold text-foreground mb-2 sm:mb-3">Install Python Dependencies</h3>
                   <p className="text-sm sm:text-base text-muted-foreground mb-3 sm:mb-4">Install required Python packages.</p>
                   <div className="relative group">
-                    <pre className="bg-terminal-surface/95 border border-terminal-green/30 rounded-lg p-3 sm:p-4 overflow-x-auto">
-                      <code className="text-terminal-green font-mono text-xs sm:text-sm" aria-label="Install Dependencies Command">
+                    <pre className="bg-terminal-surface/95 border border-terminal-green/30 rounded-lg p-2 sm:p-3 lg:p-4 overflow-x-auto text-xs sm:text-sm">
+                      <code className="text-terminal-green font-mono block whitespace-pre-wrap break-all" aria-label="Install Dependencies Command">
 pip install click cryptography pyyaml
                       </code>
                     </pre>
@@ -405,8 +405,8 @@ pip install click cryptography pyyaml
                   <h3 className="text-lg sm:text-xl lg:text-2xl font-mono font-bold text-foreground mb-2 sm:mb-3">Make Scripts Executable</h3>
                   <p className="text-sm sm:text-base text-muted-foreground mb-3 sm:mb-4">Grant execution permissions to scripts.</p>
                   <div className="relative group">
-                    <pre className="bg-terminal-surface/95 border border-terminal-green/30 rounded-lg p-3 sm:p-4 overflow-x-auto">
-                      <code className="text-terminal-green font-mono text-xs sm:text-sm" aria-label="Make Scripts Executable Command">
+                    <pre className="bg-terminal-surface/95 border border-terminal-green/30 rounded-lg p-2 sm:p-3 lg:p-4 overflow-x-auto text-xs sm:text-sm">
+                      <code className="text-terminal-green font-mono block whitespace-pre-wrap break-all" aria-label="Make Scripts Executable Command">
 chmod +x scripts/*.sh modules/*.sh gitswhy_vault_manager.py cli/gitswhy_cli.py
                       </code>
                     </pre>
@@ -433,10 +433,10 @@ chmod +x scripts/*.sh modules/*.sh gitswhy_vault_manager.py cli/gitswhy_cli.py
                     Add to Shell Startup 
                     <span className="ml-2 sm:ml-3 px-2 sm:px-3 py-1 bg-muted text-muted-foreground text-xs sm:text-sm rounded-full">Optional</span>
                   </h3>
-                  <p className="text-sm sm:text-base text-muted-foreground mb-3 sm:mb-4">Add ReflexCore to your <code className="bg-terminal-surface/80 px-2 py-1 rounded font-mono text-terminal-green text-xs sm:text-sm">.bashrc</code> or <code className="bg-terminal-surface/80 px-2 py-1 rounded font-mono text-terminal-green text-xs sm:text-sm">.zshrc</code> to auto-start background agents:</p>
+                  <p className="text-sm sm:text-base text-muted-foreground mb-3 sm:mb-4 break-words">Add ReflexCore to your <code className="bg-terminal-surface/80 px-1 py-1 rounded font-mono text-terminal-green text-xs break-all">.bashrc</code> or <code className="bg-terminal-surface/80 px-1 py-1 rounded font-mono text-terminal-green text-xs break-all">.zshrc</code> to auto-start background agents:</p>
                   <div className="relative group">
-                    <pre className="bg-terminal-surface/95 border border-terminal-green/30 rounded-lg p-3 sm:p-4 overflow-x-auto">
-                      <code className="text-terminal-green font-mono text-xs sm:text-sm" aria-label="Shell Startup Command">
+                    <pre className="bg-terminal-surface/95 border border-terminal-green/30 rounded-lg p-2 sm:p-3 lg:p-4 overflow-x-auto text-xs sm:text-sm">
+                      <code className="text-terminal-green font-mono block whitespace-pre-wrap break-all" aria-label="Shell Startup Command">
 source /path/to/reflexcore/scripts/gitswhy_initiate.sh
                       </code>
                     </pre>
@@ -488,7 +488,7 @@ python3 cli/gitswhy_cli.py init
                 </div>
                 <div className="flex-1 min-w-0">
                   <h3 className="text-lg sm:text-xl lg:text-2xl font-mono font-bold text-foreground mb-2 sm:mb-3">Run the Test Suite (Recommended)</h3>
-                  <p className="text-sm sm:text-base text-muted-foreground mb-3 sm:mb-4">Run tests to verify installation. All tests should pass. If not, check logs in <code className="bg-terminal-surface/80 px-2 py-1 rounded font-mono text-terminal-green text-xs sm:text-sm">~/.gitswhy/</code> or <code className="bg-terminal-surface/80 px-2 py-1 rounded font-mono text-terminal-green text-xs sm:text-sm">/root/.gitswhy/</code>.</p>
+                  <p className="text-sm sm:text-base text-muted-foreground mb-3 sm:mb-4 break-words">Run tests to verify installation. All tests should pass. If not, check logs in <code className="bg-terminal-surface/80 px-1 py-1 rounded font-mono text-terminal-green text-xs break-all">~/.gitswhy/</code> or <code className="bg-terminal-surface/80 px-1 py-1 rounded font-mono text-terminal-green text-xs break-all">/root/.gitswhy/</code>.</p>
                   <div className="relative group">
                     <pre className="bg-terminal-surface/95 border border-terminal-green/30 rounded-lg p-3 sm:p-4 overflow-x-auto">
                       <code className="text-terminal-green font-mono text-xs sm:text-sm" aria-label="Test Suite Command">
@@ -521,8 +521,8 @@ sudo ./test_all.sh
                     <div>
                       <h4 className="text-sm sm:text-base lg:text-lg font-mono font-semibold text-foreground mb-2">Monitor keystrokes:</h4>
                       <div className="relative group">
-                        <pre className="bg-terminal-surface/95 border border-terminal-green/30 rounded-lg p-3 sm:p-4 overflow-x-auto">
-                          <code className="text-terminal-green font-mono text-xs sm:text-sm" aria-label="Monitor Command">
+                        <pre className="bg-terminal-surface/95 border border-terminal-green/30 rounded-lg p-2 sm:p-3 lg:p-4 overflow-x-auto text-xs sm:text-sm">
+                          <code className="text-terminal-green font-mono block whitespace-pre-wrap break-all" aria-label="Monitor Command">
 python3 cli/gitswhy_cli.py mirror
                           </code>
                         </pre>
@@ -539,8 +539,8 @@ python3 cli/gitswhy_cli.py mirror
                     <div>
                       <h4 className="text-sm sm:text-base lg:text-lg font-mono font-semibold text-foreground mb-2">Flush system entropy:</h4>
                       <div className="relative group">
-                        <pre className="bg-terminal-surface/95 border border-terminal-green/30 rounded-lg p-3 sm:p-4 overflow-x-auto">
-                          <code className="text-terminal-green font-mono text-xs sm:text-sm" aria-label="Flush Command">
+                        <pre className="bg-terminal-surface/95 border border-terminal-green/30 rounded-lg p-2 sm:p-3 lg:p-4 overflow-x-auto text-xs sm:text-sm">
+                          <code className="text-terminal-green font-mono block whitespace-pre-wrap break-all" aria-label="Flush Command">
 sudo python3 cli/gitswhy_cli.py flush
                           </code>
                         </pre>
@@ -557,8 +557,8 @@ sudo python3 cli/gitswhy_cli.py flush
                     <div>
                       <h4 className="text-sm sm:text-base lg:text-lg font-mono font-semibold text-foreground mb-2">Show vault summary:</h4>
                       <div className="relative group">
-                        <pre className="bg-terminal-surface/95 border border-terminal-green/30 rounded-lg p-3 sm:p-4 overflow-x-auto">
-                          <code className="text-terminal-green font-mono text-xs sm:text-sm" aria-label="Vault Command">
+                        <pre className="bg-terminal-surface/95 border border-terminal-green/30 rounded-lg p-2 sm:p-3 lg:p-4 overflow-x-auto text-xs sm:text-sm">
+                          <code className="text-terminal-green font-mono block whitespace-pre-wrap break-all" aria-label="Vault Command">
 python3 cli/gitswhy_cli.py showvault --decrypt --format summary
                           </code>
                         </pre>
