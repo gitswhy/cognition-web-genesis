@@ -626,9 +626,6 @@ python3 cli/gitswhy_cli.py syncvault
                         </button>
                       </div>
                     </div>
-                    <div>
-                      <p className="text-muted-foreground">• <strong>Logs:</strong> Check <code className="bg-terminal-surface/80 px-2 py-1 rounded font-mono text-terminal-green">~/.gitswhy/</code> or <code className="bg-terminal-surface/80 px-2 py-1 rounded font-mono text-terminal-green">/root/.gitswhy/</code> for logs and vault files.</p>
-                    </div>
                   </div>
                 </div>
               </div>
