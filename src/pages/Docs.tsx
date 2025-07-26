@@ -677,8 +677,9 @@ export default function Docs() {
   const location = useLocation();
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedVersion, setSelectedVersion] = useState('v2.0');
-  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
-  const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false); // Mobile sidebar starts closed
+  const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false); // Desktop collapse state
+  const [isDesktop, setIsDesktop] = useState(false);
   const [expandedSections, setExpandedSections] = useState<string[]>(['quick-start']);
 
   const currentSection = searchParams.get('section') || 'quick-start';
@@ -687,6 +688,15 @@ export default function Docs() {
   useEffect(() => {
     // Force dark mode on docs page
     document.documentElement.classList.add('dark');
+
+    // Track window size for responsive behavior
+    const checkDesktop = () => {
+      setIsDesktop(window.innerWidth >= 1024);
+    };
+    
+    checkDesktop();
+    window.addEventListener('resize', checkDesktop);
+    return () => window.removeEventListener('resize', checkDesktop);
   }, []);
 
   const toggleSection = (sectionId: string) => {
@@ -726,25 +736,6 @@ export default function Docs() {
       <header className="border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50">
         <div className="container mx-auto flex h-16 items-center justify-between px-4">
           <div className="flex items-center gap-4">
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-              className="lg:hidden"
-            >
-              <Menu className="h-4 w-4" />
-            </Button>
-            
-            {/* Desktop Sidebar Toggle */}
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={() => setIsSidebarCollapsed(!isSidebarCollapsed)}
-              className="hidden lg:flex"
-            >
-              {isSidebarCollapsed ? <PanelLeft className="h-4 w-4" /> : <PanelLeftClose className="h-4 w-4" />}
-            </Button>
-            
             <Badge variant="outline">Documentation</Badge>
           </div>
 
@@ -771,6 +762,26 @@ export default function Docs() {
           </div>
         </div>
       </header>
+
+      {/* Floating Toggle Button - Always Visible */}
+      <Button
+        variant="outline"
+        size="sm"
+        onClick={() => {
+          if (isDesktop) {
+            setIsSidebarCollapsed(!isSidebarCollapsed);
+          } else {
+            setIsSidebarOpen(!isSidebarOpen);
+          }
+        }}
+        className="fixed top-24 left-4 z-50 bg-background/95 backdrop-blur-sm border shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+      >
+        {isDesktop ? (
+          isSidebarCollapsed ? <PanelLeft className="h-4 w-4" /> : <PanelLeftClose className="h-4 w-4" />
+        ) : (
+          isSidebarOpen ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />
+        )}
+      </Button>
 
       <div className="flex">
         {/* Fixed Sidebar for Desktop */}
