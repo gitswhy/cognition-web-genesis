@@ -774,7 +774,7 @@ export default function Docs() {
             setIsSidebarOpen(!isSidebarOpen);
           }
         }}
-        className="fixed top-[120px] sm:top-[140px] left-4 z-50 bg-background/95 backdrop-blur-sm border shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+        className="fixed top-[140px] sm:top-[160px] left-4 z-50 bg-background/95 backdrop-blur-sm border shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 lg:hidden"
       >
         {isDesktop ? (
           isSidebarCollapsed ? <PanelLeft className="h-4 w-4" /> : <PanelLeftClose className="h-4 w-4" />
