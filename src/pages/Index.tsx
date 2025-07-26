@@ -6,7 +6,7 @@ import TrustRibbon from "@/components/TrustRibbon";
 import EnhancedFeatures from "@/components/EnhancedFeatures";
 import CoreFeaturesGrid from "@/components/CoreFeaturesGrid";
 import DemoPlayground from "@/components/DemoPlayground";
-import TimelineSlider from "@/components/TimelineSlider";
+
 import CTASection from "@/components/CTASection";
 import BottomCTA from "@/components/BottomCTA";
 import Footer from "@/components/Footer";
@@ -38,7 +38,7 @@ const Index = () => {
         <EnhancedFeatures />
         <CoreFeaturesGrid />
         <DemoPlayground />
-        <TimelineSlider />
+        
         <CTASection />
         <BottomCTA />
         <Footer />
