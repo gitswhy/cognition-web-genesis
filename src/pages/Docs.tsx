@@ -722,7 +722,7 @@ export default function Docs() {
       <Header />
       
       {/* Docs Header */}
-      <header className="border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      <header className="border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50">
         <div className="container mx-auto flex h-16 items-center justify-between px-4">
           <div className="flex items-center gap-4">
             <Button
@@ -761,11 +761,9 @@ export default function Docs() {
         </div>
       </header>
 
-      <div className="flex min-h-screen">
-        {/* Sidebar */}
-        <aside className={`fixed inset-y-0 left-0 z-40 w-64 border-r bg-background transition-transform duration-300 ${
-          isSidebarOpen ? 'translate-x-0' : '-translate-x-full'
-        } lg:translate-x-0 lg:static lg:block`} style={{ top: '112px' }}>
+      <div className="flex">
+        {/* Fixed Sidebar for Desktop */}
+        <aside className="hidden lg:block fixed left-0 w-64 h-screen border-r bg-background z-30" style={{ top: '128px', height: 'calc(100vh - 128px)' }}>
           <div className="h-full overflow-y-auto py-6 px-4">
             <div className="space-y-2">
               {sections.map((section) => (
@@ -807,13 +805,58 @@ export default function Docs() {
           </div>
         </aside>
 
-        {/* Overlay for mobile */}
+        {/* Mobile Sidebar Overlay */}
         {isSidebarOpen && (
-          <div
-            className="fixed inset-0 z-30 bg-background/80 backdrop-blur-sm lg:hidden"
-            onClick={() => setIsSidebarOpen(false)}
-            style={{ top: '112px' }}
-          />
+          <>
+            <div
+              className="fixed inset-0 z-40 bg-background/80 backdrop-blur-sm lg:hidden"
+              onClick={() => setIsSidebarOpen(false)}
+            />
+            <aside className="fixed left-0 top-0 z-50 w-64 h-full border-r bg-background lg:hidden" style={{ top: '128px', height: 'calc(100vh - 128px)' }}>
+              <div className="h-full overflow-y-auto py-6 px-4">
+                <div className="space-y-2">
+                  {sections.map((section) => (
+                    <Collapsible
+                      key={section.id}
+                      open={expandedSections.includes(section.id)}
+                      onOpenChange={() => toggleSection(section.id)}
+                    >
+                      <CollapsibleTrigger className="flex w-full items-center justify-between rounded-lg px-3 py-2 text-left text-sm font-medium hover:bg-muted">
+                        <div className="flex items-center gap-2">
+                          <section.icon className="h-4 w-4" />
+                          {section.title}
+                        </div>
+                        {expandedSections.includes(section.id) ? (
+                          <ChevronDown className="h-4 w-4" />
+                        ) : (
+                          <ChevronRight className="h-4 w-4" />
+                        )}
+                      </CollapsibleTrigger>
+                      
+                      <CollapsibleContent className="pl-6 space-y-1">
+                        {section.subsections.map((subsection) => (
+                          <button
+                            key={subsection.id}
+                            onClick={() => {
+                              navigateToSection(section.id, subsection.id);
+                              setIsSidebarOpen(false);
+                            }}
+                            className={`block w-full rounded-lg px-3 py-2 text-left text-sm hover:bg-muted ${
+                              currentSection === section.id && currentSubsection === subsection.id
+                                ? 'bg-muted text-primary font-medium'
+                                : 'text-muted-foreground'
+                            }`}
+                          >
+                            {subsection.title}
+                          </button>
+                        ))}
+                      </CollapsibleContent>
+                    </Collapsible>
+                  ))}
+                </div>
+              </div>
+            </aside>
+          </>
         )}
 
         {/* Main Content */}
