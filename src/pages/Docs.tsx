@@ -774,7 +774,7 @@ export default function Docs() {
             setIsSidebarOpen(!isSidebarOpen);
           }
         }}
-        className="fixed top-[80px] sm:top-[90px] right-4 z-[60] bg-background/95 backdrop-blur-sm border-2 border-border/50 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-110 hover:rotate-3 hover:border-primary/50 active:scale-95 rounded-xl w-10 h-10 p-0 flex items-center justify-center"
+        className="fixed top-[80px] sm:top-[90px] left-4 z-[60] bg-background/95 backdrop-blur-sm border-2 border-border/50 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-110 hover:rotate-3 hover:border-primary/50 active:scale-95 rounded-xl w-10 h-10 p-0 flex items-center justify-center"
       >
         <div className="transition-all duration-300">
           {isDesktop ? (
@@ -862,16 +862,21 @@ export default function Docs() {
         </aside>
 
         {/* Mobile Sidebar Overlay */}
-        {isSidebarOpen && (
-          <>
-            <div
-              className="fixed inset-0 z-45 bg-background/80 backdrop-blur-sm lg:hidden"
-              onClick={() => setIsSidebarOpen(false)}
-            />
-            <aside className="fixed left-0 top-0 z-50 w-64 h-full border-r bg-background lg:hidden" style={{ 
-              top: 'calc(64px + 56px)', // Header + Docs header
-              height: 'calc(100vh - 64px - 56px)' 
-            }}>
+        <div
+          className={`fixed inset-0 z-45 bg-background/80 backdrop-blur-sm lg:hidden transition-opacity duration-300 ${
+            isSidebarOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+          }`}
+          onClick={() => setIsSidebarOpen(false)}
+        />
+            <aside 
+              className={`fixed left-0 top-0 z-50 w-64 h-full border-r bg-background lg:hidden transform transition-all duration-300 ease-in-out ${
+                isSidebarOpen ? 'translate-x-0' : '-translate-x-full'
+              }`} 
+              style={{ 
+                top: 'calc(64px + 56px)', // Header + Docs header
+                height: 'calc(100vh - 64px - 56px)' 
+              }}
+            >
               <div className="h-full overflow-y-auto py-6 px-4">
                 <div className="space-y-2">
                   {sections.map((section) => (
@@ -915,8 +920,6 @@ export default function Docs() {
                 </div>
               </div>
             </aside>
-          </>
-        )}
 
         {/* Main Content */}
         <main className={`flex-1 w-full transition-all duration-300 ${isSidebarCollapsed ? 'lg:ml-16' : 'lg:ml-64'} ${isSidebarOpen && !isDesktop ? 'overflow-hidden' : ''}`}>
