@@ -72,7 +72,7 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
         className={`group h-full bg-card/50 backdrop-blur-sm border-border/50 hover:border-primary/30 transition-all duration-300 ${
           badgeType === 'Free' ? 'hover:shadow-lg hover:shadow-green-500/50' :
           badgeType === 'Pro' ? 'hover:shadow-lg hover:shadow-blue-500/50' :
-          'hover:shadow-lg hover:shadow-green-400/40 hover:shadow-blue-400/40'
+          'hover:shadow-xl hover:shadow-emerald-400/60 hover:drop-shadow-[0_0_15px_rgba(59,130,246,0.4)]'
         } ${link ? 'cursor-pointer' : ''}`}
         onClick={handleClick}
         aria-label={`Feature: ${title}`}
