@@ -589,9 +589,12 @@
 
   /* Mobile-optimized button styles */
   .mobile-button {
-    min-height: 44px;
-    min-width: 44px;
+    min-height: 48px;
+    min-width: 120px;
+    padding: 12px 24px;
     touch-action: manipulation;
+    word-wrap: break-word;
+    text-align: center;
   }
 
   /* Responsive text scaling */
@@ -626,6 +629,28 @@
   }
 
   /* Grid responsive utilities */
+  .grid-responsive-2 {
+    @apply grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 xl:gap-16;
+  }
+  
+  .grid-responsive-3 {
+    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8;
+  }
+  
+  /* Container responsive utilities */
+  .container-responsive {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  /* Flex responsive utilities */
+  .flex-responsive {
+    @apply flex flex-col sm:flex-row gap-4 sm:gap-6;
+  }
+  
+  /* Section padding */
+  .padding-section {
+    @apply py-12 sm:py-16 md:py-20 lg:py-24 xl:py-32;
+  }
   .grid-responsive-2 {
     @apply grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 md:gap-8;
   }
