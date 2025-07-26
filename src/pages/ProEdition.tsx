@@ -125,15 +125,15 @@ const ProEdition = () => {
                 {/* Metrics Row */}
                 <div className="grid-responsive-3">
                   <div className="text-center animate-stagger-1">
-                    <div className="text-sm sm:text-lg font-mono text-terminal-green animate-pulse-glow">99.8%</div>
+                    <div className="text-sm sm:text-lg font-mono text-terminal-green font-bold">99.8%</div>
                     <div className="text-xs text-muted-foreground">Threat Detection</div>
                   </div>
                   <div className="text-center animate-stagger-2">
-                    <div className="text-sm sm:text-lg font-mono text-terminal-blue animate-pulse-glow">2.3s</div>
+                    <div className="text-sm sm:text-lg font-mono text-terminal-blue font-bold">2.3s</div>
                     <div className="text-xs text-muted-foreground">Avg Fix Time</div>
                   </div>
                   <div className="text-center animate-stagger-3">
-                    <div className="text-sm sm:text-lg font-mono text-yellow-400 animate-pulse-glow">247</div>
+                    <div className="text-sm sm:text-lg font-mono text-yellow-400 font-bold">247</div>
                     <div className="text-xs text-muted-foreground">Auto Patches</div>
                   </div>
                 </div>
