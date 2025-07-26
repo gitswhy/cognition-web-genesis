@@ -226,7 +226,7 @@ const Pricing = () => {
                       <p className="text-muted-foreground mt-2 text-scale-mobile">{tier.description}</p>
                     </div>
                     
-                    <div className="space-y-2">
+                    <div className="space-y-2 min-h-[80px] flex flex-col justify-center">
                       <div className="flex items-baseline gap-2 flex-wrap">
                         <span className="text-2xl sm:text-3xl lg:text-4xl font-bold font-mono">
                           ${isAnnual ? tier.price.annual : tier.price.monthly}
@@ -240,6 +240,11 @@ const Pricing = () => {
                       {tier.price.monthly > 0 && isAnnual && (
                         <p className="text-sm text-muted-foreground">
                           Billed annually (${tier.price.annual * 12}/user/year)
+                        </p>
+                      )}
+                      {tier.price.monthly === 0 && (
+                        <p className="text-sm text-muted-foreground opacity-0">
+                          &nbsp;
                         </p>
                       )}
                     </div>
