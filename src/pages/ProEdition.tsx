@@ -194,9 +194,7 @@ const ProEdition = () => {
             <h2 className="text-4xl font-bold font-mono mb-4">
               Choose Your Edition
             </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Compare features across Free Core, Pro, and Enterprise editions
-            </p>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">Compare features across Free Core and Pro.</p>
           </div>
           
           <div className="max-w-6xl mx-auto">
