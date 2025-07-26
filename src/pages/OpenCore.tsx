@@ -286,13 +286,6 @@ Remove-Item -Recurse -Force reflexcore`
                 </div>
               </li>
               
-              <li className="flex items-start gap-4 p-6 bg-terminal-surface/60 border border-terminal-green/30 rounded-xl hover:border-terminal-green/50 transition-all duration-300" aria-label="Feature: Placeholders">
-                <Star className="w-6 h-6 text-terminal-green mt-1 flex-shrink-0" />
-                <div>
-                  <span className="font-bold text-foreground">Placeholders:</span>
-                  <span className="text-muted-foreground"> Basic stubs for fractal memory and emotion mapping—extend as needed.</span>
-                </div>
-              </li>
             </ul>
             
             <div className="text-center mt-12">
