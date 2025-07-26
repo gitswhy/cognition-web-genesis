@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -57,6 +58,7 @@ interface FAQItem {
 const Pricing = () => {
   const [isAnnual, setIsAnnual] = useState(false);
   const [openFAQ, setOpenFAQ] = useState<string | null>(null);
+  const navigate = useNavigate();
 
   const pricingTiers: PricingTier[] = [
     {
@@ -104,7 +106,7 @@ const Pricing = () => {
           ]
         }
       ],
-      cta: 'Start Team Trial',
+      cta: 'Start Pro Trial',
       ctaVariant: 'default'
     }
   ];
@@ -285,6 +287,13 @@ const Pricing = () => {
                   {/* CTA Button */}
                   <div className="mt-auto pt-6">
                     <Button 
+                      onClick={() => {
+                        if (tier.type === 'core') {
+                          navigate('/open-core');
+                        } else {
+                          navigate('/pro-edition');
+                        }
+                      }}
                       className={`w-full transition-all duration-300 hover:scale-105 hover:shadow-lg group ${
                         tier.ctaVariant === 'default'
                           ? tier.type === 'core'
