@@ -29,12 +29,12 @@ const Header = () => {
   return (
     <header className="fixed top-0 w-full z-[100] glass border-b border-terminal-green/20 backdrop-blur-xl safe-area-top">
       <div className="container mx-auto safe-area-padding">
-        <div className="flex items-center justify-between h-14 sm:h-16 md:h-18">
+        <div className="flex items-center justify-between h-12 sm:h-14 md:h-16">
           {/* Logo */}
-          <Link to="/" className="group flex items-center space-x-1.5 sm:space-x-2 transition-all duration-500 relative overflow-visible">
+          <Link to="/" className="group flex items-center space-x-1 sm:space-x-1.5 transition-all duration-500 relative overflow-visible">
             {/* Custom >_< SVG Icon with Individual Character Colors */}
             <div className="relative">
-              <svg width="24" height="24" viewBox="0 0 32 32" className="sm:w-8 sm:h-8 transition-all duration-500 group-hover:scale-105 group-hover:rotate-2">
+              <svg width="20" height="20" viewBox="0 0 32 32" className="sm:w-6 sm:h-6 transition-all duration-500 group-hover:scale-105 group-hover:rotate-2">
                 <defs>
                   <linearGradient id="underscoreGradient" x1="0%" y1="0%" x2="100%" y2="0%">
                     <stop offset="0%" stopColor="#0080FF" />
@@ -52,7 +52,7 @@ const Header = () => {
             
             {/* Text with Character Animation */}
             <div className="relative">
-              <span className="text-lg sm:text-xl font-bold font-mono transition-all duration-500 group-hover:tracking-wide flex">
+              <span className="text-sm sm:text-lg font-bold font-mono transition-all duration-500 group-hover:tracking-wide flex">
                 {/* Individual character animations with smaller transforms */}
                 <span className="inline-block text-terminal-green transition-all duration-500 group-hover:text-terminal-blue group-hover:scale-105 group-hover:-translate-y-0.5" style={{ transitionDelay: '0ms' }}>G</span>
                 <span className="inline-block text-terminal-green transition-all duration-500 group-hover:text-terminal-blue group-hover:scale-105 group-hover:-translate-y-0.5" style={{ transitionDelay: '50ms' }}>i</span>
@@ -75,7 +75,7 @@ const Header = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center space-x-6 xl:space-x-8">
+          <nav className="hidden lg:flex items-center space-x-3 xl:space-x-4">
             {navItems.map((item) => (
               <Link
                 key={item.label}
@@ -128,7 +128,7 @@ const Header = () => {
           </nav>
 
           {/* CTAs */}
-          <div className="hidden lg:flex items-center space-x-2 xl:space-x-4">
+          <div className="hidden lg:flex items-center space-x-1 xl:space-x-2">
             <Button variant="terminal-outline" size="sm" asChild className="group terminal-clean text-xs xl:text-sm relative overflow-hidden">
               <Link to="/open-core" className="flex items-center">
                 <span className="relative z-10 transition-transform duration-300 group-hover:scale-105">Try Free Core</span>

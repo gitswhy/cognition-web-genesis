@@ -83,8 +83,8 @@ const ProEdition = () => {
         <div className="container-responsive grid-responsive-2 items-center relative z-10">
           {/* Left Content */}
           <div className="space-responsive animate-slide-right">
-            <div className="space-y-4">
-              <Badge variant="secondary" className="bg-terminal-blue/20 text-terminal-blue border-terminal-blue/30 animate-stagger-1">
+            <div className="space-y-2 sm:space-y-4">
+              <Badge variant="secondary" className="bg-terminal-blue/20 text-terminal-blue border-terminal-blue/30 animate-stagger-1 text-xs sm:text-sm">
                 Enterprise DevSecOps
               </Badge>
               <h1 className="text-scale-hero font-bold font-mono tracking-tight animate-stagger-2">
@@ -98,18 +98,18 @@ const ProEdition = () => {
             </div>
             
             <div className="flex-responsive animate-stagger-4">
-              <Button size="lg" className="bg-terminal-blue hover:bg-terminal-blue/90 text-white mobile-button hover-lift">
+              <Button size="sm" className="bg-terminal-blue hover:bg-terminal-blue/90 text-white mobile-button hover-lift">
                 Start Pro Trial
-                <ArrowRight className="ml-2 w-4 h-4" />
+                <ArrowRight className="ml-1 w-3 h-3" />
               </Button>
-              <Button variant="outline" size="lg" className="border-terminal-blue/30 text-terminal-blue hover:bg-terminal-blue/10 mobile-button hover-lift">
-                Schedule Demo
+              <Button variant="outline" size="sm" className="border-terminal-blue/30 text-terminal-blue hover:bg-terminal-blue/10 mobile-button hover-lift">
+                Demo
               </Button>
             </div>
             
-            <div className="flex items-center gap-4 sm:gap-6 text-sm text-muted-foreground animate-stagger-5">
-              <div className="flex items-center gap-2">
-                <Check className="w-4 h-4 text-terminal-green" />
+            <div className="flex items-center gap-2 sm:gap-4 text-xs sm:text-sm text-muted-foreground animate-stagger-5">
+              <div className="flex items-center gap-1 sm:gap-2">
+                <Check className="w-3 h-3 sm:w-4 sm:h-4 text-terminal-green" />
                 <span>SOC 2 Compliant</span>
               </div>
             </div>
@@ -119,22 +119,22 @@ const ProEdition = () => {
           <div className="relative animate-slide-left">
             <Card className="bg-transparent backdrop-blur-sm border-terminal-blue/20 hover-lift animate-zoom-in">
               <CardHeader className="card-responsive">
-                <CardTitle className="text-terminal-blue font-mono text-scale-heading">Live Analytics Dashboard</CardTitle>
+                <CardTitle className="text-terminal-blue font-mono text-scale-heading">Live Analytics</CardTitle>
               </CardHeader>
               <CardContent className="space-responsive card-responsive">
                 {/* Metrics Row */}
                 <div className="grid-responsive-3">
                   <div className="text-center animate-stagger-1">
-                    <div className="text-lg sm:text-xl lg:text-2xl font-mono text-terminal-green animate-pulse-glow">99.8%</div>
-                    <div className="text-xs sm:text-sm text-muted-foreground">Threat Detection</div>
+                    <div className="text-sm sm:text-lg font-mono text-terminal-green animate-pulse-glow">99.8%</div>
+                    <div className="text-xs text-muted-foreground">Threat Detection</div>
                   </div>
                   <div className="text-center animate-stagger-2">
-                    <div className="text-lg sm:text-xl lg:text-2xl font-mono text-terminal-blue animate-pulse-glow">2.3s</div>
-                    <div className="text-xs sm:text-sm text-muted-foreground">Avg Fix Time</div>
+                    <div className="text-sm sm:text-lg font-mono text-terminal-blue animate-pulse-glow">2.3s</div>
+                    <div className="text-xs text-muted-foreground">Avg Fix Time</div>
                   </div>
                   <div className="text-center animate-stagger-3">
-                    <div className="text-lg sm:text-xl lg:text-2xl font-mono text-yellow-400 animate-pulse-glow">247</div>
-                    <div className="text-xs sm:text-sm text-muted-foreground">Auto Patches</div>
+                    <div className="text-sm sm:text-lg font-mono text-yellow-400 animate-pulse-glow">247</div>
+                    <div className="text-xs text-muted-foreground">Auto Patches</div>
                   </div>
                 </div>
                 

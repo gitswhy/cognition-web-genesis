@@ -155,28 +155,28 @@ const HowItWorks = () => {
       <Header />
       
       {/* Hero Section */}
-      <section className="relative py-24 overflow-hidden">
+      <section className="relative padding-section overflow-hidden">
         <div className="absolute inset-0 bg-[linear-gradient(rgba(0,255,102,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(0,255,102,0.05)_1px,transparent_1px)] bg-[size:50px_50px]" />
         
-        <div className="container mx-auto px-4 text-center relative z-10">
-          <Badge variant="secondary" className="bg-terminal-green/20 text-terminal-green border-terminal-green/30 mb-6">
+        <div className="container-responsive text-center relative z-10">
+          <Badge variant="secondary" className="bg-terminal-green/20 text-terminal-green border-terminal-green/30 mb-3 sm:mb-6 text-xs sm:text-sm">
             Step-by-Step Guide
           </Badge>
-          <h1 className="text-5xl lg:text-7xl font-bold font-mono mb-6">
+          <h1 className="text-scale-hero font-bold font-mono mb-3 sm:mb-6">
             How <span className="text-terminal-green">Gitswhy</span> Works
           </h1>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
+          <p className="text-scale-subtitle text-muted-foreground max-w-3xl mx-auto mb-4 sm:mb-8">
             From installation to team insights, discover how Gitswhy OS transforms 
             your development workflow with cognition-native DevSecOps.
           </p>
           
           <Button 
-            size="lg" 
-            className="bg-terminal-green hover:bg-terminal-green/90 text-background"
+            size="sm" 
+            className="bg-terminal-green hover:bg-terminal-green/90 text-background mobile-button"
             onClick={() => scrollToStep(0)}
           >
-            Start the Journey
-            <ArrowRight className="ml-2 w-4 h-4" />
+            Start Journey
+            <ArrowRight className="ml-1 w-3 h-3" />
           </Button>
         </div>
       </section>
@@ -231,7 +231,7 @@ const HowItWorks = () => {
         </nav>
 
         {/* Steps Content */}
-        <div className="container mx-auto px-4 lg:pl-80 lg:pr-16 py-24">
+        <div className="container-responsive lg:pl-80 lg:pr-16 padding-section">
           {steps.map((step, index) => {
             const Icon = step.icon;
             const isEven = index % 2 === 0;
@@ -285,39 +285,39 @@ const HowItWorks = () => {
                         </div>
                       </div>
                       
-                      <h2 className="text-4xl lg:text-5xl font-bold font-mono">
+                      <h2 className="text-scale-heading font-bold font-mono">
                         {step.title}
                       </h2>
-                      <p className="text-xl text-muted-foreground">
+                      <p className="text-scale-subtitle text-muted-foreground">
                         {step.subtitle}
                       </p>
                     </div>
 
-                    <p className="text-lg leading-relaxed">
+                    <p className="text-scale-body leading-relaxed">
                       {step.description}
                     </p>
 
                     {/* Code Block */}
                     <Card className="bg-terminal-bg border-terminal-surface">
-                      <CardContent className="p-6">
-                        <div className="flex items-center gap-2 mb-4">
-                          <Terminal className="w-4 h-4 text-terminal-green" />
-                          <span className="text-sm text-terminal-green font-mono">Terminal</span>
+                      <CardContent className="card-responsive">
+                        <div className="flex items-center gap-1 sm:gap-2 mb-2 sm:mb-4">
+                          <Terminal className="w-3 h-3 sm:w-4 sm:h-4 text-terminal-green" />
+                          <span className="text-xs sm:text-sm text-terminal-green font-mono">Terminal</span>
                         </div>
-                        <pre className="text-terminal-green font-mono text-sm whitespace-pre-wrap">
+                        <pre className="text-terminal-green font-mono text-xs sm:text-sm whitespace-pre-wrap break-all">
                           {step.code}
                         </pre>
                       </CardContent>
                     </Card>
 
                     {/* Features List */}
-                    <div className="space-y-3">
+                    <div className="space-y-2 sm:space-y-3">
                       {step.features.map((feature, featureIndex) => (
-                        <div key={featureIndex} className="flex items-center gap-3">
-                          <CheckCircle className={`w-5 h-5 ${
+                        <div key={featureIndex} className="flex items-center gap-2 sm:gap-3">
+                          <CheckCircle className={`w-3 h-3 sm:w-5 sm:h-5 ${
                             step.type === 'core' ? 'text-terminal-green' : 'text-terminal-blue'
                           }`} />
-                          <span className="text-muted-foreground">{feature}</span>
+                          <span className="text-scale-body text-muted-foreground">{feature}</span>
                         </div>
                       ))}
                     </div>
@@ -389,12 +389,12 @@ const HowItWorks = () => {
       </div>
 
       {/* Final CTA Section */}
-      <section className="py-24">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl font-bold font-mono mb-6">
+      <section className="padding-section">
+        <div className="container-responsive text-center">
+          <h2 className="text-scale-heading font-bold font-mono mb-3 sm:mb-6">
             Ready to Transform Your Workflow?
           </h2>
-          <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
+          <p className="text-scale-subtitle text-muted-foreground mb-4 sm:mb-8 max-w-2xl mx-auto">
             Start with our Open Core edition or unlock the full potential with Pro features.
           </p>
           

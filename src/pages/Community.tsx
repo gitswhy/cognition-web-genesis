@@ -243,26 +243,23 @@ export default function Community() {
         </head>
 
         {/* Hero Section */}
-        <section className="relative py-16">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center space-y-6">
-            <h1 className="text-4xl md:text-5xl font-bold">
+        <section className="relative padding-section">
+        <div className="container-responsive">
+          <div className="max-w-4xl mx-auto text-center space-responsive">
+            <h1 className="text-scale-hero font-bold">
               Join Our <span className="text-terminal-green">Community</span>
             </h1>
-            <p className="text-xl text-foreground/80">
+            <p className="text-scale-subtitle text-foreground/80">
               Connect with developers, security experts, and DevOps engineers building 
               the future of secure software development.
             </p>
-            
-            {/* Stats */}
-            
           </div>
         </div>
       </section>
 
       {/* Community Tabs */}
-      <section className="py-12">
-        <div className="container mx-auto px-4">
+      <section className="padding-section">
+        <div className="container-responsive">
           <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
             <TabsList className="grid w-full grid-cols-3 max-w-md mx-auto">
               <TabsTrigger value="github">GitHub</TabsTrigger>
@@ -273,26 +270,26 @@ export default function Community() {
             <TabsContent value="github" className="mt-8">
               <div className="space-y-8">
                 <div className="text-center">
-                  <h2 className="text-3xl font-bold mb-4">
+                  <h2 className="text-scale-heading font-bold mb-2 sm:mb-4">
                     Latest from <span className="text-terminal-green">GitHub</span>
                   </h2>
-                  <p className="text-foreground/80 max-w-2xl mx-auto">
+                  <p className="text-scale-body text-foreground/80 max-w-2xl mx-auto">
                     Stay updated with the latest issues, discussions, and contributions 
                     to the Gitswhy OS open source project.
                   </p>
                 </div>
                 
-                <div className="flex justify-center gap-4 mb-8">
-                  <Button asChild variant="default">
+                <div className="flex justify-center flex-responsive mb-4 sm:mb-8">
+                  <Button asChild size="sm" variant="default" className="mobile-button">
                     <a href="https://github.com/gitswhy/core" target="_blank" rel="noopener noreferrer">
-                      <Github className="w-4 h-4 mr-2" />
-                      View Repository
-                      <ExternalLink className="w-3 h-3 ml-1" />
+                      <Github className="w-3 h-3 mr-1" />
+                      Repository
+                      <ExternalLink className="w-2 h-2 ml-1" />
                     </a>
                   </Button>
-                  <Button asChild variant="outline">
+                  <Button asChild size="sm" variant="outline" className="mobile-button">
                     <a href="https://github.com/gitswhy/core/issues/new" target="_blank" rel="noopener noreferrer">
-                      <AlertCircle className="w-4 h-4 mr-2" />
+                      <AlertCircle className="w-3 h-3 mr-1" />
                       Report Issue
                     </a>
                   </Button>

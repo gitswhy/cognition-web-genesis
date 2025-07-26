@@ -474,14 +474,14 @@ export default function AboutCareers() {
       </head>
 
       {/* Hero Section */}
-      <section className="relative py-20">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center space-y-8">
-            <div className="space-y-4 animate-fade-in">
-              <h1 className="text-4xl md:text-6xl font-bold">
+      <section className="relative padding-section">
+        <div className="container-responsive">
+          <div className="max-w-4xl mx-auto text-center space-responsive">
+            <div className="space-responsive animate-fade-in">
+              <h1 className="text-scale-hero font-bold">
                 About <span className="text-primary">Gitswhy OS</span>
               </h1>
-              <p className="text-xl md:text-2xl text-muted-foreground">
+              <p className="text-scale-subtitle text-muted-foreground">
                 Making security accessible to every developer through 
                 open source innovation and community collaboration.
               </p>
