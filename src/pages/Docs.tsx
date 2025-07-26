@@ -774,7 +774,7 @@ export default function Docs() {
             setIsSidebarOpen(!isSidebarOpen);
           }
         }}
-        className="fixed top-[100px] sm:top-[110px] left-4 z-50 bg-background/95 backdrop-blur-sm border-2 border-border/50 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-110 hover:rotate-3 hover:border-primary/50 active:scale-95 rounded-xl w-10 h-10 p-0 flex items-center justify-center"
+        className="fixed top-[80px] sm:top-[90px] right-4 z-[60] bg-background/95 backdrop-blur-sm border-2 border-border/50 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-110 hover:rotate-3 hover:border-primary/50 active:scale-95 rounded-xl w-10 h-10 p-0 flex items-center justify-center"
       >
         <div className="transition-all duration-300">
           {isDesktop ? (
@@ -792,7 +792,7 @@ export default function Docs() {
       <div className="flex">
         {/* Fixed Sidebar for Desktop */}
         <aside 
-          className={`hidden lg:block fixed left-0 h-screen border-r bg-background z-30 transition-all duration-300 ${
+          className={`hidden lg:block fixed left-0 h-screen border-r bg-background z-40 transition-all duration-300 ${
             isSidebarCollapsed ? 'w-16' : 'w-64'
           }`} 
           style={{ 
@@ -865,7 +865,7 @@ export default function Docs() {
         {isSidebarOpen && (
           <>
             <div
-              className="fixed inset-0 z-40 bg-background/80 backdrop-blur-sm lg:hidden"
+              className="fixed inset-0 z-45 bg-background/80 backdrop-blur-sm lg:hidden"
               onClick={() => setIsSidebarOpen(false)}
             />
             <aside className="fixed left-0 top-0 z-50 w-64 h-full border-r bg-background lg:hidden" style={{ 
@@ -919,8 +919,8 @@ export default function Docs() {
         )}
 
         {/* Main Content */}
-        <main className={`flex-1 w-full transition-all duration-300 ${isSidebarCollapsed ? 'lg:ml-16' : 'lg:ml-64'}`}>
-          <div className="container mx-auto max-w-4xl px-6 sm:px-8 py-8 sm:py-12">
+        <main className={`flex-1 w-full transition-all duration-300 ${isSidebarCollapsed ? 'lg:ml-16' : 'lg:ml-64'} ${isSidebarOpen && !isDesktop ? 'overflow-hidden' : ''}`}>
+          <div className="container mx-auto max-w-4xl px-6 sm:px-8 py-8 sm:py-12 relative">
             {currentContent && (
               <article className="prose prose-neutral dark:prose-invert max-w-none">
                 <div className="mb-8 sm:mb-12">
