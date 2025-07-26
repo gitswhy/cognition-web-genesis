@@ -7,7 +7,7 @@ import EnhancedFeatures from "@/components/EnhancedFeatures";
 import CoreFeaturesGrid from "@/components/CoreFeaturesGrid";
 import DemoPlayground from "@/components/DemoPlayground";
 
-import CTASection from "@/components/CTASection";
+
 import BottomCTA from "@/components/BottomCTA";
 import Footer from "@/components/Footer";
 import { useAnalytics } from "@/components/analytics/PlausibleAnalytics";
@@ -39,7 +39,7 @@ const Index = () => {
         <CoreFeaturesGrid />
         <DemoPlayground />
         
-        <CTASection />
+        
         <BottomCTA />
         <Footer />
       </WebsiteBackground>
