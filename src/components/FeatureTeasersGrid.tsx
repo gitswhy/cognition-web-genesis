@@ -132,14 +132,14 @@ export const FeatureTeasersGrid: React.FC = () => {
     },
     {
       icon: Lock,
-      title: "Encrypted Recursive Vault",
+      title: "Encrypted Vault",
       description: "Logs 'why' data in domain-split structure for audits/compliance",
       badgeType: 'Free/Pro',
       delay: 0.5,
     },
     {
       icon: Mic,
-      title: "Voice Commands & Dashboards",
+      title: "Voice Commands & Web Dashboards",
       description: "Hands-free ops and team analytics with Slack integrations",
       badgeType: 'Pro',
       delay: 0.6,
@@ -156,7 +156,7 @@ export const FeatureTeasersGrid: React.FC = () => {
           className="text-center mb-12"
         >
           <h2 className="text-3xl font-bold text-foreground mb-4">
-            Core Features
+            Core <span className="text-terminal-green">Features</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
             Comprehensive security and development tools designed to protect your code and enhance your workflow
