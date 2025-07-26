@@ -43,7 +43,7 @@ const Footer = () => {
   return (
     <footer className="border-t border-terminal-green/20">{/* Consistent background from PageBackground */}
       <div className="container mx-auto px-2 sm:px-4 lg:px-20 py-4 sm:py-8 lg:py-16">
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-6 lg:gap-8">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 sm:gap-4 md:gap-6 lg:gap-8">
           {/* Brand section */}
           <div className="col-span-2 lg:col-span-2">
             <div className="flex items-center space-x-1 sm:space-x-2 mb-2 sm:mb-4">

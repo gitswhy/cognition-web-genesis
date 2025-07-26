@@ -589,17 +589,22 @@
 
   /* Mobile-optimized button styles */
   .mobile-button {
-    min-height: 48px;
+    min-height: 44px;
     min-width: 120px;
-    padding: 12px 24px;
+    padding: 12px 16px;
     touch-action: manipulation;
     word-wrap: break-word;
     text-align: center;
+    @apply text-sm sm:text-base;
   }
 
-  /* Responsive text scaling */
+  /* Enhanced responsive text scaling */
   .text-scale-mobile {
-    @apply text-sm sm:text-base;
+    @apply text-sm sm:text-base md:text-lg;
+  }
+
+  .text-scale-base {
+    @apply text-sm sm:text-base md:text-lg lg:text-xl;
   }
   
   .text-scale-heading {
@@ -610,57 +615,109 @@
     @apply text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl;
   }
 
-  /* Responsive spacing utilities */
+  .text-scale-subtitle {
+    @apply text-sm sm:text-base md:text-lg lg:text-xl;
+  }
+
+  /* Mobile-first spacing utilities */
   .space-responsive {
-    @apply space-y-4 sm:space-y-6 md:space-y-8 lg:space-y-12;
+    @apply space-y-3 sm:space-y-4 md:space-y-6 lg:space-y-8;
+  }
+
+  .space-responsive-sm {
+    @apply space-y-2 sm:space-y-3 md:space-y-4;
   }
   
   .padding-responsive {
-    @apply py-8 sm:py-12 md:py-16 lg:py-20 xl:py-24;
+    @apply py-6 sm:py-8 md:py-12 lg:py-16 xl:py-20;
   }
   
   .padding-responsive-sm {
-    @apply py-4 sm:py-6 md:py-8 lg:py-12;
+    @apply py-3 sm:py-4 md:py-6 lg:py-8;
+  }
+
+  .padding-responsive-x {
+    @apply px-3 sm:px-4 md:px-6 lg:px-8;
   }
 
   /* Mobile-first card spacing */
   .card-responsive {
-    @apply p-4 sm:p-6 md:p-8;
+    @apply p-3 sm:p-4 md:p-6 lg:p-8;
   }
 
-  /* Grid responsive utilities */
+  .card-responsive-sm {
+    @apply p-2 sm:p-3 md:p-4;
+  }
+
+  /* Enhanced grid responsive utilities */
   .grid-responsive-2 {
-    @apply grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 xl:gap-16;
+    @apply grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4 md:gap-6 lg:gap-8;
   }
   
   .grid-responsive-3 {
-    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8;
-  }
-  
-  /* Container responsive utilities */
-  .container-responsive {
-    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
-  }
-  
-  /* Flex responsive utilities */
-  .flex-responsive {
-    @apply flex flex-col sm:flex-row gap-4 sm:gap-6;
-  }
-  
-  /* Section padding */
-  .padding-section {
-    @apply py-12 sm:py-16 md:py-20 lg:py-24 xl:py-32;
-  }
-  .grid-responsive-2 {
-    @apply grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 md:gap-8;
-  }
-  
-  .grid-responsive-3 {
-    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8;
+    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 md:gap-6 lg:gap-8;
   }
 
   .grid-responsive-4 {
-    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6 md:gap-8;
+    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-4 md:gap-6 lg:gap-8;
+  }
+  
+  /* Mobile-optimized container utilities */
+  .container-responsive {
+    @apply max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8;
+  }
+
+  .container-responsive-narrow {
+    @apply max-w-4xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8;
+  }
+  
+  /* Mobile-first flex utilities */
+  .flex-responsive {
+    @apply flex flex-col sm:flex-row gap-3 sm:gap-4 md:gap-6;
+  }
+
+  .flex-responsive-center {
+    @apply flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 md:gap-6;
+  }
+  
+  /* Section padding with mobile optimization */
+  .padding-section {
+    @apply py-8 sm:py-12 md:py-16 lg:py-20 xl:py-24;
+  }
+
+  .padding-section-sm {
+    @apply py-4 sm:py-6 md:py-8 lg:py-12;
+  }
+
+  /* Mobile touch-friendly utilities */
+  .mobile-touch {
+    @apply min-h-[44px] min-w-[44px];
+  }
+
+  .mobile-focus-ring {
+    @apply focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background;
+  }
+
+  /* Overflow handling for mobile */
+  .mobile-scroll {
+    @apply overflow-x-auto;
+  }
+
+  .mobile-hidden {
+    @apply hidden sm:block;
+  }
+
+  .mobile-only {
+    @apply block sm:hidden;
+  }
+
+  /* Mobile-optimized image utilities */
+  .image-responsive {
+    @apply w-full h-auto max-w-full object-contain;
+  }
+
+  .image-responsive-cover {
+    @apply w-full h-auto max-w-full object-cover;
   }
 
   /* Additional animation utilities */

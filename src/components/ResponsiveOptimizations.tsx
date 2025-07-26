@@ -58,21 +58,72 @@ const ResponsiveOptimizations = () => {
             padding-bottom: env(safe-area-inset-bottom);
           }
         }
+
+        /* Mobile-specific overflow fixes */
+        @media (max-width: 640px) {
+          .mobile-scroll-fix {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+          }
+          
+          .mobile-text-wrap {
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+          }
+          
+          .mobile-stack {
+            flex-direction: column !important;
+            align-items: stretch !important;
+          }
+          
+          .mobile-full-width {
+            width: 100% !important;
+            min-width: unset !important;
+          }
+        }
+
+        /* Prevent horizontal scroll on mobile */
+        @media (max-width: 640px) {
+          * {
+            max-width: 100%;
+          }
+          
+          .container,
+          .container-responsive {
+            padding-left: 1rem !important;
+            padding-right: 1rem !important;
+          }
+          
+          .grid-cols-3,
+          .grid-cols-2 {
+            display: flex !important;
+            flex-direction: column !important;
+            gap: 1rem !important;
+          }
+          
+          .text-5xl,
+          .text-6xl,
+          .text-7xl {
+            font-size: 2rem !important;
+            line-height: 2.5rem !important;
+          }
+        }
         `
       }} />
       
-      {/* Example responsive component structure */}
+      {/* Enhanced responsive component structure */}
       <section className="padding-responsive safe-area-padding">
-        <div className="container mx-auto">
-          {/* Responsive grid system */}
+        <div className="container-responsive">
+          {/* Mobile-optimized grid system */}
           <div className="grid-responsive-3">
             {[1, 2, 3].map((item) => (
               <Card key={item} className="card-hover mobile-focus-ring gpu-accelerated">
-                <CardHeader className="card-responsive">
-                  <CardTitle className="text-scale-heading">Feature {item}</CardTitle>
+                <CardHeader className="card-responsive-sm">
+                  <CardTitle className="text-scale-heading mobile-text-wrap">Feature {item}</CardTitle>
                 </CardHeader>
-                <CardContent className="space-responsive">
-                  <p className="text-scale-mobile">Responsive content with proper scaling</p>
+                <CardContent className="space-responsive-sm">
+                  <p className="text-scale-mobile mobile-text-wrap">Responsive content with proper scaling and mobile optimization</p>
                   <Button className="w-full mobile-button mobile-touch">
                     Action Button
                     <ArrowRight className="ml-2 h-4 w-4" />

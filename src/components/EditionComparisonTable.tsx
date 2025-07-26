@@ -160,11 +160,11 @@ const EditionComparisonTable = () => {
           </div>
 
           {/* Comparison Table */}
-          <div className="max-w-4xl mx-auto">
+          <div className="max-w-4xl mx-auto overflow-hidden">
             <Card className="overflow-hidden border-terminal-green/20 bg-gradient-to-br from-terminal-surface/40 to-terminal-surface/20">
-              <CardContent className="p-0">
+              <CardContent className="p-0 overflow-x-auto">
                 {/* Header Row */}
-                <div className="grid grid-cols-3 border-b border-border">
+                <div className="grid grid-cols-3 border-b border-border min-w-[600px]">
                   {/* Feature Column Header */}
                   <div className="p-4 bg-terminal-surface/20 flex items-end">
                     <h3 className="font-mono font-bold text-base">Features</h3>

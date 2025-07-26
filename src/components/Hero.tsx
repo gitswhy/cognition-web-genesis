@@ -115,7 +115,7 @@ const Hero = () => {
                 <Button 
                   variant="terminal" 
                   size="default" 
-                  className="w-full sm:w-auto sm:min-w-[160px] mobile-button hover-desktop terminal-glow neon-button text-sm sm:text-base gpu-accelerated"
+                  className="w-full sm:w-auto sm:min-w-[160px] mobile-button mobile-touch hover-desktop terminal-glow neon-button text-sm sm:text-base gpu-accelerated"
                 >
                   Start Free Trial
                   <ChevronRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -129,7 +129,7 @@ const Hero = () => {
                 <Button 
                   variant="terminal-outline-blue" 
                   size="default" 
-                  className="w-full sm:w-auto sm:min-w-[140px] md:min-w-[160px] text-xs sm:text-sm lg:text-base px-4 sm:px-6 py-2 sm:py-3 gpu-accelerated break-words"
+                  className="w-full sm:w-auto sm:min-w-[140px] md:min-w-[160px] text-xs sm:text-sm lg:text-base px-4 sm:px-6 py-2 sm:py-3 gpu-accelerated break-words mobile-touch"
                 >
                   <Play className="h-3 w-3 sm:h-4 sm:w-4 mr-1 sm:mr-2 transition-transform group-hover:scale-110 flex-shrink-0" />
                   <span className="truncate">Watch Demo</span>

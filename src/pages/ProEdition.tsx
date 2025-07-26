@@ -78,7 +78,7 @@ const ProEdition = () => {
       
       <div className="page-content">
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden padding-responsive">
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden padding-responsive px-3 sm:px-4">
         
         <div className="container-responsive grid-responsive-2 items-center relative z-10">
           {/* Left Content */}

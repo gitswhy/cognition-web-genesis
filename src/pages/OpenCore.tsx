@@ -173,10 +173,10 @@ Remove-Item -Recurse -Force reflexcore`
       <div className="page-content">
       
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden px-3 sm:px-4">
 
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="text-center max-w-4xl mx-auto">
+        <div className="container-responsive relative z-10">
+          <div className="text-center max-w-4xl mx-auto space-responsive">
             <div className="inline-flex items-center gap-2 bg-terminal-surface/80 border border-terminal-green/30 rounded-full px-6 py-2 mb-8">
               <Badge variant="secondary" className="bg-terminal-green/20 text-terminal-green border-terminal-green/50">
                 Open Source
@@ -184,16 +184,16 @@ Remove-Item -Recurse -Force reflexcore`
               <span className="text-muted-foreground">Apache Licensed</span>
             </div>
 
-            <h1 className="text-5xl md:text-7xl font-mono font-bold mb-6 bg-gradient-to-r from-terminal-green via-primary to-terminal-blue bg-clip-text text-transparent">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-mono font-bold mb-4 sm:mb-6 bg-gradient-to-r from-terminal-green via-primary to-terminal-blue bg-clip-text text-transparent break-words">
               ReflexCore
-              <span className="inline-block w-1 h-16 bg-terminal-green ml-2 animate-pulse" />
+              <span className="inline-block w-1 h-8 sm:h-12 md:h-16 bg-terminal-green ml-2 animate-pulse" />
             </h1>
             
-            <p className="text-xl md:text-2xl text-muted-foreground mb-4 font-mono">
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground mb-3 sm:mb-4 font-mono">
               Open-Source Foundation
             </p>
             
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-12 leading-relaxed">
+            <p className="text-sm sm:text-base md:text-lg text-muted-foreground max-w-2xl mx-auto mb-8 sm:mb-12 leading-relaxed px-4">
               The cognition-native core that powers intelligent DevSecOps. 
               Self-healing infrastructure, predictive debugging, and autonomous optimization - all open source.
             </p>
