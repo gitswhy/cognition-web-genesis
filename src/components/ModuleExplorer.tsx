@@ -460,13 +460,13 @@ const verification = await vault.verify({
   };
 
   return (
-    <section className="py-16 bg-terminal-surface/10">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl font-mono font-bold mb-3">
+    <section className="py-8 sm:py-12 lg:py-16 bg-terminal-surface/10">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-8 sm:mb-12">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-mono font-bold mb-3">
             Module Explorer
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-sm sm:text-base lg:text-lg text-muted-foreground max-w-2xl mx-auto px-4">
             Deep dive into each ReflexCore module with interactive code examples and cognitive insights
           </p>
         </div>
@@ -475,7 +475,7 @@ const verification = await vault.verify({
           <Accordion 
             type="single" 
             collapsible 
-            className="space-y-4"
+            className="space-y-3 sm:space-y-4"
             value={activeModule || ''}
             onValueChange={setActiveModule}
           >
@@ -486,25 +486,25 @@ const verification = await vault.verify({
                 className="group bg-terminal-surface/30 border border-terminal-green/20 rounded-lg overflow-hidden hover:border-terminal-green/50 transition-all duration-500 animate-fade-in hover:shadow-lg hover:shadow-terminal-green/10 hover:scale-[1.01]"
                 style={{ animationDelay: `${index * 150}ms` }}
               >
-                <AccordionTrigger className="px-6 py-4 hover:no-underline hover:bg-terminal-green/5 transition-colors duration-300">
+                <AccordionTrigger className="px-3 sm:px-4 lg:px-6 py-3 sm:py-4 hover:no-underline hover:bg-terminal-green/5 transition-colors duration-300">
                   <div className="flex items-center justify-between w-full">
-                    <div className="flex items-center gap-4">
-                      <div className="p-3 rounded-lg bg-terminal-green/20 group-hover:bg-terminal-green/30 transition-colors duration-300">
-                        <module.icon className="h-6 w-6 text-terminal-green" />
+                    <div className="flex items-center gap-2 sm:gap-3 lg:gap-4 min-w-0 flex-1">
+                      <div className="p-2 sm:p-3 rounded-lg bg-terminal-green/20 group-hover:bg-terminal-green/30 transition-colors duration-300 flex-shrink-0">
+                        <module.icon className="h-4 w-4 sm:h-5 sm:w-5 lg:h-6 lg:w-6 text-terminal-green" />
                       </div>
-                      <div className="text-left">
-                        <h3 className="font-mono font-bold text-lg text-foreground">
+                      <div className="text-left min-w-0 flex-1">
+                        <h3 className="font-mono font-bold text-sm sm:text-base lg:text-lg text-foreground truncate">
                           {module.name}
                         </h3>
-                        <p className="text-sm text-muted-foreground mt-1 font-mono">
+                        <p className="text-xs sm:text-sm text-muted-foreground mt-1 font-mono line-clamp-2 lg:line-clamp-1">
                           {module.shortDescription}
                         </p>
                       </div>
                     </div>
-                    <div className="flex items-center gap-3">
+                    <div className="flex items-center gap-2 sm:gap-3 flex-shrink-0">
                       <Badge 
                         variant="secondary" 
-                        className="bg-terminal-green/20 text-terminal-green border-terminal-green/50 font-mono"
+                        className="bg-terminal-green/20 text-terminal-green border-terminal-green/50 font-mono text-xs hidden sm:inline-flex"
                       >
                         Interactive
                       </Badge>
@@ -512,8 +512,8 @@ const verification = await vault.verify({
                   </div>
                 </AccordionTrigger>
 
-                <AccordionContent className="px-6 pb-6">
-                  <div className="grid lg:grid-cols-2 gap-6 mt-4">
+                <AccordionContent className="px-3 sm:px-4 lg:px-6 pb-4 sm:pb-6">
+                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 mt-4">
                      {/* Left side - Description, Animation and Controls */}
                     <div className="space-y-4">
                       <Card className="bg-terminal-surface/40 border-terminal-green/30">
@@ -593,44 +593,47 @@ const verification = await vault.verify({
 
                      {/* Right side - Code Example and Output */}
                     <div className="space-y-4">
-                      <div className="flex items-center justify-between">
-                        <h4 className="font-mono font-bold text-terminal-green">Interactive Code</h4>
+                      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-4">
+                        <h4 className="font-mono font-bold text-terminal-green text-sm sm:text-base">Interactive Code</h4>
                         <Button
                           size="sm"
                           onClick={() => runModule(module.id)}
                           disabled={runningModules.has(module.id)}
-                          className="bg-terminal-green hover:bg-terminal-green/80 text-terminal-bg font-mono"
+                          className="bg-terminal-green hover:bg-terminal-green/80 text-terminal-bg font-mono w-full sm:w-auto text-xs sm:text-sm"
                         >
                           {runningModules.has(module.id) ? (
                             <>
-                              <RotateCw className="h-4 w-4 mr-2 animate-spin" />
+                              <RotateCw className="h-3 w-3 sm:h-4 sm:w-4 mr-2 animate-spin" />
                               Running...
                             </>
                           ) : (
                             <>
-                              <Play className="h-4 w-4 mr-2" />
+                              <Play className="h-3 w-3 sm:h-4 sm:w-4 mr-2" />
                               Run Code
                             </>
                           )}
                         </Button>
                       </div>
                       
-                      <div className="rounded-lg overflow-hidden border border-terminal-green/20 hover:border-terminal-green/40 transition-colors duration-300">
+                      <div className="rounded-lg overflow-hidden border border-terminal-green/20 hover:border-terminal-green/40 transition-colors duration-300 overflow-x-auto">
                         <SyntaxHighlighter
                           language="javascript"
                           style={customSyntaxStyle}
                           customStyle={{
                             margin: 0,
-                            padding: '1.5rem',
-                            fontSize: '0.875rem',
-                            lineHeight: '1.5'
+                            padding: '1rem',
+                            fontSize: '0.75rem',
+                            lineHeight: '1.4',
+                            minWidth: '100%'
                           }}
                           showLineNumbers={true}
                           lineNumberStyle={{
                             color: 'rgba(0, 255, 102, 0.4)',
-                            paddingRight: '1rem',
-                            fontSize: '0.75rem'
+                            paddingRight: '0.5rem',
+                            fontSize: '0.7rem'
                           }}
+                          wrapLines={true}
+                          wrapLongLines={true}
                         >
                           {module.code}
                         </SyntaxHighlighter>
@@ -639,12 +642,12 @@ const verification = await vault.verify({
                   </div>
 
                   {/* Interactive features hint */}
-                  <div className="mt-6 p-4 bg-terminal-green/10 border border-terminal-green/30 rounded-lg">
-                    <div className="flex items-center gap-3 text-sm">
-                      <Badge variant="secondary" className="bg-terminal-green/20 text-terminal-green border-terminal-green/50">
+                  <div className="mt-4 sm:mt-6 p-3 sm:p-4 bg-terminal-green/10 border border-terminal-green/30 rounded-lg">
+                    <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-3 text-xs sm:text-sm">
+                      <Badge variant="secondary" className="bg-terminal-green/20 text-terminal-green border-terminal-green/50 flex-shrink-0">
                         Pro Tip
                       </Badge>
-                      <span className="text-muted-foreground font-mono">
+                      <span className="text-muted-foreground font-mono leading-relaxed">
                         This module includes real-time cognitive analysis and adaptive learning capabilities
                       </span>
                     </div>
