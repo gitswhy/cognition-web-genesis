@@ -733,7 +733,7 @@ export default function Docs() {
       <Header />
       
       {/* Docs Header */}
-      <header className="border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 sticky top-16 sm:top-20 z-40">
+      <header className="border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">&
         <div className="container mx-auto flex h-14 sm:h-16 items-center justify-between px-4 sm:px-6">
           <div className="flex items-center gap-4">
             <Badge variant="outline" className="text-xs sm:text-sm">Documentation</Badge>
