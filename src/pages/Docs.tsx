@@ -761,12 +761,12 @@ export default function Docs() {
         </div>
       </header>
 
-      <div className="flex">
+      <div className="flex min-h-screen">
         {/* Sidebar */}
-        <aside className={`fixed inset-y-0 left-0 z-40 w-64 border-r bg-background transition-transform ${
+        <aside className={`fixed inset-y-0 left-0 z-40 w-64 border-r bg-background transition-transform duration-300 ${
           isSidebarOpen ? 'translate-x-0' : '-translate-x-full'
-        } lg:translate-x-0 lg:static lg:inset-auto lg:z-auto lg:flex lg:flex-col`} style={{ top: '112px' }}>
-          <div className="flex-1 overflow-y-auto py-6 px-4" style={{ height: 'calc(100vh - 112px)' }}>
+        } lg:translate-x-0 lg:static lg:block`} style={{ top: '112px' }}>
+          <div className="h-full overflow-y-auto py-6 px-4">
             <div className="space-y-2">
               {sections.map((section) => (
                 <Collapsible
@@ -812,11 +812,12 @@ export default function Docs() {
           <div
             className="fixed inset-0 z-30 bg-background/80 backdrop-blur-sm lg:hidden"
             onClick={() => setIsSidebarOpen(false)}
+            style={{ top: '112px' }}
           />
         )}
 
         {/* Main Content */}
-        <main className="flex-1 lg:ml-64">
+        <main className="flex-1 w-full lg:ml-64">
           <div className="container mx-auto max-w-4xl px-4 py-8">
             {/* Breadcrumb */}
             <nav className="flex items-center gap-2 text-sm text-muted-foreground mb-8">
