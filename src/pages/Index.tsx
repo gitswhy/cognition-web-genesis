@@ -3,7 +3,6 @@ import { useTranslation } from 'react-i18next';
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import TrustRibbon from "@/components/TrustRibbon";
-import EnhancedFeatures from "@/components/EnhancedFeatures";
 import CoreFeaturesGrid from "@/components/CoreFeaturesGrid";
 import FeatureTeasersGrid from "@/components/FeatureTeasersGrid";
 import DemoPlayground from "@/components/DemoPlayground";
@@ -36,7 +35,6 @@ const Index = () => {
         <Header />
         <Hero />
         <TrustRibbon />
-        <EnhancedFeatures />
         <CoreFeaturesGrid />
         <FeatureTeasersGrid />
         <DemoPlayground />
