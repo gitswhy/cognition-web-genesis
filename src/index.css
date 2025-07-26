@@ -837,6 +837,27 @@
       padding-left: max(1rem, env(safe-area-inset-left));
       padding-right: max(1rem, env(safe-area-inset-right));
     }
+    
+    .safe-area-top {
+      padding-top: env(safe-area-inset-top);
+    }
+  }
+  
+  /* Page content spacing to account for fixed header */
+  .page-content {
+    padding-top: 56px; /* 14 * 4 = 56px for mobile header */
+  }
+  
+  @media (min-width: 640px) {
+    .page-content {
+      padding-top: 64px; /* 16 * 4 = 64px for sm+ header */
+    }
+  }
+  
+  @media (min-width: 768px) {
+    .page-content {
+      padding-top: 72px; /* 18 * 4 = 72px for md+ header */
+    }
   }
 }
 

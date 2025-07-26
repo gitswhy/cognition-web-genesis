@@ -76,6 +76,7 @@ const ProEdition = () => {
       
       <Header />
       
+      <div className="page-content">
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden padding-responsive">
         
@@ -596,6 +597,7 @@ const ProEdition = () => {
       </section>
 
       <Footer />
+      </div>
     </div>;
 };
 export default ProEdition;

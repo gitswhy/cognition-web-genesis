@@ -33,15 +33,17 @@ const Index = () => {
     <div className="page-fade-in">
       <WebsiteBackground>
         <Header />
-        <Hero />
-        <TrustRibbon />
-        <FeatureTeasersGrid />
-        <CoreFeaturesGrid />
-        <DemoPlayground />
-        
-        
-        <BottomCTA />
-        <Footer />
+        <div className="page-content">
+          <Hero />
+          <TrustRibbon />
+          <FeatureTeasersGrid />
+          <CoreFeaturesGrid />
+          <DemoPlayground />
+          
+          
+          <BottomCTA />
+          <Footer />
+        </div>
       </WebsiteBackground>
     </div>
   );

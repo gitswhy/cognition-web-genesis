@@ -170,6 +170,8 @@ Remove-Item -Recurse -Force reflexcore`
       
       <Header />
       
+      <div className="page-content">
+      
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
 
@@ -668,6 +670,7 @@ python3 cli/gitswhy_cli.py syncvault
       </section>
 
       <Footer />
+      </div>
     </div>;
 };
 export default OpenCore;
