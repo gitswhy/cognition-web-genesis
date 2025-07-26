@@ -209,111 +209,100 @@ Remove-Item -Recurse -Force reflexcore`
         </div>
       </section>
 
-      {/* Core Modules Features */}
+      {/* Features Section */}
       <section className="py-16 bg-terminal-surface/10">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-mono font-bold mb-3">
-              Core Modules
+              Features
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Six foundational modules that make up the ReflexCore open-source foundation
+              Core capabilities that power the ReflexCore open-source foundation
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-6xl mx-auto" style={{ gridAutoRows: 'max-content' }}>
-            {coreModules.map((module, index) => (
-              <div
-                key={module.name}
-                className="group relative animate-fade-in"
-                style={{ 
-                  animationDelay: `${index * 100}ms`,
-                  zIndex: openCards[module.name] ? 10 : 1
-                }}
-              >
-                <Card 
-                  className={`relative overflow-visible bg-terminal-surface/60 border-terminal-green/30 hover:border-terminal-green/50 transition-all duration-500 cursor-pointer transform hover:scale-[1.02] hover:shadow-xl hover:shadow-terminal-green/20 ${
-                    openCards[module.name] ? 'scale-[1.02] border-terminal-green/50 shadow-lg shadow-terminal-green/10' : ''
-                  }`}
-                  onClick={() => toggleCard(module.name)}
-                >
-                  {/* Animated Background Gradient */}
-                  <div className={`absolute inset-0 bg-gradient-to-br ${module.color} opacity-0 transition-all duration-500 ${
-                    openCards[module.name] ? 'opacity-100' : 'group-hover:opacity-50'
-                  }`} />
-                  
-                  {/* Glowing Border Effect */}
-                  <div className={`absolute inset-0 rounded-lg transition-all duration-500 ${
-                    openCards[module.name] ? 'shadow-[inset_0_0_20px_rgba(34,197,94,0.2)]' : ''
-                  }`} />
-                  
-                  <CardHeader className="relative z-10 p-4">
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-4">
-                        <div className={`p-3 rounded-xl bg-terminal-green/20 transition-all duration-500 ${
-                          openCards[module.name] 
-                            ? 'bg-terminal-green/40 scale-110 rotate-6' 
-                            : 'group-hover:bg-terminal-green/30 group-hover:scale-105'
-                        }`}>
-                          <module.icon className={`h-6 w-6 text-terminal-green transition-all duration-500 ${
-                            openCards[module.name] ? 'scale-110' : ''
-                          }`} />
-                        </div>
-                        <div>
-                          <CardTitle className={`font-mono text-lg text-left transition-all duration-300 ${
-                            openCards[module.name] ? 'text-terminal-green' : 'group-hover:text-terminal-green'
-                          }`}>
-                            {module.name}
-                          </CardTitle>
-                          <CardDescription className="text-muted-foreground text-left text-sm mt-1">
-                            {module.description}
-                          </CardDescription>
-                        </div>
-                      </div>
-                      <div className={`p-2 rounded-full transition-all duration-500 ${
-                        openCards[module.name] ? 'bg-terminal-green/20' : 'group-hover:bg-terminal-green/10'
-                      }`}>
-                        <ChevronDown 
-                          className={`h-5 w-5 text-terminal-green transition-all duration-500 ${
-                            openCards[module.name] ? 'rotate-180 scale-110' : 'group-hover:scale-110'
-                          }`}
-                        />
-                      </div>
-                    </div>
-                  </CardHeader>
-
-                  {/* Code Content with Absolute Positioning */}
-                  <div className={`absolute top-full left-0 right-0 z-20 mt-2 transition-all duration-500 ease-out transform-gpu ${
-                    openCards[module.name] 
-                      ? 'opacity-100 scale-100 translate-y-0' 
-                      : 'opacity-0 scale-95 translate-y-[-10px] pointer-events-none'
-                  }`}>
-                    <div className={`transition-all duration-300 delay-100 ${
-                      openCards[module.name] ? 'opacity-100 transform-none' : 'opacity-0 translate-y-2'
-                    }`}>
-                      <CardContent className="p-4">
-                        <div className={`bg-terminal-surface/95 rounded-xl p-4 border border-terminal-green/50 backdrop-blur-sm shadow-xl shadow-terminal-green/20 transition-all duration-400 ${
-                          openCards[module.name] ? 'scale-100 border-terminal-green/50' : 'scale-95 border-terminal-green/30'
-                        }`}>
-                          <pre className="text-sm font-mono text-terminal-green whitespace-pre-wrap overflow-x-auto leading-relaxed max-h-48 overflow-y-auto">
-                            {module.code}
-                          </pre>
-                        </div>
-                      </CardContent>
-                    </div>
-                  </div>
-
-                  {/* Floating Particles Effect */}
-                  {openCards[module.name] && (
-                    <div className="absolute inset-0 pointer-events-none">
-                      <div className="absolute top-4 right-4 w-2 h-2 bg-terminal-green/40 rounded-full animate-pulse" />
-                      <div className="absolute bottom-6 left-6 w-1 h-1 bg-terminal-green/30 rounded-full animate-pulse" style={{ animationDelay: '0.5s' }} />
-                      <div className="absolute top-1/2 right-8 w-1.5 h-1.5 bg-terminal-green/20 rounded-full animate-pulse" style={{ animationDelay: '1s' }} />
-                    </div>
-                  )}
-                </Card>
-              </div>
-            ))}
+          <div className="max-w-4xl mx-auto">
+            <ul className="space-y-6">
+              <li className="flex items-start gap-4 p-6 bg-terminal-surface/60 border border-terminal-green/30 rounded-xl hover:border-terminal-green/50 transition-all duration-300" aria-label="Feature: Bootstrapping">
+                <Terminal className="w-6 h-6 text-terminal-green mt-1 flex-shrink-0" />
+                <div>
+                  <span className="font-bold text-foreground">Bootstrapping:</span>
+                  <span className="text-muted-foreground"> Easy initialization of all modules in the background </span>
+                  <code className="font-mono text-terminal-green bg-terminal-surface/80 px-2 py-1 rounded text-sm">(gitswhy_initiate.sh)</code>
+                </div>
+              </li>
+              
+              <li className="flex items-start gap-4 p-6 bg-terminal-surface/60 border border-terminal-green/30 rounded-xl hover:border-terminal-green/50 transition-all duration-300" aria-label="Feature: Performance Overclocking">
+                <Zap className="w-6 h-6 text-terminal-green mt-1 flex-shrink-0" />
+                <div>
+                  <span className="font-bold text-foreground">Performance Overclocking:</span>
+                  <span className="text-muted-foreground"> Tunes system parameters for faster response </span>
+                  <code className="font-mono text-terminal-green bg-terminal-surface/80 px-2 py-1 rounded text-sm">(gitswhy_gpuoverclock.sh)</code>
+                </div>
+              </li>
+              
+              <li className="flex items-start gap-4 p-6 bg-terminal-surface/60 border border-terminal-green/30 rounded-xl hover:border-terminal-green/50 transition-all duration-300" aria-label="Feature: Entropy Flush">
+                <Database className="w-6 h-6 text-terminal-green mt-1 flex-shrink-0" />
+                <div>
+                  <span className="font-bold text-foreground">Entropy Flush:</span>
+                  <span className="text-muted-foreground"> Resets DNS, caches, and system sludge </span>
+                  <code className="font-mono text-terminal-green bg-terminal-surface/80 px-2 py-1 rounded text-sm">(gitswhy_quantumflush.sh)</code>
+                </div>
+              </li>
+              
+              <li className="flex items-start gap-4 p-6 bg-terminal-surface/60 border border-terminal-green/30 rounded-xl hover:border-terminal-green/50 transition-all duration-300" aria-label="Feature: Auto-Cleaning">
+                <Trash2 className="w-6 h-6 text-terminal-green mt-1 flex-shrink-0" />
+                <div>
+                  <span className="font-bold text-foreground">Auto-Cleaning:</span>
+                  <span className="text-muted-foreground"> Kills zombies and clears temp files </span>
+                  <code className="font-mono text-terminal-green bg-terminal-surface/80 px-2 py-1 rounded text-sm">(gitswhy_autoclean.sh)</code>
+                </div>
+              </li>
+              
+              <li className="flex items-start gap-4 p-6 bg-terminal-surface/60 border border-terminal-green/30 rounded-xl hover:border-terminal-green/50 transition-all duration-300" aria-label="Feature: Core Monitoring">
+                <Monitor className="w-6 h-6 text-terminal-green mt-1 flex-shrink-0" />
+                <div>
+                  <span className="font-bold text-foreground">Core Monitoring:</span>
+                  <span className="text-muted-foreground"> Tracks keystrokes and detects cognitive drift </span>
+                  <code className="font-mono text-terminal-green bg-terminal-surface/80 px-2 py-1 rounded text-sm">(gitswhy_coremirror.sh)</code>
+                </div>
+              </li>
+              
+              <li className="flex items-start gap-4 p-6 bg-terminal-surface/60 border border-terminal-green/30 rounded-xl hover:border-terminal-green/50 transition-all duration-300" aria-label="Feature: Vault Management">
+                <Shield className="w-6 h-6 text-terminal-green mt-1 flex-shrink-0" />
+                <div>
+                  <span className="font-bold text-foreground">Vault Management:</span>
+                  <span className="text-muted-foreground"> Aggregates and encrypts events </span>
+                  <code className="font-mono text-terminal-green bg-terminal-surface/80 px-2 py-1 rounded text-sm">(gitswhy_vaultsync.sh and gitswhy_vault_manager.py)</code>
+                </div>
+              </li>
+              
+              <li className="flex items-start gap-4 p-6 bg-terminal-surface/60 border border-terminal-green/30 rounded-xl hover:border-terminal-green/50 transition-all duration-300" aria-label="Feature: Unified CLI">
+                <Terminal className="w-6 h-6 text-terminal-green mt-1 flex-shrink-0" />
+                <div>
+                  <span className="font-bold text-foreground">Unified CLI:</span>
+                  <span className="text-muted-foreground"> Manage everything with simple commands </span>
+                  <code className="font-mono text-terminal-green bg-terminal-surface/80 px-2 py-1 rounded text-sm">(gitswhy_cli.py)</code>
+                </div>
+              </li>
+              
+              <li className="flex items-start gap-4 p-6 bg-terminal-surface/60 border border-terminal-green/30 rounded-xl hover:border-terminal-green/50 transition-all duration-300" aria-label="Feature: Placeholders">
+                <Star className="w-6 h-6 text-terminal-green mt-1 flex-shrink-0" />
+                <div>
+                  <span className="font-bold text-foreground">Placeholders:</span>
+                  <span className="text-muted-foreground"> Basic stubs for fractal memory and emotion mapping—extend as needed.</span>
+                </div>
+              </li>
+            </ul>
+            
+            <div className="text-center mt-12">
+              <Button size="lg" className="bg-terminal-green hover:bg-terminal-green/80 text-terminal-bg font-mono" asChild>
+                <a href="https://github.com/gitswhy/reflexcore" target="_blank" rel="noopener noreferrer">
+                  <Github className="mr-2 h-5 w-5" />
+                  View on GitHub
+                </a>
+              </Button>
+            </div>
           </div>
         </div>
       </section>
