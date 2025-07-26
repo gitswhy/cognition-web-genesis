@@ -141,7 +141,7 @@ const Pricing = () => {
     {
       category: 'Support',
       question: 'What kind of support do you provide?',
-      answer: 'Free Core users get community support. Team plan includes priority email support with 24-hour response time. Enterprise customers get dedicated success managers and 24/7 phone support.'
+      answer: 'Free Core users get community support. Pro plan includes priority email support with 24-hour response time. Enterprise customers get dedicated success managers and 24/7 phone support.'
     }
   ];
 
@@ -440,18 +440,26 @@ const Pricing = () => {
             Ready to Secure Your Code?
           </h2>
           <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Start with our free Core edition or begin a 30-day trial of our Team plan. 
+            Start with our free Core edition or begin a 30-day trial of our Pro plan. 
             No credit card required for either option.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-terminal-green hover:bg-terminal-green/90 text-background">
+            <Button 
+              size="lg" 
+              className="bg-terminal-green hover:bg-terminal-green/90 text-background"
+              onClick={() => navigate('/open-core')}
+            >
               <Shield className="mr-2 w-4 h-4" />
               Try Free Core
             </Button>
-            <Button size="lg" className="bg-terminal-blue hover:bg-terminal-blue/90 text-white">
+            <Button 
+              size="lg" 
+              className="bg-terminal-blue hover:bg-terminal-blue/90 text-white"
+              onClick={() => navigate('/pro-edition')}
+            >
               <Users className="mr-2 w-4 h-4" />
-              Start Team Trial
+              Start Pro Trial
             </Button>
           </div>
           
