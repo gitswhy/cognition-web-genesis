@@ -733,27 +733,27 @@ export default function Docs() {
       <Header />
       
       {/* Docs Header */}
-      <header className="border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50">
-        <div className="container mx-auto flex h-16 items-center justify-between px-4">
+      <header className="border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 sticky top-16 sm:top-20 z-40">
+        <div className="container mx-auto flex h-14 sm:h-16 items-center justify-between px-4 sm:px-6">
           <div className="flex items-center gap-4">
-            <Badge variant="outline">Documentation</Badge>
+            <Badge variant="outline" className="text-xs sm:text-sm">Documentation</Badge>
           </div>
 
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-2 sm:gap-4">
             <div className="relative hidden md:block">
               <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
               <Input
                 placeholder="Search docs..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-64 pl-10"
+                className="w-48 lg:w-64 pl-10"
               />
             </div>
 
             <select
               value={selectedVersion}
               onChange={(e) => setSelectedVersion(e.target.value)}
-              className="bg-background border border-border rounded-md px-4 py-2 text-sm min-w-[120px] hover:border-muted-foreground focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all"
+              className="bg-background border border-border rounded-md px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm min-w-[100px] sm:min-w-[120px] hover:border-muted-foreground focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all"
             >
               <option value="v2.0">v2.0 (Latest)</option>
               <option value="v1.9">v1.9</option>
@@ -774,7 +774,7 @@ export default function Docs() {
             setIsSidebarOpen(!isSidebarOpen);
           }
         }}
-        className="fixed top-24 left-4 z-50 bg-background/95 backdrop-blur-sm border shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+        className="fixed top-[120px] sm:top-[140px] left-4 z-50 bg-background/95 backdrop-blur-sm border shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
       >
         {isDesktop ? (
           isSidebarCollapsed ? <PanelLeft className="h-4 w-4" /> : <PanelLeftClose className="h-4 w-4" />
@@ -789,7 +789,10 @@ export default function Docs() {
           className={`hidden lg:block fixed left-0 h-screen border-r bg-background z-30 transition-all duration-300 ${
             isSidebarCollapsed ? 'w-16' : 'w-64'
           }`} 
-          style={{ top: '128px', height: 'calc(100vh - 128px)' }}
+          style={{ 
+            top: 'calc(64px + 56px)', // Header (64px) + Docs header (56px)
+            height: 'calc(100vh - 64px - 56px)' 
+          }}
         >
           <div className="h-full overflow-y-auto py-6 px-4">
             {!isSidebarCollapsed && (
@@ -859,7 +862,10 @@ export default function Docs() {
               className="fixed inset-0 z-40 bg-background/80 backdrop-blur-sm lg:hidden"
               onClick={() => setIsSidebarOpen(false)}
             />
-            <aside className="fixed left-0 top-0 z-50 w-64 h-full border-r bg-background lg:hidden" style={{ top: '128px', height: 'calc(100vh - 128px)' }}>
+            <aside className="fixed left-0 top-0 z-50 w-64 h-full border-r bg-background lg:hidden" style={{ 
+              top: 'calc(64px + 56px)', // Header + Docs header
+              height: 'calc(100vh - 64px - 56px)' 
+            }}>
               <div className="h-full overflow-y-auto py-6 px-4">
                 <div className="space-y-2">
                   {sections.map((section) => (
