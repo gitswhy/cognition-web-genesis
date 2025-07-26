@@ -774,13 +774,19 @@ export default function Docs() {
             setIsSidebarOpen(!isSidebarOpen);
           }
         }}
-        className="fixed top-[140px] sm:top-[160px] left-4 z-50 bg-background/95 backdrop-blur-sm border shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 lg:hidden"
+        className="fixed top-[100px] sm:top-[110px] left-4 z-50 bg-background/95 backdrop-blur-sm border-2 border-border/50 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-110 hover:rotate-3 hover:border-primary/50 active:scale-95 rounded-xl w-10 h-10 p-0 flex items-center justify-center"
       >
-        {isDesktop ? (
-          isSidebarCollapsed ? <PanelLeft className="h-4 w-4" /> : <PanelLeftClose className="h-4 w-4" />
-        ) : (
-          isSidebarOpen ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />
-        )}
+        <div className="transition-all duration-300">
+          {isDesktop ? (
+            isSidebarCollapsed ? 
+              <PanelLeft className="h-4 w-4 transition-transform duration-300 hover:scale-110" /> : 
+              <PanelLeftClose className="h-4 w-4 transition-transform duration-300 hover:scale-110" />
+          ) : (
+            isSidebarOpen ? 
+              <X className="h-4 w-4 transition-transform duration-300 rotate-90 hover:rotate-180" /> : 
+              <Menu className="h-4 w-4 transition-transform duration-300 hover:scale-110" />
+          )}
+        </div>
       </Button>
 
       <div className="flex">
