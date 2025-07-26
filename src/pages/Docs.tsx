@@ -745,7 +745,7 @@ export default function Docs() {
             setIsSidebarOpen(!isSidebarOpen);
           }
         }}
-        className="fixed top-[80px] sm:top-[90px] left-4 z-[60] bg-background/95 backdrop-blur-sm border-2 border-border/50 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-110 hover:rotate-3 hover:border-primary/50 active:scale-95 rounded-xl w-10 h-10 p-0 flex items-center justify-center"
+        className="fixed top-[48px] sm:top-[56px] md:top-[64px] left-4 z-[60] bg-background/95 backdrop-blur-sm border-2 border-border/50 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-110 hover:rotate-3 hover:border-primary/50 active:scale-95 rounded-xl w-10 h-10 p-0 flex items-center justify-center"
       >
         <div className="transition-all duration-300">
           {isDesktop ? (
