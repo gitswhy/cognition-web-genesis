@@ -179,18 +179,18 @@ const Pricing = () => {
           </p>
           
           {/* Pricing Toggle */}
-          <div className="flex items-center justify-center gap-4 bg-terminal-surface/50 backdrop-blur-sm rounded-lg p-2 max-w-xs mx-auto">
-            <span className={`text-sm ${!isAnnual ? 'text-foreground font-medium' : 'text-muted-foreground'}`}>
+          <div className="flex items-center justify-center gap-4 bg-terminal-surface/50 backdrop-blur-sm rounded-lg p-2 max-w-xs mx-auto transition-all duration-300 hover:bg-terminal-surface/70">
+            <span className={`text-sm transition-all duration-300 ${!isAnnual ? 'text-foreground font-medium scale-105' : 'text-muted-foreground scale-100'}`}>
               Monthly
             </span>
             <Switch
               checked={isAnnual}
               onCheckedChange={setIsAnnual}
-              className="data-[state=checked]:bg-terminal-blue"
+              className="data-[state=checked]:bg-terminal-blue transition-all duration-300 hover:scale-110"
             />
-            <span className={`text-sm ${isAnnual ? 'text-foreground font-medium' : 'text-muted-foreground'}`}>
+            <span className={`text-sm transition-all duration-300 ${isAnnual ? 'text-foreground font-medium scale-105' : 'text-muted-foreground scale-100'}`}>
               Annual
-              <Badge variant="secondary" className="ml-2 bg-terminal-green/20 text-terminal-green border-terminal-green/30 text-xs">
+              <Badge variant="secondary" className={`ml-2 bg-terminal-green/20 text-terminal-green border-terminal-green/30 text-xs transition-all duration-300 ${isAnnual ? 'animate-pulse' : ''}`}>
                 20% off
               </Badge>
             </span>
@@ -278,22 +278,24 @@ const Pricing = () => {
                   </div>
                   
                   {/* CTA Button */}
-                  <Button 
-                    className={`w-full ${
-                      tier.ctaVariant === 'default'
-                        ? tier.type === 'core'
-                          ? 'bg-terminal-green hover:bg-terminal-green/90 text-background'
-                          : 'bg-terminal-blue hover:bg-terminal-blue/90 text-white'
-                        : tier.type === 'core'
-                          ? 'border-terminal-green/30 text-terminal-green hover:bg-terminal-green/10'
-                          : 'border-terminal-blue/30 text-terminal-blue hover:bg-terminal-blue/10'
-                    }`}
-                    variant={tier.ctaVariant}
-                    size="lg"
-                  >
-                    {tier.cta}
-                    <ArrowRight className="ml-2 w-4 h-4" />
-                  </Button>
+                  <div className="mt-auto pt-4">
+                    <Button 
+                      className={`w-full transition-all duration-300 hover:scale-105 hover:shadow-lg group ${
+                        tier.ctaVariant === 'default'
+                          ? tier.type === 'core'
+                            ? 'bg-terminal-green hover:bg-terminal-green/90 text-background shadow-terminal-green/20'
+                            : 'bg-terminal-blue hover:bg-terminal-blue/90 text-white shadow-terminal-blue/20'
+                          : tier.type === 'core'
+                            ? 'border-terminal-green/30 text-terminal-green hover:bg-terminal-green/10 hover:border-terminal-green/50'
+                            : 'border-terminal-blue/30 text-terminal-blue hover:bg-terminal-blue/10 hover:border-terminal-blue/50'
+                      }`}
+                      variant={tier.ctaVariant}
+                      size="lg"
+                    >
+                      {tier.cta}
+                      <ArrowRight className="ml-2 w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+                    </Button>
+                  </div>
                 </CardContent>
               </Card>
             ))}
