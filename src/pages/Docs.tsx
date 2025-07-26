@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSearchParams, Link, useLocation } from 'react-router-dom';
-import { Search, Menu, ChevronRight, ChevronDown, Book, Terminal, Settings, Code, AlertTriangle, X } from 'lucide-react';
+import { Search, Menu, ChevronRight, ChevronDown, Book, Terminal, Settings, Code, AlertTriangle, X, PanelLeftClose, PanelLeft } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
@@ -678,6 +678,7 @@ export default function Docs() {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedVersion, setSelectedVersion] = useState('v2.0');
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+  const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
   const [expandedSections, setExpandedSections] = useState<string[]>(['quick-start']);
 
   const currentSection = searchParams.get('section') || 'quick-start';
@@ -734,6 +735,16 @@ export default function Docs() {
               <Menu className="h-4 w-4" />
             </Button>
             
+            {/* Desktop Sidebar Toggle */}
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={() => setIsSidebarCollapsed(!isSidebarCollapsed)}
+              className="hidden lg:flex"
+            >
+              {isSidebarCollapsed ? <PanelLeft className="h-4 w-4" /> : <PanelLeftClose className="h-4 w-4" />}
+            </Button>
+            
             <Badge variant="outline">Documentation</Badge>
           </div>
 
@@ -763,45 +774,70 @@ export default function Docs() {
 
       <div className="flex">
         {/* Fixed Sidebar for Desktop */}
-        <aside className="hidden lg:block fixed left-0 w-64 h-screen border-r bg-background z-30" style={{ top: '128px', height: 'calc(100vh - 128px)' }}>
+        <aside 
+          className={`hidden lg:block fixed left-0 h-screen border-r bg-background z-30 transition-all duration-300 ${
+            isSidebarCollapsed ? 'w-16' : 'w-64'
+          }`} 
+          style={{ top: '128px', height: 'calc(100vh - 128px)' }}
+        >
           <div className="h-full overflow-y-auto py-6 px-4">
-            <div className="space-y-2">
-              {sections.map((section) => (
-                <Collapsible
-                  key={section.id}
-                  open={expandedSections.includes(section.id)}
-                  onOpenChange={() => toggleSection(section.id)}
-                >
-                  <CollapsibleTrigger className="flex w-full items-center justify-between rounded-lg px-3 py-2 text-left text-sm font-medium hover:bg-muted">
-                    <div className="flex items-center gap-2">
-                      <section.icon className="h-4 w-4" />
-                      {section.title}
-                    </div>
-                    {expandedSections.includes(section.id) ? (
-                      <ChevronDown className="h-4 w-4" />
-                    ) : (
-                      <ChevronRight className="h-4 w-4" />
-                    )}
-                  </CollapsibleTrigger>
-                  
-                  <CollapsibleContent className="pl-6 space-y-1">
-                    {section.subsections.map((subsection) => (
-                      <button
-                        key={subsection.id}
-                        onClick={() => navigateToSection(section.id, subsection.id)}
-                        className={`block w-full rounded-lg px-3 py-2 text-left text-sm hover:bg-muted ${
-                          currentSection === section.id && currentSubsection === subsection.id
-                            ? 'bg-muted text-primary font-medium'
-                            : 'text-muted-foreground'
-                        }`}
-                      >
-                        {subsection.title}
-                      </button>
-                    ))}
-                  </CollapsibleContent>
-                </Collapsible>
-              ))}
-            </div>
+            {!isSidebarCollapsed && (
+              <div className="space-y-2">
+                {sections.map((section) => (
+                  <Collapsible
+                    key={section.id}
+                    open={expandedSections.includes(section.id)}
+                    onOpenChange={() => toggleSection(section.id)}
+                  >
+                    <CollapsibleTrigger className="flex w-full items-center justify-between rounded-lg px-3 py-2 text-left text-sm font-medium hover:bg-muted">
+                      <div className="flex items-center gap-2">
+                        <section.icon className="h-4 w-4" />
+                        {section.title}
+                      </div>
+                      {expandedSections.includes(section.id) ? (
+                        <ChevronDown className="h-4 w-4" />
+                      ) : (
+                        <ChevronRight className="h-4 w-4" />
+                      )}
+                    </CollapsibleTrigger>
+                    
+                    <CollapsibleContent className="pl-6 space-y-1">
+                      {section.subsections.map((subsection) => (
+                        <button
+                          key={subsection.id}
+                          onClick={() => navigateToSection(section.id, subsection.id)}
+                          className={`block w-full rounded-lg px-3 py-2 text-left text-sm hover:bg-muted ${
+                            currentSection === section.id && currentSubsection === subsection.id
+                              ? 'bg-muted text-primary font-medium'
+                              : 'text-muted-foreground'
+                          }`}
+                        >
+                          {subsection.title}
+                        </button>
+                      ))}
+                    </CollapsibleContent>
+                  </Collapsible>
+                ))}
+              </div>
+            )}
+            
+            {/* Collapsed state - show only icons */}
+            {isSidebarCollapsed && (
+              <div className="space-y-2">
+                {sections.map((section) => (
+                  <button
+                    key={section.id}
+                    onClick={() => navigateToSection(section.id, section.subsections[0].id)}
+                    className={`w-full p-3 rounded-lg hover:bg-muted flex items-center justify-center ${
+                      currentSection === section.id ? 'bg-muted text-primary' : 'text-muted-foreground'
+                    }`}
+                    title={section.title}
+                  >
+                    <section.icon className="h-5 w-5" />
+                  </button>
+                ))}
+              </div>
+            )}
           </div>
         </aside>
 
@@ -860,7 +896,7 @@ export default function Docs() {
         )}
 
         {/* Main Content */}
-        <main className="flex-1 w-full lg:ml-64">
+        <main className={`flex-1 w-full transition-all duration-300 ${isSidebarCollapsed ? 'lg:ml-16' : 'lg:ml-64'}`}>
           <div className="container mx-auto max-w-4xl px-4 py-8">
             {/* Breadcrumb */}
             <nav className="flex items-center gap-2 text-sm text-muted-foreground mb-8">
