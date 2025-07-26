@@ -753,7 +753,7 @@ export default function Docs() {
             <select
               value={selectedVersion}
               onChange={(e) => setSelectedVersion(e.target.value)}
-              className="bg-background border border-border rounded-md px-3 py-1 text-sm"
+              className="bg-background border border-border rounded-md px-4 py-2 text-sm min-w-[120px] hover:border-muted-foreground focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all"
             >
               <option value="v2.0">v2.0 (Latest)</option>
               <option value="v1.9">v1.9</option>
@@ -908,35 +908,21 @@ export default function Docs() {
 
         {/* Main Content */}
         <main className={`flex-1 w-full transition-all duration-300 ${isSidebarCollapsed ? 'lg:ml-16' : 'lg:ml-64'}`}>
-          <div className="container mx-auto max-w-4xl px-4 py-8">
-            {/* Breadcrumb */}
-            <nav className="flex items-center gap-2 text-sm text-muted-foreground mb-8">
-              <Link to="/docs" className="hover:text-foreground">Docs</Link>
-              <ChevronRight className="h-4 w-4" />
-              <span>{currentSectionData?.title}</span>
-              {currentContent && (
-                <>
-                  <ChevronRight className="h-4 w-4" />
-                  <span className="text-foreground">{currentContent.title}</span>
-                </>
-              )}
-            </nav>
-
-            {/* Content */}
+          <div className="container mx-auto max-w-4xl px-6 sm:px-8 py-8 sm:py-12">
             {currentContent && (
               <article className="prose prose-neutral dark:prose-invert max-w-none">
-                <div className="mb-8">
-                  <h1 className="text-4xl font-bold mb-4">{currentContent.title}</h1>
+                <div className="mb-8 sm:mb-12">
+                  <h1 className="text-3xl sm:text-4xl font-bold mb-4 sm:mb-6">{currentContent.title}</h1>
                 </div>
                 
-                <div className="not-prose">
+                <div className="not-prose space-y-6 sm:space-y-8">
                   {currentContent.content}
                 </div>
               </article>
             )}
 
             {/* Navigation */}
-            <div className="flex justify-between items-center mt-12 pt-8 border-t">
+            <div className="flex justify-between items-center mt-12 sm:mt-16 pt-8 sm:pt-12 border-t">
               {/* Previous */}
               <div className="flex-1">
                 {/* Add previous navigation logic here */}
