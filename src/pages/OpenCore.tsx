@@ -592,38 +592,11 @@ python3 cli/gitswhy_cli.py showvault --decrypt --format summary
               </div>
             </div>
 
-            {/* Step 9-10: Info Cards */}
-            <div className="grid md:grid-cols-2 gap-6">
-              <div className="bg-terminal-surface/60 backdrop-blur-sm border border-muted/30 rounded-xl p-6 hover:border-muted/50 transition-all duration-300">
-                <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-muted to-muted-foreground rounded-full flex items-center justify-center text-terminal-bg font-bold text-sm">
-                    9
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-mono font-bold text-foreground mb-2">Version Info</h3>
-                    <p className="text-muted-foreground text-sm">All major scripts and CLI now support <code className="bg-terminal-surface/80 px-2 py-1 rounded font-mono text-terminal-green">--version</code> for quick version checks.</p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="bg-terminal-surface/60 backdrop-blur-sm border border-muted/30 rounded-xl p-6 hover:border-muted/50 transition-all duration-300">
-                <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-muted to-muted-foreground rounded-full flex items-center justify-center text-terminal-bg font-bold text-sm">
-                    10
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-mono font-bold text-foreground mb-2">Analytics Config Note</h3>
-                    <p className="text-muted-foreground text-sm">For analytics, <code className="bg-terminal-surface/80 px-2 py-1 rounded font-mono text-terminal-green">--config</code> is only required for encrypted vault operations. For built-in analytics on plain JSON, <code className="bg-terminal-surface/80 px-2 py-1 rounded font-mono text-terminal-green">--config</code> is optional.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Step 11: Troubleshooting */}
+            {/* Step 9: Troubleshooting */}
             <div className="bg-terminal-surface/60 backdrop-blur-sm border border-terminal-green/30 rounded-xl p-8 hover:border-terminal-green/50 transition-all duration-300">
               <div className="flex items-start gap-6">
                 <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-terminal-green to-terminal-blue rounded-full flex items-center justify-center text-terminal-bg font-bold text-lg">
-                  11
+                  9
                 </div>
                 <div className="flex-1">
                   <h3 className="text-2xl font-mono font-bold text-foreground mb-3">Troubleshooting</h3>
@@ -661,26 +634,6 @@ python3 cli/gitswhy_cli.py syncvault
               </div>
             </div>
 
-            {/* Step 12: Uninstall */}
-            <div className="bg-terminal-surface/60 backdrop-blur-sm border border-muted/30 rounded-xl p-8 hover:border-muted/50 transition-all duration-300">
-              <div className="flex items-start gap-6">
-                <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-muted to-muted-foreground rounded-full flex items-center justify-center text-terminal-bg font-bold text-lg">
-                  12
-                </div>
-                <div className="flex-1">
-                  <h3 className="text-2xl font-mono font-bold text-foreground mb-3">Uninstall</h3>
-                  <p className="text-muted-foreground">Simply remove the ReflexCore directory and any lines from your shell startup files.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Footer Note */}
-          <div className="text-center mt-12">
-            <p className="text-muted-foreground">
-              For advanced configuration, see <code className="bg-terminal-surface/80 px-2 py-1 rounded font-mono text-terminal-green">config/gitswhy_config.yaml</code> and the main{' '}
-              <a href="../README.md" className="text-terminal-green hover:text-terminal-blue transition-colors underline">README.md</a>.
-            </p>
           </div>
         </div>
       </section>
