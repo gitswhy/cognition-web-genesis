@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Copy, Github, Star, Download, Terminal, Zap, Database, Shield, RotateCcw, Trash2, ChevronDown } from 'lucide-react';
+import { Copy, Github, Star, Download, Terminal, Zap, Database, Shield, RotateCcw, Trash2, ChevronDown, Monitor } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -129,7 +129,33 @@ gitswhy autoclean --scan
   }];
   const installCommands = {
     zsh: `echo 'export PATH="$PATH:/usr/local/bin/gitswhy"' >> ~/.zshrc && source ~/.zshrc`,
-    bash: `echo 'export PATH="$PATH:/usr/local/bin/gitswhy"' >> ~/.bashrc && source ~/.bashrc`
+    bash: `echo 'export PATH="$PATH:/usr/local/bin/gitswhy"' >> ~/.bashrc && source ~/.bashrc`,
+    powershell: {
+      prerequisites: `# Check PowerShell version
+$PSVersionTable.PSVersion
+# Install Python (if not installed)
+winget install Python.Python.3.11
+# Install Git for Windows
+winget install Git.Git`,
+      clone: `git clone https://github.com/gitswhy/reflexcore.git
+cd reflexcore`,
+      dependencies: `python -m pip install click cryptography pyyaml`,
+      profile: `# Add to PowerShell profile (optional)
+# Run: notepad $PROFILE
+# Add: . "$env:USERPROFILE\\reflexcore\\scripts\\gitswhy_initiate.ps1"`,
+      initialize: `python cli/gitswhy_cli.py init`,
+      usage: `# Monitor performance
+python cli/gitswhy_cli.py mirror
+# Flush entropy cache
+python cli/gitswhy_cli.py flush
+# Get version info
+python cli/gitswhy_cli.py --version`,
+      troubleshooting: `# Permission issues - run as Administrator
+# Missing dependencies - re-run pip install
+# Logs location: ~\\.gitswhy\\logs\\`,
+      uninstall: `# Remove directory and profile lines
+Remove-Item -Recurse -Force reflexcore`
+    }
   };
   return <div className="min-h-screen">
       <OpenCoreBackground />
@@ -337,6 +363,96 @@ gitswhy autoclean --scan
                     {copiedCommand === 'bash' ? '✓' : <Copy className="h-4 w-4" />}
                   </Button>
                 </div>
+              </div>
+
+              <div className="bg-terminal-surface/70 rounded-lg border border-purple-500/30 p-6">
+                <div className="flex items-center justify-between mb-4">
+                  <h3 className="font-mono font-bold text-purple-400 flex items-center gap-2">
+                    <Monitor className="h-5 w-5" />
+                    PowerShell Installation (Windows Native or WSL)
+                  </h3>
+                  <Button 
+                    size="sm" 
+                    variant="ghost" 
+                    className="text-purple-400 hover:bg-purple-500/20"
+                    onClick={() => toggleCard('powershell')}
+                  >
+                    <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${
+                      openCards.powershell ? 'rotate-180' : ''
+                    }`} />
+                  </Button>
+                </div>
+                
+                {openCards.powershell && (
+                  <div className="space-y-4 animate-fade-in">
+                    {/* Prerequisites */}
+                    <div className="space-y-2">
+                      <h4 className="font-mono text-sm font-semibold text-purple-300">Prerequisites</h4>
+                      <div className="flex items-center gap-3 bg-terminal-surface/80 rounded-lg p-3">
+                        <code className="flex-1 font-mono text-xs text-purple-300 whitespace-pre-wrap">
+                          {installCommands.powershell.prerequisites}
+                        </code>
+                        <Button size="sm" variant="ghost" className="text-purple-400 hover:bg-purple-500/20" onClick={() => copyToClipboard(installCommands.powershell.prerequisites, 'ps-prereq')}>
+                          {copiedCommand === 'ps-prereq' ? '✓' : <Copy className="h-3 w-3" />}
+                        </Button>
+                      </div>
+                    </div>
+
+                    {/* Clone Repository */}
+                    <div className="space-y-2">
+                      <h4 className="font-mono text-sm font-semibold text-purple-300">Clone Repository</h4>
+                      <div className="flex items-center gap-3 bg-terminal-surface/80 rounded-lg p-3">
+                        <code className="flex-1 font-mono text-xs text-purple-300">
+                          {installCommands.powershell.clone}
+                        </code>
+                        <Button size="sm" variant="ghost" className="text-purple-400 hover:bg-purple-500/20" onClick={() => copyToClipboard(installCommands.powershell.clone, 'ps-clone')}>
+                          {copiedCommand === 'ps-clone' ? '✓' : <Copy className="h-3 w-3" />}
+                        </Button>
+                      </div>
+                    </div>
+
+                    {/* Install Dependencies */}
+                    <div className="space-y-2">
+                      <h4 className="font-mono text-sm font-semibold text-purple-300">Install Dependencies</h4>
+                      <div className="flex items-center gap-3 bg-terminal-surface/80 rounded-lg p-3">
+                        <code className="flex-1 font-mono text-xs text-purple-300">
+                          {installCommands.powershell.dependencies}
+                        </code>
+                        <Button size="sm" variant="ghost" className="text-purple-400 hover:bg-purple-500/20" onClick={() => copyToClipboard(installCommands.powershell.dependencies, 'ps-deps')}>
+                          {copiedCommand === 'ps-deps' ? '✓' : <Copy className="h-3 w-3" />}
+                        </Button>
+                      </div>
+                    </div>
+
+                    {/* Usage Examples */}
+                    <div className="space-y-2">
+                      <h4 className="font-mono text-sm font-semibold text-purple-300">Usage Examples</h4>
+                      <div className="flex items-center gap-3 bg-terminal-surface/80 rounded-lg p-3">
+                        <code className="flex-1 font-mono text-xs text-purple-300 whitespace-pre-wrap">
+                          {installCommands.powershell.usage}
+                        </code>
+                        <Button size="sm" variant="ghost" className="text-purple-400 hover:bg-purple-500/20" onClick={() => copyToClipboard(installCommands.powershell.usage, 'ps-usage')}>
+                          {copiedCommand === 'ps-usage' ? '✓' : <Copy className="h-3 w-3" />}
+                        </Button>
+                      </div>
+                    </div>
+
+                    {/* WSL Recommendation */}
+                    <div className="bg-blue-500/10 border border-blue-500/30 rounded-lg p-4">
+                      <p className="text-sm text-blue-300 font-mono">
+                        💡 <strong>Recommended:</strong> For full bash compatibility on Windows, install WSL and follow the main guide above.
+                      </p>
+                    </div>
+
+                    {/* Troubleshooting */}
+                    <div className="bg-orange-500/10 border border-orange-500/30 rounded-lg p-4">
+                      <h4 className="font-mono text-sm font-semibold text-orange-300 mb-2">Troubleshooting</h4>
+                      <pre className="font-mono text-xs text-orange-200 whitespace-pre-wrap">
+                        {installCommands.powershell.troubleshooting}
+                      </pre>
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
 
