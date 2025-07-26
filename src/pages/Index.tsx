@@ -35,8 +35,8 @@ const Index = () => {
         <Header />
         <Hero />
         <TrustRibbon />
-        <CoreFeaturesGrid />
         <FeatureTeasersGrid />
+        <CoreFeaturesGrid />
         <DemoPlayground />
         
         
