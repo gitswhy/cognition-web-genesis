@@ -439,6 +439,72 @@
       0 4px 12px -4px rgba(0, 0, 0, 0.08);
   }
 
+  /* Mobile-first grid utilities for better density */
+  .grid-responsive-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.25rem;
+  }
+
+  @media (min-width: 640px) {
+    .grid-responsive-2 {
+      gap: 0.5rem;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .grid-responsive-2 {
+      gap: 1rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .grid-responsive-2 {
+      gap: 1.5rem;
+    }
+  }
+
+  /* Compact padding utilities */
+  .padding-compact {
+    padding: 0.5rem;
+  }
+
+  @media (min-width: 640px) {
+    .padding-compact {
+      padding: 0.75rem;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .padding-compact {
+      padding: 1rem;
+    }
+  }
+
+  /* Mobile-optimized text scaling */
+  .text-mobile-sm {
+    font-size: 0.75rem;
+    line-height: 1rem;
+  }
+
+  @media (min-width: 640px) {
+    .text-mobile-sm {
+      font-size: 0.875rem;
+      line-height: 1.25rem;
+    }
+  }
+
+  /* Dense spacing utilities */
+  .space-dense > * + * {
+    margin-top: 0.25rem;
+  }
+
+  @media (min-width: 640px) {
+    .space-dense > * + * {
+      margin-top: 0.5rem;
+    }
+  }
+
   /* Button scale utilities */
   .active\\:scale-98:active {
     transform: scale(0.98);

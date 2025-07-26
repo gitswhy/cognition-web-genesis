@@ -108,7 +108,7 @@ const DemoPlayground = () => {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
+          <div className="grid grid-cols-2 lg:grid-cols-2 gap-2 sm:gap-4">
             {/* Command List */}
             <div className="space-y-3 sm:space-y-4">
               <h3 className="text-base sm:text-lg font-semibold text-foreground mb-4 sm:mb-6 flex items-center break-words">
@@ -119,7 +119,7 @@ const DemoPlayground = () => {
               {allCommands.map((cmd, index) => (
                 <div
                   key={index}
-                  className={`group p-4 rounded-lg border transition-all duration-200 ${
+                  className={`group p-1.5 sm:p-2 rounded-md border transition-all duration-200 ${
                     selectedCommand === index
                       ? activeTab === "pro"
                         ? "border-terminal-blue/40 bg-terminal-blue/5"

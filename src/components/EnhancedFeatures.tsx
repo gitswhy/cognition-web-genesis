@@ -110,7 +110,7 @@ const EnhancedFeatures = () => {
           </div>
 
           {/* Features Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 sm:gap-4">
             {features.map((feature, index) => {
             const Icon = feature.icon;
             return <AnimatedCard key={feature.title} delay={index * 0.1} className="h-full" hoverScale={1.03} hoverY={-8}>

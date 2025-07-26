@@ -204,7 +204,7 @@ const Pricing = () => {
       {/* Pricing Cards */}
       <section className="pb-16 px-4">
         <div className="container mx-auto safe-area-padding">
-          <div className="grid-responsive-2 max-w-6xl mx-auto">
+          <div className="grid grid-cols-2 lg:grid-cols-2 gap-2 sm:gap-4 max-w-4xl mx-auto">
             {pricingTiers.map((tier, index) => (
               <OptimizedCard 
                 key={tier.id}
@@ -223,16 +223,16 @@ const Pricing = () => {
                   </div>
                 )}
                 
-                <CardHeader className={`${tier.popular ? 'pt-12' : 'pt-4 sm:pt-6'} p-4 sm:p-6`}>
-                  <div className="space-y-3 sm:space-y-4">
+                <CardHeader className={`${tier.popular ? 'pt-8' : 'pt-2 sm:pt-3'} p-2 sm:p-3`}>
+                  <div className="space-y-1 sm:space-y-2">
                     <div>
-                      <CardTitle className="text-lg sm:text-xl lg:text-2xl font-bold break-words">{tier.name}</CardTitle>
-                      <p className="text-muted-foreground mt-2 text-sm sm:text-base break-words">{tier.description}</p>
+                      <CardTitle className="text-sm sm:text-lg font-bold break-words leading-tight">{tier.name}</CardTitle>
+                      <p className="text-muted-foreground mt-1 text-xs sm:text-sm break-words leading-tight">{tier.description}</p>
                     </div>
                     
-                    <div className="space-y-2 min-h-[80px] flex flex-col justify-center">
+                    <div className="space-y-1 min-h-[50px] flex flex-col justify-center">
                       <div className="flex items-baseline gap-2 flex-wrap">
-                        <span className="text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-bold font-mono break-all">
+                        <span className="text-lg sm:text-xl lg:text-2xl font-bold font-mono break-all">
                           ${isAnnual ? tier.price.annual : tier.price.monthly}
                         </span>
                         {tier.price.monthly > 0 && (
@@ -255,26 +255,26 @@ const Pricing = () => {
                   </div>
                 </CardHeader>
                 
-                <CardContent className="space-y-6 flex-1 flex flex-col">
+                <CardContent className="space-y-2 sm:space-y-3 flex-1 flex flex-col p-2 sm:p-3">
                   {/* Features */}
-                  <div className="space-y-6 flex-1">
+                  <div className="space-y-2 sm:space-y-3 flex-1">
                     {tier.features.map((category, categoryIndex) => (
-                      <div key={categoryIndex} className="space-y-3">
-                        <h4 className="text-sm font-semibold text-muted-foreground uppercase tracking-wide">
+                      <div key={categoryIndex} className="space-y-1 sm:space-y-2">
+                        <h4 className="text-xs sm:text-sm font-semibold text-muted-foreground uppercase tracking-wide">
                           {category.category}
                         </h4>
-                        <div className="space-y-2">
+                        <div className="space-y-1">
                           {category.items.map((feature, featureIndex) => (
-                            <div key={featureIndex} className="flex items-start gap-2 sm:gap-3">
+                            <div key={featureIndex} className="flex items-start gap-1 sm:gap-2">
                               {getFeatureIcon(feature.included)}
                               <div className="min-w-0 flex-1">
-                                <span className={`text-xs sm:text-sm break-words ${
+                                <span className={`text-xs break-words ${
                                   feature.included ? 'text-foreground' : 'text-muted-foreground'
                                 }`}>
                                   {feature.name}
                                 </span>
                                 {feature.description && (
-                                  <p className="text-xs text-muted-foreground mt-1 break-words">
+                                  <p className="text-xs text-muted-foreground break-words leading-tight">
                                     {feature.description}
                                   </p>
                                 )}
@@ -287,7 +287,7 @@ const Pricing = () => {
                   </div>
                   
                   {/* CTA Button */}
-                  <div className="mt-auto pt-6">
+                  <div className="mt-auto pt-2 sm:pt-3">
                     <Button 
                       onClick={() => {
                         if (tier.type === 'core') {

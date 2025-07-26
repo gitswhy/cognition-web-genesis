@@ -255,19 +255,19 @@ const HowItWorks = () => {
                   } ${isEven ? 'left-0 top-0' : 'right-0 bottom-0'}`} />
                 </div>
 
-                <div className={`grid lg:grid-cols-2 gap-16 items-center w-full ${
+                <div className={`grid grid-cols-2 lg:grid-cols-2 gap-4 sm:gap-8 items-center w-full ${
                   isEven ? '' : 'lg:flex-row-reverse'
                 }`}>
                   {/* Content Side */}
-                  <div className={`space-y-8 ${isEven ? 'lg:order-1' : 'lg:order-2'}`}>
-                    <div className="space-y-4">
-                      <div className="flex items-center gap-4">
-                        <div className={`w-16 h-16 rounded-full flex items-center justify-center ${
+                  <div className={`space-y-2 sm:space-y-4 ${isEven ? 'lg:order-1' : 'lg:order-2'}`}>
+                    <div className="space-y-1 sm:space-y-2">
+                      <div className="flex items-center gap-1 sm:gap-2">
+                        <div className={`w-8 h-8 sm:w-12 sm:h-12 rounded-full flex items-center justify-center ${
                           step.type === 'core' 
                             ? 'bg-terminal-green/20 text-terminal-green' 
                             : 'bg-terminal-blue/20 text-terminal-blue'
                         }`}>
-                          <Icon className="w-8 h-8" />
+                          <Icon className="w-4 h-4 sm:w-6 sm:h-6" />
                         </div>
                         <div>
                           <Badge 
@@ -285,20 +285,20 @@ const HowItWorks = () => {
                         </div>
                       </div>
                       
-                      <h2 className="text-scale-heading font-bold font-mono">
+                      <h2 className="text-sm sm:text-lg lg:text-xl font-bold font-mono leading-tight">
                         {step.title}
                       </h2>
-                      <p className="text-scale-subtitle text-muted-foreground">
+                      <p className="text-xs sm:text-sm text-muted-foreground leading-tight">
                         {step.subtitle}
                       </p>
                     </div>
 
-                    <p className="text-scale-body leading-relaxed">
+                    <p className="text-xs sm:text-sm leading-tight">
                       {step.description}
                     </p>
 
                     {/* Code Block */}
-                    <Card className="bg-terminal-bg border-terminal-surface">
+                    <Card className="bg-terminal-bg border-terminal-surface hidden sm:block">
                       <CardContent className="card-responsive">
                         <div className="flex items-center gap-1 sm:gap-2 mb-2 sm:mb-4">
                           <Terminal className="w-3 h-3 sm:w-4 sm:h-4 text-terminal-green" />
@@ -311,13 +311,13 @@ const HowItWorks = () => {
                     </Card>
 
                     {/* Features List */}
-                    <div className="space-y-2 sm:space-y-3">
+                    <div className="space-y-1">
                       {step.features.map((feature, featureIndex) => (
-                        <div key={featureIndex} className="flex items-center gap-2 sm:gap-3">
-                          <CheckCircle className={`w-3 h-3 sm:w-5 sm:h-5 ${
+                        <div key={featureIndex} className="flex items-center gap-1">
+                          <CheckCircle className={`w-2 h-2 sm:w-3 sm:h-3 ${
                             step.type === 'core' ? 'text-terminal-green' : 'text-terminal-blue'
                           }`} />
-                          <span className="text-scale-body text-muted-foreground">{feature}</span>
+                          <span className="text-xs sm:text-sm text-muted-foreground leading-tight">{feature}</span>
                         </div>
                       ))}
                     </div>

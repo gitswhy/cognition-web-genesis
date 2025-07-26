@@ -295,7 +295,7 @@ export default function Community() {
                   </Button>
                 </div>
                 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="grid grid-cols-2 gap-2 sm:gap-3">
                   {mockIssues.map((issue, index) => <IssueCard key={issue.id} issue={issue} index={index} />)}
                 </div>
               </div>
@@ -327,7 +327,7 @@ export default function Community() {
                       </p>
                     </div>
                     
-                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-sm">
+                    <div className="grid grid-cols-2 sm:grid-cols-3 gap-1 sm:gap-2 text-xs sm:text-sm">
                       <div>
                         <div className="font-medium">#general</div>
                         <div className="text-muted-foreground">General discussion</div>
@@ -381,7 +381,7 @@ export default function Community() {
                   </p>
                 </div>
                 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="grid grid-cols-2 gap-2 sm:gap-3">
                   {contributionAreas.map((area, index) => <ContributionCard key={area.title} area={area} index={index} />)}
                 </div>
                 
@@ -390,7 +390,7 @@ export default function Community() {
                     <CardTitle className="text-2xl">Getting Started Guide</CardTitle>
                   </CardHeader>
                   <CardContent className="space-y-6">
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div className="grid grid-cols-2 md:grid-cols-3 gap-2 sm:gap-3">
                       <div className="text-center space-y-2">
                         <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto">
                           <GitBranch className="w-6 h-6 text-primary" />

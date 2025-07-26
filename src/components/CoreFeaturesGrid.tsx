@@ -58,7 +58,7 @@ const CoreFeaturesGrid = () => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-1 sm:gap-2 md:gap-4">
           {features.map((feature, index) => (
             <motion.div
               key={index}
@@ -68,7 +68,7 @@ const CoreFeaturesGrid = () => {
               viewport={{ once: true }}
               whileHover={{ y: -5 }}
               whileTap={{ scale: 0.98 }}
-              className={`group relative p-4 sm:p-6 lg:p-8 rounded-xl border transition-all duration-500 cursor-pointer overflow-hidden ${
+              className={`group relative p-1.5 sm:p-3 lg:p-4 rounded-lg border transition-all duration-500 cursor-pointer overflow-hidden ${
                 feature.color === 'terminal-blue'
                   ? 'border-terminal-blue/20 bg-terminal-surface/50 hover:border-terminal-blue/40'
                   : 'border-terminal-green/20 bg-terminal-surface/50 hover:border-terminal-green/40'
@@ -77,13 +77,13 @@ const CoreFeaturesGrid = () => {
               onMouseLeave={() => setHoveredCard(null)}
             >
               {/* Icon with animation */}
-              <div className={`relative inline-flex p-3 sm:p-4 rounded-lg mb-4 sm:mb-6 ${
+              <div className={`relative inline-flex p-1.5 sm:p-2 rounded-md mb-2 sm:mb-3 ${
                 feature.color === 'terminal-blue'
                   ? 'bg-terminal-blue/10 text-terminal-blue'
                   : 'bg-terminal-green/10 text-terminal-green'
               }`}>
                 <feature.icon 
-                  className={`h-6 w-6 sm:h-8 sm:w-8 ${
+                  className={`h-4 w-4 sm:h-6 sm:w-6 ${
                     hoveredCard === index ? feature.animation : ''
                   }`} 
                 />
@@ -104,7 +104,7 @@ const CoreFeaturesGrid = () => {
                 )}
               </div>
 
-              <h3 className={`text-2xl font-bold mb-4 transition-colors ${
+              <h3 className={`text-sm sm:text-lg font-bold mb-1 sm:mb-2 transition-colors leading-tight ${
                 hoveredCard === index 
                   ? feature.color === 'terminal-blue' ? 'text-terminal-blue' : 'text-terminal-green'
                   : 'text-foreground'
@@ -112,12 +112,12 @@ const CoreFeaturesGrid = () => {
                 {feature.title}
               </h3>
 
-              <p className="text-foreground/70 leading-relaxed mb-6">
+              <p className="text-xs sm:text-sm text-foreground/70 leading-tight mb-2 sm:mb-3">
                 {feature.description}
               </p>
 
               {/* Detailed features */}
-              <div className={`space-y-1.5 sm:space-y-2 transition-all duration-300 ${
+              <div className={`space-y-0.5 sm:space-y-1 transition-all duration-300 ${
                 hoveredCard === index ? 'opacity-100 translate-y-0' : 'opacity-60 translate-y-2'
               }`}>
                 {feature.details.split(' • ').map((detail, detailIndex) => (
