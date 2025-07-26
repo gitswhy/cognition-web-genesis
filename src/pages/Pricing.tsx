@@ -190,7 +190,7 @@ const Pricing = () => {
             />
             <span className={`text-sm transition-all duration-300 ${isAnnual ? 'text-foreground font-medium scale-105' : 'text-muted-foreground scale-100'}`}>
               Annual
-              <Badge variant="secondary" className={`ml-2 bg-terminal-green/20 text-terminal-green border-terminal-green/30 text-xs transition-all duration-300 ${isAnnual ? 'animate-pulse' : ''}`}>
+              <Badge variant="secondary" className="ml-2 bg-terminal-green/20 text-terminal-green border-terminal-green/30 text-xs transition-all duration-300">
                 20% off
               </Badge>
             </span>
@@ -205,11 +205,11 @@ const Pricing = () => {
             {pricingTiers.map((tier, index) => (
               <Card 
                 key={tier.id} 
-                className={`relative overflow-hidden transition-all duration-300 card-hover mobile-focus-ring ${
+                className={`relative overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-xl mobile-focus-ring flex flex-col h-full ${
                   tier.popular 
-                    ? 'border-terminal-blue shadow-lg shadow-terminal-blue/20 lg:scale-105' 
-                    : 'border-terminal-surface'
-                } ${tier.type === 'core' ? '' : ''} gpu-accelerated`}
+                    ? 'border-terminal-blue shadow-lg shadow-terminal-blue/20 lg:scale-105 hover:shadow-terminal-blue/30' 
+                    : 'border-terminal-surface hover:border-terminal-blue/30 hover:shadow-terminal-blue/10'
+                } ${tier.type === 'core' ? 'hover:border-terminal-green/30 hover:shadow-terminal-green/10' : ''} gpu-accelerated`}
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 {tier.popular && (
