@@ -1,7 +1,7 @@
-import { useEffect } from 'react';
+import React from 'react';
 
 export const usePerformanceOptimizer = () => {
-  useEffect(() => {
+  React.useEffect(() => {
     // Aggressive performance optimizations
     
     // Disable smooth scrolling for better performance
