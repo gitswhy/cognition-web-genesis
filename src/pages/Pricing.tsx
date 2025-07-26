@@ -199,7 +199,7 @@ const Pricing = () => {
       </section>
 
       {/* Pricing Cards */}
-      <section className="padding-responsive-sm">
+      <section className="pt-8 pb-16 px-4">
         <div className="container mx-auto safe-area-padding">
           <div className="grid-responsive-2 max-w-6xl mx-auto">
             {pricingTiers.map((tier, index) => (
