@@ -733,28 +733,6 @@ export default function Docs() {
       <Header />
       
       <div className="page-content">
-      
-      {/* Docs Header */}
-      <header className="border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-        <div className="container mx-auto flex h-14 sm:h-16 items-center justify-between px-4 sm:px-6">
-          <div className="flex items-center gap-4">
-            <Badge variant="outline" className="text-xs sm:text-sm">Documentation</Badge>
-          </div>
-
-          <div className="flex items-center gap-2 sm:gap-4">
-
-            <select
-              value={selectedVersion}
-              onChange={(e) => setSelectedVersion(e.target.value)}
-              className="bg-background border border-border rounded-md px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm min-w-[100px] sm:min-w-[120px] hover:border-muted-foreground focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all"
-            >
-              <option value="v2.0">v2.0 (Latest)</option>
-              <option value="v1.9">v1.9</option>
-              <option value="v1.8">v1.8</option>
-            </select>
-          </div>
-        </div>
-      </header>
 
       {/* Floating Toggle Button - Always Visible */}
       <Button
