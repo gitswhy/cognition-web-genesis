@@ -10,26 +10,19 @@ import ScrollToTop from "./components/ScrollToTop";
 import { usePerformanceOptimizer } from '@/components/performance/PerformanceOptimizer';
 import { useWebVitals } from '@/components/performance/WebVitals';
 
-// Lazy load components for better performance
-const Index = React.lazy(() => import("./pages/Index"));
-const OpenCore = React.lazy(() => import("./pages/OpenCore"));
-const ProEdition = React.lazy(() => import("./pages/ProEdition"));
-const HowItWorks = React.lazy(() => import("./pages/HowItWorks"));
-const Pricing = React.lazy(() => import("./pages/Pricing"));
-const Docs = React.lazy(() => import("./pages/Docs"));
-const BlogResources = React.lazy(() => import("./pages/BlogResources"));
-const Community = React.lazy(() => import("./pages/Community"));
-const About = React.lazy(() => import("./pages/About"));
-const Patent = React.lazy(() => import("./pages/Patent"));
-const Roadmap = React.lazy(() => import("./pages/Roadmap"));
-const NotFound = React.lazy(() => import("./pages/NotFound"));
-
-// Loading component
-const LoadingFallback = () => (
-  <div className="min-h-screen flex items-center justify-center">
-    <div className="animate-spin w-8 h-8 border-2 border-terminal-green border-t-transparent rounded-full"></div>
-  </div>
-);
+// Direct imports for faster loading
+import Index from "./pages/Index";
+import OpenCore from "./pages/OpenCore";
+import ProEdition from "./pages/ProEdition";
+import HowItWorks from "./pages/HowItWorks";
+import Pricing from "./pages/Pricing";
+import Docs from "./pages/Docs";
+import BlogResources from "./pages/BlogResources";
+import Community from "./pages/Community";
+import About from "./pages/About";
+import Patent from "./pages/Patent";
+import Roadmap from "./pages/Roadmap";
+import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -45,22 +38,20 @@ const AnimatedRoutes = () => {
   const location = useLocation();
   
   return (
-    <Suspense fallback={<LoadingFallback />}>
-      <Routes location={location} key={location.pathname}>
-        <Route path="/" element={<Index />} />
-        <Route path="/open-core" element={<OpenCore />} />
-        <Route path="/pro-edition" element={<ProEdition />} />
-        <Route path="/how-it-works" element={<HowItWorks />} />
-        <Route path="/pricing" element={<Pricing />} />
-        <Route path="/docs" element={<Docs />} />
-        <Route path="/blog" element={<BlogResources />} />
-        <Route path="/community" element={<Community />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/patent" element={<Patent />} />
-        <Route path="/roadmap" element={<Roadmap />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-    </Suspense>
+    <Routes location={location} key={location.pathname}>
+      <Route path="/" element={<Index />} />
+      <Route path="/open-core" element={<OpenCore />} />
+      <Route path="/pro-edition" element={<ProEdition />} />
+      <Route path="/how-it-works" element={<HowItWorks />} />
+      <Route path="/pricing" element={<Pricing />} />
+      <Route path="/docs" element={<Docs />} />
+      <Route path="/blog" element={<BlogResources />} />
+      <Route path="/community" element={<Community />} />
+      <Route path="/about" element={<About />} />
+      <Route path="/patent" element={<Patent />} />
+      <Route path="/roadmap" element={<Roadmap />} />
+      <Route path="*" element={<NotFound />} />
+    </Routes>
   );
 };
 
