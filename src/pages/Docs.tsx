@@ -792,7 +792,7 @@ export default function Docs() {
       <div className="flex">
         {/* Fixed Sidebar for Desktop */}
         <aside 
-          className={`hidden lg:block fixed left-0 h-screen border-r bg-background z-40 transition-all duration-300 ${
+          className={`hidden lg:block fixed left-0 h-screen border-r bg-background z-40 transition-all duration-300 rounded-tr-2xl rounded-br-2xl shadow-lg ${
             isSidebarCollapsed ? 'w-16' : 'w-64'
           }`} 
           style={{ 
@@ -869,7 +869,7 @@ export default function Docs() {
           onClick={() => setIsSidebarOpen(false)}
         />
             <aside 
-              className={`fixed left-0 top-0 z-50 w-64 h-full border-r bg-background lg:hidden transform transition-all duration-300 ease-in-out ${
+              className={`fixed left-0 top-0 z-50 w-64 h-full border-r bg-background lg:hidden transform transition-all duration-300 ease-in-out rounded-tr-2xl rounded-br-2xl shadow-xl ${
                 isSidebarOpen ? 'translate-x-0' : '-translate-x-full'
               }`} 
               style={{ 
@@ -922,8 +922,10 @@ export default function Docs() {
             </aside>
 
         {/* Main Content */}
-        <main className={`flex-1 w-full transition-all duration-300 ${isSidebarCollapsed ? 'lg:ml-16' : 'lg:ml-64'} ${isSidebarOpen && !isDesktop ? 'overflow-hidden' : ''}`}>
-          <div className="container mx-auto max-w-4xl px-6 sm:px-8 py-8 sm:py-12 relative">
+        <main className={`flex-1 w-full transition-all duration-300 ${isSidebarCollapsed ? 'lg:ml-16' : 'lg:ml-64'} ${isSidebarOpen && !isDesktop ? 'fixed inset-0 overflow-hidden' : ''}`}>
+          <div className="container mx-auto max-w-4xl px-6 sm:px-8 py-8 sm:py-12 relative" style={{
+            paddingTop: isSidebarOpen && !isDesktop ? 'calc(64px + 56px + 2rem)' : undefined
+          }}>
             {currentContent && (
               <article className="prose prose-neutral dark:prose-invert max-w-none">
                 <div className="mb-8 sm:mb-12">
