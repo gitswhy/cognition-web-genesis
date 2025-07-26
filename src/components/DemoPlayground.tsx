@@ -108,9 +108,9 @@ const DemoPlayground = () => {
             </div>
           </div>
 
-          <div className="grid grid-cols-2 lg:grid-cols-2 gap-2 sm:gap-4">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
             {/* Command List */}
-            <div className="space-y-3 sm:space-y-4">
+            <div className="space-y-3 sm:space-y-4 order-2 lg:order-1">
               <h3 className="text-base sm:text-lg font-semibold text-foreground mb-4 sm:mb-6 flex items-center break-words">
                 <Terminal className="h-4 w-4 sm:h-5 sm:w-5 mr-2 sm:mr-3 text-terminal-green flex-shrink-0" />
                 <span>Available Commands</span>
@@ -119,7 +119,7 @@ const DemoPlayground = () => {
               {allCommands.map((cmd, index) => (
                 <div
                   key={index}
-                  className={`group p-1.5 sm:p-2 rounded-md border transition-all duration-200 ${
+                  className={`group p-3 sm:p-4 rounded-lg border transition-all duration-200 ${
                     selectedCommand === index
                       ? activeTab === "pro"
                         ? "border-terminal-blue/40 bg-terminal-blue/5"
@@ -128,9 +128,9 @@ const DemoPlayground = () => {
                   } ${isCommandLocked(cmd) ? "opacity-60" : ""}`}
                 >
                   <div className="flex items-center justify-between">
-                    <div className="flex-1">
-                      <div className="flex items-center mb-2">
-                        <span className="font-mono text-sm font-medium text-terminal-green">
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center mb-2 flex-wrap">
+                        <span className="font-mono text-sm sm:text-base font-medium text-terminal-green truncate">
                           {cmd.command}
                         </span>
                         {cmd.isPro && (
@@ -139,7 +139,7 @@ const DemoPlayground = () => {
                           </span>
                         )}
                       </div>
-                      <div className="text-foreground/70 text-sm">
+                      <div className="text-foreground/70 text-sm leading-relaxed">
                         {cmd.description}
                       </div>
                     </div>
@@ -170,7 +170,7 @@ const DemoPlayground = () => {
             </div>
 
             {/* Terminal Output */}
-            <div className="bg-terminal-surface border border-terminal-green/20 rounded-lg overflow-hidden shadow-xl">
+            <div className="bg-terminal-surface border border-terminal-green/20 rounded-lg overflow-hidden shadow-xl order-1 lg:order-2">
               {/* Terminal Header */}
               <div className="flex items-center justify-between bg-terminal-bg/50 px-4 py-3 border-b border-terminal-green/20">
                 <div className="flex items-center space-x-4">
@@ -190,15 +190,15 @@ const DemoPlayground = () => {
               </div>
 
               {/* Terminal Content */}
-              <div className="p-6 font-mono text-sm min-h-[300px]">
+              <div className="p-4 sm:p-6 font-mono text-sm min-h-[250px] sm:min-h-[300px]">
                 <div className="text-terminal-green mb-2">
                   Welcome to Gitswhy OS Interactive Demo!
                 </div>
-                <div className="text-foreground/70 mb-6">
+                <div className="text-foreground/70 mb-4 sm:mb-6">
                   Select a command from the left to see it in action.
                 </div>
                 
-                <div className="text-terminal-green mb-4">
+                <div className="text-terminal-green mb-2 sm:mb-4 break-all">
                   $ {allCommands[selectedCommand].command}
                 </div>
                 
@@ -222,7 +222,7 @@ const DemoPlayground = () => {
           </div>
 
           {/* CTA */}
-          <div className="text-center mt-12">
+          <div className="text-center mt-8 sm:mt-12">
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button 
                 variant="terminal" 
