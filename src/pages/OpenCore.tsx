@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Copy, Github, Star, Download, Terminal, Zap, Database, Shield, RotateCcw, Trash2, ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -9,6 +10,7 @@ import ModuleExplorer from '@/components/ModuleExplorer';
 import { SoftwareApplicationSchema } from '@/components/SoftwareApplicationSchema';
 import OpenCoreBackground from '@/components/background/OpenCoreBackground';
 const OpenCore = () => {
+  const navigate = useNavigate();
   const [copiedCommand, setCopiedCommand] = useState<string | null>(null);
   const [openCards, setOpenCards] = useState<Record<string, boolean>>({});
   useEffect(() => {
@@ -342,12 +344,13 @@ gitswhy autoclean --scan
               <p className="text-muted-foreground mb-6">
                 Need help? Check out our comprehensive documentation
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button variant="outline" className="border-terminal-green text-terminal-green hover:bg-terminal-green/10">
+              <div className="flex justify-center">
+                <Button 
+                  variant="outline" 
+                  className="border-terminal-green text-terminal-green hover:bg-terminal-green/10 transition-all duration-300 hover:scale-105"
+                  onClick={() => navigate('/docs')}
+                >
                   View Documentation
-                </Button>
-                <Button variant="outline" className="border-terminal-blue text-terminal-blue hover:bg-terminal-blue/10">
-                  API Reference
                 </Button>
               </div>
             </div>
