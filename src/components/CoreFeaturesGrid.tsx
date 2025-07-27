@@ -77,30 +77,30 @@ const CoreFeaturesGrid = () => {
               onMouseLeave={() => setHoveredCard(null)}
             >
               {/* Icon with animation */}
-              <div className={`relative inline-flex p-2 sm:p-3 rounded-lg mb-3 sm:mb-4 ${
+              <div className={`relative inline-flex p-3 sm:p-4 lg:p-5 rounded-xl mb-4 sm:mb-6 ${
                 feature.color === 'terminal-blue'
                   ? 'bg-terminal-blue/10 text-terminal-blue'
                   : 'bg-terminal-green/10 text-terminal-green'
               }`}>
                 <feature.icon 
-                  className={`h-5 w-5 sm:h-6 sm:w-6 ${
+                  className={`h-8 w-8 sm:h-10 sm:w-10 lg:h-12 lg:w-12 ${
                     hoveredCard === index ? feature.animation : ''
                   }`} 
                 />
                 
                 {/* Pulsing effect for Real-Time Cognition */}
                 {index === 0 && hoveredCard === index && (
-                  <div className="absolute inset-0 rounded-lg bg-terminal-green/20 animate-ping"></div>
+                  <div className="absolute inset-0 rounded-xl bg-terminal-green/20 animate-ping"></div>
                 )}
                 
                 {/* Shield rotation effect */}
                 {index === 1 && hoveredCard === index && (
-                  <div className="absolute inset-0 rounded-lg border border-terminal-blue/40 animate-pulse"></div>
+                  <div className="absolute inset-0 rounded-xl border border-terminal-blue/40 animate-pulse"></div>
                 )}
                 
                 {/* Vault door effect */}
                 {index === 2 && hoveredCard === index && (
-                  <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-terminal-green/10 to-transparent animate-pulse"></div>
+                  <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-terminal-green/10 to-transparent animate-pulse"></div>
                 )}
               </div>
 
