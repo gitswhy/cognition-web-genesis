@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
 // Import original logos
-import githubLogo from "@/assets/logos/github-logo.png";
+import githubLogo from "/lovable-uploads/0a19be48-d6dd-48dc-a711-34c6740a37d2.png";
 import gitlabLogo from "@/assets/logos/gitlab-logo.png";
 import snykLogo from "@/assets/logos/snyk-logo.png";
 import linearLogo from "@/assets/logos/linear-logo.svg";
@@ -17,7 +17,7 @@ const TrustRibbon = () => {
   const partners = [
     { 
       name: "GitHub", 
-      logo: <img src={githubLogo} alt="GitHub Logo" className="w-8 h-8 object-contain filter brightness-0 invert opacity-70 group-hover:opacity-100 transition-opacity" />
+      logo: <img src={githubLogo} alt="GitHub Logo" className="w-8 h-8 object-contain opacity-70 group-hover:opacity-100 transition-opacity" />
     },
     { 
       name: "GitLab", 
