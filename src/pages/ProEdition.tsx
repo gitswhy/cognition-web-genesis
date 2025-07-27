@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Lock, Shield, Zap, Users, AlertTriangle, FileCode, TrendingUp, BarChart3, PieChart, Activity, ArrowRight, Star, Check, Mic, Play, X, Info } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
@@ -98,10 +99,12 @@ const ProEdition = () => {
             </div>
             
             <div className="flex-responsive animate-stagger-4">
-              <Button size="sm" className="bg-terminal-blue hover:bg-terminal-blue/90 text-white mobile-button hover-lift">
-                Start Pro Trial
-                <ArrowRight className="ml-1 w-3 h-3" />
-              </Button>
+              <Link to="/wishlist">
+                <Button size="sm" className="bg-terminal-blue hover:bg-terminal-blue/90 text-white mobile-button hover-lift">
+                  Start Pro Trial
+                  <ArrowRight className="ml-1 w-3 h-3" />
+                </Button>
+              </Link>
               <Button variant="outline" size="sm" className="border-terminal-blue/30 text-terminal-blue hover:bg-terminal-blue/10 mobile-button hover-lift">
                 Demo
               </Button>
@@ -581,10 +584,12 @@ const ProEdition = () => {
           </h2>
           
           <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center animate-stagger-2">
-            <Button size="lg" className="bg-terminal-blue hover:bg-terminal-blue/90 text-white mobile-button hover-lift">
-              Start 30-Day Pro Trial
-              <ArrowRight className="ml-2 w-4 h-4" />
-            </Button>
+            <Link to="/wishlist">
+              <Button size="lg" className="bg-terminal-blue hover:bg-terminal-blue/90 text-white mobile-button hover-lift">
+                Start 30-Day Pro Trial
+                <ArrowRight className="ml-2 w-4 h-4" />
+              </Button>
+            </Link>
             <Button variant="outline" size="lg" className="border-terminal-blue/30 text-terminal-blue hover:bg-terminal-blue/10 mobile-button hover-lift">
               Talk to Sales
             </Button>

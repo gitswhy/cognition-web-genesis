@@ -14,6 +14,7 @@ import { useWebVitals } from '@/components/performance/WebVitals';
 import Index from "./pages/Index";
 import OpenCore from "./pages/OpenCore";
 import ProEdition from "./pages/ProEdition";
+import Wishlist from "./pages/Wishlist";
 import HowItWorks from "./pages/HowItWorks";
 import Pricing from "./pages/Pricing";
 import Docs from "./pages/Docs";
@@ -42,6 +43,7 @@ const AnimatedRoutes = () => {
       <Route path="/" element={<Index />} />
       <Route path="/open-core" element={<OpenCore />} />
       <Route path="/pro-edition" element={<ProEdition />} />
+      <Route path="/wishlist" element={<Wishlist />} />
       <Route path="/how-it-works" element={<HowItWorks />} />
       <Route path="/pricing" element={<Pricing />} />
       <Route path="/docs" element={<Docs />} />
