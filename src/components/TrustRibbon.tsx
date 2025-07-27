@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import githubLogo from "/lovable-uploads/0a19be48-d6dd-48dc-a711-34c6740a37d2.png";
 import gitlabLogo from "/lovable-uploads/1af99421-8b01-4352-ba81-9d46cc349790.png";
 import snykLogo from "/lovable-uploads/ceec2436-24c6-4b19-9d2d-494a198545f3.png";
-import linearLogo from "@/assets/logos/linear-logo.svg";
+import linearLogo from "/lovable-uploads/ae7c343f-4543-444b-81b8-6c6a791af406.png";
 import cursorLogo from "@/assets/logos/cursor-logo.png";
 import dockerLogo from "@/assets/logos/docker-logo.png";
 import awsLogo from "@/assets/logos/aws-logo.png";
