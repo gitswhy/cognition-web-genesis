@@ -68,7 +68,7 @@ const CoreFeaturesGrid = () => {
               viewport={{ once: true }}
               whileHover={{ y: -5 }}
               whileTap={{ scale: 0.98 }}
-              className={`group relative p-3 sm:p-4 lg:p-6 rounded-xl border transition-all duration-500 cursor-pointer overflow-hidden min-h-[280px] sm:min-h-[320px] flex flex-col ${
+              className={`group relative p-3 sm:p-4 lg:p-6 rounded-xl border transition-all duration-500 cursor-pointer overflow-hidden min-h-[280px] sm:min-h-[320px] flex flex-col items-center justify-center text-center ${
                 feature.color === 'terminal-blue'
                   ? 'border-terminal-blue/20 bg-terminal-surface/50 hover:border-terminal-blue/40'
                   : 'border-terminal-green/20 bg-terminal-surface/50 hover:border-terminal-green/40'
@@ -76,11 +76,11 @@ const CoreFeaturesGrid = () => {
               onMouseEnter={() => setHoveredCard(index)}
               onMouseLeave={() => setHoveredCard(null)}
             >
-              {/* Icon with animation */}
-              <div className={`relative inline-flex p-3 sm:p-4 lg:p-5 rounded-xl mb-4 sm:mb-6 ${
+              {/* Icon with animation - centered */}
+              <div className={`relative inline-flex mb-4 sm:mb-6 ${
                 feature.color === 'terminal-blue'
-                  ? 'bg-terminal-blue/10 text-terminal-blue'
-                  : 'bg-terminal-green/10 text-terminal-green'
+                  ? 'text-terminal-blue'
+                  : 'text-terminal-green'
               }`}>
                 <feature.icon 
                   className={`h-8 w-8 sm:h-10 sm:w-10 lg:h-12 lg:w-12 ${
