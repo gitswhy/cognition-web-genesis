@@ -243,7 +243,7 @@ export default function Community() {
         </head>
 
         {/* Hero Section */}
-        <section className="relative pt-24 sm:pt-28 pb-8 sm:pb-12">
+        <section className="relative pt-24 sm:pt-28 md:pt-32 pb-12 sm:pb-16">
         <div className="container-responsive">
           <div className="max-w-4xl mx-auto text-center space-responsive">
             <h1 className="text-scale-hero font-bold">

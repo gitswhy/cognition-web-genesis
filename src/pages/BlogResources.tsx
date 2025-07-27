@@ -264,7 +264,7 @@ export default function BlogResources() {
       </head>
 
       {/* Hero Section */}
-      <section className="relative py-16">
+      <section className="relative pt-24 sm:pt-28 md:pt-32 pb-12 sm:pb-16">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center space-y-6">
             <h1 className="text-4xl md:text-5xl font-bold">

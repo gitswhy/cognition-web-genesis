@@ -166,7 +166,7 @@ const Pricing = () => {
       <Header />
       
       {/* Hero Section */}
-      <section className="relative pt-20 sm:pt-24 pb-8 sm:pb-16 overflow-hidden safe-area-padding">
+      <section className="relative pt-24 sm:pt-28 md:pt-32 pb-12 sm:pb-16 overflow-hidden safe-area-padding">
         <div className="absolute inset-0 bg-[linear-gradient(rgba(0,255,102,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(0,255,102,0.05)_1px,transparent_1px)] bg-[size:50px_50px]" />
         
         <div className="container mx-auto text-center relative z-10">

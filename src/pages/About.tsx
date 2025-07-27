@@ -476,7 +476,7 @@ export default function AboutCareers() {
       </head>
 
       {/* Hero Section */}
-      <section className="relative padding-section">
+      <section className="relative pt-24 sm:pt-28 md:pt-32 pb-12 sm:pb-16">
         <div className="container-responsive">
           <div className="max-w-4xl mx-auto text-center space-responsive">
             <div className="space-responsive animate-fade-in">

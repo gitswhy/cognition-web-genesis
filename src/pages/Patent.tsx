@@ -9,7 +9,7 @@ export default function Patent() {
   return <div className="min-h-screen bg-background">
       <Header />
       {/* Hero Section */}
-      <section className="relative py-20 border-b">
+      <section className="relative pt-24 sm:pt-28 md:pt-32 pb-12 sm:pb-16 border-b">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center space-y-8">
             <div className="space-y-4">

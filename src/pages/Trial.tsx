@@ -60,7 +60,7 @@ const Trial = () => {
         <WebsiteBackground>
           <Header />
           <div className="page-content">
-            <section className="py-20 px-4 sm:px-6 lg:px-8">
+            <section className="pt-24 sm:pt-28 md:pt-32 pb-12 sm:pb-16 px-4 sm:px-6 lg:px-8">
               <div className="container mx-auto max-w-2xl text-center">
                 <motion.div
                   initial={{ opacity: 0, scale: 0.9 }}
@@ -119,7 +119,7 @@ const Trial = () => {
       <WebsiteBackground>
         <Header />
         <div className="page-content">
-          <section className="py-20 px-4 sm:px-6 lg:px-8">
+          <section className="pt-24 sm:pt-28 md:pt-32 pb-12 sm:pb-16 px-4 sm:px-6 lg:px-8">
             <div className="container mx-auto max-w-4xl">
               <div className="text-center mb-12">
                 <motion.div
