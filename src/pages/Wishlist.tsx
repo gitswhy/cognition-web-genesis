@@ -141,12 +141,9 @@ const Wishlist = () => {
           </Card>
 
           {/* Additional Info */}
-          <div className="mt-8 text-center text-sm text-muted-foreground animate-slide-up space-y-2">
+          <div className="mt-8 text-center text-sm text-muted-foreground animate-slide-up">
             <p>
               Join 500+ developers already on the Pro Edition wishlist
-            </p>
-            <p className="text-xs">
-              Patented by: Atharve Malviya
             </p>
           </div>
         </div>
