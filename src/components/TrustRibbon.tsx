@@ -1,15 +1,15 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
-// Import vector logos
-import githubLogo from "@/assets/logos/github-vector.svg";
-import gitlabLogo from "@/assets/logos/gitlab-vector.svg";
-import snykLogo from "@/assets/logos/snyk-vector.svg";
-import linearLogo from "@/assets/logos/linear-vector.svg";
-import cursorLogo from "@/assets/logos/cursor-vector.svg";
-import dockerLogo from "@/assets/logos/docker-vector.svg";
-import awsLogo from "@/assets/logos/aws-vector.svg";
-import vercelLogo from "@/assets/logos/vercel-vector.svg";
+// Import original logos
+import githubLogo from "@/assets/logos/github-logo.png";
+import gitlabLogo from "@/assets/logos/gitlab-logo.png";
+import snykLogo from "@/assets/logos/snyk-logo.png";
+import linearLogo from "@/assets/logos/linear-logo.svg";
+import cursorLogo from "@/assets/logos/cursor-logo.png";
+import dockerLogo from "@/assets/logos/docker-logo.png";
+import awsLogo from "@/assets/logos/aws-logo.png";
+import vercelLogo from "@/assets/logos/vercel-logo.png";
 
 const TrustRibbon = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
