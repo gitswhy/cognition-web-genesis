@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 // Import original logos
 import githubLogo from "/lovable-uploads/0a19be48-d6dd-48dc-a711-34c6740a37d2.png";
-import gitlabLogo from "@/assets/logos/gitlab-logo.png";
+import gitlabLogo from "/lovable-uploads/1af99421-8b01-4352-ba81-9d46cc349790.png";
 import snykLogo from "@/assets/logos/snyk-logo.png";
 import linearLogo from "@/assets/logos/linear-logo.svg";
 import cursorLogo from "@/assets/logos/cursor-logo.png";
