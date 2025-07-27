@@ -4,21 +4,9 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
-import { 
-  Shield, 
-  Brain, 
-  FileText, 
-  Lock, 
-  ArrowRight, 
-  CheckCircle,
-  Lightbulb,
-  Target,
-  Zap
-} from 'lucide-react';
-
+import { Shield, Brain, FileText, Lock, ArrowRight, CheckCircle, Lightbulb, Target, Zap } from 'lucide-react';
 export default function Patent() {
-  return (
-    <div className="min-h-screen bg-background">
+  return <div className="min-h-screen bg-background">
       <Header />
       {/* Hero Section */}
       <section className="relative py-20 border-b">
@@ -121,7 +109,7 @@ export default function Patent() {
                     </div>
                     <div>
                       <h4 className="font-semibold mb-2">Filing Date</h4>
-                      <p className="text-muted-foreground">March 2024</p>
+                      <p className="text-muted-foreground">July 2025</p>
                     </div>
                     <div>
                       <h4 className="font-semibold mb-2">Patent Office</h4>
@@ -292,6 +280,5 @@ export default function Patent() {
           </div>
         </div>
       </section>
-    </div>
-  );
+    </div>;
 }
