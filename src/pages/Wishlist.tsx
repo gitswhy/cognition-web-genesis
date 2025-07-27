@@ -52,7 +52,7 @@ const Wishlist = () => {
         <div className="container-responsive max-w-2xl mx-auto relative z-10">
           
           {/* Back Button */}
-          <div className="mb-8 animate-slide-up">
+          <div className="mb-4 animate-slide-up">
             <Link 
               to="/pro-edition" 
               className="inline-flex items-center gap-2 text-terminal-blue hover:text-terminal-blue/80 transition-colors"
