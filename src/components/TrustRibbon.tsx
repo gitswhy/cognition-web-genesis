@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 // Import original logos
 import githubLogo from "/lovable-uploads/0a19be48-d6dd-48dc-a711-34c6740a37d2.png";
 import gitlabLogo from "/lovable-uploads/1af99421-8b01-4352-ba81-9d46cc349790.png";
-import snykLogo from "@/assets/logos/snyk-logo.png";
+import snykLogo from "/lovable-uploads/ceec2436-24c6-4b19-9d2d-494a198545f3.png";
 import linearLogo from "@/assets/logos/linear-logo.svg";
 import cursorLogo from "@/assets/logos/cursor-logo.png";
 import dockerLogo from "@/assets/logos/docker-logo.png";
@@ -25,7 +25,7 @@ const TrustRibbon = () => {
     },
     { 
       name: "Snyk", 
-      logo: <img src={snykLogo} alt="Snyk Logo" className="w-8 h-8 object-contain filter brightness-0 invert opacity-70 group-hover:opacity-100 transition-opacity" />
+      logo: <img src={snykLogo} alt="Snyk Logo" className="w-8 h-8 object-contain opacity-70 group-hover:opacity-100 transition-opacity" />
     },
     { 
       name: "Linear", 
