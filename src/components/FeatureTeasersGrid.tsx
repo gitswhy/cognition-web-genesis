@@ -81,16 +81,16 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
           <div className="flex items-start justify-between mb-3">
             <div className="flex items-center">
               <div className="p-2 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors duration-300">
-                <Icon className="h-6 w-6 text-primary" aria-hidden="true" />
+                <Icon className="h-6 w-6 lg:h-7 lg:w-7 text-primary" aria-hidden="true" />
               </div>
             </div>
             <FeatureBadge type={badgeType} />
           </div>
-          <CardTitle className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors duration-300">
+          <CardTitle className="text-lg lg:text-xl font-semibold text-foreground group-hover:text-primary transition-colors duration-300">
             {title}
           </CardTitle>
           <CardDescription 
-            className="text-muted-foreground leading-relaxed"
+            className="text-muted-foreground lg:text-base leading-relaxed"
             dangerouslySetInnerHTML={{ 
               __html: description.replace(/patches issues/g, '<strong>patches issues</strong>') 
             }}
@@ -165,7 +165,7 @@ export const FeatureTeasersGrid: React.FC = () => {
           </p>
         </motion.div>
         
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-1 sm:gap-2">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-1 sm:gap-2 lg:gap-4">
           {features.map((feature, index) => (
             <FeatureCard
               key={index}
