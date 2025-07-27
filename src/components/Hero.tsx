@@ -4,8 +4,10 @@ import { ChevronRight, Play, Activity, FileText, Loader, Check } from "lucide-re
 import { StaggeredFadeIn } from "@/components/animations/AnimationComponents";
 import { useGeolocation } from '@/hooks/useGeolocation';
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 
 const Hero = () => {
+  const navigate = useNavigate();
   const { isEU, loading } = useGeolocation();
   const [typedText, setTypedText] = useState("");
   const [currentLine, setCurrentLine] = useState(0);
@@ -116,6 +118,7 @@ const Hero = () => {
                   variant="terminal" 
                   size="default" 
                   className="w-full sm:w-auto sm:min-w-[160px] mobile-button mobile-touch hover-desktop terminal-glow neon-button text-sm sm:text-base gpu-accelerated"
+                  onClick={() => navigate('/trial')}
                 >
                   Start Free Trial
                   <ChevronRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />

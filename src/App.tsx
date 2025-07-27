@@ -22,6 +22,7 @@ import BlogResources from "./pages/BlogResources";
 import Community from "./pages/Community";
 import About from "./pages/About";
 import Patent from "./pages/Patent";
+import Trial from "./pages/Trial";
 import Roadmap from "./pages/Roadmap";
 import NotFound from "./pages/NotFound";
 
@@ -51,6 +52,7 @@ const AnimatedRoutes = () => {
       <Route path="/community" element={<Community />} />
       <Route path="/about" element={<About />} />
       <Route path="/patent" element={<Patent />} />
+      <Route path="/trial" element={<Trial />} />
       <Route path="/roadmap" element={<Roadmap />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
