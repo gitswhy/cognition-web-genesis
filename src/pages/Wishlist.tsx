@@ -50,17 +50,6 @@ const Wishlist = () => {
       
       <div className="min-h-screen flex items-center justify-center padding-responsive px-3 sm:px-4">
         <div className="container-responsive max-w-2xl mx-auto relative z-10">
-          
-          {/* Back Button */}
-          <div className="mb-4 animate-slide-up">
-            <Link 
-              to="/pro-edition" 
-              className="inline-flex items-center gap-2 text-terminal-blue hover:text-terminal-blue/80 transition-colors"
-            >
-              <ArrowLeft className="w-4 h-4" />
-              <span className="text-sm">Back to Pro Edition</span>
-            </Link>
-          </div>
 
           <Card className="bg-terminal-surface/50 backdrop-blur-sm border-terminal-blue/20 animate-slide-up">
             <CardHeader className="text-center space-y-4">
