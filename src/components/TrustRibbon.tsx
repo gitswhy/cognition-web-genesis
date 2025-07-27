@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
 // Import original logos
-import githubLogo from "/lovable-uploads/306352ff-102d-45ba-a5c6-98adefe26ad5.png";
+import githubLogo from "/lovable-uploads/aeb7b2cd-7eb9-4221-b970-c5c7bb84e88a.png";
 import gitlabLogo from "/lovable-uploads/1af99421-8b01-4352-ba81-9d46cc349790.png";
 import snykLogo from "/lovable-uploads/ceec2436-24c6-4b19-9d2d-494a198545f3.png";
 import linearLogo from "/lovable-uploads/ae7c343f-4543-444b-81b8-6c6a791af406.png";
