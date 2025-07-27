@@ -23,6 +23,7 @@ import OptimizedCard from '@/components/common/OptimizedCard';
 import LazyImage from '@/components/common/LazyImage';
 import { Separator } from '@/components/ui/separator';
 import AboutBackground from '@/components/background/AboutBackground';
+import Header from '@/components/Header';
 
 interface TeamMember {
   name: string;
@@ -450,6 +451,7 @@ const CareersCarousel = () => {
 export default function AboutCareers() {
   return (
     <div className="min-h-screen">
+      <Header />
       <AboutBackground />
       {/* SEO Meta Tags */}
       <head>

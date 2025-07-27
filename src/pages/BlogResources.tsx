@@ -6,6 +6,7 @@ import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import BlogBackground from '@/components/background/BlogBackground';
+import Header from '@/components/Header';
 
 interface BlogPost {
   id: string;
@@ -238,6 +239,7 @@ export default function BlogResources() {
 
   return (
     <div className="min-h-screen bg-background">
+      <Header />
       <BlogBackground />
       {/* SEO Meta Tags */}
       <head>
