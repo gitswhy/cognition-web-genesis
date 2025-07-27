@@ -9,7 +9,7 @@ import linearLogo from "/lovable-uploads/ae7c343f-4543-444b-81b8-6c6a791af406.pn
 import cursorLogo from "/lovable-uploads/a4fcbc2d-94ef-4bbc-b536-835a4928adf2.png";
 import dockerLogo from "/lovable-uploads/fb2c8f17-9a17-4e78-8b07-08793a8371db.png";
 import awsLogo from "/lovable-uploads/93f8ee00-e1be-423f-a230-df3d3ffc7cf5.png";
-import vercelLogo from "/lovable-uploads/20c4ea9b-77d9-4c8d-a388-ee36f399828a.png";
+import vercelLogo from "/lovable-uploads/c6ae6fbf-8da8-4866-8668-b373abd23067.png";
 
 const TrustRibbon = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
