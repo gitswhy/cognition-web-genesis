@@ -791,13 +791,6 @@ export default function Docs() {
                     <Menu className="h-4 w-4 mr-2" />
                     Menu
                   </Button>
-                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                    <Link to="/" className="hover:text-foreground">Home</Link>
-                    <ChevronRight className="h-4 w-4" />
-                    <span>Documentation</span>
-                    <ChevronRight className="h-4 w-4" />
-                    <span className="text-foreground">{getCurrentTitle()}</span>
-                  </div>
                 </div>
                 <h1 className="text-3xl font-bold">{getCurrentTitle()}</h1>
               </div>
