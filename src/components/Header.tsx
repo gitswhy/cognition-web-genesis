@@ -1,35 +1,39 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { Menu, X, Terminal, ChevronDown } from "lucide-react";
-
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  const navItems = [
-    { label: "Open Core", href: "/open-core" },
-    { label: "Pro Edition", href: "/pro-edition" },
-    { label: "How It Works", href: "/how-it-works" },
-    { label: "Pricing", href: "/pricing" },
-  ];
-
-  const dropdownItems = [
-    { label: "Docs", href: "/docs" },
-    { label: "Community", href: "/community" },
-    { label: "Patent", href: "/patent" },
-    { label: "Roadmap", href: "/roadmap" },
-  ];
-
-  return (
-    <header className="fixed top-0 w-full z-[100] glass border-b border-terminal-green/20 backdrop-blur-xl safe-area-top">
+  const navItems = [{
+    label: "Open Core",
+    href: "/open-core"
+  }, {
+    label: "Pro Edition",
+    href: "/pro-edition"
+  }, {
+    label: "How It Works",
+    href: "/how-it-works"
+  }, {
+    label: "Pricing",
+    href: "/pricing"
+  }];
+  const dropdownItems = [{
+    label: "Docs",
+    href: "/docs"
+  }, {
+    label: "Community",
+    href: "/community"
+  }, {
+    label: "Patent",
+    href: "/patent"
+  }, {
+    label: "Roadmap",
+    href: "/roadmap"
+  }];
+  return <header className="fixed top-0 w-full z-[100] glass border-b border-terminal-green/20 backdrop-blur-xl safe-area-top">
       <div className="container mx-auto safe-area-padding">
-        <div className="flex items-center justify-between h-12 sm:h-14 md:h-16">
+        <div className="flex items-center justify-between h-12 sm:h-14 md:h-16 py-0 my-0">
           {/* Logo */}
           <Link to="/" className="group flex items-center space-x-1 sm:space-x-1.5 transition-all duration-500 relative overflow-visible">
             {/* Custom >_< SVG Icon with Individual Character Colors */}
@@ -54,15 +58,33 @@ const Header = () => {
             <div className="relative">
               <span className="text-sm sm:text-lg font-bold font-mono transition-all duration-500 group-hover:tracking-wide flex">
                 {/* Individual character animations with smaller transforms */}
-                <span className="inline-block text-terminal-green transition-all duration-500 group-hover:text-terminal-blue group-hover:scale-105 group-hover:-translate-y-0.5" style={{ transitionDelay: '0ms' }}>G</span>
-                <span className="inline-block text-terminal-green transition-all duration-500 group-hover:text-terminal-blue group-hover:scale-105 group-hover:-translate-y-0.5" style={{ transitionDelay: '50ms' }}>i</span>
-                <span className="inline-block text-terminal-green transition-all duration-500 group-hover:text-terminal-blue group-hover:scale-105 group-hover:-translate-y-0.5" style={{ transitionDelay: '100ms' }}>t</span>
-                <span className="inline-block text-terminal-green transition-all duration-500 group-hover:text-terminal-blue group-hover:scale-105 group-hover:-translate-y-0.5" style={{ transitionDelay: '150ms' }}>s</span>
-                <span className="inline-block text-terminal-green transition-all duration-500 group-hover:text-terminal-blue group-hover:scale-105 group-hover:-translate-y-0.5" style={{ transitionDelay: '200ms' }}>w</span>
-                <span className="inline-block text-terminal-green transition-all duration-500 group-hover:text-terminal-blue group-hover:scale-105 group-hover:-translate-y-0.5" style={{ transitionDelay: '250ms' }}>h</span>
-                <span className="inline-block text-terminal-green transition-all duration-500 group-hover:text-terminal-blue group-hover:scale-105 group-hover:-translate-y-0.5" style={{ transitionDelay: '300ms' }}>y</span>
-                <span className="inline-block text-terminal-blue transition-all duration-500 group-hover:text-terminal-green group-hover:scale-110 group-hover:-translate-y-1 group-hover:rotate-6" style={{ transitionDelay: '350ms' }}>O</span>
-                <span className="inline-block text-terminal-blue transition-all duration-500 group-hover:text-terminal-green group-hover:scale-110 group-hover:-translate-y-1 group-hover:-rotate-3" style={{ transitionDelay: '400ms' }}>S</span>
+                <span className="inline-block text-terminal-green transition-all duration-500 group-hover:text-terminal-blue group-hover:scale-105 group-hover:-translate-y-0.5" style={{
+                transitionDelay: '0ms'
+              }}>G</span>
+                <span className="inline-block text-terminal-green transition-all duration-500 group-hover:text-terminal-blue group-hover:scale-105 group-hover:-translate-y-0.5" style={{
+                transitionDelay: '50ms'
+              }}>i</span>
+                <span className="inline-block text-terminal-green transition-all duration-500 group-hover:text-terminal-blue group-hover:scale-105 group-hover:-translate-y-0.5" style={{
+                transitionDelay: '100ms'
+              }}>t</span>
+                <span className="inline-block text-terminal-green transition-all duration-500 group-hover:text-terminal-blue group-hover:scale-105 group-hover:-translate-y-0.5" style={{
+                transitionDelay: '150ms'
+              }}>s</span>
+                <span className="inline-block text-terminal-green transition-all duration-500 group-hover:text-terminal-blue group-hover:scale-105 group-hover:-translate-y-0.5" style={{
+                transitionDelay: '200ms'
+              }}>w</span>
+                <span className="inline-block text-terminal-green transition-all duration-500 group-hover:text-terminal-blue group-hover:scale-105 group-hover:-translate-y-0.5" style={{
+                transitionDelay: '250ms'
+              }}>h</span>
+                <span className="inline-block text-terminal-green transition-all duration-500 group-hover:text-terminal-blue group-hover:scale-105 group-hover:-translate-y-0.5" style={{
+                transitionDelay: '300ms'
+              }}>y</span>
+                <span className="inline-block text-terminal-blue transition-all duration-500 group-hover:text-terminal-green group-hover:scale-110 group-hover:-translate-y-1 group-hover:rotate-6" style={{
+                transitionDelay: '350ms'
+              }}>O</span>
+                <span className="inline-block text-terminal-blue transition-all duration-500 group-hover:text-terminal-green group-hover:scale-110 group-hover:-translate-y-1 group-hover:-rotate-3" style={{
+                transitionDelay: '400ms'
+              }}>S</span>
               </span>
               
               {/* Border box effect */}
@@ -70,23 +92,21 @@ const Header = () => {
             </div>
             
             {/* Small particle effects */}
-            <div className="absolute -top-1 -right-1 w-1 h-1 bg-terminal-green rounded-full opacity-0 group-hover:opacity-100 group-hover:animate-ping transition-opacity duration-300" style={{ transitionDelay: '300ms' }} />
-            <div className="absolute -bottom-1 -left-1 w-1 h-1 bg-terminal-blue rounded-full opacity-0 group-hover:opacity-100 group-hover:animate-bounce transition-opacity duration-300" style={{ transitionDelay: '500ms' }} />
+            <div className="absolute -top-1 -right-1 w-1 h-1 bg-terminal-green rounded-full opacity-0 group-hover:opacity-100 group-hover:animate-ping transition-opacity duration-300" style={{
+            transitionDelay: '300ms'
+          }} />
+            <div className="absolute -bottom-1 -left-1 w-1 h-1 bg-terminal-blue rounded-full opacity-0 group-hover:opacity-100 group-hover:animate-bounce transition-opacity duration-300" style={{
+            transitionDelay: '500ms'
+          }} />
           </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-3 xl:space-x-4">
-            {navItems.map((item) => (
-              <Link
-                key={item.label}
-                to={item.href}
-                className="group relative flex items-center text-xs xl:text-sm font-medium text-foreground/80 hover:text-terminal-green transition-all duration-300 cursor-pointer overflow-hidden px-3 py-1.5 rounded-lg"
-              >
+            {navItems.map(item => <Link key={item.label} to={item.href} className="group relative flex items-center text-xs xl:text-sm font-medium text-foreground/80 hover:text-terminal-green transition-all duration-300 cursor-pointer overflow-hidden px-3 py-1.5 rounded-lg">
                 <span className="relative z-10 transition-all duration-300 group-hover:scale-105">{item.label}</span>
                 <div className="absolute inset-0 bg-terminal-green/10 rounded-lg scale-0 group-hover:scale-100 transition-transform duration-300 origin-center" />
                 <div className="absolute -top-1 -right-1 w-1.5 h-1.5 bg-terminal-blue rounded-full opacity-0 group-hover:opacity-100 group-hover:animate-ping transition-opacity duration-300" />
-              </Link>
-            ))}
+              </Link>)}
             
             {/* Resources Dropdown with Enhanced Animations */}
             <DropdownMenu>
@@ -100,29 +120,17 @@ const Header = () => {
                 {/* Pulse animation dot */}
                 <div className="absolute -top-1 -right-1 w-2 h-2 bg-terminal-blue rounded-full opacity-0 group-hover:opacity-100 group-hover:animate-ping transition-opacity duration-300" />
               </DropdownMenuTrigger>
-              <DropdownMenuContent 
-                className="z-[200] bg-background/98 backdrop-blur-md border border-terminal-green/20 shadow-xl min-w-[160px] animate-in slide-in-from-top-2 duration-200"
-                align="start"
-                sideOffset={8}
-                onCloseAutoFocus={(e) => e.preventDefault()}
-              >
-                {dropdownItems.map((item, index) => (
-                  <DropdownMenuItem 
-                    key={item.label} 
-                    className="focus:bg-terminal-green/10 transition-all duration-200 hover:pl-3 animate-fade-in"
-                    style={{ animationDelay: `${index * 50}ms` }}
-                  >
-                    <Link
-                      to={item.href}
-                      className="w-full text-sm text-foreground hover:text-terminal-green transition-colors duration-200 flex items-center group"
-                    >
+              <DropdownMenuContent className="z-[200] bg-background/98 backdrop-blur-md border border-terminal-green/20 shadow-xl min-w-[160px] animate-in slide-in-from-top-2 duration-200" align="start" sideOffset={8} onCloseAutoFocus={e => e.preventDefault()}>
+                {dropdownItems.map((item, index) => <DropdownMenuItem key={item.label} className="focus:bg-terminal-green/10 transition-all duration-200 hover:pl-3 animate-fade-in" style={{
+                animationDelay: `${index * 50}ms`
+              }}>
+                    <Link to={item.href} className="w-full text-sm text-foreground hover:text-terminal-green transition-colors duration-200 flex items-center group">
                       <span className="transition-transform duration-200 group-hover:translate-x-1">{item.label}</span>
                       <div className="ml-auto opacity-0 group-hover:opacity-100 transition-opacity duration-200">
                         <ChevronDown className="h-3 w-3 rotate-[-90deg] text-terminal-green" />
                       </div>
                     </Link>
-                  </DropdownMenuItem>
-                ))}
+                  </DropdownMenuItem>)}
               </DropdownMenuContent>
             </DropdownMenu>
           </nav>
@@ -144,42 +152,24 @@ const Header = () => {
           </div>
 
           {/* Mobile menu button */}
-          <button
-            className="lg:hidden p-1.5 sm:p-2 text-foreground/80 hover:text-terminal-green transition-colors"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
+          <button className="lg:hidden p-1.5 sm:p-2 text-foreground/80 hover:text-terminal-green transition-colors" onClick={() => setIsMenuOpen(!isMenuOpen)}>
             {isMenuOpen ? <X className="h-5 w-5 sm:h-6 sm:w-6" /> : <Menu className="h-5 w-5 sm:h-6 sm:w-6" />}
           </button>
         </div>
 
         {/* Mobile Navigation */}
-        {isMenuOpen && (
-          <div className="lg:hidden border-t border-terminal-green/20 py-3 sm:py-4 animate-fade-in">
+        {isMenuOpen && <div className="lg:hidden border-t border-terminal-green/20 py-3 sm:py-4 animate-fade-in">
             <nav className="flex flex-col space-y-3 sm:space-y-4">
-              {navItems.map((item) => (
-                <Link
-                  key={item.label}
-                  to={item.href}
-                  className="text-sm font-medium text-foreground/80 hover:text-terminal-green transition-colors duration-200 px-2 py-1.5 rounded hover:bg-terminal-green/5"
-                  onClick={() => setIsMenuOpen(false)}
-                >
+              {navItems.map(item => <Link key={item.label} to={item.href} className="text-sm font-medium text-foreground/80 hover:text-terminal-green transition-colors duration-200 px-2 py-1.5 rounded hover:bg-terminal-green/5" onClick={() => setIsMenuOpen(false)}>
                   {item.label}
-                </Link>
-              ))}
+                </Link>)}
               
               {/* Mobile Resources Section */}
               <div className="space-y-2 border-t border-terminal-green/20 pt-3">
                 <div className="text-xs font-semibold text-foreground/60 px-2 uppercase tracking-wide">Resources</div>
-                {dropdownItems.map((item) => (
-                  <Link
-                    key={item.label}
-                    to={item.href}
-                    className="text-sm font-medium text-foreground/80 hover:text-terminal-green transition-colors duration-200 px-2 py-1.5 rounded hover:bg-terminal-green/5 block"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
+                {dropdownItems.map(item => <Link key={item.label} to={item.href} className="text-sm font-medium text-foreground/80 hover:text-terminal-green transition-colors duration-200 px-2 py-1.5 rounded hover:bg-terminal-green/5 block" onClick={() => setIsMenuOpen(false)}>
                     {item.label}
-                  </Link>
-                ))}
+                  </Link>)}
               </div>
               <div className="flex flex-col space-y-2.5 sm:space-y-3 pt-3 sm:pt-4 border-t border-terminal-green/20">
                 <Button variant="terminal-outline" size="sm" asChild className="w-full">
@@ -190,11 +180,8 @@ const Header = () => {
                 </Button>
               </div>
             </nav>
-          </div>
-        )}
+          </div>}
       </div>
-    </header>
-  );
+    </header>;
 };
-
 export default Header;

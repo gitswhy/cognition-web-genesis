@@ -45,7 +45,7 @@ const Wishlist = () => {
       <Header />
       
       <div className="min-h-screen flex items-center justify-center padding-responsive px-3 sm:px-4">
-        <div className="container-responsive max-w-2xl mx-auto relative z-10 py-[20px]">
+        <div className="container-responsive max-w-2xl mx-auto relative z-10 py-[20px] my-[10px]">
 
           <Card className="bg-terminal-surface/50 backdrop-blur-sm border-terminal-blue/20 animate-slide-up">
             <CardHeader className="text-center space-y-4">
