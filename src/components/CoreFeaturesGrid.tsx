@@ -50,10 +50,10 @@ const CoreFeaturesGrid = () => {
           transition={{ duration: 0.6, delay: 0.2 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-scale-heading font-bold mb-4 text-foreground">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
             Core <span className="text-terminal-green">Capabilities</span>
           </h2>
-          <p className="text-scale-subtitle text-foreground/70 max-w-3xl mx-auto">
+          <p className="text-xl text-foreground/70 max-w-3xl mx-auto">
             Three revolutionary engines working together to transform your development experience
           </p>
         </motion.div>
@@ -104,7 +104,7 @@ const CoreFeaturesGrid = () => {
                 )}
               </div>
 
-              <h3 className={`text-scale-body sm:text-base font-bold mb-2 sm:mb-3 transition-colors leading-tight ${
+              <h3 className={`text-base sm:text-lg lg:text-xl font-bold mb-2 sm:mb-3 transition-colors leading-tight ${
                 hoveredCard === index 
                   ? feature.color === 'terminal-blue' ? 'text-terminal-blue' : 'text-terminal-green'
                   : 'text-foreground'
@@ -112,7 +112,7 @@ const CoreFeaturesGrid = () => {
                 {feature.title}
               </h3>
 
-              <p className="text-mobile-sm text-foreground/70 leading-relaxed mb-3 sm:mb-4 flex-1">
+              <p className="text-sm sm:text-base text-foreground/70 leading-relaxed mb-3 sm:mb-4 flex-1">
                 {feature.description}
               </p>
 
@@ -125,7 +125,7 @@ const CoreFeaturesGrid = () => {
                     <div className={`w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full flex-shrink-0 ${
                       feature.color === 'terminal-blue' ? 'bg-terminal-blue' : 'bg-terminal-green'
                     }`}></div>
-                    <span className="text-mobile-xs text-foreground/80 break-words leading-relaxed">{detail}</span>
+                    <span className="text-xs sm:text-sm text-foreground/80 break-words leading-relaxed">{detail}</span>
                   </div>
                 ))}
               </div>

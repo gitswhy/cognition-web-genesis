@@ -81,7 +81,7 @@ const Hero = () => {
             </motion.div>
 
             <div className="space-y-4 sm:space-y-6">
-              <h1 className="text-scale-hero font-bold leading-tight optimize-legibility">
+              <h1 className="text-scale-hero font-bold leading-[1.1] sm:leading-tight optimize-legibility">
                 <span className="text-foreground block">
                   {currentLine === 0 ? typedText : lines[0]}
                   {currentLine === 0 && typedText.length < lines[0].length && <span className="text-terminal-green">|</span>}
@@ -92,7 +92,7 @@ const Hero = () => {
                 </span>
               </h1>
               
-              <p className="text-scale-subtitle text-foreground/80 max-w-xl leading-relaxed">
+              <p className="text-scale-mobile lg:text-lg text-foreground/80 max-w-xl leading-relaxed">
                 {typedSubhead}
                 {typedSubhead.length < subhead.length && typedSubhead.length > 0 && (
                   <span className="text-terminal-green">|</span>
@@ -115,7 +115,7 @@ const Hero = () => {
                 <Button 
                   variant="terminal" 
                   size="default" 
-                  className="w-full sm:w-auto sm:min-w-[160px] mobile-button mobile-touch hover-desktop terminal-glow neon-button text-scale-body gpu-accelerated"
+                  className="w-full sm:w-auto sm:min-w-[160px] mobile-button mobile-touch hover-desktop terminal-glow neon-button text-sm sm:text-base gpu-accelerated"
                 >
                   Start Free Trial
                   <ChevronRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -129,7 +129,7 @@ const Hero = () => {
                 <Button 
                   variant="terminal-outline-blue" 
                   size="default" 
-                  className="w-full sm:w-auto sm:min-w-[140px] md:min-w-[160px] text-scale-body px-4 sm:px-6 py-2 sm:py-3 gpu-accelerated break-words mobile-touch"
+                  className="w-full sm:w-auto sm:min-w-[140px] md:min-w-[160px] text-xs sm:text-sm lg:text-base px-4 sm:px-6 py-2 sm:py-3 gpu-accelerated break-words mobile-touch"
                 >
                   <Play className="h-3 w-3 sm:h-4 sm:w-4 mr-1 sm:mr-2 transition-transform group-hover:scale-110 flex-shrink-0" />
                   <span className="truncate">Watch Demo</span>
@@ -139,7 +139,7 @@ const Hero = () => {
 
             {/* Social Proof */}
             <motion.div 
-              className="flex flex-col sm:flex-row gap-2 sm:gap-4 lg:gap-6 pt-3 sm:pt-4 lg:pt-6 text-mobile-sm text-foreground/70"
+              className="flex flex-col sm:flex-row gap-2 sm:gap-4 lg:gap-6 pt-3 sm:pt-4 lg:pt-6 text-xs sm:text-sm text-foreground/70"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.6 }}
@@ -248,7 +248,7 @@ const Hero = () => {
           transition={{ duration: 0.8, delay: 1.2 }}
         >
           <motion.p 
-            className="text-scale-subtitle font-medium text-foreground px-4"
+            className="text-base sm:text-lg md:text-xl lg:text-2xl font-medium text-foreground px-4"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 1.4 }}

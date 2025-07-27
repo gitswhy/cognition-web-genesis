@@ -70,10 +70,10 @@ const DemoPlayground = () => {
     <section className="py-12 sm:py-16 lg:py-20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         <div className="text-center mb-8 sm:mb-12">
-          <h2 className="text-scale-heading font-bold mb-3 sm:mb-4 text-foreground break-words">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4 text-foreground break-words">
             Try <span className="text-terminal-green">Gitswhy OS</span> Interactive Demo
           </h2>
-          <p className="text-scale-subtitle text-foreground/70 max-w-3xl mx-auto break-words px-4">
+          <p className="text-base sm:text-lg lg:text-xl text-foreground/70 max-w-3xl mx-auto break-words px-4">
             Experience the power of cognition-native DevSecOps
           </p>
         </div>
@@ -111,7 +111,7 @@ const DemoPlayground = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
             {/* Command List */}
             <div className="space-y-3 sm:space-y-4 order-2 lg:order-1">
-              <h3 className="text-mobile-base font-semibold text-foreground mb-4 sm:mb-6 flex items-center break-words">
+              <h3 className="text-base sm:text-lg font-semibold text-foreground mb-4 sm:mb-6 flex items-center break-words">
                 <Terminal className="h-4 w-4 sm:h-5 sm:w-5 mr-2 sm:mr-3 text-terminal-green flex-shrink-0" />
                 <span>Available Commands</span>
               </h3>
@@ -130,7 +130,7 @@ const DemoPlayground = () => {
                   <div className="flex items-center justify-between">
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center mb-2 flex-wrap">
-                        <span className="font-mono text-mobile-sm font-medium text-terminal-green truncate">
+                        <span className="font-mono text-sm sm:text-base font-medium text-terminal-green truncate">
                           {cmd.command}
                         </span>
                         {cmd.isPro && (
@@ -139,7 +139,7 @@ const DemoPlayground = () => {
                           </span>
                         )}
                       </div>
-                      <div className="text-foreground/70 text-mobile-sm leading-relaxed">
+                      <div className="text-foreground/70 text-sm leading-relaxed">
                         {cmd.description}
                       </div>
                     </div>
