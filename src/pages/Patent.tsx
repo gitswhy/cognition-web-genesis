@@ -131,6 +131,10 @@ export default function Patent() {
                       <h4 className="font-semibold mb-2">Priority Number</h4>
                       <p className="text-muted-foreground">63/123,456</p>
                     </div>
+                    <div>
+                      <h4 className="font-semibold mb-2">Patented by</h4>
+                      <p className="text-muted-foreground">Atharve Malviya</p>
+                    </div>
                   </div>
                 </CardContent>
               </Card>
