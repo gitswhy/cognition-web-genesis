@@ -1,86 +1,5 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
-import { Canvas, useFrame } from '@react-three/fiber';
-import * as THREE from 'three';
-
-// 3D Shape Components
-const FloatingCube = ({ position }: { position: [number, number, number] }) => {
-  const ref = useRef<THREE.Mesh>(null);
-  useFrame((state) => {
-    if (ref.current) {
-      ref.current.rotation.y += 0.005;
-      ref.current.rotation.x += 0.003;
-    }
-  });
-  return (
-    <mesh ref={ref} position={position}>
-      <boxGeometry args={[1.5, 1.5, 1.5]} />
-      <meshBasicMaterial wireframe color="#00ff66" opacity={0.4} transparent />
-    </mesh>
-  );
-};
-
-const FloatingOctahedron = ({ position }: { position: [number, number, number] }) => {
-  const ref = useRef<THREE.Mesh>(null);
-  useFrame((state) => {
-    if (ref.current) {
-      ref.current.rotation.x += 0.007;
-      ref.current.rotation.z += 0.004;
-    }
-  });
-  return (
-    <mesh ref={ref} position={position} rotation={[0.5, 0, 0]}>
-      <octahedronGeometry args={[1]} />
-      <meshBasicMaterial wireframe color="#00d4ff" opacity={0.5} transparent />
-    </mesh>
-  );
-};
-
-const FloatingTetrahedron = ({ position }: { position: [number, number, number] }) => {
-  const ref = useRef<THREE.Mesh>(null);
-  useFrame((state) => {
-    if (ref.current) {
-      ref.current.rotation.y -= 0.006;
-    }
-  });
-  return (
-    <mesh ref={ref} position={position} rotation={[0.2, 0.3, 0]}>
-      <tetrahedronGeometry args={[0.8]} />
-      <meshBasicMaterial wireframe color="#00ff66" opacity={0.6} transparent />
-    </mesh>
-  );
-};
-
-const FloatingIcosahedron = ({ position }: { position: [number, number, number] }) => {
-  const ref = useRef<THREE.Mesh>(null);
-  useFrame((state) => {
-    if (ref.current) {
-      ref.current.rotation.x += 0.004;
-      ref.current.rotation.y += 0.007;
-    }
-  });
-  return (
-    <mesh ref={ref} position={position} rotation={[0.1, 0.2, 0.3]}>
-      <icosahedronGeometry args={[0.6]} />
-      <meshBasicMaterial wireframe color="#00d4ff" opacity={0.45} transparent />
-    </mesh>
-  );
-};
-
-const FloatingTorus = ({ position }: { position: [number, number, number] }) => {
-  const ref = useRef<THREE.Mesh>(null);
-  useFrame((state) => {
-    if (ref.current) {
-      ref.current.rotation.z += 0.003;
-    }
-  });
-  return (
-    <mesh ref={ref} position={position} rotation={[0.4, 0, 0]}>
-      <torusGeometry args={[2, 0.3, 16, 32]} />
-      <meshBasicMaterial wireframe color="#00ff66" opacity={0.3} transparent />
-    </mesh>
-  );
-};
 
 const OpenCoreBackground: React.FC = () => {
   return (
@@ -100,18 +19,68 @@ const OpenCoreBackground: React.FC = () => {
         transition={{ duration: 12, repeat: Infinity, ease: "easeInOut", delay: 4 }}
       />
 
-      {/* 3D Canvas Layer */}
-      <div className="absolute inset-0 opacity-40">
-        <Canvas camera={{ position: [0, 0, 10], fov: 60 }}>
-          <ambientLight intensity={0.2} />
-          <pointLight position={[10, 10, 10]} intensity={0.3} color="#00ff66" />
-          
-          <FloatingCube position={[-3, 2, 0]} />
-          <FloatingOctahedron position={[3, -2, -2]} />
-          <FloatingTetrahedron position={[0, 3, -1]} />
-          <FloatingIcosahedron position={[-2, -3, 1]} />
-          <FloatingTorus position={[0, 0, -3]} />
-        </Canvas>
+      {/* Simplified 3D wireframe effects using CSS transforms */}
+      <div className="absolute inset-0 opacity-30">
+        {/* Floating wireframe cube */}
+        <motion.div
+          className="absolute top-1/4 left-1/4 w-20 h-20 border border-terminal-green/40"
+          style={{
+            transformStyle: 'preserve-3d',
+            willChange: 'transform'
+          }}
+          animate={{
+            rotateY: [0, 360],
+            rotateX: [0, 180]
+          }}
+          transition={{
+            duration: 20,
+            repeat: Infinity,
+            ease: "linear"
+          }}
+        >
+          <div className="absolute inset-0 border border-terminal-green/30 transform translate-z-4" />
+        </motion.div>
+
+        {/* Floating wireframe pyramid */}
+        <motion.div
+          className="absolute top-3/4 right-1/4 w-16 h-16"
+          style={{
+            transformStyle: 'preserve-3d',
+            willChange: 'transform'
+          }}
+          animate={{
+            rotateY: [0, -360],
+            rotateZ: [0, 180]
+          }}
+          transition={{
+            duration: 18,
+            repeat: Infinity,
+            ease: "linear"
+          }}
+        >
+          <div className="w-0 h-0 border-l-8 border-r-8 border-b-12 border-l-transparent border-r-transparent border-b-terminal-blue/40" />
+        </motion.div>
+
+        {/* Floating wireframe hexagon */}
+        <motion.div
+          className="absolute top-1/3 right-1/3 w-12 h-12"
+          style={{
+            transformStyle: 'preserve-3d',
+            willChange: 'transform',
+            clipPath: 'polygon(30% 0%, 70% 0%, 100% 50%, 70% 100%, 30% 100%, 0% 50%)'
+          }}
+          animate={{
+            rotateY: [0, 360],
+            scale: [1, 1.2, 1]
+          }}
+          transition={{
+            duration: 16,
+            repeat: Infinity,
+            ease: "linear"
+          }}
+        >
+          <div className="w-full h-full border-2 border-terminal-green/50 bg-terminal-green/10" />
+        </motion.div>
       </div>
 
       {/* Enhanced matrix-style code rain with terminal commands */}
