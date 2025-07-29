@@ -1,7 +1,57 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { motion } from 'framer-motion';
-import { Canvas } from '@react-three/fiber';
+import { Canvas, useFrame } from '@react-three/fiber';
+import * as THREE from 'three';
 import Wireframe3D from './Wireframe3D';
+
+// Animated 3D Shape Component
+const AnimatedShape = ({ position, geometryType, color, speed = 1, scale = 0.5, animationType = 'float' }) => {
+  const meshRef = useRef<THREE.Mesh>(null);
+  
+  useFrame((state) => {
+    if (meshRef.current) {
+      const time = state.clock.elapsedTime;
+      
+      // Smooth rotation
+      meshRef.current.rotation.x += 0.003 * speed;
+      meshRef.current.rotation.y += 0.005 * speed;
+      meshRef.current.rotation.z += 0.002 * speed;
+      
+      // Smooth floating animation
+      if (animationType === 'float') {
+        meshRef.current.position.y = position[1] + Math.sin(time * speed * 0.6) * 0.5;
+        meshRef.current.position.x = position[0] + Math.cos(time * speed * 0.4) * 0.3;
+      } else if (animationType === 'orbit') {
+        meshRef.current.position.x = position[0] + Math.cos(time * speed * 0.5) * 0.8;
+        meshRef.current.position.z = position[2] + Math.sin(time * speed * 0.5) * 0.8;
+      } else if (animationType === 'wobble') {
+        meshRef.current.position.y = position[1] + Math.sin(time * speed * 0.8) * 0.3;
+        meshRef.current.scale.setScalar(scale + Math.sin(time * speed * 1.2) * 0.1);
+      }
+    }
+  });
+  
+  const geometry = () => {
+    switch (geometryType) {
+      case 'torus': return <torusGeometry args={[0.8, 0.3, 16, 32]} />;
+      case 'octahedron': return <octahedronGeometry args={[1]} />;
+      case 'icosahedron': return <icosahedronGeometry args={[1]} />;
+      case 'dodecahedron': return <dodecahedronGeometry args={[0.8]} />;
+      case 'tetrahedron': return <tetrahedronGeometry args={[1]} />;
+      case 'cone': return <coneGeometry args={[0.6, 1.2, 8]} />;
+      case 'cylinder': return <cylinderGeometry args={[0.4, 0.8, 1.5, 8]} />;
+      case 'torusKnot': return <torusKnotGeometry args={[0.6, 0.2, 64, 8]} />;
+      default: return <boxGeometry args={[1, 1, 1]} />;
+    }
+  };
+  
+  return (
+    <mesh ref={meshRef} position={position} scale={scale}>
+      {geometry()}
+      <meshBasicMaterial color={color} wireframe transparent opacity={0.6} />
+    </mesh>
+  );
+};
 
 interface WebsiteBackgroundProps {
   children: React.ReactNode;
@@ -44,64 +94,78 @@ const WebsiteBackground: React.FC<WebsiteBackgroundProps> = ({ children }) => {
           }}
           dpr={1}
         >
-          {/* Additional 3D wireframe shapes scattered around */}
-          <mesh position={[-4, 3, -2]} scale={0.8}>
-            <boxGeometry args={[1, 1, 1]} />
-            <meshBasicMaterial color="hsl(var(--terminal-green))" wireframe transparent opacity={0.6} />
-          </mesh>
+          {/* Diverse animated 3D wireframe shapes */}
+          <AnimatedShape 
+            position={[-4, 3, -2]} 
+            geometryType="torus" 
+            color="hsl(var(--terminal-green))" 
+            speed={0.8} 
+            scale={0.6}
+            animationType="float"
+          />
           
-          <mesh position={[4, -3, -1]} scale={0.6}>
-            <octahedronGeometry args={[1]} />
-            <meshBasicMaterial color="hsl(var(--terminal-blue))" wireframe transparent opacity={0.5} />
-          </mesh>
+          <AnimatedShape 
+            position={[4, -3, -1]} 
+            geometryType="octahedron" 
+            color="hsl(var(--terminal-blue))" 
+            speed={1.2} 
+            scale={0.5}
+            animationType="orbit"
+          />
           
-          <mesh position={[-3, -2, -3]} scale={0.7}>
-            <tetrahedronGeometry args={[1]} />
-            <meshBasicMaterial color="hsl(var(--terminal-green))" wireframe transparent opacity={0.5} />
-          </mesh>
+          <AnimatedShape 
+            position={[-3, -2, -3]} 
+            geometryType="tetrahedron" 
+            color="hsl(var(--terminal-green))" 
+            speed={0.6} 
+            scale={0.7}
+            animationType="wobble"
+          />
           
-          <mesh position={[3, 2, -2]} scale={0.5}>
-            <icosahedronGeometry args={[1]} />
-            <meshBasicMaterial color="hsl(var(--terminal-blue))" wireframe transparent opacity={0.6} />
-          </mesh>
+          <AnimatedShape 
+            position={[3, 2, -2]} 
+            geometryType="icosahedron" 
+            color="hsl(var(--terminal-blue))" 
+            speed={1.0} 
+            scale={0.4}
+            animationType="float"
+          />
           
-          <mesh position={[-5, 0, -4]} scale={0.4}>
-            <dodecahedronGeometry args={[1]} />
-            <meshBasicMaterial color="hsl(var(--terminal-green))" wireframe transparent opacity={0.4} />
-          </mesh>
+          <AnimatedShape 
+            position={[-5, 0, -4]} 
+            geometryType="dodecahedron" 
+            color="hsl(var(--terminal-green))" 
+            speed={0.7} 
+            scale={0.3}
+            animationType="orbit"
+          />
           
-          <mesh position={[5, 0, -3]} scale={0.6}>
-            <coneGeometry args={[0.8, 1.5, 8]} />
-            <meshBasicMaterial color="hsl(var(--terminal-blue))" wireframe transparent opacity={0.5} />
-          </mesh>
-
-          {/* Animated rotation for all shapes */}
-          <group>
-            {Array.from({ length: 6 }).map((_, i) => (
-              <mesh 
-                key={i}
-                position={[
-                  (Math.random() - 0.5) * 10,
-                  (Math.random() - 0.5) * 8,
-                  (Math.random() - 0.5) * 6 - 2
-                ]}
-                scale={0.3 + Math.random() * 0.4}
-                rotation={[
-                  Math.random() * Math.PI,
-                  Math.random() * Math.PI,
-                  Math.random() * Math.PI
-                ]}
-              >
-                <sphereGeometry args={[0.5, 8, 6]} />
-                <meshBasicMaterial 
-                  color={i % 2 === 0 ? "hsl(var(--terminal-green))" : "hsl(var(--terminal-blue))"} 
-                  wireframe 
-                  transparent 
-                  opacity={0.3} 
-                />
-              </mesh>
-            ))}
-          </group>
+          <AnimatedShape 
+            position={[5, 0, -3]} 
+            geometryType="cone" 
+            color="hsl(var(--terminal-blue))" 
+            speed={0.9} 
+            scale={0.5}
+            animationType="wobble"
+          />
+          
+          <AnimatedShape 
+            position={[-2, 4, -1]} 
+            geometryType="cylinder" 
+            color="hsl(var(--terminal-green))" 
+            speed={0.5} 
+            scale={0.4}
+            animationType="float"
+          />
+          
+          <AnimatedShape 
+            position={[2, -4, -2]} 
+            geometryType="torusKnot" 
+            color="hsl(var(--terminal-blue))" 
+            speed={1.3} 
+            scale={0.3}
+            animationType="orbit"
+          />
         </Canvas>
       </div>
 
