@@ -17,7 +17,7 @@ const Hero = () => {
     "DevSecOps OS"
   ];
   
-  const subhead = "Monitors every keystroke. Understands why. Self-heals before deploy,";
+  const subhead = "Monitors every keystroke, Understands why, Self-heals before deploy.";
   const [typedSubhead, setTypedSubhead] = useState("");
 
   // Terminal animation states
