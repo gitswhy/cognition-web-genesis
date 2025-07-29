@@ -53,9 +53,8 @@ const EnhancedWireframeShape = ({ position, geometryType, color, speed = 1, anim
           meshRef.current.position.y = position[1] + Math.sin(time * speed * 0.6) * 0.2;
           break;
         case 'spin':
-          meshRef.current.rotation.x += 0.006 * speed;
-          meshRef.current.rotation.y += 0.008 * speed;
-          meshRef.current.rotation.z += 0.01 * speed;
+          meshRef.current.rotation.y += 0.003 * speed;
+          meshRef.current.rotation.z += 0.002 * speed;
           break;
         default:
           meshRef.current.rotation.x += 0.005 * speed;
