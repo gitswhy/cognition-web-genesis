@@ -49,7 +49,7 @@ const Trial = () => {
     // Simulate API call
     await new Promise(resolve => setTimeout(resolve, 1500));
     
-    console.log('Trial signup:', formData);
+    // Trial signup processed
     setIsSubmitting(false);
     setIsSubmitted(true);
   };

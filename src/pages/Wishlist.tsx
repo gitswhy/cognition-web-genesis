@@ -35,7 +35,7 @@ const Wishlist = () => {
     await new Promise(resolve => setTimeout(resolve, 1500));
 
     // Log the form data (replace with actual API integration)
-    console.log('Wishlist signup:', formData);
+    // Wishlist signup processed
     setIsSubmitting(false);
     setIsSubmitted(true);
   };
