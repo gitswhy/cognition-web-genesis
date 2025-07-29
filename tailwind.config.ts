@@ -33,10 +33,8 @@ export default {
 				'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
 			},
 			fontFamily: {
-				'mono': ['JetBrains Mono', 'Consolas', 'Monaco', 'monospace'],
-				'sans': ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
-				'display': ['Space Grotesk', 'Inter', 'system-ui', 'sans-serif'],
-				'heading': ['Playfair Display', 'Georgia', 'serif'],
+				'mono': ['JetBrains Mono', 'monospace'],
+				'sans': ['Inter', 'system-ui', 'sans-serif'],
 			},
 			colors: {
 				border: 'hsl(var(--border))',
