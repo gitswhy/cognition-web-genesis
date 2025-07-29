@@ -39,10 +39,10 @@ const roadmapData: RoadmapItem[] = [
     status: 'completed',
     description: 'Launch of our open-source security scanning engine with intent detection capabilities.',
     features: [
-      'Intent-aware vulnerability scanning',
-      'Self-healing code suggestions',
+      'Intent aware vulnerability scanning',
+      'Self healing code suggestions',
       'Basic recursive vault logging',
-      'Community-driven rule engine'
+      'Community driven rule engine'
     ],
     icon: Zap,
     color: 'text-green-500'
@@ -56,8 +56,8 @@ const roadmapData: RoadmapItem[] = [
     description: 'Private beta for enterprise customers with advanced compliance and security features.',
     features: [
       'Advanced compliance reporting',
-      'Enterprise-grade security vault',
-      'Multi-team collaboration tools',
+      'Enterprise grade security vault',
+      'Multi team collaboration tools',
       'Custom rule development'
     ],
     icon: Shield,
@@ -67,12 +67,12 @@ const roadmapData: RoadmapItem[] = [
     id: 'auto-patching-ga',
     date: 'October 2024',
     quarter: 'Q4 2024',
-    title: 'AI Auto-Patching GA',
+    title: 'AI Auto Patching GA',
     status: 'planned',
-    description: 'General availability of AI-powered automatic vulnerability patching with zero downtime.',
+    description: 'General availability of AI powered automatic vulnerability patching with zero downtime.',
     features: [
       'Automated vulnerability patching',
-      'Zero-downtime deployment',
+      'Zero downtime deployment',
       'Rollback capabilities',
       'Impact analysis and testing'
     ],
@@ -85,12 +85,12 @@ const roadmapData: RoadmapItem[] = [
     quarter: 'Q4 2024',
     title: 'Voice Commands & Natural Language',
     status: 'planned',
-    description: 'Revolutionary voice-controlled security operations and natural language query interface.',
+    description: 'Revolutionary voice controlled security operations and natural language query interface.',
     features: [
-      'Voice-activated security scans',
+      'Voice activated security scans',
       'Natural language vulnerability queries',
       'Conversational security reports',
-      'Voice-guided remediation'
+      'Voice guided remediation'
     ],
     icon: Mic,
     color: 'text-orange-500'
@@ -105,7 +105,7 @@ const roadmapData: RoadmapItem[] = [
     features: [
       'Global security state replication',
       'Edge computing integration',
-      'Real-time cross-region sync',
+      'Real time cross region sync',
       'Decentralized security logging'
     ],
     icon: Database,

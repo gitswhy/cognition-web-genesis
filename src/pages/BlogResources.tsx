@@ -54,7 +54,7 @@ const mockPosts: BlogPost[] = [
   },
   {
     id: '2',
-    title: 'AI-Powered Code Analysis: The Future of Quality Assurance',
+    title: 'AI Powered Code Analysis: The Future of Quality Assurance',
     excerpt: 'Discover how artificial intelligence is revolutionizing code review and quality assurance in modern development workflows.',
     content: 'Full article content...',
     category: 'AI Shell',
@@ -86,7 +86,7 @@ const mockPosts: BlogPost[] = [
   },
   {
     id: '4',
-    title: 'Zero-Trust Security: Implementation Best Practices',
+    title: 'Zero Trust Security: Implementation Best Practices',
     excerpt: 'Comprehensive guide to implementing zero-trust security principles in your development infrastructure.',
     content: 'Full article content...',
     category: 'Best Practices',

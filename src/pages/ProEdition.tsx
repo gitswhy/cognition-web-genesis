@@ -24,9 +24,9 @@ const ProEdition = () => {
     stats: '99.8% accuracy'
   }, {
     id: 'auto-fix-patch',
-    title: 'Auto-Fix & Patch Suggestions',
+    title: 'Auto Fix & Patch Suggestions',
     subtitle: 'Intelligent Remediation',
-    description: 'AI-generated patches and fixes applied automatically or suggested with one-click approval workflows.',
+    description: 'AI generated patches and fixes applied automatically or suggested with one click approval workflows.',
     icon: Zap,
     gradient: 'from-yellow-500/20 to-amber-500/20',
     stats: '10x faster fixes'
@@ -34,13 +34,13 @@ const ProEdition = () => {
     id: 'team-dashboards',
     title: 'Team Dashboards & Drift Alerts',
     subtitle: 'Enterprise Monitoring',
-    description: 'Real-time team performance metrics, configuration drift detection, and customizable alert systems.',
+    description: 'Real time team performance metrics, configuration drift detection, and customizable alert systems.',
     icon: Users,
     gradient: 'from-green-500/20 to-emerald-500/20',
     stats: 'Real-time alerts'
   }, {
     id: 'policy-editor',
-    title: 'Policy-as-Code Editor',
+    title: 'Policy as Code Editor',
     subtitle: 'Governance Automation',
     description: 'Visual policy editor with GitOps integration, compliance templates, and automated enforcement.',
     icon: FileCode,
@@ -227,21 +227,21 @@ const ProEdition = () => {
                 </thead>
                 <tbody>
                   {[{
-                  feature: 'Real-Time Security Scanning',
+                  feature: 'Real Time Security Scanning',
                   description: 'Continuous monitoring for vulnerabilities and threats',
                   free: 'Basic rules',
                   pro: '30,000+ rules',
                   freeIcon: 'check',
                   proIcon: 'check'
                 }, {
-                  feature: 'AI Auto-Patching',
-                  description: 'AI-powered automatic fixes and suggestions',
+                  feature: 'AI Auto Patching',
+                  description: 'AI powered automatic fixes and suggestions',
                   free: 'Manual only',
                   pro: 'Full LLM fixes',
                   freeIcon: 'lock',
                   proIcon: 'check'
                 }, {
-                  feature: 'Self-Healing Remediation',
+                  feature: 'Self Healing Remediation',
                   description: 'Automatic code healing and recovery',
                   free: 'Not available',
                   pro: 'Self Healing',
@@ -269,7 +269,7 @@ const ProEdition = () => {
                   freeIcon: 'check',
                   proIcon: 'check'
                 }, {
-                  feature: 'Cross-Repo Risk Graphs',
+                  feature: 'Cross Repo Risk Graphs',
                   description: 'Visual risk analysis across repositories',
                   free: 'Single repo',
                   pro: 'Multi-repo',
@@ -277,7 +277,7 @@ const ProEdition = () => {
                   proIcon: 'check'
                 }, {
                   feature: 'Team Dashboards',
-                  description: 'Real-time team performance metrics',
+                  description: 'Real time team performance metrics',
                   free: 'Individual only',
                   pro: 'Team insights',
                   freeIcon: 'check',
@@ -317,15 +317,15 @@ const ProEdition = () => {
               price: 'Open Source',
               accent: 'terminal-green',
               features: [{
-                name: 'Real-Time Security Scanning',
+                name: 'Real Time Security Scanning',
                 value: 'Basic rules',
                 available: true
               }, {
-                name: 'AI Auto-Patching',
+                name: 'AI Auto Patching',
                 value: 'Manual only',
                 available: false
               }, {
-                name: 'Self-Healing Remediation',
+                name: 'Self Healing Remediation',
                 value: 'Not available',
                 available: false
               }, {
@@ -341,7 +341,7 @@ const ProEdition = () => {
                 value: 'Basic policies',
                 available: true
               }, {
-                name: 'Cross-Repo Risk Graphs',
+                name: 'Cross Repo Risk Graphs',
                 value: 'Single repo',
                 available: true
               }, {
@@ -354,15 +354,15 @@ const ProEdition = () => {
               price: '$49/month',
               accent: 'terminal-blue',
               features: [{
-                name: 'Real-Time Security Scanning',
+                name: 'Real Time Security Scanning',
                 value: '30,000+ rules',
                 available: true
               }, {
-                name: 'AI Auto-Patching',
+                name: 'AI Auto Patching',
                 value: 'Full LLM fixes',
                 available: true
               }, {
-                name: 'Self-Healing Remediation',
+                name: 'Self Healing Remediation',
                 value: 'Self Healing',
                 available: true
               }, {

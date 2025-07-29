@@ -72,7 +72,7 @@ const Trial = () => {
                       <CheckCircle className="w-10 h-10 text-terminal-green" />
                     </div>
                     <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-                      Welcome to Your 30-Day Pro Trial!
+                      Welcome to Your 30 Day Pro Trial!
                     </h1>
                     <p className="text-xl text-foreground/70 mb-8">
                       Check your email for setup instructions and your personal trial dashboard link.
@@ -128,7 +128,7 @@ const Trial = () => {
                   transition={{ duration: 0.6 }}
                 >
                   <Badge className="mb-4 bg-terminal-green/10 text-terminal-green border-terminal-green/20">
-                    30-Day Free Trial
+                    30 Day Free Trial
                   </Badge>
                   <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
                     Start Your <span className="text-terminal-green">Pro Trial</span>
@@ -158,8 +158,8 @@ const Trial = () => {
                     </CardHeader>
                     <CardContent className="space-y-4">
                       {[
-                        { icon: Brain, title: "AI Auto-Patching", desc: "LLM agents fix vulnerabilities automatically" },
-                        { icon: Shield, title: "Advanced Security", desc: "Enterprise-grade threat detection" },
+                        { icon: Brain, title: "AI Auto Patching", desc: "LLM agents fix vulnerabilities automatically" },
+                        { icon: Shield, title: "Advanced Security", desc: "Enterprise grade threat detection" },
                         { icon: Users, title: "Team Analytics", desc: "Slack integrations and dashboard insights" },
                         { icon: CreditCard, title: "No Credit Card", desc: "Full 30 days, completely free" }
                       ].map((feature, index) => (
@@ -298,7 +298,7 @@ const Trial = () => {
                             </>
                           ) : (
                             <>
-                              Start 30-Day Free Trial
+                              Start 30 Day Free Trial
                               <ArrowRight className="ml-2 w-5 h-5" />
                             </>
                           )}

@@ -72,13 +72,13 @@ const Pricing = () => {
         {
           category: 'Core Features',
           items: [
-            { name: 'Real-Time Security Scanning', included: 'limited', description: 'Basic rules' },
-            { name: 'AI Auto-Patching', included: false, description: 'Manual only' },
-            { name: 'Self-Healing Remediation', included: false, description: 'Not available' },
+            { name: 'Real Time Security Scanning', included: 'limited', description: 'Basic rules' },
+            { name: 'AI Auto Patching', included: false, description: 'Manual only' },
+            { name: 'Self Healing Remediation', included: false, description: 'Not available' },
             { name: 'Encrypted Vault Logging', included: 'limited', description: 'Basic logs' },
             { name: 'Voice Commands', included: false, description: 'Not available' },
             { name: 'Policy Compliance', included: 'limited', description: 'Basic policies' },
-            { name: 'Cross-Repo Risk Graphs', included: 'limited', description: 'Single repo' },
+            { name: 'Cross Repo Risk Graphs', included: 'limited', description: 'Single repo' },
             { name: 'Team Dashboards', included: 'limited', description: 'Individual only' }
           ]
         }
@@ -96,13 +96,13 @@ const Pricing = () => {
         {
           category: 'Core Features',
           items: [
-            { name: 'Real-Time Security Scanning', included: true, description: '30,000+ rules' },
-            { name: 'AI Auto-Patching', included: true, description: 'Full LLM fixes' },
-            { name: 'Self-Healing Remediation', included: true, description: 'Self Healing' },
+            { name: 'Real Time Security Scanning', included: true, description: '30,000+ rules' },
+            { name: 'AI Auto Patching', included: true, description: 'Full LLM fixes' },
+            { name: 'Self Healing Remediation', included: true, description: 'Self Healing' },
             { name: 'Encrypted Vault Logging', included: true, description: 'Encrypted vault' },
             { name: 'Voice Commands', included: 'limited', description: 'Coming soon' },
             { name: 'Policy Compliance', included: true, description: 'Custom templates' },
-            { name: 'Cross-Repo Risk Graphs', included: true, description: 'Multi-repo' },
+            { name: 'Cross Repo Risk Graphs', included: true, description: 'Multi repo' },
             { name: 'Team Dashboards', included: true, description: 'Team insights' }
           ]
         }

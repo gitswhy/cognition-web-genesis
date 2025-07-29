@@ -66,7 +66,7 @@ const teamMembers: TeamMember[] = [
   {
     name: 'David Kumar',
     role: 'Co-founder & CTO',
-    bio: 'AI researcher and former principal engineer at Microsoft. Leading the development of next-generation security scanning technology.',
+    bio: 'AI researcher and former principal engineer at Microsoft. Leading the development of next generation security scanning technology.',
     image: 'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=400&h=400&fit=crop&crop=face',
     expertise: ['AI/ML', 'Rust', 'Architecture', 'Security'],
     social: {
@@ -77,7 +77,7 @@ const teamMembers: TeamMember[] = [
   {
     name: 'Emma Rodriguez',
     role: 'Head of Engineering',
-    bio: 'Full-stack engineer with expertise in distributed systems. Previously led engineering teams at Stripe and Datadog.',
+    bio: 'Full stack engineer with expertise in distributed systems. Previously led engineering teams at Stripe and Datadog.',
     image: 'https://images.unsplash.com/photo-1649972904349-6e44c42644a7?w=400&h=400&fit=crop&crop=face',
     expertise: ['Engineering', 'Go', 'Distributed Systems', 'Team Leadership'],
     social: {
@@ -152,7 +152,7 @@ const values = [
   {
     icon: Code,
     title: 'Technical Excellence',
-    description: 'We ship high-quality, performant code that developers love to use and contribute to.'
+    description: 'We ship high quality, performant code that developers love to use and contribute to.'
   }
 ];
 
@@ -163,10 +163,10 @@ const jobRoles: JobRole[] = [
     department: 'Engineering',
     location: 'Remote / San Francisco',
     type: 'Full-time',
-    description: 'Join our core team building the next-generation security scanning engine in Rust.',
+    description: 'Join our core team building the next generation security scanning engine in Rust.',
     requirements: [
       '5+ years of systems programming experience',
-      'Expert-level Rust programming skills',
+      'Expert level Rust programming skills',
       'Experience with security tools or static analysis',
       'Understanding of compiler design principles'
     ],
@@ -236,7 +236,7 @@ const jobRoles: JobRole[] = [
     responsibilities: [
       'Build and maintain the web dashboard',
       'Create interactive security reports',
-      'Implement real-time scanning interfaces',
+      'Implement real time scanning interfaces',
       'Collaborate with design and product teams'
     ],
     githubIssue: 'https://github.com/gitswhy/careers/issues/21'
