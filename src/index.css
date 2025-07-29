@@ -996,4 +996,29 @@
     text-rendering: optimizeLegibility;
     font-feature-settings: "liga" 1, "kern" 1;
   }
+  
+  /* 3D Animation Keyframes */
+  @keyframes float {
+    0%, 100% { 
+      transform: translateY(0px) rotateX(0deg); 
+    }
+    50% { 
+      transform: translateY(-20px) rotateX(10deg); 
+    }
+  }
+  
+  @keyframes bounce {
+    0%, 100% { 
+      transform: translateY(0px) rotateY(0deg); 
+    }
+    25% { 
+      transform: translateY(-10px) rotateY(90deg); 
+    }
+    50% { 
+      transform: translateY(-20px) rotateY(180deg); 
+    }
+    75% { 
+      transform: translateY(-10px) rotateY(270deg); 
+    }
+  }
 }
