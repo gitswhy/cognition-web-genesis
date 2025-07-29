@@ -12,7 +12,7 @@ const DemoPlayground = () => {
   const allCommands = [
     {
       command: "gitswhy init",
-      description: "Initialize cognition-native DevSecOps",
+      description: "Initialize cognition native DevSecOps",
       isPro: false,
       output: [
         "🚀 Initializing Gitswhy OS...",
@@ -30,18 +30,18 @@ const DemoPlayground = () => {
         "🧠 Deep cognition analysis active...",
         "✓ Intent prediction: 94% accuracy",
         "🔮 Predicting 2 potential issues",
-        "🛡️ Auto-generating preventive patches",
+        "🛡️ Auto generating preventive patches",
         "✨ Advanced insights unlocked"
       ]
     },
     {
       command: "gitswhy heal",
-      description: "Auto-heal detected issues", 
+      description: "Auto heal detected issues", 
       isPro: true,
       output: [
-        "🔧 Self-healing engine activated...",
+        "🔧 Self healing engine activated...",
         "✓ Detected memory leak in user.service.ts",
-        "🛠️ Auto-generated patch",
+        "🛠️ Auto generated patch",
         "✅ Applied fix without downtime",
         "📊 System health: 100%"
       ]
@@ -74,7 +74,7 @@ const DemoPlayground = () => {
             Try <span className="text-terminal-green">Gitswhy OS</span> Interactive Demo
           </h2>
           <p className="text-base sm:text-lg lg:text-xl text-foreground/70 max-w-3xl mx-auto break-words px-4">
-            Experience the power of cognition-native DevSecOps
+            Experience the power of cognition native DevSecOps
           </p>
         </div>
 

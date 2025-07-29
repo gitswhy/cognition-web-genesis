@@ -9,7 +9,7 @@ const CoreFeaturesGrid = () => {
   const features = [
     {
       icon: Brain,
-      title: "Real-Time Cognition",
+      title: "Real Time Cognition",
       description: "AI monitors every keystroke, understanding developer intent and predicting issues before they occur.",
       details: "Advanced pattern recognition • Intent analysis • Proactive suggestions",
       color: "terminal-green",
@@ -17,9 +17,9 @@ const CoreFeaturesGrid = () => {
     },
     {
       icon: Shield,
-      title: "Self-Healing Engine",
+      title: "Self Healing Engine",
       description: "Automatically detects, diagnoses, and patches vulnerabilities in real-time without breaking your flow.",
-      details: "Auto-vulnerability detection • Instant patches • Zero-downtime fixes",
+      details: "Auto vulnerability detection • Instant patches • Zero downtime fixes",
       color: "terminal-blue", 
       animation: "animate-spin"
     },

@@ -105,7 +105,7 @@ export const FeatureTeasersGrid: React.FC = () => {
   const features: FeatureCardProps[] = [
     {
       icon: ShieldCheck,
-      title: "Real-Time Security Scanning",
+      title: "Real Time Security Scanning",
       description: "Detects vulns/misconfigs in code/IaC on keystroke or save",
       badgeType: 'Free/Pro',
       link: "/how-it-works",
@@ -113,8 +113,8 @@ export const FeatureTeasersGrid: React.FC = () => {
     },
     {
       icon: Wrench,
-      title: "Self-Healing Remediation",
-      description: "Auto-flushes entropy, cleans processes, patches issues before commit",
+      title: "Self Healing Remediation",
+      description: "Auto flushes entropy, cleans processes, patches issues before commit",
       badgeType: 'Free/Pro',
       delay: 0.2,
     },
@@ -127,7 +127,7 @@ export const FeatureTeasersGrid: React.FC = () => {
     },
     {
       icon: Bot,
-      title: "AI-Powered Auto-Patching",
+      title: "AI Powered Auto Patching",
       description: "LLM agents synthesize/verify fixes with rollback",
       badgeType: 'Pro',
       delay: 0.4,
@@ -135,7 +135,7 @@ export const FeatureTeasersGrid: React.FC = () => {
     {
       icon: Lock,
       title: "Encrypted Vault",
-      description: "Logs 'why' data in domain-split structure for audits/compliance",
+      description: "Logs 'why' data in domain split structure for audits/compliance",
       badgeType: 'Free/Pro',
       delay: 0.5,
     },

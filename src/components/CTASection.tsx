@@ -57,7 +57,7 @@ const CTASection = () => {
                 <Rocket className="h-6 w-6 text-terminal-blue" />
               </div>
               <div className="text-center">
-                <div className="font-semibold text-foreground mb-1">30-Day Pro Trial</div>
+                <div className="font-semibold text-foreground mb-1">30 Day Pro Trial</div>
                 <div className="text-sm text-foreground/85">Full features, no commitment</div>
               </div>
             </div>
@@ -67,7 +67,7 @@ const CTASection = () => {
                 <div className="text-xl">⚡</div>
               </div>
               <div className="text-center">
-                <div className="font-semibold text-foreground mb-1">1-Minute Setup</div>
+                <div className="font-semibold text-foreground mb-1">1 Minute Setup</div>
                 <div className="text-sm text-foreground/85">Deploy in a minute, not hours</div>
               </div>
             </div>
