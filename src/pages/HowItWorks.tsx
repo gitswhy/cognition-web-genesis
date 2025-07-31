@@ -81,64 +81,74 @@ const HowItWorks = () => {
 
   const steps = [
     {
-      id: 'install-core',
-      title: 'Install Core',
-      subtitle: 'One-line setup',
-      description: 'Get started with Gitswhy OS in seconds. Our installer automatically detects your environment and configures the optimal settings.',
+      id: 'install-initiate',
+      title: 'Install & Initiate',
+      subtitle: 'Single command setup',
+      description: 'Get started with a single command. Gitswhy OS quietly loads in your shell (like Bash or Zsh), ready to protect and optimize every coding session.',
       type: 'core',
       icon: Download,
-      code: 'curl -fsSL https://install.gitswhy.io | bash',
-      features: ['Auto-detection of git workflows', 'Zero configuration required', 'Cross-platform support']
+      code: 'git clone https://github.com/gitswhy/reflexcore.git\ncd reflexcore\npip install -r requirements.txt\npython3 cli/gitswhy_cli.py init',
+      features: ['Single command installation', 'Shell integration (Bash/Zsh)', 'Always-on background protection']
     },
     {
-      id: 'shell-hooks',
-      title: 'Shell Hooks',
-      subtitle: 'Seamless integration',
-      description: 'Gitswhy hooks into your shell commands, monitoring every keystroke and git operation without interrupting your workflow.',
-      type: 'core',
-      icon: Terminal,
-      code: 'gitswhy hook --install\n# Automatically added to .zshrc/.bashrc',
-      features: ['Real-time command monitoring', 'Invisible operation', 'Compatible with all shells']
-    },
-    {
-      id: 'on-the-fly-scans',
-      title: 'On-the-fly Scans',
-      subtitle: 'Instant security',
-      description: 'Every code change is scanned in real-time. Our engine detects vulnerabilities, secrets, and quality issues as you type.',
+      id: 'smart-monitoring',
+      title: 'Smart Monitoring',
+      subtitle: 'Zero interruption',
+      description: 'As you code, Gitswhy OS runs in the background—no pop-ups or slowdowns. It continuously tracks system health, monitors typing patterns, and stays completely private.',
       type: 'core',
       icon: Scan,
-      code: 'git add .\n# → Scanning 47 files...\n# → Found 2 potential issues',
-      features: ['Real-time vulnerability detection', 'Secret scanning', 'Code quality analysis']
+      code: '# Monitoring active...\n# System health: ✓\n# Typing confidence: High\n# Privacy: Local only',
+      features: ['Background system health tracking', 'Typing pattern analysis', 'Complete privacy - nothing sent anywhere']
     },
     {
-      id: 'auto-repair',
-      title: 'Auto-Repair',
-      subtitle: 'Self-healing code',
-      description: 'When issues are detected, Gitswhy can automatically apply fixes or provide one-click solutions with full transparency.',
-      type: 'pro',
-      icon: Wrench,
-      code: 'gitswhy auto-fix\n# → Applied 3 security patches\n# → Suggested 2 optimizations',
-      features: ['Automatic vulnerability patching', 'Code optimization', 'Rollback protection']
-    },
-    {
-      id: 'intent-logging',
-      title: 'Intent Logging',
-      subtitle: 'Understanding context',
-      description: 'Gitswhy learns from your coding patterns and intentions, building a knowledge base that improves over time.',
-      type: 'pro',
+      id: 'intent-detection',
+      title: 'Intent Detection & Tagging',
+      subtitle: 'Understanding hesitation',
+      description: 'When you pause (hesitation before a risky edit), Gitswhy OS recognizes it instantly, tags the moment, and adds context to your private encrypted Vault.',
+      type: 'core',
       icon: Archive,
-      code: '# Detected intent: "Adding user authentication"\n# Suggested security best practices',
-      features: ['Pattern recognition', 'Intent prediction', 'Contextual suggestions']
+      code: '# Pause detected at line 47\n# Tagged as: "uncertain - exploring"\n# Saved to encrypted Vault\n# Reason: Complex refactor',
+      features: ['Pause detection for uncertainty', 'Automatic tagging and context', 'Private encrypted Vault storage']
     },
     {
-      id: 'team-insights',
-      title: 'Team Insights',
-      subtitle: 'Collaborative intelligence',
-      description: 'Share insights across your team. Track security posture, code quality trends, and deployment confidence metrics.',
+      id: 'automated-cleanup',
+      title: 'Automated Cleanup & Self-Healing',
+      subtitle: 'System optimization',
+      description: 'Whenever your system slows or gets cluttered, Gitswhy OS automatically flushes caches, kills zombie processes, and cleans temp files—keeping your shell fast.',
+      type: 'core',
+      icon: Wrench,
+      code: '# Auto-cleanup triggered\n# Cache flushed: 2.3GB freed\n# Zombie processes killed: 7\n# Temp files cleaned: 1.1GB',
+      features: ['Automatic cache flushing', 'Zombie process cleanup', 'Temp file management']
+    },
+    {
+      id: 'realtime-scanning',
+      title: 'Real-Time Bug & Security Scanning',
+      subtitle: 'Pro protection',
+      description: 'With Gitswhy OS Pro, every file save or keystroke is scanned against 30,000+ rules for bugs & security threats. AI agent suggests fixes with one-click approval.',
+      type: 'pro',
+      icon: Shield,
+      code: '# Real-time scan active\n# Scanned against 30,000+ rules\n# Critical security issue found!\n# AI fix suggested: Click to apply',
+      features: ['30,000+ security & bug rules', 'Real-time keystroke scanning', 'AI-powered fix suggestions']
+    },
+    {
+      id: 'one-click-fixes',
+      title: 'One-Click Fixes & Team Insights',
+      subtitle: 'Pro collaboration',
+      description: 'Approve fixes with one click or roll back as needed. Team dashboards show saved time, tracked bugs, and project health metrics with compliance packs.',
       type: 'pro',
       icon: Users,
-      code: 'gitswhy dashboard\n# Team security score: 94%\n# 127 issues prevented this week',
-      features: ['Team dashboards', 'Security metrics', 'Collaborative learning']
+      code: '# Team Dashboard\n# Bugs prevented: 47 this week\n# Time saved: 12.5 hours\n# Security score: 94%\n# Compliance: SOC2 ready',
+      features: ['One-click fix approval/rollback', 'Team productivity dashboards', 'Voice commands & compliance packs']
+    },
+    {
+      id: 'review-secure',
+      title: 'Review & Secure Everything',
+      subtitle: 'Complete audit trail',
+      description: 'All actions, hesitations, and fixes are logged in your encrypted Vault for personal review, auditing, or team insights—staying privacy-first at all times.',
+      type: 'core',
+      icon: Archive,
+      code: '# Encrypted Vault\n# Sessions logged: 247\n# Hesitations tracked: 89\n# Fixes applied: 156\n# Export available for audit',
+      features: ['Complete session logging', 'Encrypted audit trail', 'Privacy-first architecture']
     }
   ];
 
@@ -166,8 +176,8 @@ const HowItWorks = () => {
             How <span className="text-terminal-green">Gitswhy</span> Works
           </h1>
           <p className="text-scale-subtitle text-muted-foreground max-w-3xl mx-auto mb-4 sm:mb-8">
-            From installation to team insights, discover how Gitswhy OS transforms 
-            your development workflow with cognition-native DevSecOps.
+            <strong>Gitswhy OS is always-on—your background assistant for clean, safe, ship-ready code.</strong><br />
+            Discover how Gitswhy OS acts as your second-brain, monitoring, cleaning, scanning, and auto-healing your code.
           </p>
           
           <Button 
