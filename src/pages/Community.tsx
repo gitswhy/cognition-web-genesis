@@ -297,7 +297,7 @@ export default function Community() {
                       </a>
                     </Button>
                     <Button asChild size="sm" variant="outline" className="mobile-button">
-                      <a href="https://github.com/gitswhy/reflexcore/issues/new" target="_blank" rel="noopener noreferrer">
+                      <a href="https://github.com/gitswhy/reflexcore/issues" target="_blank" rel="noopener noreferrer">
                         <AlertCircle className="w-3 h-3 mr-1" />
                         Report Issue
                       </a>
