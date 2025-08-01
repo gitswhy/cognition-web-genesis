@@ -12,8 +12,10 @@ import { SoftwareApplicationSchema } from '@/components/SoftwareApplicationSchem
 import { DynamicHeadline } from '@/components/DynamicHeadline';
 import ProEditionBackground from '@/components/background/ProEditionBackground';
 import PremiumAddOnsCarousel from '@/components/PremiumAddOnsCarousel';
+import { EarlyAccessDialog } from '@/components/EarlyAccessDialog';
 const ProEdition = () => {
   const [hoveredCard, setHoveredCard] = useState<string | null>(null);
+  const [showEarlyAccess, setShowEarlyAccess] = useState(false);
   const premiumFeatures = [{
     id: 'ai-risk-engine',
     title: 'AI Risk Engine',
@@ -99,12 +101,14 @@ const ProEdition = () => {
             </div>
             
             <div className="flex-responsive animate-stagger-4">
-              <Link to="/wishlist">
-                <Button size="sm" className="bg-terminal-blue hover:bg-terminal-blue/90 text-white mobile-button hover-lift">
-                  Start Pro Trial
-                  <ArrowRight className="ml-1 w-3 h-3" />
-                </Button>
-              </Link>
+              <Button 
+                size="sm" 
+                className="bg-terminal-blue hover:bg-terminal-blue/90 text-white mobile-button hover-lift"
+                onClick={() => setShowEarlyAccess(true)}
+              >
+                Join Early Access
+                <ArrowRight className="ml-1 w-3 h-3" />
+              </Button>
               <Button variant="outline" size="sm" className="border-terminal-blue/30 text-terminal-blue hover:bg-terminal-blue/10 mobile-button hover-lift">
                 Demo
               </Button>
@@ -584,12 +588,14 @@ const ProEdition = () => {
           </h2>
           
           <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center animate-stagger-2">
-            <Link to="/wishlist">
-              <Button size="lg" className="bg-terminal-blue hover:bg-terminal-blue/90 text-white mobile-button hover-lift">
-                Start 30-Day Pro Trial
-                <ArrowRight className="ml-2 w-4 h-4" />
-              </Button>
-            </Link>
+            <Button 
+              size="lg" 
+              className="bg-terminal-blue hover:bg-terminal-blue/90 text-white mobile-button hover-lift"
+              onClick={() => setShowEarlyAccess(true)}
+            >
+              Join Early Access
+              <ArrowRight className="ml-2 w-4 h-4" />
+            </Button>
             <Button variant="outline" size="lg" className="border-terminal-blue/30 text-terminal-blue hover:bg-terminal-blue/10 mobile-button hover-lift">
               Talk to Sales
             </Button>
@@ -603,6 +609,11 @@ const ProEdition = () => {
 
       <Footer />
       </div>
+      
+      <EarlyAccessDialog 
+        open={showEarlyAccess} 
+        onOpenChange={setShowEarlyAccess} 
+      />
     </div>;
 };
 export default ProEdition;
