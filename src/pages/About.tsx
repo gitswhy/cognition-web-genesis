@@ -628,170 +628,34 @@ export default function AboutCareers() {
         </div>
       </section>
 
-      {/* Team */}
-      <section className="py-16 bg-muted/30">
-        <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center space-y-4 mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold">Who We Are</h2>
-              <p className="text-xl text-muted-foreground">
-                <strong>Gitswhy OS Inc.</strong> is an all-dev-founder team with backgrounds in AI, security, 
-                product, and community, united by a mission to make software as self-repairing as today's AI generation tools.
-              </p>
-            </div>
-            
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-2 sm:gap-4">
-              {teamMembers.map((member, index) => (
-                <TeamMemberCard key={member.name} member={member} index={index} />
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Careers */}
+      {/* Call to Action */}
       <section className="py-16">
         <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center space-y-4 mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold">Team Culture</h2>
-              <p className="text-xl text-muted-foreground">
-                We're product-led, community-powered, and always open to feedback—committed to making the developer's 
-                life less stressful and more focused. Our modular design lets anyone contribute new detectors, 
-                plug in automations, or generate team dashboards in weeks, not months.
-              </p>
+          <div className="max-w-4xl mx-auto text-center space-y-8">
+            <h2 className="text-3xl md:text-4xl font-bold">Want to try it or join our mission?</h2>
+            <p className="text-xl text-muted-foreground">
+              <strong>Gitswhy OS: your second brain for self-healing secure code—so you never debug alone again.</strong>
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <Button asChild size="lg">
+                <a href="https://github.com/gitswhy/reflexcore" target="_blank" rel="noopener noreferrer">
+                  <Github className="w-5 h-5 mr-2" />
+                  Explore ReflexCore on GitHub
+                </a>
+              </Button>
+              <Button asChild variant="outline" size="lg">
+                <a href="/pro-edition">
+                  Sign up for Gitswhy OS Pro
+                  <ArrowRight className="w-4 h-4 ml-2" />
+                </a>
+              </Button>
             </div>
-            
-            <CareersCarousel />
-            
-            <Separator className="my-12" />
-            
-            <Card className="max-w-4xl mx-auto">
-              <CardContent className="p-8 text-center space-y-6">
-                <div>
-                  <h3 className="text-2xl font-semibold mb-4">Why Work With Us?</h3>
-                  <div className="grid grid-cols-2 gap-2 sm:gap-3 text-left">
-                    <div className="space-y-4">
-                      <div className="flex items-start gap-3">
-                        <div className="w-2 h-2 bg-primary rounded-full mt-2" />
-                        <div>
-                          <h4 className="font-medium">Remote-First Culture</h4>
-                          <p className="text-sm text-muted-foreground">Work from anywhere with flexible hours</p>
-                        </div>
-                      </div>
-                      <div className="flex items-start gap-3">
-                        <div className="w-2 h-2 bg-primary rounded-full mt-2" />
-                        <div>
-                          <h4 className="font-medium">Open Source Impact</h4>
-                          <p className="text-sm text-muted-foreground">Your work benefits the entire developer community</p>
-                        </div>
-                      </div>
-                      <div className="flex items-start gap-3">
-                        <div className="w-2 h-2 bg-primary rounded-full mt-2" />
-                        <div>
-                          <h4 className="font-medium">Learning Budget</h4>
-                          <p className="text-sm text-muted-foreground">$3,000 annual budget for conferences and training</p>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="space-y-4">
-                      <div className="flex items-start gap-3">
-                        <div className="w-2 h-2 bg-primary rounded-full mt-2" />
-                        <div>
-                          <h4 className="font-medium">Equity Participation</h4>
-                          <p className="text-sm text-muted-foreground">Share in the company's success</p>
-                        </div>
-                      </div>
-                      <div className="flex items-start gap-3">
-                        <div className="w-2 h-2 bg-primary rounded-full mt-2" />
-                        <div>
-                          <h4 className="font-medium">Health & Wellness</h4>
-                          <p className="text-sm text-muted-foreground">Comprehensive health coverage and wellness stipend</p>
-                        </div>
-                      </div>
-                      <div className="flex items-start gap-3">
-                        <div className="w-2 h-2 bg-primary rounded-full mt-2" />
-                        <div>
-                          <h4 className="font-medium">Conference Speaking</h4>
-                          <p className="text-sm text-muted-foreground">Opportunities to represent Gitswhy at events</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                
-                <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <Button asChild size="lg">
-                    <a href="https://github.com/gitswhy/careers/issues" target="_blank" rel="noopener noreferrer">
-                      <Github className="w-5 h-5 mr-2" />
-                      View All Positions
-                      <ExternalLink className="w-4 h-4 ml-1" />
-                    </a>
-                  </Button>
-                  <Button asChild variant="outline" size="lg">
-                    <a href="mailto:careers@gitswhy.com">
-                      Don't See Your Role?
-                      <ArrowRight className="w-4 h-4 ml-1" />
-                    </a>
-                  </Button>
-                </div>
-              </CardContent>
-            </Card>
+            <p className="text-sm text-muted-foreground">
+              Connect with us for team pilots or custom integrations
+            </p>
           </div>
         </div>
       </section>
-
-      {/* Structured Data */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Organization",
-            "name": "Gitswhy",
-            "description": "Open source DevSecOps platform making security accessible to every developer",
-            "url": "https://gitswhy.com",
-            "logo": "https://gitswhy.com/logo.png",
-            "foundingDate": "2023",
-            "founders": [
-              {
-                "@type": "Person",
-                "name": "Sarah Chen",
-                "jobTitle": "Co-founder & CEO"
-              },
-              {
-                "@type": "Person", 
-                "name": "David Kumar",
-                "jobTitle": "Co-founder & CTO"
-              }
-            ],
-            "employee": teamMembers.map(member => ({
-              "@type": "Person",
-              "name": member.name,
-              "jobTitle": member.role,
-              "description": member.bio
-            })),
-            "hiringOrganization": {
-              "@type": "Organization",
-              "name": "Gitswhy"
-            },
-            "jobPosting": jobRoles.map(job => ({
-              "@type": "JobPosting",
-              "title": job.title,
-              "description": job.description,
-              "employmentType": job.type.toUpperCase(),
-              "jobLocation": {
-                "@type": "Place",
-                "address": job.location
-              },
-              "hiringOrganization": {
-                "@type": "Organization",
-                "name": "Gitswhy"
-              }
-            }))
-          })
-        }}
-      />
     </div>
   );
 }
