@@ -32,97 +32,97 @@ interface RoadmapItem {
 
 const roadmapData: RoadmapItem[] = [
   {
-    id: 'reflexcore-release',
-    date: 'July 30, 2024',
-    quarter: 'Q3 2024',
-    title: 'ReflexCore Release',
+    id: 'reflexcore-v1',
+    date: 'July 2025',
+    quarter: 'Q3 2025',
+    title: 'ReflexCore v1.0 Public Launch',
     status: 'completed',
-    description: 'Launch of our open-source security scanning engine with intent detection capabilities.',
+    description: 'Open-source, cognition-native agent—always-on background for self-healing secure coding.',
     features: [
-      'Intent aware vulnerability scanning',
-      'Self healing code suggestions',
-      'Basic recursive vault logging',
-      'Community driven rule engine'
+      'Smart performance optimization: overclock, entropy flush, auto-clean',
+      'Keystroke-latency "intent" detection for understanding hesitation',
+      'Private, encrypted local vault (secure by default)',
+      '100% test coverage; community guides and easy install'
     ],
     icon: Zap,
     color: 'text-green-500'
   },
   {
     id: 'enterprise-beta',
-    date: 'September 15, 2024',
-    quarter: 'Q3 2024',
-    title: 'Enterprise Beta Launch',
+    date: 'September 2025',
+    quarter: 'Q3 2025',
+    title: 'Enterprise Beta',
     status: 'in-progress',
-    description: 'Private beta for enterprise customers with advanced compliance and security features.',
+    description: 'Advanced compliance reporting & rules with enterprise-level secure vault.',
     features: [
-      'Advanced compliance reporting',
-      'Enterprise grade security vault',
-      'Multi team collaboration tools',
-      'Custom rule development'
+      'Advanced compliance reporting & rules',
+      'Enterprise-level secure vault with organization/team separation',
+      'Multi-team collaboration (role management, shared insights)',
+      'Custom rule development and enforcement'
     ],
     icon: Shield,
     color: 'text-blue-500'
   },
   {
     id: 'auto-patching-ga',
-    date: 'October 2024',
-    quarter: 'Q4 2024',
-    title: 'AI Auto Patching GA',
+    date: 'October 2025',
+    quarter: 'Q4 2025',
+    title: 'AI Auto-Patching GA',
     status: 'planned',
-    description: 'General availability of AI powered automatic vulnerability patching with zero downtime.',
+    description: 'AI agents to scan for vulnerabilities and apply validated patches automatically.',
     features: [
-      'Automated vulnerability patching',
-      'Zero downtime deployment',
-      'Rollback capabilities',
-      'Impact analysis and testing'
+      'AI agents scan for vulnerabilities and apply validated patches',
+      'Safe rollback support and patch impact explanations',
+      'Auto-deploy with zero downtime',
+      'Automated vulnerability validation and testing'
     ],
     icon: Brain,
     color: 'text-purple-500'
   },
   {
     id: 'voice-commands',
-    date: 'Q4 2024',
-    quarter: 'Q4 2024',
+    date: 'December 2025',
+    quarter: 'Q4 2025',
     title: 'Voice Commands & Natural Language',
     status: 'planned',
-    description: 'Revolutionary voice controlled security operations and natural language query interface.',
+    description: 'Voice-activated scan, patch, audit, and help with conversational security reports.',
     features: [
-      'Voice activated security scans',
-      'Natural language vulnerability queries',
-      'Conversational security reports',
-      'Voice guided remediation'
+      'Voice-activated security operations ("Gitswhy, scan project for risks")',
+      'Conversational security and code health reports',
+      'Natural language remediation commands',
+      'Voice guided vulnerability explanations'
     ],
     icon: Mic,
     color: 'text-orange-500'
   },
   {
-    id: 'distributed-vault',
-    date: 'Q1 2025',
-    quarter: 'Q1 2025',
-    title: 'Distributed Security Vault',
+    id: 'team-dashboards',
+    date: 'Q1 2026',
+    quarter: 'Q1 2026',
+    title: 'Team Dashboards & Metrics',
     status: 'planned',
-    description: 'Launch of distributed security vault with global replication and edge computing.',
+    description: 'Real-time dashboards with AI-driven intent insights for personal and team retrospectives.',
     features: [
-      'Global security state replication',
-      'Edge computing integration',
-      'Real time cross region sync',
-      'Decentralized security logging'
+      'Real-time dashboards: time saved, issue rates, auto-patch frequency',
+      'AI-driven intent insights for personal and team retrospectives',
+      'Project health and ROI analytics per team or org',
+      'Automated compliance reporting'
     ],
     icon: Database,
     color: 'text-cyan-500'
   },
   {
-    id: 'ai-security-advisor',
-    date: 'Q2 2025',
-    quarter: 'Q2 2025',
-    title: 'AI Security Advisor',
+    id: 'policy-marketplace',
+    date: 'Q1 2026',
+    quarter: 'Q1 2026',
+    title: 'Policy Marketplace Launch',
     status: 'planned',
-    description: 'Advanced AI advisor that provides proactive security recommendations and strategic guidance.',
+    description: 'One-click policy packs with automated, auditable compliance enforcement.',
     features: [
-      'Proactive threat intelligence',
-      'Security strategy recommendations',
-      'Risk assessment automation',
-      'Compliance optimization'
+      'One-click policy packs (PCI, SOC 2, GDPR, custom rules)',
+      'Automated, auditable compliance enforcement',
+      'Community-driven policy sharing',
+      'Custom policy creation and deployment'
     ],
     icon: Target,
     color: 'text-pink-500'
@@ -179,11 +179,11 @@ export default function Roadmap() {
                 Product Roadmap
               </Badge>
               <h1 className="text-scale-hero font-bold animate-stagger-2">
-                The Future of <span className="text-primary">Security</span>
+                Gitswhy OS <span className="text-primary">Roadmap</span>
               </h1>
               <p className="text-scale-subtitle text-muted-foreground animate-stagger-3">
-                Discover what's coming next in autonomous security and how we're 
-                revolutionizing DevSecOps for developers worldwide.
+                Creating your "second brain" for self-healing, secure code—built in public, 
+                shaped by real developer needs, and committed to continuous innovation.
               </p>
             </div>
             
@@ -381,22 +381,23 @@ export default function Roadmap() {
         <div className="container-responsive">
           <div className="max-w-3xl mx-auto text-center space-responsive animate-slide-up">
             <h2 className="text-scale-heading font-bold animate-stagger-1">
-              Shape the Future with Us
+              Why We're Different
             </h2>
             <p className="text-scale-subtitle text-muted-foreground animate-stagger-2">
-              Join our community and help us build the next generation of security tools. 
-              Your feedback drives our roadmap.
+              User-Led: Everything shipping is based on real dev/ops/user feedback. 
+              AI-First: Leveraging advances in intent modeling and cognition-aware self-healing. 
+              Open & Secure: Core always open-source, local-first, and privacy-centric.
             </p>
             <div className="flex-responsive justify-center animate-stagger-3">
               <Button size="lg" asChild className="mobile-button hover-lift">
-                <a href="/community">
-                  Join Community
+                <a href="https://github.com/gitswhy" target="_blank" rel="noopener noreferrer">
+                  Follow on GitHub
                   <ArrowRight className="w-4 h-4 ml-2" />
                 </a>
               </Button>
               <Button variant="outline" size="lg" asChild className="mobile-button hover-lift">
                 <a href="/pro-edition">
-                  Start Pro Trial
+                  Start Enterprise Trial
                 </a>
               </Button>
             </div>
