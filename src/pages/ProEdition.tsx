@@ -500,11 +500,6 @@ const ProEdition = () => {
                       </p>
                     </div>
                     
-                    <div className="flex justify-start animate-stagger-4">
-                      <Button variant="outline" className="border-terminal-blue/30 text-terminal-blue hover:bg-terminal-blue/10 mobile-button hover-lift">
-                        Join Waitlist
-                      </Button>
-                    </div>
                   </div>
                   
                   {/* Right Visual */}
