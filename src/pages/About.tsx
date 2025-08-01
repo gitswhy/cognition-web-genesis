@@ -477,20 +477,6 @@ export default function AboutCareers() {
               </p>
             </div>
             
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-2 sm:gap-4 mt-4 sm:mt-8">
-              <div className="text-center animate-fade-in" style={{ animationDelay: '200ms' }}>
-                <div className="text-3xl font-bold text-primary">500k+</div>
-                <p className="text-muted-foreground">Repositories Scanned</p>
-              </div>
-              <div className="text-center animate-fade-in" style={{ animationDelay: '300ms' }}>
-                <div className="text-3xl font-bold text-primary">10M+</div>
-                <p className="text-muted-foreground">Vulnerabilities Found</p>
-              </div>
-              <div className="text-center animate-fade-in" style={{ animationDelay: '400ms' }}>
-                <div className="text-3xl font-bold text-primary">2k+</div>
-                <p className="text-muted-foreground">Developer Community</p>
-              </div>
-            </div>
           </div>
         </div>
       </section>
