@@ -52,73 +52,61 @@ interface JobRole {
 
 const teamMembers: TeamMember[] = [
   {
-    name: 'Sarah Chen',
-    role: 'Co-founder & CEO',
-    bio: 'Former security architect at Google with 12+ years in DevSecOps. Passionate about making security accessible to every developer.',
+    name: 'Atharve Malviya',
+    role: 'CEO',
+    bio: 'Built web3 communities to 50,000 users; CS50x, Harvard; led product virality and business development.',
     image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=400&h=400&fit=crop&crop=face',
-    expertise: ['Leadership', 'DevSecOps', 'Strategy', 'Security'],
+    expertise: ['Leadership', 'Community Building', 'Product', 'Business Development'],
     social: {
-      github: 'https://github.com/sarahchen',
-      linkedin: 'https://linkedin.com/in/sarahchen',
-      twitter: 'https://twitter.com/sarahchen'
+      github: 'https://github.com/atharvemalviya',
+      linkedin: 'https://linkedin.com/in/atharvemalviya',
+      twitter: 'https://twitter.com/atharvemalviya'
     }
   },
   {
-    name: 'David Kumar',
-    role: 'Co-founder & CTO',
-    bio: 'AI researcher and former principal engineer at Microsoft. Leading the development of next generation security scanning technology.',
+    name: 'Yash Alluri',
+    role: 'CTO',
+    bio: 'ML & DevSecOps expert; led security automation at Assurant (Fortune 500); 5× hackathon winner.',
     image: 'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=400&h=400&fit=crop&crop=face',
-    expertise: ['AI/ML', 'Rust', 'Architecture', 'Security'],
+    expertise: ['AI/ML', 'DevSecOps', 'Security Automation', 'Architecture'],
     social: {
-      github: 'https://github.com/davidkumar',
-      linkedin: 'https://linkedin.com/in/davidkumar'
+      github: 'https://github.com/yashalluri',
+      linkedin: 'https://linkedin.com/in/yashalluri'
     }
   },
   {
-    name: 'Emma Rodriguez',
-    role: 'Head of Engineering',
-    bio: 'Full stack engineer with expertise in distributed systems. Previously led engineering teams at Stripe and Datadog.',
+    name: 'Harry MD Nguyen',
+    role: 'CPO',
+    bio: 'Full-stack developer; created tech content with 16M TikTok views; built workflow tools at Edrolo/SBD.',
     image: 'https://images.unsplash.com/photo-1649972904349-6e44c42644a7?w=400&h=400&fit=crop&crop=face',
-    expertise: ['Engineering', 'Go', 'Distributed Systems', 'Team Leadership'],
+    expertise: ['Full-stack Development', 'Content Creation', 'Product Design', 'Workflow Tools'],
     social: {
-      github: 'https://github.com/emmarodriguez',
-      linkedin: 'https://linkedin.com/in/emmarodriguez',
-      twitter: 'https://twitter.com/emmarodriguez'
+      github: 'https://github.com/harrynguyen',
+      linkedin: 'https://linkedin.com/in/harrynguyen',
+      twitter: 'https://twitter.com/harrynguyen'
     }
   },
   {
-    name: 'Michael Zhang',
-    role: 'Head of Security Research',
-    bio: 'Security researcher with 10+ years finding and fixing vulnerabilities. Former red team lead at major financial institutions.',
+    name: 'Shivang Sagwaliya',
+    role: 'COO',
+    bio: 'AI UX specialist; MS, Harvard; expert in prompt engineering and team workflows.',
     image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face',
-    expertise: ['Security Research', 'Penetration Testing', 'Vulnerability Assessment', 'Python'],
+    expertise: ['AI UX Design', 'Prompt Engineering', 'Team Operations', 'Workflows'],
     social: {
-      github: 'https://github.com/michaelzhang',
-      linkedin: 'https://linkedin.com/in/michaelzhang'
+      github: 'https://github.com/shivangsagwaliya',
+      linkedin: 'https://linkedin.com/in/shivangsagwaliya'
     }
   },
   {
-    name: 'Lisa Park',
-    role: 'Head of Product',
-    bio: 'Product strategist with deep DevOps experience. Previously at Docker and HashiCorp, focused on developer experience.',
+    name: 'Jim Manico',
+    role: 'Advisor',
+    bio: 'Global security educator and renowned expert in application security, helping guide our security strategy.',
     image: 'https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=400&h=400&fit=crop&crop=face',
-    expertise: ['Product Strategy', 'UX Design', 'DevOps', 'Analytics'],
+    expertise: ['Security Education', 'Application Security', 'Strategy', 'Advisory'],
     social: {
-      github: 'https://github.com/lisapark',
-      linkedin: 'https://linkedin.com/in/lisapark',
-      twitter: 'https://twitter.com/lisapark'
-    }
-  },
-  {
-    name: 'Alex Thompson',
-    role: 'Developer Relations',
-    bio: 'Community builder and developer advocate. Former maintainer of popular open source security tools.',
-    image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face',
-    expertise: ['Community', 'Open Source', 'Developer Relations', 'Public Speaking'],
-    social: {
-      github: 'https://github.com/alexthompson',
-      linkedin: 'https://linkedin.com/in/alexthompson',
-      twitter: 'https://twitter.com/alexthompson'
+      github: 'https://github.com/jimmanico',
+      linkedin: 'https://linkedin.com/in/jimmanico',
+      twitter: 'https://twitter.com/jimmanico'
     }
   }
 ];
@@ -126,33 +114,33 @@ const teamMembers: TeamMember[] = [
 const values = [
   {
     icon: Shield,
-    title: 'Security First',
-    description: 'We believe security should be built into every stage of development, not bolted on as an afterthought.'
+    title: 'Privacy-First',
+    description: 'Everything runs locally unless you opt-in. Your code and data stay under your control, always.'
   },
   {
     icon: Heart,
-    title: 'Open by Default',
-    description: 'Transparency and open source are at our core. We build in the open and share our knowledge freely.'
+    title: 'Open-Source at Core',
+    description: 'Apache 2.0 licensed foundation. We build in the open and believe in transparent, iterative development.'
   },
   {
     icon: Zap,
-    title: 'Developer Experience',
-    description: 'Security tools should enhance, not hinder, developer productivity. We obsess over great UX.'
+    title: 'Cross-Platform & Minimal',
+    description: 'Designed for Linux/macOS with minimal resource use. Your workflow shouldn\'t be disrupted.'
   },
   {
     icon: Users,
-    title: 'Community Driven',
-    description: 'Our roadmap is shaped by our community. Every feature request and contribution matters.'
+    title: 'Community-Powered',
+    description: 'Product-led, community-driven development. Always open to feedback and contributions.'
   },
   {
     icon: Globe,
-    title: 'Global Impact',
-    description: 'We\'re building tools that will secure software used by billions of people around the world.'
+    title: 'Ship with Peace of Mind',
+    description: 'Our mission is to help every team save 15+ hours per week and deploy code with confidence.'
   },
   {
     icon: Code,
-    title: 'Technical Excellence',
-    description: 'We ship high quality, performant code that developers love to use and contribute to.'
+    title: 'Secure by Design',
+    description: 'Encrypted logs, no vendor lock-in, and self-healing capabilities built into every component.'
   }
 ];
 
@@ -484,8 +472,8 @@ export default function AboutCareers() {
                 About <span className="text-primary">Gitswhy OS</span>
               </h1>
               <p className="text-scale-subtitle text-muted-foreground">
-                Making security accessible to every developer through 
-                open source innovation and community collaboration.
+                Your second brain for self-healing secure code. Proactively fixing vulnerabilities, 
+                cleaning up system clutter, and capturing the "why" behind every code change.
               </p>
             </div>
             
@@ -511,12 +499,14 @@ export default function AboutCareers() {
       <section className="py-16">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center space-y-8">
-            <h2 className="text-3xl md:text-4xl font-bold">Our Mission</h2>
+            <h2 className="text-3xl md:text-4xl font-bold">Our Story</h2>
             <p className="text-xl text-muted-foreground leading-relaxed">
-              We believe that <strong>security should be a natural part of software development</strong>, 
-              not a barrier to innovation. Our mission is to democratize security by providing 
-              developers with intelligent, fast, and easy-to-use tools that catch vulnerabilities 
-              before they reach production—without slowing down development velocity.
+              Born from the frustrations of modern developers, Gitswhy OS transforms the way teams and solo coders work by 
+              <strong>proactively fixing vulnerabilities, cleaning up system clutter, and capturing the "why" behind every code change</strong>—all 
+              running quietly in the background. We started because coding has evolved: today, AI "vibe coding" and rapid prototyping 
+              are everywhere, but that comes with a new flood of bugs, security holes, and wasted hours on cleanup. What began as a 
+              simple AI helper for code reviews is now a modular "operating layer" that secures, explains, and tunes development 
+              workflows across terminals, editors, CI tools, and cloud containers.
             </p>
           </div>
         </div>
@@ -527,38 +517,37 @@ export default function AboutCareers() {
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center space-y-4 mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold">Open Core Philosophy</h2>
+              <h2 className="text-3xl md:text-4xl font-bold">What We Do</h2>
               <p className="text-xl text-muted-foreground">
-                Transparency, community, and shared innovation drive everything we do.
+                Two editions designed for different needs, both built on our open-source foundation.
               </p>
             </div>
             
             <div className="grid grid-cols-2 gap-2 sm:gap-4 items-center">
               <div className="space-y-6">
                 <div className="space-y-4">
-                  <h3 className="text-2xl font-semibold">Open Source Core</h3>
+                  <h3 className="text-2xl font-semibold">ReflexCore (Free, Open-Source)</h3>
                   <p className="text-muted-foreground">
-                    Our core scanning engine is completely open source, auditable, and 
-                    community-driven. We believe security tools should be transparent 
-                    and trustworthy.
+                    A lightweight agent (&lt;50MB RAM) for Linux/macOS that runs always-on, analyzing keystroke patterns 
+                    for hesitation (intent), self-healing system slowness, killing zombie processes, and securely logging 
+                    events—never sending data elsewhere.
                   </p>
                 </div>
                 
                 <div className="space-y-4">
-                  <h3 className="text-2xl font-semibold">Community First</h3>
+                  <h3 className="text-2xl font-semibold">Gitswhy OS Pro (Paid)</h3>
                   <p className="text-muted-foreground">
-                    Features, roadmap, and priorities are shaped by our community. 
-                    Every contribution, whether code, documentation, or feedback, 
-                    makes Gitswhy OS better for everyone.
+                    Adds 30,000+ real-time security rules, AI-powered auto-patching, compliance policy packs (PCI/SOC2/GDPR), 
+                    dashboards, cross-repo risk graphs, voice command fixes, and collaborative insights—designed for teams and enterprises.
                   </p>
                 </div>
                 
                 <div className="space-y-4">
-                  <h3 className="text-2xl font-semibold">Sustainable Growth</h3>
+                  <h3 className="text-2xl font-semibold">Where We're Headed</h3>
                   <p className="text-muted-foreground">
-                    Our enterprise features and hosted services fund the development 
-                    of open source tools, creating a sustainable ecosystem that 
-                    benefits both individual developers and enterprises.
+                    ReflexCore is already public on GitHub (open-core foundation). Pro features (auto-patch, voice, dashboard, 
+                    compliance packs) are rolling out quarterly. Our goal: save developers 15+ hours/week and help every team 
+                    "ship with peace of mind."
                   </p>
                 </div>
               </div>
@@ -568,9 +557,9 @@ export default function AboutCareers() {
                   <div className="flex items-center gap-3">
                     <Code className="w-8 h-8 text-primary" />
                     <div>
-                      <h4 className="font-semibold">Always Free Core</h4>
+                      <h4 className="font-semibold">Apache 2.0 Licensed</h4>
                       <p className="text-sm text-muted-foreground">
-                        Core scanning features remain free forever
+                        Open-source foundation, always free to use and modify
                       </p>
                     </div>
                   </div>
@@ -578,9 +567,9 @@ export default function AboutCareers() {
                   <div className="flex items-center gap-3">
                     <Users className="w-8 h-8 text-primary" />
                     <div>
-                      <h4 className="font-semibold">Community Governance</h4>
+                      <h4 className="font-semibold">Modular Design</h4>
                       <p className="text-sm text-muted-foreground">
-                        Major decisions made with community input
+                        Anyone can contribute new detectors and automations
                       </p>
                     </div>
                   </div>
@@ -588,9 +577,9 @@ export default function AboutCareers() {
                   <div className="flex items-center gap-3">
                     <Globe className="w-8 h-8 text-primary" />
                     <div>
-                      <h4 className="font-semibold">Global Access</h4>
+                      <h4 className="font-semibold">Cross-Platform</h4>
                       <p className="text-sm text-muted-foreground">
-                        No restrictions based on geography or company size
+                        Works on Linux/macOS with minimal resource use
                       </p>
                     </div>
                   </div>
@@ -606,9 +595,10 @@ export default function AboutCareers() {
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center space-y-4 mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold">Our Values</h2>
+              <h2 className="text-3xl md:text-4xl font-bold">Our Mission & Values</h2>
               <p className="text-xl text-muted-foreground">
-                The principles that guide every decision we make.
+                Give every developer their own second-brain OS that anticipates problems, fixes them instantly, 
+                and explains every "why" in plain English, so you ship code faster and safer.
               </p>
             </div>
             
@@ -643,10 +633,10 @@ export default function AboutCareers() {
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center space-y-4 mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold">Meet Our Team</h2>
+              <h2 className="text-3xl md:text-4xl font-bold">Who We Are</h2>
               <p className="text-xl text-muted-foreground">
-                Security experts, engineers, and community builders working together 
-                to make software development more secure.
+                <strong>Gitswhy OS Inc.</strong> is an all-dev-founder team with backgrounds in AI, security, 
+                product, and community, united by a mission to make software as self-repairing as today's AI generation tools.
               </p>
             </div>
             
@@ -664,10 +654,11 @@ export default function AboutCareers() {
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center space-y-4 mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold">Join Our Mission</h2>
+              <h2 className="text-3xl md:text-4xl font-bold">Team Culture</h2>
               <p className="text-xl text-muted-foreground">
-                Help us build the future of DevSecOps. We're looking for passionate 
-                people who believe in making security accessible to all developers.
+                We're product-led, community-powered, and always open to feedback—committed to making the developer's 
+                life less stressful and more focused. Our modular design lets anyone contribute new detectors, 
+                plug in automations, or generate team dashboards in weeks, not months.
               </p>
             </div>
             
