@@ -24,9 +24,6 @@ const Header = () => {
     label: "Docs",
     href: "/docs"
   }, {
-    label: "Community",
-    href: "/community"
-  }, {
     label: "Patent",
     href: "/patent"
   }, {
