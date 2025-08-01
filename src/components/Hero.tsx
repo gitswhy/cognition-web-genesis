@@ -250,19 +250,71 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.2 }}
         >
-          <motion.p 
+          <motion.div 
             className="text-base sm:text-lg md:text-xl lg:text-2xl font-medium text-foreground px-4"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 1.4 }}
           >
-            Your second brain for <motion.span 
-              className="text-terminal-green"
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.4, delay: 1.6 }}
-            >self-healing</motion.span> secure code - so you never debug alone again.
-          </motion.p>
+            {["Your", "second", "brain", "for"].map((word, index) => (
+              <motion.span
+                key={index}
+                className="inline-block mr-2"
+                initial={{ opacity: 0, y: 20, rotateX: -90 }}
+                animate={{ opacity: 1, y: 0, rotateX: 0 }}
+                transition={{ 
+                  duration: 0.6, 
+                  delay: 1.5 + index * 0.1,
+                  type: "spring",
+                  stiffness: 100
+                }}
+                whileHover={{ 
+                  scale: 1.05,
+                  textShadow: "0 0 8px rgba(74, 222, 128, 0.3)"
+                }}
+              >
+                {word}
+              </motion.span>
+            ))}
+            <motion.span 
+              className="text-terminal-green inline-block mr-2 font-semibold"
+              initial={{ opacity: 0, scale: 0.3, rotateY: 180 }}
+              animate={{ opacity: 1, scale: 1, rotateY: 0 }}
+              transition={{ 
+                duration: 0.8, 
+                delay: 1.9,
+                type: "spring",
+                stiffness: 200
+              }}
+              whileHover={{ 
+                scale: 1.1,
+                rotate: [0, -2, 2, 0],
+                textShadow: "0 0 15px rgba(74, 222, 128, 0.6)"
+              }}
+            >
+              self-healing
+            </motion.span>
+            {["secure", "code", "-", "so", "you", "never", "debug", "alone", "again."].map((word, index) => (
+              <motion.span
+                key={index + 4}
+                className="inline-block mr-2"
+                initial={{ opacity: 0, x: -30, filter: "blur(10px)" }}
+                animate={{ opacity: 1, x: 0, filter: "blur(0px)" }}
+                transition={{ 
+                  duration: 0.5, 
+                  delay: 2.7 + index * 0.08,
+                  ease: "easeOut"
+                }}
+                whileHover={{ 
+                  scale: 1.03,
+                  color: "#4ade80",
+                  transition: { duration: 0.2 }
+                }}
+              >
+                {word}
+              </motion.span>
+            ))}
+          </motion.div>
         </motion.div>
       </div>
     </section>
