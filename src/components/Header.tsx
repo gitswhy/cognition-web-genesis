@@ -2,11 +2,11 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
-import { Menu, X, Terminal, ChevronDown, User } from "lucide-react";
-import { useAuth } from "@/contexts/AuthContext";
+import { Menu, X, Terminal, ChevronDown } from "lucide-react";
+import { EarlyAccessDialog } from "@/components/EarlyAccessDialog";
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { user } = useAuth();
+  const [showEarlyAccess, setShowEarlyAccess] = useState(false);
   const navItems = [{
     label: "Open Core",
     href: "/open-core"
@@ -136,30 +136,15 @@ const Header = () => {
 
           {/* CTAs */}
           <div className="hidden lg:flex items-center space-x-1 xl:space-x-2">
-            {user ? (
-              <Button variant="terminal-blue" size="sm" asChild className="group terminal-clean text-xs xl:text-sm relative overflow-hidden">
-                <Link to="/dashboard" className="flex items-center">
-                  <User className="h-4 w-4 mr-1" />
-                  <span className="relative z-10 transition-transform duration-300 group-hover:scale-105">Dashboard</span>
-                  <div className="absolute inset-0 bg-terminal-blue/20 scale-0 group-hover:scale-100 transition-transform duration-300" />
-                </Link>
-              </Button>
-            ) : (
-              <>
-                <Button variant="terminal-outline" size="sm" asChild className="group terminal-clean text-xs xl:text-sm relative overflow-hidden">
-                  <Link to="/auth" className="flex items-center">
-                    <span className="relative z-10 transition-transform duration-300 group-hover:scale-105">Sign In</span>
-                    <div className="absolute inset-0 bg-terminal-green/10 scale-0 group-hover:scale-100 transition-transform duration-300" />
-                  </Link>
-                </Button>
-                <Button variant="terminal-blue" size="sm" asChild className="group terminal-clean text-xs xl:text-sm relative overflow-hidden">
-                  <Link to="/pro-edition" className="flex items-center">
-                    <span className="relative z-10 transition-transform duration-300 group-hover:scale-105">Start Pro Trial</span>
-                    <div className="absolute inset-0 bg-terminal-blue/20 scale-0 group-hover:scale-100 transition-transform duration-300" />
-                  </Link>
-                </Button>
-              </>
-            )}
+            <Button 
+              variant="terminal-blue" 
+              size="sm" 
+              onClick={() => setShowEarlyAccess(true)}
+              className="group terminal-clean text-xs xl:text-sm relative overflow-hidden"
+            >
+              <span className="relative z-10 transition-transform duration-300 group-hover:scale-105">Join Early Access</span>
+              <div className="absolute inset-0 bg-terminal-blue/20 scale-0 group-hover:scale-100 transition-transform duration-300" />
+            </Button>
           </div>
 
           {/* Mobile menu button */}
@@ -183,24 +168,26 @@ const Header = () => {
                   </Link>)}
               </div>
               <div className="flex flex-col space-y-2.5 sm:space-y-3 pt-3 sm:pt-4 border-t border-terminal-green/20">
-                {user ? (
-                  <Button variant="terminal-blue" size="sm" asChild className="w-full">
-                    <Link to="/dashboard" onClick={() => setIsMenuOpen(false)}>Dashboard</Link>
-                  </Button>
-                ) : (
-                  <>
-                    <Button variant="terminal-outline" size="sm" asChild className="w-full">
-                      <Link to="/auth" onClick={() => setIsMenuOpen(false)}>Sign In</Link>
-                    </Button>
-                    <Button variant="terminal-blue" size="sm" asChild className="w-full">
-                      <Link to="/pro-edition" onClick={() => setIsMenuOpen(false)}>Start Pro Trial</Link>
-                    </Button>
-                  </>
-                )}
+                <Button 
+                  variant="terminal-blue" 
+                  size="sm" 
+                  onClick={() => {
+                    setIsMenuOpen(false);
+                    setShowEarlyAccess(true);
+                  }}
+                  className="w-full"
+                >
+                  Join Early Access
+                </Button>
               </div>
             </nav>
           </div>}
       </div>
+      
+      <EarlyAccessDialog 
+        open={showEarlyAccess} 
+        onOpenChange={setShowEarlyAccess} 
+      />
     </header>;
 };
 export default Header;
