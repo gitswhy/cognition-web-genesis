@@ -256,7 +256,7 @@ const Hero = () => {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 1.4 }}
           >
-            your second brain for <motion.span 
+            Your second brain for <motion.span 
               className="text-terminal-green"
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
