@@ -256,12 +256,12 @@ const Hero = () => {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 1.4 }}
           >
-            Your second brain for secure, <motion.span 
+            your second brain for <motion.span 
               className="text-terminal-green"
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.4, delay: 1.6 }}
-            >self‑healing</motion.span> code.
+            >self-healing</motion.span> secure code - so you never debug alone again.
           </motion.p>
         </motion.div>
       </div>
