@@ -294,7 +294,7 @@ const Hero = () => {
             >
               self-healing
             </motion.span>
-            {["secure", "code", "-", "so", "you", "never", "debug", "alone", "again."].map((word, index) => (
+            {["secure", "code", "—", "so", "you", "never", "debug", "alone", "again."].map((word, index) => (
               <motion.span
                 key={index + 4}
                 className="inline-block mr-2"
