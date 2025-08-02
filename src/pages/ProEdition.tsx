@@ -207,17 +207,13 @@ const ProEdition = () => {
                     <th className="p-6 text-center font-mono text-lg">
                       <div className="space-y-2">
                         <div className="text-terminal-green">Free Core</div>
-                        <Badge variant="secondary" className="bg-terminal-green/20 text-terminal-green">
-                          Open Source
-                        </Badge>
+                        
                       </div>
                     </th>
                     <th className="p-6 text-center font-mono text-lg">
                       <div className="space-y-2">
                         <div className="text-terminal-blue">Pro Edition</div>
-                        <Badge variant="secondary" className="bg-terminal-blue/20 text-terminal-blue">
-                          $49/month
-                        </Badge>
+                        
                       </div>
                     </th>
                   </tr>
