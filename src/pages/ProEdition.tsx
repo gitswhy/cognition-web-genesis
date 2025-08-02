@@ -20,7 +20,7 @@ const ProEdition = () => {
     id: 'ai-risk-engine',
     title: 'AI Risk Engine',
     subtitle: 'Advanced Rules Pack',
-    description: 'Machine learning-powered risk detection with 50,000+ security rules and real-time threat intelligence.',
+    description: 'Machine learning powered risk detection with 50,000+ security rules and real-time threat intelligence.',
     icon: Shield,
     gradient: 'from-red-500/20 to-orange-500/20',
     stats: '99.8% accuracy'
