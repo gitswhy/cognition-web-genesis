@@ -251,7 +251,7 @@ Remove-Item -Recurse -Force reflexcore`
               <li className="flex items-start gap-4 p-6 bg-terminal-surface/60 border border-terminal-green/30 rounded-xl hover:border-terminal-green/50 transition-all duration-300" aria-label="Feature: Auto-Cleaning">
                 <Trash2 className="w-6 h-6 text-terminal-green mt-1 flex-shrink-0" />
                 <div>
-                  <span className="font-bold text-foreground">Auto-Cleaning:</span>
+                  <span className="font-bold text-foreground">Auto Cleaning:</span>
                   <span className="text-muted-foreground"> Kills zombies and clears temp files </span>
                   <code className="font-mono text-terminal-green bg-terminal-surface/80 px-2 py-1 rounded text-sm">(gitswhy_autoclean.sh)</code>
                 </div>
