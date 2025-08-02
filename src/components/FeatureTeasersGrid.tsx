@@ -142,7 +142,7 @@ export const FeatureTeasersGrid: React.FC = () => {
     {
       icon: Mic,
       title: "Voice Commands & Web Dashboards",
-      description: "Hands-free ops and team analytics with Slack integrations",
+      description: "Hands free ops and team analytics with Slack integrations",
       badgeType: 'Pro',
       delay: 0.6,
     },

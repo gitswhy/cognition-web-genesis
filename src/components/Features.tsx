@@ -23,7 +23,7 @@ const Features = () => {
     },
     {
       icon: Shield,
-      title: "Zero-Trust Security",
+      title: "Zero Trust Security",
       description: "Built in security scanning, vulnerability detection and compliance automation",
       color: "terminal-blue"
     },

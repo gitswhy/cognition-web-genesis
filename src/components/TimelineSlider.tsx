@@ -12,11 +12,11 @@ const TimelineSlider = () => {
       id: 1,
       date: 'Week 1-2',
       title: 'ReflexCore Launch',
-      description: 'Next-generation cognitive engine with enhanced processing capabilities and real-time analysis.',
+      description: 'Next generation cognitive engine with enhanced processing capabilities and real time analysis.',
       icon: Rocket,
       status: 'upcoming',
       color: 'terminal-blue',
-      features: ['Enhanced Processing', 'Real-time Analysis', 'Cognitive Engine']
+      features: ['Enhanced Processing', 'Real time Analysis', 'Cognitive Engine']
     },
     {
       id: 2,
@@ -36,13 +36,13 @@ const TimelineSlider = () => {
       icon: Users,
       status: 'development',
       color: 'purple',
-      features: ['Team Dashboards', 'Real-time Sync', 'Shared Workspaces']
+      features: ['Team Dashboards', 'Real time Sync', 'Shared Workspaces']
     },
     {
       id: 4,
       date: 'Week 7-8',
       title: 'Voice Command Integration',
-      description: 'Hands-free DevSecOps workflow control with natural language processing.',
+      description: 'Hands free DevSecOps workflow control with natural language processing.',
       icon: Zap,
       status: 'planned',
       color: 'yellow',
@@ -52,7 +52,7 @@ const TimelineSlider = () => {
       id: 5,
       date: 'Week 9-12',
       title: 'Enterprise Features',
-      description: 'Full enterprise suite with advanced analytics, custom policies, and organization-wide insights.',
+      description: 'Full enterprise suite with advanced analytics, custom policies and organization wide insights.',
       icon: Calendar,
       status: 'planned',
       color: 'orange',
@@ -96,7 +96,7 @@ const TimelineSlider = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold font-mono mb-4">
-            90-Day <span className="text-terminal-blue">Roadmap</span>
+            90 Day <span className="text-terminal-blue">Roadmap</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             Upcoming launches and milestones in our development journey

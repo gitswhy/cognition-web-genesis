@@ -19,7 +19,7 @@ const SEOFAQSection = () => {
     },
     {
       question: "How accurate is the automated vulnerability detection?",
-      answer: "Our AI-powered detection engine achieves 99.8% accuracy with minimal false positives. The system combines static analysis, pattern recognition, and machine learning models trained on millions of code patterns. It continuously improves by learning from your codebase and feedback, becoming more accurate over time."
+      answer: "Our AI-powered detection engine achieves 99.8% accuracy with minimal false positives. The system combines static analysis, pattern recognition and machine learning models trained on millions of code patterns. It continuously improves by learning from your codebase and feedback, becoming more accurate over time."
     },
     {
       question: "Can ReflexCore integrate with existing CI/CD pipelines?",
@@ -27,15 +27,15 @@ const SEOFAQSection = () => {
     },
     {
       question: "What programming languages and frameworks are supported?",
-      answer: "ReflexCore supports 50+ programming languages including JavaScript, TypeScript, Python, Java, Go, Rust, C++, and more. It provides specialized analysis for popular frameworks like React, Node.js, Django, Spring Boot, and container technologies like Docker and Kubernetes."
+      answer: "ReflexCore supports 50+ programming languages including JavaScript, TypeScript, Python, Java, Go, Rust, C++ and more. It provides specialized analysis for popular frameworks like React, Node.js, Django, Spring Boot and container technologies like Docker and Kubernetes."
     },
     {
       question: "How does the auto-repair feature work?",
-      answer: "The auto-repair feature uses advanced code analysis and pattern matching to generate safe, tested fixes for common vulnerabilities and code quality issues. Each fix is generated with full context awareness, includes rollback capabilities, and can be reviewed before application. The system learns from your coding style to provide increasingly relevant suggestions."
+      answer: "The auto repair feature uses advanced code analysis and pattern matching to generate safe, tested fixes for common vulnerabilities and code quality issues. Each fix is generated with full context awareness, includes rollback capabilities and can be reviewed before application. The system learns from your coding style to provide increasingly relevant suggestions."
     },
     {
       question: "What are the system requirements for running Gitswhy OS?",
-      answer: "Gitswhy OS has minimal system requirements: 512MB RAM, 100MB disk space, and any modern operating system (Linux, macOS, Windows). The cognitive engine scales resources based on project size and can run efficiently on everything from laptops to enterprise servers."
+      answer: "Gitswhy OS has minimal system requirements: 512MB RAM, 100MB disk space and any modern operating system (Linux, macOS, Windows). The cognitive engine scales resources based on project size and can run efficiently on everything from laptops to enterprise servers."
     }
   ];
 

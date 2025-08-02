@@ -325,7 +325,7 @@ import { VaultSync } from '@reflexcore/vaultsync';
 
 const vault = new VaultSync({
   encryption: 'quantum-resistant',
-  protocol: 'zero-trust',
+  protocol: 'zero trust',
   sync: 'bidirectional'
 });
 
