@@ -357,7 +357,7 @@ export default function AboutCareers() {
               <strong> proactively fixing vulnerabilities, cleaning up system clutter and capturing the "why" behind every code change</strong> all 
               running quietly in the background. We started because coding has evolved: today, AI "vibe coding" and rapid prototyping 
               are everywhere, but that comes with a new flood of bugs, security holes and wasted hours on cleanup. What began as a 
-              simple AI helper for code reviews is now a modular "operating layer" that secures, explains, and tunes development 
+              simple AI helper for code reviews is now a modular "operating layer" that secures, explains and tunes development 
               workflows across terminals, editors, CI tools, and cloud containers.
             </p>
           </div>
