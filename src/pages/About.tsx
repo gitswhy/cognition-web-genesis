@@ -358,7 +358,7 @@ export default function AboutCareers() {
               running quietly in the background. We started because coding has evolved: today, AI "vibe coding" and rapid prototyping 
               are everywhere, but that comes with a new flood of bugs, security holes and wasted hours on cleanup. What began as a 
               simple AI helper for code reviews is now a modular "operating layer" that secures, explains and tunes development 
-              workflows across terminals, editors, CI tools, and cloud containers.
+              workflows across terminals, editors, CI tools and cloud containers.
             </p>
           </div>
         </div>
