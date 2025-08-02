@@ -94,18 +94,11 @@ const ProEdition = () => {
                 <span className="text-terminal-blue">Gitswhy</span>{' '}
                 <span className="text-foreground">Pro</span>
               </h1>
-              <p className="text-scale-subtitle text-muted-foreground max-w-lg animate-stagger-3">
-                Enterprise-grade cognition engine with AI-powered risk detection, 
-                automatic patching, and team collaboration tools.
-              </p>
+              <p className="text-scale-subtitle text-muted-foreground max-w-lg animate-stagger-3">Enterprise grade cognition engine with AI-powered risk detection, automatic patching, and team collaboration tools.</p>
             </div>
             
             <div className="flex-responsive animate-stagger-4">
-              <Button 
-                size="sm" 
-                className="bg-terminal-blue hover:bg-terminal-blue/90 text-white mobile-button hover-lift"
-                onClick={() => setShowEarlyAccess(true)}
-              >
+              <Button size="sm" className="bg-terminal-blue hover:bg-terminal-blue/90 text-white mobile-button hover-lift" onClick={() => setShowEarlyAccess(true)}>
                 Join Early Access
                 <ArrowRight className="ml-1 w-3 h-3" />
               </Button>
@@ -153,8 +146,8 @@ const ProEdition = () => {
                   </div>
                   <div className="h-2 bg-muted rounded-full overflow-hidden">
                     <div className="h-full bg-gradient-to-r from-terminal-green to-terminal-blue rounded-full animate-pulse" style={{
-                    width: '87%'
-                  }} />
+                      width: '87%'
+                    }} />
                   </div>
                 </div>
                 
@@ -165,8 +158,8 @@ const ProEdition = () => {
                   </div>
                   <div className="h-2 bg-muted rounded-full overflow-hidden">
                     <div className="h-full bg-terminal-blue rounded-full animate-pulse" style={{
-                    width: '94%'
-                  }} />
+                      width: '94%'
+                    }} />
                   </div>
                 </div>
                 
@@ -231,62 +224,62 @@ const ProEdition = () => {
                 </thead>
                 <tbody>
                   {[{
-                  feature: 'Real Time Security Scanning',
-                  description: 'Continuous monitoring for vulnerabilities and threats',
-                  free: 'Basic rules',
-                  pro: '30,000+ rules',
-                  freeIcon: 'check',
-                  proIcon: 'check'
-                }, {
-                  feature: 'AI Auto Patching',
-                  description: 'AI powered automatic fixes and suggestions',
-                  free: 'Manual only',
-                  pro: 'Full LLM fixes',
-                  freeIcon: 'lock',
-                  proIcon: 'check'
-                }, {
-                  feature: 'Self Healing Remediation',
-                  description: 'Automatic code healing and recovery',
-                  free: 'Not available',
-                  pro: 'Self Healing',
-                  freeIcon: 'lock',
-                  proIcon: 'check'
-                }, {
-                  feature: 'Encrypted Vault Logging',
-                  description: 'Secure encrypted audit logs and compliance',
-                  free: 'Basic logs',
-                  pro: 'Encrypted vault',
-                  freeIcon: 'check',
-                  proIcon: 'check'
-                }, {
-                  feature: 'Voice Commands',
-                  description: 'Hands-free DevSecOps workflow control',
-                  free: 'Not available',
-                  pro: 'Coming soon',
-                  freeIcon: 'lock',
-                  proIcon: 'info'
-                }, {
-                  feature: 'Policy Compliance',
-                  description: 'Automated compliance and governance',
-                  free: 'Basic policies',
-                  pro: 'Custom templates',
-                  freeIcon: 'check',
-                  proIcon: 'check'
-                }, {
-                  feature: 'Cross Repo Risk Graphs',
-                  description: 'Visual risk analysis across repositories',
-                  free: 'Single repo',
-                  pro: 'Multi-repo',
-                  freeIcon: 'check',
-                  proIcon: 'check'
-                }, {
-                  feature: 'Team Dashboards',
-                  description: 'Real time team performance metrics',
-                  free: 'Individual only',
-                  pro: 'Team insights',
-                  freeIcon: 'check',
-                  proIcon: 'check'
-                }].map((row, index) => <tr key={index} className="border-b border-terminal-blue/10 hover:bg-terminal-blue/5 transition-colors">
+                    feature: 'Real Time Security Scanning',
+                    description: 'Continuous monitoring for vulnerabilities and threats',
+                    free: 'Basic rules',
+                    pro: '30,000+ rules',
+                    freeIcon: 'check',
+                    proIcon: 'check'
+                  }, {
+                    feature: 'AI Auto Patching',
+                    description: 'AI powered automatic fixes and suggestions',
+                    free: 'Manual only',
+                    pro: 'Full LLM fixes',
+                    freeIcon: 'lock',
+                    proIcon: 'check'
+                  }, {
+                    feature: 'Self Healing Remediation',
+                    description: 'Automatic code healing and recovery',
+                    free: 'Not available',
+                    pro: 'Self Healing',
+                    freeIcon: 'lock',
+                    proIcon: 'check'
+                  }, {
+                    feature: 'Encrypted Vault Logging',
+                    description: 'Secure encrypted audit logs and compliance',
+                    free: 'Basic logs',
+                    pro: 'Encrypted vault',
+                    freeIcon: 'check',
+                    proIcon: 'check'
+                  }, {
+                    feature: 'Voice Commands',
+                    description: 'Hands-free DevSecOps workflow control',
+                    free: 'Not available',
+                    pro: 'Coming soon',
+                    freeIcon: 'lock',
+                    proIcon: 'info'
+                  }, {
+                    feature: 'Policy Compliance',
+                    description: 'Automated compliance and governance',
+                    free: 'Basic policies',
+                    pro: 'Custom templates',
+                    freeIcon: 'check',
+                    proIcon: 'check'
+                  }, {
+                    feature: 'Cross Repo Risk Graphs',
+                    description: 'Visual risk analysis across repositories',
+                    free: 'Single repo',
+                    pro: 'Multi-repo',
+                    freeIcon: 'check',
+                    proIcon: 'check'
+                  }, {
+                    feature: 'Team Dashboards',
+                    description: 'Real time team performance metrics',
+                    free: 'Individual only',
+                    pro: 'Team insights',
+                    freeIcon: 'check',
+                    proIcon: 'check'
+                  }].map((row, index) => <tr key={index} className="border-b border-terminal-blue/10 hover:bg-terminal-blue/5 transition-colors">
                       <td className="p-6">
                         <div className="space-y-1">
                           <div className="font-medium">{row.feature}</div>
@@ -317,80 +310,80 @@ const ProEdition = () => {
             {/* Mobile Cards */}
             <div className="lg:hidden space-y-6">
               {[{
-              title: 'Free Core',
-              price: 'Open Source',
-              accent: 'terminal-green',
-              features: [{
-                name: 'Real Time Security Scanning',
-                value: 'Basic rules',
-                available: true
+                title: 'Free Core',
+                price: 'Open Source',
+                accent: 'terminal-green',
+                features: [{
+                  name: 'Real Time Security Scanning',
+                  value: 'Basic rules',
+                  available: true
+                }, {
+                  name: 'AI Auto Patching',
+                  value: 'Manual only',
+                  available: false
+                }, {
+                  name: 'Self Healing Remediation',
+                  value: 'Not available',
+                  available: false
+                }, {
+                  name: 'Encrypted Vault Logging',
+                  value: 'Basic logs',
+                  available: true
+                }, {
+                  name: 'Voice Commands',
+                  value: 'Not available',
+                  available: false
+                }, {
+                  name: 'Policy Compliance',
+                  value: 'Basic policies',
+                  available: true
+                }, {
+                  name: 'Cross Repo Risk Graphs',
+                  value: 'Single repo',
+                  available: true
+                }, {
+                  name: 'Team Dashboards',
+                  value: 'Individual only',
+                  available: true
+                }]
               }, {
-                name: 'AI Auto Patching',
-                value: 'Manual only',
-                available: false
-              }, {
-                name: 'Self Healing Remediation',
-                value: 'Not available',
-                available: false
-              }, {
-                name: 'Encrypted Vault Logging',
-                value: 'Basic logs',
-                available: true
-              }, {
-                name: 'Voice Commands',
-                value: 'Not available',
-                available: false
-              }, {
-                name: 'Policy Compliance',
-                value: 'Basic policies',
-                available: true
-              }, {
-                name: 'Cross Repo Risk Graphs',
-                value: 'Single repo',
-                available: true
-              }, {
-                name: 'Team Dashboards',
-                value: 'Individual only',
-                available: true
-              }]
-            }, {
-              title: 'Pro Edition',
-              price: '$49/month',
-              accent: 'terminal-blue',
-              features: [{
-                name: 'Real Time Security Scanning',
-                value: '30,000+ rules',
-                available: true
-              }, {
-                name: 'AI Auto Patching',
-                value: 'Full LLM fixes',
-                available: true
-              }, {
-                name: 'Self Healing Remediation',
-                value: 'Self Healing',
-                available: true
-              }, {
-                name: 'Encrypted Vault Logging',
-                value: 'Encrypted vault',
-                available: true
-              }, {
-                name: 'Voice Commands',
-                value: 'Coming soon',
-                available: 'coming'
-              }, {
-                name: 'Policy Compliance',
-                value: 'Custom templates',
-                available: true
-              }, {
-                name: 'Cross-Repo Risk Graphs',
-                value: 'Multi-repo',
-                available: true
-              }, {
-                name: 'Team Dashboards',
-                value: 'Team insights',
-                available: true
-              }]
-            }].map((edition, index) => <Card key={index} className="border-terminal-blue/20 backdrop-blur-sm">
+                title: 'Pro Edition',
+                price: '$49/month',
+                accent: 'terminal-blue',
+                features: [{
+                  name: 'Real Time Security Scanning',
+                  value: '30,000+ rules',
+                  available: true
+                }, {
+                  name: 'AI Auto Patching',
+                  value: 'Full LLM fixes',
+                  available: true
+                }, {
+                  name: 'Self Healing Remediation',
+                  value: 'Self Healing',
+                  available: true
+                }, {
+                  name: 'Encrypted Vault Logging',
+                  value: 'Encrypted vault',
+                  available: true
+                }, {
+                  name: 'Voice Commands',
+                  value: 'Coming soon',
+                  available: 'coming'
+                }, {
+                  name: 'Policy Compliance',
+                  value: 'Custom templates',
+                  available: true
+                }, {
+                  name: 'Cross-Repo Risk Graphs',
+                  value: 'Multi-repo',
+                  available: true
+                }, {
+                  name: 'Team Dashboards',
+                  value: 'Team insights',
+                  available: true
+                }]
+              }].map((edition, index) => <Card key={index} className="border-terminal-blue/20 backdrop-blur-sm">
                   <CardHeader>
                     <div className="text-center space-y-2">
                       <CardTitle className={`text-xl font-mono text-${edition.accent}`}>
@@ -435,9 +428,9 @@ const ProEdition = () => {
           
           <div className="grid-responsive-2 max-width-content">
             {premiumFeatures.map(feature => {
-            const Icon = feature.icon;
-            const isHovered = hoveredCard === feature.id;
-            return <Card key={feature.id} className={`relative group cursor-pointer transition-all duration-300 hover:scale-105 border-terminal-blue/20 backdrop-blur-sm overflow-hidden`} onMouseEnter={() => setHoveredCard(feature.id)} onMouseLeave={() => setHoveredCard(null)}>
+              const Icon = feature.icon;
+              const isHovered = hoveredCard === feature.id;
+              return <Card key={feature.id} className={`relative group cursor-pointer transition-all duration-300 hover:scale-105 border-terminal-blue/20 backdrop-blur-sm overflow-hidden`} onMouseEnter={() => setHoveredCard(feature.id)} onMouseLeave={() => setHoveredCard(null)}>
                   {/* Lock Overlay */}
                   <div className={`absolute inset-0 bg-terminal-blue/10 backdrop-blur-sm flex items-center justify-center transition-opacity duration-300 ${isHovered ? 'opacity-100' : 'opacity-0'} z-10`}>
                     <div className="text-center space-y-4">
@@ -471,7 +464,7 @@ const ProEdition = () => {
                     </p>
                   </CardContent>
                 </Card>;
-          })}
+            })}
           </div>
         </div>
       </section>
@@ -513,10 +506,10 @@ const ProEdition = () => {
                           {/* Animated Waveform */}
                           <div className="flex items-end justify-center gap-1 mt-4 group-hover:animate-pulse">
                             {[...Array(7)].map((_, i) => <div key={i} className="bg-terminal-blue rounded-full transition-all duration-300 group-hover:bg-terminal-blue/80" style={{
-                            width: '3px',
-                            height: `${12 + i % 3 * 8}px`,
-                            animationDelay: `${i * 0.1}s`
-                          }} />)}
+                              width: '3px',
+                              height: `${12 + i % 3 * 8}px`,
+                              animationDelay: `${i * 0.1}s`
+                            }} />)}
                           </div>
                         </div>
                         
@@ -535,11 +528,11 @@ const ProEdition = () => {
                     
                     {/* Floating Elements */}
                     <div className="absolute -top-4 -right-4 w-8 h-8 bg-terminal-blue/20 rounded-full animate-bounce" style={{
-                    animationDelay: '0s'
-                  }} />
+                      animationDelay: '0s'
+                    }} />
                     <div className="absolute -bottom-2 -left-2 w-6 h-6 bg-terminal-blue/30 rounded-full animate-bounce" style={{
-                    animationDelay: '0.5s'
-                  }} />
+                      animationDelay: '0.5s'
+                    }} />
                   </div>
                 </div>
               </CardContent>
@@ -583,11 +576,7 @@ const ProEdition = () => {
           </h2>
           
           <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center animate-stagger-2">
-            <Button 
-              size="lg" 
-              className="bg-terminal-blue hover:bg-terminal-blue/90 text-white mobile-button hover-lift"
-              onClick={() => setShowEarlyAccess(true)}
-            >
+            <Button size="lg" className="bg-terminal-blue hover:bg-terminal-blue/90 text-white mobile-button hover-lift" onClick={() => setShowEarlyAccess(true)}>
               Join Early Access
               <ArrowRight className="ml-2 w-4 h-4" />
             </Button>
@@ -605,10 +594,7 @@ const ProEdition = () => {
       <Footer />
       </div>
       
-      <EarlyAccessDialog 
-        open={showEarlyAccess} 
-        onOpenChange={setShowEarlyAccess} 
-      />
+      <EarlyAccessDialog open={showEarlyAccess} onOpenChange={setShowEarlyAccess} />
     </div>;
 };
 export default ProEdition;
