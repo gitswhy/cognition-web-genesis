@@ -72,7 +72,7 @@ const Footer = () => {
               <a href="https://github.com/gitswhy" target="_blank" rel="noopener noreferrer" className="text-foreground/60 hover:text-terminal-green transition-colors">
                 <Github className="h-3 w-3 sm:h-5 sm:w-5" />
               </a>
-              <a href="#" className="text-foreground/60 hover:text-terminal-green transition-colors">
+              <a href="https://x.com/gitswhy" target="_blank" rel="noopener noreferrer" className="text-foreground/60 hover:text-terminal-green transition-colors">
                 <Twitter className="h-3 w-3 sm:h-5 sm:w-5" />
               </a>
               <a href="https://www.linkedin.com/company/gitswhy" target="_blank" rel="noopener noreferrer" className="text-foreground/60 hover:text-terminal-blue transition-colors">
