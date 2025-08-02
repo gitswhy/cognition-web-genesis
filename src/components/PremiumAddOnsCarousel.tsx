@@ -24,7 +24,7 @@ const PremiumAddOnsCarousel = () => {
       id: 'emotional-sync',
       title: 'Emotional Sync',
       subtitle: 'Team Harmony Engine',
-      description: 'AI-powered sentiment analysis that monitors team morale, predicts burnout, and suggests optimal collaboration patterns for maximum productivity and happiness.',
+      description: 'AI-powered sentiment analysis that monitors team morale, predicts burnout and suggests optimal collaboration patterns for maximum productivity and happiness.',
       icon: TrendingUp,
       gradient: 'from-blue-500/20 to-cyan-500/20',
       badge: 'Wellbeing AI'

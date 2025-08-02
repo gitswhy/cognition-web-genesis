@@ -249,12 +249,12 @@ await qFlush.flush({
     name: 'AutoClean',
     icon: RotateCcw,
     shortDescription: 'AutoClean: Autonomous system maintenance with cognitive debris detection',
-    description: 'Automatically identifies and removes unnecessary files, dependencies, and artifacts using machine learning algorithms.',
+    description: 'Automatically identifies and removes unnecessary files, dependencies and artifacts using machine learning algorithms.',
     code: `// Autonomous cleaning system
 import { AutoClean } from '@reflexcore/autoclean';
 
 const cleaner = new AutoClean({
-  intelligence: 'machine-learning',
+  intelligence: 'machine learning',
   scope: 'comprehensive',
   safety: 'paranoid'
 });

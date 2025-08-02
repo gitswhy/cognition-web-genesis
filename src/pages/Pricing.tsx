@@ -136,7 +136,7 @@ const Pricing = () => {
     {
       category: 'Security',
       question: 'How do you ensure the security of my code?',
-      answer: 'We process code analysis locally on your infrastructure when possible, use end-to-end encryption for all data transmission, and are SOC 2 Type II compliant. We never store your source code on our servers without explicit permission.'
+      answer: 'We process code analysis locally on your infrastructure when possible, use end to end encryption for all data transmission and are SOC 2 Type II compliant. We never store your source code on our servers without explicit permission.'
     },
     {
       category: 'Support',
@@ -330,7 +330,7 @@ const Pricing = () => {
                     <div>
                       <h3 className="text-3xl font-bold mb-3">Enterprise: Custom DevSecOps at Scale</h3>
                       <p className="text-muted-foreground text-lg">
-                        Tailored enterprise-grade security platform designed for large organizations requiring 
+                        Tailored enterprise grade security platform designed for large organizations requiring 
                         custom integrations, dedicated support, and advanced compliance features.
                       </p>
                     </div>

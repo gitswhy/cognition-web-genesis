@@ -24,7 +24,7 @@ const Features = () => {
     {
       icon: Shield,
       title: "Zero-Trust Security",
-      description: "Built-in security scanning, vulnerability detection, and compliance automation",
+      description: "Built in security scanning, vulnerability detection and compliance automation",
       color: "terminal-blue"
     },
     {
@@ -45,7 +45,7 @@ const Features = () => {
     {
       icon: Terminal,
       title: "Advanced Terminal",
-      description: "Enhanced terminal with AI completions, smart suggestions, and workflow automation",
+      description: "Enhanced terminal with AI completions, smart suggestions and workflow automation",
       color: "terminal-blue"
     },
     {
@@ -57,13 +57,13 @@ const Features = () => {
     {
       icon: Lock,
       title: "Enterprise Security",
-      description: "Advanced threat detection, policy enforcement, and compliance reporting",
+      description: "Advanced threat detection, policy enforcement and compliance reporting",
       color: "terminal-blue"
     },
     {
       icon: Workflow,
       title: "Team Intelligence",
-      description: "Cross-team insights, collaboration tools, and intelligent resource allocation",
+      description: "Cross team insights, collaboration tools and intelligent resource allocation",
       color: "terminal-blue"
     }
   ];

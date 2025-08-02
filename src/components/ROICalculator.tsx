@@ -102,7 +102,7 @@ const ROICalculator = () => {
                           <Info className="w-4 h-4 text-muted-foreground" />
                         </TooltipTrigger>
                         <TooltipContent>
-                          <p>Average fully-loaded hourly cost per developer including salary, benefits, and overhead</p>
+                          <p>Average fully loaded hourly cost per developer including salary, benefits and overhead</p>
                         </TooltipContent>
                       </Tooltip>
                     </div>
@@ -255,7 +255,7 @@ const ROICalculator = () => {
             <div className="mt-12 text-center">
               <p className="text-sm text-muted-foreground max-w-4xl mx-auto">
                 Calculations based on industry research showing DevSecOps automation reduces manual security work by 70%, 
-                alert fatigue by 60%, and vulnerability remediation time by 85%. Your actual savings may vary based on 
+                alert fatigue by 60% and vulnerability remediation time by 85%. Your actual savings may vary based on 
                 current processes and team efficiency.
               </p>
             </div>

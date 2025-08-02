@@ -15,7 +15,7 @@ const EditionComparisonTable = () => {
       items: [
         {
           name: 'Cognition Monitoring',
-          description: 'Real-time cognitive load tracking and performance optimization',
+          description: 'Real time cognitive load tracking and performance optimization',
           tooltip: 'Monitors developer cognitive state and suggests optimal work patterns',
           free: true,
           pro: true,
@@ -74,7 +74,7 @@ const EditionComparisonTable = () => {
         {
           name: 'Team Dashboards',
           description: 'Collaborative analytics and insights',
-          tooltip: 'Real-time team performance metrics and collaboration tools',
+          tooltip: 'Real time team performance metrics and collaboration tools',
           free: false,
           pro: true,
           icon: Brain
@@ -82,7 +82,7 @@ const EditionComparisonTable = () => {
         {
           name: 'Advanced Security',
           description: 'SOC 2 compliance and enterprise security',
-          tooltip: 'Enterprise-grade security with audit trails and compliance reporting',
+          tooltip: 'Enterprise grade security with audit trails and compliance reporting',
           free: false,
           pro: true,
           icon: Shield

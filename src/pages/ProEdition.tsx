@@ -64,7 +64,7 @@ const ProEdition = () => {
   }];
   return <div className="relative">
       {/* SEO Schema */}
-      <SoftwareApplicationSchema name="Gitswhy OS Pro Edition" description="Enterprise-grade cognition engine with AI-powered risk detection, automatic patching, and team collaboration tools for professional development teams." offers={[{
+      <SoftwareApplicationSchema name="Gitswhy OS Pro Edition" description="Enterprise grade cognition engine with AI-powered risk detection, automatic patching and team collaboration tools for professional development teams." offers={[{
       price: "49",
       priceCurrency: "USD",
       name: "Pro Edition Monthly"

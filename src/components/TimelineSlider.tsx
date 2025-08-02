@@ -32,7 +32,7 @@ const TimelineSlider = () => {
       id: 3,
       date: 'Week 5-6',
       title: 'Team Collaboration Suite',
-      description: 'Enhanced team dashboards, real-time collaboration tools, and shared workspace features.',
+      description: 'Enhanced team dashboards, real time collaboration tools and shared workspace features.',
       icon: Users,
       status: 'development',
       color: 'purple',

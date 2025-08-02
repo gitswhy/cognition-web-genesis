@@ -18,7 +18,7 @@ const CoreFeaturesGrid = () => {
     {
       icon: Shield,
       title: "Self Healing Engine",
-      description: "Automatically detects, diagnoses, and patches vulnerabilities in real-time without breaking your flow.",
+      description: "Automatically detects, diagnoses and patches vulnerabilities in real time without breaking your flow.",
       details: "Auto vulnerability detection • Instant patches • Zero downtime fixes",
       color: "terminal-blue", 
       animation: "animate-spin"

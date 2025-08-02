@@ -7,15 +7,15 @@ const SEOFAQSection = () => {
   const faqData = [
     {
       question: "How does ReflexCore run in the background?",
-      answer: "ReflexCore integrates seamlessly with your development environment through lightweight shell hooks and git integrations. It monitors file changes, git operations, and command executions without impacting performance. The cognitive engine runs asynchronously, analyzing patterns and providing real-time feedback without interrupting your workflow."
+      answer: "ReflexCore integrates seamlessly with your development environment through lightweight shell hooks and git integrations. It monitors file changes, git operations and command executions without impacting performance. The cognitive engine runs asynchronously, analyzing patterns and providing real time feedback without interrupting your workflow."
     },
     {
       question: "What makes Gitswhy OS different from traditional DevSecOps tools?",
-      answer: "Gitswhy OS is the first cognition-native DevSecOps platform. Unlike traditional tools that scan code after it's written, our system understands developer intent in real-time, predicts potential issues, and provides contextual suggestions. It learns from your coding patterns and adapts to your team's workflow automatically."
+      answer: "Gitswhy OS is the first cognition-native DevSecOps platform. Unlike traditional tools that scan code after it's written, our system understands developer intent in real time, predicts potential issues and provides contextual suggestions. It learns from your coding patterns and adapts to your team's workflow automatically."
     },
     {
       question: "Is my code data safe and private?",
-      answer: "Absolutely. ReflexCore processes your code locally by default. For Pro features that require cloud processing, we use end-to-end encryption and zero-trust architecture. Your source code never leaves your environment unless explicitly configured for team collaboration features, and all data is encrypted both in transit and at rest."
+      answer: "Absolutely. ReflexCore processes your code locally by default. For Pro features that require cloud processing, we use end to end encryption and zero trust architecture. Your source code never leaves your environment unless explicitly configured for team collaboration features, and all data is encrypted both in transit and at rest."
     },
     {
       question: "How accurate is the automated vulnerability detection?",
@@ -23,7 +23,7 @@ const SEOFAQSection = () => {
     },
     {
       question: "Can ReflexCore integrate with existing CI/CD pipelines?",
-      answer: "Yes, ReflexCore provides native integrations with popular CI/CD platforms including GitHub Actions, GitLab CI, Jenkins, and Azure DevOps. It can run as part of your pipeline stages or operate independently, providing real-time feedback during development and comprehensive reports during deployment."
+      answer: "Yes, ReflexCore provides native integrations with popular CI/CD platforms including GitHub Actions, GitLab CI, Jenkins and Azure DevOps. It can run as part of your pipeline stages or operate independently, providing real time feedback during development and comprehensive reports during deployment."
     },
     {
       question: "What programming languages and frameworks are supported?",

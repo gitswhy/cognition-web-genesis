@@ -66,7 +66,7 @@ const Footer = () => {
             </div>
             <p className="text-xs sm:text-sm text-foreground/70 mb-2 sm:mb-4 lg:mb-6 max-w-sm hidden md:block">
               The first cognition-native DevSecOps operating system that transforms 
-              how teams build, secure, and deploy software.
+              how teams build, secure and deploy software.
             </p>
             <div className="flex space-x-2 sm:space-x-4">
               <a href="#" className="text-foreground/60 hover:text-terminal-green transition-colors">
