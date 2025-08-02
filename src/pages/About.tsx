@@ -379,7 +379,7 @@ export default function AboutCareers() {
               <div className="space-y-6">
                 <div className="space-y-4">
                   <h3 className="text-2xl font-semibold">ReflexCore (Free, Open-Source)</h3>
-                  <p className="text-muted-foreground">A lightweight agent (<50MB RAM) for Linux/macOS that runs always on, analyzing keystroke patterns for hesitation (intent), self-healing system slowness, killing zombie processes and securely logging events never sending data elsewhere.</p>
+                  <p className="text-muted-foreground">A lightweight agent (&lt;50MB RAM) for Linux/macOS that runs always on, analyzing keystroke patterns for hesitation (intent), self-healing system slowness, killing zombie processes and securely logging events never sending data elsewhere.</p>
                 </div>
                 
                 <div className="space-y-4">
