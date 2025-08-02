@@ -78,7 +78,7 @@ const Footer = () => {
               <a href="https://www.linkedin.com/company/gitswhy" target="_blank" rel="noopener noreferrer" className="text-foreground/60 hover:text-terminal-blue transition-colors">
                 <Linkedin className="h-3 w-3 sm:h-5 sm:w-5" />
               </a>
-              <a href="mailto:contact@gitswhy.com" className="text-foreground/60 hover:text-terminal-green transition-colors">
+              <a href="https://mail.google.com/mail/?view=cm&to=contact@gitswhy.com" target="_blank" rel="noopener noreferrer" className="text-foreground/60 hover:text-terminal-green transition-colors">
                 <Mail className="h-3 w-3 sm:h-5 sm:w-5" />
               </a>
             </div>
