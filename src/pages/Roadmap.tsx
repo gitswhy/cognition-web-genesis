@@ -37,7 +37,7 @@ const roadmapData: RoadmapItem[] = [
     quarter: 'Q3 2025',
     title: 'ReflexCore v1.0 Public Launch',
     status: 'completed',
-    description: 'Open-source, cognition-native agent—always-on background for self-healing secure coding.',
+    description: 'Open source, cognition-native agent—always-on background for self-healing secure coding.',
     features: [
       'Smart performance optimization: overclock, entropy flush, auto-clean',
       'Keystroke-latency "intent" detection for understanding hesitation',
@@ -386,7 +386,7 @@ export default function Roadmap() {
             <p className="text-scale-subtitle text-muted-foreground animate-stagger-2">
               User-Led: Everything shipping is based on real dev/ops/user feedback. 
               AI-First: Leveraging advances in intent modeling and cognition-aware self-healing. 
-              Open & Secure: Core always open-source, local-first, and privacy-centric.
+              Open & Secure: Core always open source, local first and privacy centric.
             </p>
             <div className="flex-responsive justify-center animate-stagger-3">
               <Button size="lg" asChild className="mobile-button hover-lift">

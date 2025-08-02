@@ -119,7 +119,7 @@ const values = [
   },
   {
     icon: Heart,
-    title: 'Open-Source at Core',
+    title: 'Open Source at Core',
     description: 'Apache 2.0 licensed foundation. We build in the open and believe in transparent, iterative development.'
   },
   {
@@ -505,14 +505,14 @@ export default function AboutCareers() {
             <div className="text-center space-y-4 mb-12">
               <h2 className="text-3xl md:text-4xl font-bold">What We Do</h2>
               <p className="text-xl text-muted-foreground">
-                Two editions designed for different needs, both built on our open-source foundation.
+                Two editions designed for different needs, both built on our open source foundation.
               </p>
             </div>
             
             <div className="grid grid-cols-2 gap-2 sm:gap-4 items-center">
               <div className="space-y-6">
                 <div className="space-y-4">
-                  <h3 className="text-2xl font-semibold">ReflexCore (Free, Open-Source)</h3>
+                  <h3 className="text-2xl font-semibold">ReflexCore (Free, Open Source)</h3>
                   <p className="text-muted-foreground">
                     A lightweight agent (&lt;50MB RAM) for Linux/macOS that runs always-on, analyzing keystroke patterns 
                     for hesitation (intent), self-healing system slowness, killing zombie processes, and securely logging 
@@ -545,7 +545,7 @@ export default function AboutCareers() {
                     <div>
                       <h4 className="font-semibold">Apache 2.0 Licensed</h4>
                       <p className="text-sm text-muted-foreground">
-                        Open-source foundation, always free to use and modify
+                        Open source foundation, always free to use and modify
                       </p>
                     </div>
                   </div>

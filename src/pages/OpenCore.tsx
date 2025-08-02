@@ -18,7 +18,7 @@ const OpenCore = () => {
     document.title = 'ReflexCore: Open-Core DevSecOps OS | Gitswhy OS';
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
-      metaDescription.setAttribute('content', 'ReflexCore is the open-source foundation of Gitswhy OS - a cognition-native DevSecOps platform with self-healing infrastructure, predictive debugging, and autonomous optimization.');
+      metaDescription.setAttribute('content', 'ReflexCore is the open source foundation of Gitswhy OS - a cognition-native DevSecOps platform with self-healing infrastructure, predictive debugging and autonomous optimization.');
     }
     const ogTitle = document.querySelector('meta[property="og:title"]');
     if (ogTitle) {
@@ -36,7 +36,7 @@ const OpenCore = () => {
       "name": "ReflexCore",
       "applicationCategory": "DeveloperApplication",
       "operatingSystem": "Linux, macOS, Windows",
-      "description": "Open-source cognition-native DevSecOps OS foundation with self-healing infrastructure and predictive debugging",
+      "description": "Open source cognition-native DevSecOps OS foundation with self-healing infrastructure and predictive debugging",
       "offers": {
         "@type": "Offer",
         "price": "0",
@@ -159,7 +159,7 @@ Remove-Item -Recurse -Force reflexcore`
   return <div className="min-h-screen">
       <OpenCoreBackground />
       {/* Additional SEO Schema (complementing existing structured data) */}
-      <SoftwareApplicationSchema name="ReflexCore Open Source Edition" description="Free, open-source cognition-native DevSecOps platform with self-healing infrastructure and predictive debugging capabilities." offers={[{
+      <SoftwareApplicationSchema name="ReflexCore Open Source Edition" description="Free, open source cognition-native DevSecOps platform with self-healing infrastructure and predictive debugging capabilities." offers={[{
       price: "0",
       priceCurrency: "USD",
       name: "Open Core Edition"
@@ -187,7 +187,7 @@ Remove-Item -Recurse -Force reflexcore`
             </h1>
             
             <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground mb-3 sm:mb-4 font-mono">
-              Open-Source Foundation
+              Open Source Foundation
             </p>
             
             <p className="text-sm sm:text-base md:text-lg text-muted-foreground max-w-2xl mx-auto mb-8 sm:mb-12 leading-relaxed px-4">The cognition-native core that powers intelligent DevSecOps. Self-healing infrastructure, predictive debugging, and autonomous optimization.
@@ -215,7 +215,7 @@ Remove-Item -Recurse -Force reflexcore`
               Features
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Core capabilities that power the ReflexCore open-source foundation
+              Core capabilities that power the ReflexCore open source foundation
             </p>
           </div>
 

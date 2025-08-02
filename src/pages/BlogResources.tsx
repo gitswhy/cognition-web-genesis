@@ -103,7 +103,7 @@ const mockPosts: BlogPost[] = [
   {
     id: '5',
     title: 'How Acme Corp Reduced Security Vulnerabilities by 85%',
-    excerpt: 'Real-world case study showing how one company transformed their security posture with Gitswhy OS.',
+    excerpt: 'Real world case study showing how one company transformed their security posture with Gitswhy OS.',
     content: 'Full article content...',
     category: 'Case Studies',
     tags: ['Case Study', 'Success Story', 'ROI'],
