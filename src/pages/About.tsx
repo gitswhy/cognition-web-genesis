@@ -87,19 +87,19 @@ const teamMembers: TeamMember[] = [{
 }];
 const values = [{
   icon: Shield,
-  title: 'Privacy-First',
+  title: 'Privacy First',
   description: 'Everything runs locally unless you opt-in. Your code and data stay under your control, always.'
 }, {
   icon: Heart,
-  title: 'Open-Source at Core',
+  title: 'Open Source at Core',
   description: 'Apache 2.0 licensed foundation. We build in the open and believe in transparent, iterative development.'
 }, {
   icon: Zap,
-  title: 'Cross-Platform & Minimal',
+  title: 'Cross Platform & Minimal',
   description: 'Designed for Linux/macOS with minimal resource use. Your workflow shouldn\'t be disrupted.'
 }, {
   icon: Users,
-  title: 'Community-Powered',
+  title: 'Community Powered',
   description: 'Product-led, community-driven development. Always open to feedback and contributions.'
 }, {
   icon: Globe,
@@ -108,7 +108,7 @@ const values = [{
 }, {
   icon: Code,
   title: 'Secure by Design',
-  description: 'Encrypted logs, no vendor lock-in, and self-healing capabilities built into every component.'
+  description: 'Encrypted logs, no vendor lock-in and self-healing capabilities built into every component.'
 }];
 const jobRoles: JobRole[] = [{
   id: 'senior-rust-engineer',
