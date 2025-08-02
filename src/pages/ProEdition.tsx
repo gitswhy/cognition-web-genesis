@@ -51,7 +51,7 @@ const ProEdition = () => {
   }];
   const faqItems = [{
     question: 'What makes Gitswhy OS Pro different from Open Core?',
-    answer: 'Pro Edition includes AI-powered risk detection, automatic patching, team collaboration tools, and enterprise-grade governance features.'
+    answer: 'Pro Edition includes AI-powered risk detection, automatic patching, team collaboration tools, and enterprise grade governance features.'
   }, {
     question: 'How does the AI Risk Engine work?',
     answer: 'Our ML models analyze code patterns, security vulnerabilities, and historical data to predict and prevent issues before deployment.'
