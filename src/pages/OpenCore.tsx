@@ -64,7 +64,6 @@ const OpenCore = () => {
     setCopiedCommand(type);
     setTimeout(() => setCopiedCommand(null), 2000);
   };
-
   const toggleCard = (cardName: string) => {
     setOpenCards(prev => ({
       ...prev,
@@ -160,13 +159,11 @@ Remove-Item -Recurse -Force reflexcore`
   return <div className="min-h-screen">
       <OpenCoreBackground />
       {/* Additional SEO Schema (complementing existing structured data) */}
-      <SoftwareApplicationSchema
-        name="ReflexCore Open Source Edition"
-        description="Free, open-source cognition-native DevSecOps platform with self-healing infrastructure and predictive debugging capabilities."
-        offers={[
-          { price: "0", priceCurrency: "USD", name: "Open Core Edition" }
-        ]}
-      />
+      <SoftwareApplicationSchema name="ReflexCore Open Source Edition" description="Free, open-source cognition-native DevSecOps platform with self-healing infrastructure and predictive debugging capabilities." offers={[{
+      price: "0",
+      priceCurrency: "USD",
+      name: "Open Core Edition"
+    }]} />
       
       <Header />
       
@@ -193,9 +190,8 @@ Remove-Item -Recurse -Force reflexcore`
               Open-Source Foundation
             </p>
             
-            <p className="text-sm sm:text-base md:text-lg text-muted-foreground max-w-2xl mx-auto mb-8 sm:mb-12 leading-relaxed px-4">
-              The cognition-native core that powers intelligent DevSecOps. 
-              Self-healing infrastructure, predictive debugging, and autonomous optimization - all open source.
+            <p className="text-sm sm:text-base md:text-lg text-muted-foreground max-w-2xl mx-auto mb-8 sm:mb-12 leading-relaxed px-4">The cognition-native core that powers intelligent DevSecOps. Self-healing infrastructure, predictive debugging, and autonomous optimization.
+
             </p>
 
             <div className="flex justify-center">
@@ -352,15 +348,11 @@ Remove-Item -Recurse -Force reflexcore`
                   <div className="relative group">
                     <pre className="bg-terminal-surface/95 border border-terminal-green/30 rounded-lg p-2 sm:p-3 lg:p-4 overflow-x-auto text-xs sm:text-sm">
                       <code className="text-terminal-green font-mono block whitespace-pre-wrap break-all" aria-label="Clone Repository Command">
-{`git clone https://github.com/gitswhy/reflexcore.git
+                        {`git clone https://github.com/gitswhy/reflexcore.git
 cd reflexcore`}
                       </code>
                     </pre>
-                    <button 
-                      onClick={() => copyToClipboard(`git clone https://github.com/gitswhy/reflexcore.git\ncd reflexcore`, 'clone')}
-                      className="absolute top-2 right-2 p-1.5 sm:p-2 bg-terminal-surface/80 hover:bg-terminal-surface rounded-md opacity-0 group-hover:opacity-100 transition-opacity"
-                      aria-label="Copy clone command"
-                    >
+                    <button onClick={() => copyToClipboard(`git clone https://github.com/gitswhy/reflexcore.git\ncd reflexcore`, 'clone')} className="absolute top-2 right-2 p-1.5 sm:p-2 bg-terminal-surface/80 hover:bg-terminal-surface rounded-md opacity-0 group-hover:opacity-100 transition-opacity" aria-label="Copy clone command">
                       {copiedCommand === 'clone' ? '✓' : <Copy className="w-3 h-3 sm:w-4 sm:h-4 text-terminal-green" />}
                     </button>
                   </div>
@@ -383,11 +375,7 @@ cd reflexcore`}
 pip install click cryptography pyyaml
                       </code>
                     </pre>
-                    <button 
-                      onClick={() => copyToClipboard(`pip install click cryptography pyyaml`, 'dependencies')}
-                      className="absolute top-2 right-2 p-1.5 sm:p-2 bg-terminal-surface/80 hover:bg-terminal-surface rounded-md opacity-0 group-hover:opacity-100 transition-opacity"
-                      aria-label="Copy dependencies command"
-                    >
+                    <button onClick={() => copyToClipboard(`pip install click cryptography pyyaml`, 'dependencies')} className="absolute top-2 right-2 p-1.5 sm:p-2 bg-terminal-surface/80 hover:bg-terminal-surface rounded-md opacity-0 group-hover:opacity-100 transition-opacity" aria-label="Copy dependencies command">
                       {copiedCommand === 'dependencies' ? '✓' : <Copy className="w-3 h-3 sm:w-4 sm:h-4 text-terminal-green" />}
                     </button>
                   </div>
@@ -410,11 +398,7 @@ pip install click cryptography pyyaml
 chmod +x scripts/*.sh modules/*.sh gitswhy_vault_manager.py cli/gitswhy_cli.py
                       </code>
                     </pre>
-                    <button 
-                      onClick={() => copyToClipboard(`chmod +x scripts/*.sh modules/*.sh gitswhy_vault_manager.py cli/gitswhy_cli.py`, 'chmod')}
-                      className="absolute top-2 right-2 p-1.5 sm:p-2 bg-terminal-surface/80 hover:bg-terminal-surface rounded-md opacity-0 group-hover:opacity-100 transition-opacity"
-                      aria-label="Copy chmod command"
-                    >
+                    <button onClick={() => copyToClipboard(`chmod +x scripts/*.sh modules/*.sh gitswhy_vault_manager.py cli/gitswhy_cli.py`, 'chmod')} className="absolute top-2 right-2 p-1.5 sm:p-2 bg-terminal-surface/80 hover:bg-terminal-surface rounded-md opacity-0 group-hover:opacity-100 transition-opacity" aria-label="Copy chmod command">
                       {copiedCommand === 'chmod' ? '✓' : <Copy className="w-3 h-3 sm:w-4 sm:h-4 text-terminal-green" />}
                     </button>
                   </div>
@@ -440,11 +424,7 @@ chmod +x scripts/*.sh modules/*.sh gitswhy_vault_manager.py cli/gitswhy_cli.py
 source /path/to/reflexcore/scripts/gitswhy_initiate.sh
                       </code>
                     </pre>
-                    <button 
-                      onClick={() => copyToClipboard(`source /path/to/reflexcore/scripts/gitswhy_initiate.sh`, 'shell-startup')}
-                      className="absolute top-2 right-2 p-1.5 sm:p-2 bg-terminal-surface/80 hover:bg-terminal-surface rounded-md opacity-0 group-hover:opacity-100 transition-opacity"
-                      aria-label="Copy shell startup command"
-                    >
+                    <button onClick={() => copyToClipboard(`source /path/to/reflexcore/scripts/gitswhy_initiate.sh`, 'shell-startup')} className="absolute top-2 right-2 p-1.5 sm:p-2 bg-terminal-surface/80 hover:bg-terminal-surface rounded-md opacity-0 group-hover:opacity-100 transition-opacity" aria-label="Copy shell startup command">
                       {copiedCommand === 'shell-startup' ? '✓' : <Copy className="w-3 h-3 sm:w-4 sm:h-4 text-terminal-green" />}
                     </button>
                   </div>
@@ -468,11 +448,7 @@ source /path/to/reflexcore/scripts/gitswhy_initiate.sh
 python3 cli/gitswhy_cli.py init
                       </code>
                     </pre>
-                    <button 
-                      onClick={() => copyToClipboard(`python3 cli/gitswhy_cli.py init`, 'initialize')}
-                      className="absolute top-2 right-2 p-1.5 sm:p-2 bg-terminal-surface/80 hover:bg-terminal-surface rounded-md opacity-0 group-hover:opacity-100 transition-opacity"
-                      aria-label="Copy initialize command"
-                    >
+                    <button onClick={() => copyToClipboard(`python3 cli/gitswhy_cli.py init`, 'initialize')} className="absolute top-2 right-2 p-1.5 sm:p-2 bg-terminal-surface/80 hover:bg-terminal-surface rounded-md opacity-0 group-hover:opacity-100 transition-opacity" aria-label="Copy initialize command">
                       {copiedCommand === 'initialize' ? '✓' : <Copy className="w-3 h-3 sm:w-4 sm:h-4 text-terminal-green" />}
                     </button>
                   </div>
@@ -495,11 +471,7 @@ python3 cli/gitswhy_cli.py init
 sudo ./test_all.sh
                       </code>
                     </pre>
-                    <button 
-                      onClick={() => copyToClipboard(`sudo ./test_all.sh`, 'test-suite')}
-                      className="absolute top-2 right-2 p-1.5 sm:p-2 bg-terminal-surface/80 hover:bg-terminal-surface rounded-md opacity-0 group-hover:opacity-100 transition-opacity"
-                      aria-label="Copy test command"
-                    >
+                    <button onClick={() => copyToClipboard(`sudo ./test_all.sh`, 'test-suite')} className="absolute top-2 right-2 p-1.5 sm:p-2 bg-terminal-surface/80 hover:bg-terminal-surface rounded-md opacity-0 group-hover:opacity-100 transition-opacity" aria-label="Copy test command">
                       {copiedCommand === 'test-suite' ? '✓' : <Copy className="w-3 h-3 sm:w-4 sm:h-4 text-terminal-green" />}
                     </button>
                   </div>
@@ -526,11 +498,7 @@ sudo ./test_all.sh
 python3 cli/gitswhy_cli.py mirror
                           </code>
                         </pre>
-                        <button 
-                          onClick={() => copyToClipboard(`python3 cli/gitswhy_cli.py mirror`, 'monitor')}
-                          className="absolute top-2 right-2 p-1.5 sm:p-2 bg-terminal-surface/80 hover:bg-terminal-surface rounded-md opacity-0 group-hover:opacity-100 transition-opacity"
-                          aria-label="Copy mirror command"
-                        >
+                        <button onClick={() => copyToClipboard(`python3 cli/gitswhy_cli.py mirror`, 'monitor')} className="absolute top-2 right-2 p-1.5 sm:p-2 bg-terminal-surface/80 hover:bg-terminal-surface rounded-md opacity-0 group-hover:opacity-100 transition-opacity" aria-label="Copy mirror command">
                           {copiedCommand === 'monitor' ? '✓' : <Copy className="w-3 h-3 sm:w-4 sm:h-4 text-terminal-green" />}
                         </button>
                       </div>
@@ -544,11 +512,7 @@ python3 cli/gitswhy_cli.py mirror
 sudo python3 cli/gitswhy_cli.py flush
                           </code>
                         </pre>
-                        <button 
-                          onClick={() => copyToClipboard(`sudo python3 cli/gitswhy_cli.py flush`, 'flush')}
-                          className="absolute top-2 right-2 p-1.5 sm:p-2 bg-terminal-surface/80 hover:bg-terminal-surface rounded-md opacity-0 group-hover:opacity-100 transition-opacity"
-                          aria-label="Copy flush command"
-                        >
+                        <button onClick={() => copyToClipboard(`sudo python3 cli/gitswhy_cli.py flush`, 'flush')} className="absolute top-2 right-2 p-1.5 sm:p-2 bg-terminal-surface/80 hover:bg-terminal-surface rounded-md opacity-0 group-hover:opacity-100 transition-opacity" aria-label="Copy flush command">
                           {copiedCommand === 'flush' ? '✓' : <Copy className="w-3 h-3 sm:w-4 sm:h-4 text-terminal-green" />}
                         </button>
                       </div>
@@ -562,11 +526,7 @@ sudo python3 cli/gitswhy_cli.py flush
 python3 cli/gitswhy_cli.py showvault --decrypt --format summary
                           </code>
                         </pre>
-                        <button 
-                          onClick={() => copyToClipboard(`python3 cli/gitswhy_cli.py showvault --decrypt --format summary`, 'vault')}
-                          className="absolute top-2 right-2 p-1.5 sm:p-2 bg-terminal-surface/80 hover:bg-terminal-surface rounded-md opacity-0 group-hover:opacity-100 transition-opacity"
-                          aria-label="Copy showvault command"
-                        >
+                        <button onClick={() => copyToClipboard(`python3 cli/gitswhy_cli.py showvault --decrypt --format summary`, 'vault')} className="absolute top-2 right-2 p-1.5 sm:p-2 bg-terminal-surface/80 hover:bg-terminal-surface rounded-md opacity-0 group-hover:opacity-100 transition-opacity" aria-label="Copy showvault command">
                           {copiedCommand === 'vault' ? '✓' : <Copy className="w-3 h-3 sm:w-4 sm:h-4 text-terminal-green" />}
                         </button>
                       </div>
@@ -601,11 +561,7 @@ python3 cli/gitswhy_cli.py showvault --decrypt --format summary
 python3 cli/gitswhy_cli.py syncvault
                           </code>
                         </pre>
-                        <button 
-                          onClick={() => copyToClipboard(`python3 cli/gitswhy_cli.py syncvault`, 'syncvault')}
-                          className="absolute top-2 right-2 p-1.5 sm:p-2 bg-terminal-surface/80 hover:bg-terminal-surface rounded-md opacity-0 group-hover:opacity-100 transition-opacity"
-                          aria-label="Copy syncvault command"
-                        >
+                        <button onClick={() => copyToClipboard(`python3 cli/gitswhy_cli.py syncvault`, 'syncvault')} className="absolute top-2 right-2 p-1.5 sm:p-2 bg-terminal-surface/80 hover:bg-terminal-surface rounded-md opacity-0 group-hover:opacity-100 transition-opacity" aria-label="Copy syncvault command">
                           {copiedCommand === 'syncvault' ? '✓' : <Copy className="w-3 h-3 sm:w-4 sm:h-4 text-terminal-green" />}
                         </button>
                       </div>
