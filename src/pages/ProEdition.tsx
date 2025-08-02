@@ -265,7 +265,7 @@ const ProEdition = () => {
                     feature: 'Cross Repo Risk Graphs',
                     description: 'Visual risk analysis across repositories',
                     free: 'Single repo',
-                    pro: 'Multi-repo',
+                    pro: 'Multi repo',
                     freeIcon: 'check',
                     proIcon: 'check'
                   }, {
