@@ -418,7 +418,7 @@ export default function AboutCareers() {
                   <div className="flex items-center gap-3">
                     <Globe className="w-8 h-8 text-primary" />
                     <div>
-                      <h4 className="font-semibold">Cross-Platform</h4>
+                      <h4 className="font-semibold">Cross Platform</h4>
                       <p className="text-sm text-muted-foreground">
                         Works on Linux/macOS with minimal resource use
                       </p>
