@@ -100,7 +100,7 @@ const values = [{
 }, {
   icon: Users,
   title: 'Community Powered',
-  description: 'Product-led, community-driven development. Always open to feedback and contributions.'
+  description: 'Product led, community driven development. Always open to feedback and contributions.'
 }, {
   icon: Globe,
   title: 'Ship with Peace of Mind',
